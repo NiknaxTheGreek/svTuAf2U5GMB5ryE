@@ -6,6 +6,7 @@ on:
       - ".github/workflows/dataset-audit.yml"
       - "scripts/dataset_audit.py"
       - "scripts/reconstruct_source_groups.py"
+      - "scripts/create_group_split.py"
   workflow_dispatch:
 
 jobs:
@@ -25,7 +26,7 @@ jobs:
       - name: Install audit dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install gdown pillow pandas
+          pip install gdown pillow pandas scipy
 
       - name: Download authoritative MonReader dataset
         run: |
@@ -62,6 +63,11 @@ jobs:
           python scripts/reconstruct_source_groups.py --inventory audit_output/image_inventory.csv --out-dir source_group_output
           cat source_group_output/source_group_summary.json
 
+      - name: Create leakage-safe source-group split
+        run: |
+          python scripts/create_group_split.py --source-groups source_group_output/source_groups.csv --frames source_group_output/frames_with_source_group.csv --out-dir split_output
+          cat split_output/split_summary.json
+
       - name: Record archive checksum
         run: |
           sha256sum data/images.zip | tee audit_output/images_zip_sha256.txt
@@ -73,5 +79,6 @@ jobs:
           path: |
             audit_output/
             source_group_output/
+            split_output/
           if-no-files-found: error
           retention-days: 30
