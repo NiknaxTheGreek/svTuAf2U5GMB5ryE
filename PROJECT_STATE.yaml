@@ -11,9 +11,9 @@ project:
   primary_metric: F1
 
 state:
-  current_phase: STEP_4_SOURCE_GROUP_AUDIT_AND_SPLIT_PREPARATION
+  current_phase: STEP_5_BASELINE
   status: COMPLETE
-  next_phase: STEP_5_BASELINE
+  next_phase: STEP_6_SINGLE_IMAGE_MODEL
 
 dataset:
   authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
@@ -55,24 +55,31 @@ split:
     train: 1795
     validation: 597
     test: 597
-  class_frame_counts:
-    train:
-      flip: 872
-      notflip: 923
-    validation:
-      flip: 290
-      notflip: 307
-    test:
-      flip: 290
-      notflip: 307
   source_group_overlap:
     train_validation: 0
     train_test: 0
     validation_test: 0
   test_holdout_status: FROZEN_UNTOUCHED_FOR_MODEL_SELECTION
   source_group_split_sha256: 5eaf917adc51db9a9bd10d9d4c6487050284df6e47c928d18ec5d1e94d64b551
-  frame_split_sha256: a2b50b0a1826924cb84da0f17732457a8a23410afada3c0e3fce8a2693628dfe
   verified_clean_run: 8
+
+baseline:
+  status: COMPLETE
+  model: StandardScaler_plus_LogisticRegression
+  feature_representation: 26_simple_global_image_statistics
+  threshold: 0.5
+  threshold_tuned_on_validation: false
+  train_f1: 0.8457008244994111
+  validation_f1: 0.8369905956112853
+  validation_precision: 0.7672413793103449
+  validation_recall: 0.9206896551724137
+  validation_accuracy: 0.8257956448911222
+  always_flip_validation_f1: 0.6538895152198422
+  always_notflip_validation_f1: 0.0
+  locked_validation_baseline_f1: 0.8369905956112853
+  test_pixels_opened: false
+  test_metrics_computed: false
+  verified_clean_run: 9
 
 target_provenance:
   current_interpretation: clip-derived labels inherited by frames
