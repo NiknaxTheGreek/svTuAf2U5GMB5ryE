@@ -1,0 +1,69 @@
+name: MonReader authoritative dataset audit
+
+on:
+  push:
+    paths:
+      - ".github/workflows/dataset-audit.yml"
+      - "scripts/dataset_audit.py"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install audit dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow
+
+      - name: Download authoritative MonReader dataset
+        run: |
+          mkdir -p data
+          gdown --id 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          ls -lh data/images.zip
+          python - <<'PY'
+          from pathlib import Path
+          p=Path("data/images.zip")
+          print("downloaded_bytes=", p.stat().st_size)
+          expected=939921132
+          if p.stat().st_size != expected:
+              raise SystemExit(f"Unexpected ZIP size: {p.stat().st_size} != {expected}")
+          PY
+
+      - name: Verify ZIP and extract
+        run: |
+          unzip -t data/images.zip > /tmp/unzip_test.txt
+          tail -n 3 /tmp/unzip_test.txt
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+          find data/extracted -maxdepth 3 -type d | sort | head -100
+
+      - name: Run authoritative byte-level audit
+        run: |
+          python scripts/dataset_audit.py \
+            --root data/extracted \
+            --out-dir audit_output \
+            --near-threshold 4
+          cat audit_output/audit_summary.json
+
+      - name: Record archive checksum
+        run: |
+          sha256sum data/images.zip | tee audit_output/images_zip_sha256.txt
+
+      - name: Upload audit results
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-authoritative-dataset-audit
+          path: audit_output/
+          if-no-files-found: error
+          retention-days: 30
