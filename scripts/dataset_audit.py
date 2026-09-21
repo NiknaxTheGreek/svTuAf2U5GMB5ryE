@@ -184,10 +184,22 @@ def main() -> None:
             item={
                 "test_path":test_row["path"],
                 "test_label":test_row["label"],
+                "test_video_id":test_row["video_id"],
+                "test_frame_num":test_row["frame_num"],
                 "nearest_train_path":best_train["path"],
                 "nearest_train_label":best_train["label"],
+                "nearest_train_video_id":best_train["video_id"],
+                "nearest_train_frame_num":best_train["frame_num"],
                 "dhash_hamming_distance":best_dist,
                 "same_label":test_row["label"]==best_train["label"],
+                "same_label_video_id":(
+                    test_row["label"]==best_train["label"]
+                    and test_row["video_id"]==best_train["video_id"]
+                ),
+                "frame_num_delta":(
+                    None if test_row["frame_num"] is None or best_train["frame_num"] is None
+                    else abs(test_row["frame_num"]-best_train["frame_num"])
+                ),
             }
             nearest_rows.append(item)
             if best_dist<=args.near_threshold:
@@ -201,6 +213,10 @@ def main() -> None:
     (out/"cross_split_exact_duplicate_groups.json").write_text(json.dumps(cross_split_exact,indent=2),encoding="utf-8")
     (out/"unreadable.json").write_text(json.dumps(unreadable,indent=2),encoding="utf-8")
 
+    training_clip_keys={(r["label"],r["video_id"]) for r in records if r["split"]=="training" and r["video_id"] is not None}
+    testing_clip_keys={(r["label"],r["video_id"]) for r in records if r["split"]=="testing" and r["video_id"] is not None}
+    shared_clip_keys=training_clip_keys & testing_clip_keys
+
     summary={
         "dataset_root":str(root),
         "total_images":len(records),
@@ -208,6 +224,11 @@ def main() -> None:
         "class_totals":{l:sum(n for (s,ll),n in frame_counts.items() if ll==l) for l in sorted({ll for _,ll in frame_counts})},
         "folder_defined_clip_count":len(clip_rows),
         "clip_counts":dict(Counter(f"{r['split']}|{r['label']}" for r in clip_rows)),
+        "shared_label_video_id_count":len(shared_clip_keys),
+        "shared_label_video_id_counts_by_label":{
+            label:sum(1 for lab,_ in shared_clip_keys if lab==label)
+            for label in sorted({lab for lab,_ in shared_clip_keys})
+        },
         "image_property_counts":{f"{w}x{h}|{m}|{fmt}":n for (w,h,m,fmt),n in prop_counts.items()},
         "unreadable_count":len(unreadable),
         "filename_violation_count":len(filename_violations),
@@ -219,6 +240,11 @@ def main() -> None:
         "minimum_cross_split_dhash_distance":min((r["dhash_hamming_distance"] for r in nearest_rows),default=None),
         "near_candidate_same_label_count":sum(bool(r["same_label"]) for r in near_pairs),
         "near_candidate_cross_label_count":sum(not bool(r["same_label"]) for r in near_pairs),
+        "near_candidate_same_label_video_id_count":sum(bool(r["same_label_video_id"]) for r in near_pairs),
+        "near_candidate_same_label_video_id_adjacent_frame_le_3_count":sum(
+            bool(r["same_label_video_id"]) and r["frame_num_delta"] is not None and r["frame_num_delta"]<=3
+            for r in near_pairs
+        ),
         "decision_note":"dHash candidates are screening evidence, not automatic proof of duplicate identity; inspect flagged pairs before declaring the supplied split leakage-safe."
     }
     (out/"audit_summary.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
