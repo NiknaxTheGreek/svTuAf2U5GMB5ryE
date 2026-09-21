@@ -1,0 +1,16 @@
+feature,coefficient_standardized,abs_coefficient
+red_mean,-3.420858,3.420858
+red_std,-3.111221,3.111221
+entropy_32bin,2.517880,2.517880
+edge_ratio,2.456365,2.456365
+gray_p10,-2.323985,2.323985
+gray_std,-2.112172,2.112172
+grad_y_mean,-2.052632,2.052632
+gray_p25,-1.991818,1.991818
+grad_mean,-1.872742,1.872742
+green_std,-1.729756,1.729756
+blue_mean,1.535425,1.535425
+gray_p75,1.226480,1.226480
+gray_p90,1.171589,1.171589
+bright_ratio,-1.015022,1.015022
+gray_mean,-0.734541,0.734541
