@@ -1,0 +1,48 @@
+{
+  "status": "COMPLETE",
+  "architecture": "MobileNetV3-Small",
+  "pretrained_weights": "ImageNet IMAGENET1K_V1",
+  "image_size": 160,
+  "seed": 2026,
+  "training_schedule": {
+    "head_epochs": 2,
+    "finetune_epochs": 6,
+    "total_epochs": 8,
+    "head_learning_rate": 0.001,
+    "finetune_learning_rate": 0.0002,
+    "unfrozen_feature_blocks": 4,
+    "optimizer": "AdamW",
+    "weight_decay": 0.0001
+  },
+  "selection": {
+    "selected_by": "highest validation F1 across epochs",
+    "decision_threshold": 0.5,
+    "threshold_tuned": false,
+    "best_epoch": 4
+  },
+  "validation": {
+    "f1": 0.9295302013422819,
+    "precision": 0.9052287581699346,
+    "recall": 0.9551724137931035,
+    "accuracy": 0.9296482412060302,
+    "tn": 278,
+    "fp": 29,
+    "fn": 13,
+    "tp": 277,
+    "support": 597
+  },
+  "baseline_validation_f1": 0.8369905956112853,
+  "f1_delta_vs_baseline": 0.09253960573099662,
+  "beats_baseline": true,
+  "baseline_errors_corrected": 71,
+  "new_errors_vs_baseline": 9,
+  "information_boundary": {
+    "train_frames_opened": 1795,
+    "validation_frames_opened": 597,
+    "test_frames_in_manifest": 597,
+    "test_pixels_opened": false,
+    "test_metrics_computed": false
+  },
+  "checkpoint_sha256": "49f2256715eb293adb2caaac410b6b4ed7dd6a2c3ba99828504f672a244170f1",
+  "verified_run": 1
+}
