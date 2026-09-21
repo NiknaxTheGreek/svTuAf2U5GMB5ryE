@@ -185,8 +185,8 @@ def main() -> None:
             "checkpoint_threshold": float(checkpoint["threshold"]),
             "test_frames_verified_without_opening_pixels": int(len(test_df)),
             "test_source_groups_verified": int(test_df["source_group_id"].nunique()),
-            "test_pixels_opened": false,
-            "test_metrics_computed": false,
+            "test_pixels_opened": False,
+            "test_metrics_computed": False,
         }
         (args.out_dir / "final_test_preflight.json").write_text(
             json.dumps(preflight, indent=2) + "\n", encoding="utf-8"
