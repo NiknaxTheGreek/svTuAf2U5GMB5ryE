@@ -5,12 +5,15 @@ project:
   target:
     positive: flip
     negative: notflip
+    mapping:
+      notflip: 0
+      flip: 1
   primary_metric: F1
 
 state:
-  current_phase: STEP_2_DATASET_INSPECTION
+  current_phase: STEP_3_RECONSTRUCT_SOURCE_CLIPS
   status: COMPLETE
-  next_phase: STEP_3_RECONSTRUCT_SOURCE_CLIPS
+  next_phase: STEP_4_SOURCE_GROUP_AUDIT_AND_SPLIT_PREPARATION
 
 dataset:
   authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
@@ -26,9 +29,16 @@ source_grouping:
   verified_group_key:
     - label
     - VideoID
-  merged_source_groups: 117
-  supplied_testing_groups: 115
-  supplied_testing_groups_also_in_training: 115
+  canonical_source_group_count: 117
+  flip_source_groups: 65
+  notflip_source_groups: 52
+  groups_crossing_supplied_split: 115
+  groups_training_only: 2
+  groups_testing_only: 0
+  groups_with_frame_gaps: 3
+  duplicate_source_frame_keys: 0
+  source_groups_csv_sha256: 904271e433d13e9b83bb8cf87fc9bb996add3a8bde11b885a156a45b86b334fb
+  frames_with_source_group_csv_sha256: 6b34a5892f1efabe08ca70f6136cd02511c9e43e20db35f86ceec0319acdff6c
 
 split_status:
   supplied_train_test_structure_exists: true
