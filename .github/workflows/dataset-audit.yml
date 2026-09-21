@@ -29,7 +29,7 @@ jobs:
       - name: Download authoritative MonReader dataset
         run: |
           mkdir -p data
-          gdown --id 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
           ls -lh data/images.zip
           python - <<'PY'
           from pathlib import Path
