@@ -1,0 +1,24 @@
+{
+  "total_frames": 2989,
+  "source_group_count": 117,
+  "source_groups_by_label": {
+    "flip": 65,
+    "notflip": 52
+  },
+  "frames_by_label": {
+    "flip": 1452,
+    "notflip": 1537
+  },
+  "groups_crossing_supplied_split": 115,
+  "groups_training_only": 2,
+  "groups_testing_only": 0,
+  "groups_with_frame_gaps": 3,
+  "duplicate_source_frame_key_count": 0,
+  "canonical_group_key": ["label", "video_id"],
+  "target_mapping": {
+    "notflip": 0,
+    "flip": 1
+  },
+  "source_groups_csv_sha256": "904271e433d13e9b83bb8cf87fc9bb996add3a8bde11b885a156a45b86b334fb",
+  "frames_with_source_group_csv_sha256": "6b34a5892f1efabe08ca70f6136cd02511c9e43e20db35f86ceec0319acdff6c"
+}
