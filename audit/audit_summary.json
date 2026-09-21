@@ -1,0 +1,31 @@
+{
+  "archive_sha256": "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f",
+  "total_images": 2989,
+  "frame_counts": {
+    "training|flip": 1162,
+    "training|notflip": 1230,
+    "testing|flip": 290,
+    "testing|notflip": 307
+  },
+  "class_totals": {
+    "flip": 1452,
+    "notflip": 1537
+  },
+  "image_properties": "1080x1920|RGB|JPEG",
+  "unreadable_count": 0,
+  "filename_violation_count": 0,
+  "exact_duplicate_group_count": 0,
+  "cross_split_exact_duplicate_group_count": 0,
+  "folder_defined_clip_count": 232,
+  "merged_source_group_count": 117,
+  "testing_source_group_count": 115,
+  "testing_source_groups_also_in_training": 115,
+  "cross_split_near_duplicate_candidate_count": 517,
+  "dhash_distance_zero_candidate_count": 201,
+  "near_candidate_same_label_count": 514,
+  "near_candidate_cross_label_count": 3,
+  "near_candidate_same_label_video_id_count": 475,
+  "near_candidate_same_label_video_id_adjacent_frame_le_3_count": 403,
+  "split_decision": "SUPPLIED_SPLIT_NOT_CLIP_DISJOINT",
+  "required_group_key": ["label", "VideoID"]
+}
