@@ -11,9 +11,9 @@ project:
   primary_metric: F1
 
 state:
-  current_phase: STEP_6_SINGLE_IMAGE_MODEL
+  current_phase: STEP_7_FINAL_TEST_EVALUATION
   status: COMPLETE
-  next_phase: STEP_7_FINAL_TEST_EVALUATION
+  next_phase: STEP_8_POST_HOLDOUT_ERROR_AND_ROBUSTNESS_ANALYSIS
 
 dataset:
   authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
@@ -102,6 +102,32 @@ single_image_model:
   test_pixels_opened: false
   test_metrics_computed: false
   verified_run: 1
+
+final_test:
+  status: COMPLETE
+  evaluation_type: one_shot_frozen_holdout
+  holdout_status: CONSUMED
+  architecture: MobileNetV3-Small
+  checkpoint_epoch: 4
+  checkpoint_sha256: 49f2256715eb293adb2caaac410b6b4ed7dd6a2c3ba99828504f672a244170f1
+  threshold: 0.5
+  threshold_tuned_on_test: false
+  test_frames: 597
+  test_source_groups: 24
+  f1: 0.7514450867052023
+  precision: 0.851528384279476
+  recall: 0.6724137931034483
+  accuracy: 0.7839195979899497
+  tn: 273
+  fp: 34
+  fn: 95
+  tp: 195
+  validation_f1: 0.9295302013422819
+  validation_to_test_f1_delta: -0.17808511463707962
+  post_test_tuning_allowed: false
+  preflight_run_id: 35645087781
+  final_test_run_id: 35645274486
+  final_test_artifact_id: 10659537469
 
 target_provenance:
   current_interpretation: clip-derived labels inherited by frames
