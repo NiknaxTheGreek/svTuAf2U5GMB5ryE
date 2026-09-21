@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/workflows/dataset-audit.yml"
       - "scripts/dataset_audit.py"
+      - "scripts/reconstruct_source_groups.py"
   workflow_dispatch:
 
 jobs:
@@ -24,7 +25,7 @@ jobs:
       - name: Install audit dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install gdown pillow
+          pip install gdown pillow pandas
 
       - name: Download authoritative MonReader dataset
         run: |
@@ -56,6 +57,13 @@ jobs:
             --near-threshold 4
           cat audit_output/audit_summary.json
 
+      - name: Reconstruct canonical source groups
+        run: |
+          python scripts/reconstruct_source_groups.py \\
+            --inventory audit_output/image_inventory.csv \\
+            --out-dir source_group_output
+          cat source_group_output/source_group_summary.json
+
       - name: Record archive checksum
         run: |
           sha256sum data/images.zip | tee audit_output/images_zip_sha256.txt
@@ -64,6 +72,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: monreader-authoritative-dataset-audit
-          path: audit_output/
+          path: |
+            audit_output/
+            source_group_output/
           if-no-files-found: error
           retention-days: 30
