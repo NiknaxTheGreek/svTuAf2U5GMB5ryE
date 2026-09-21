@@ -11,9 +11,9 @@ project:
   primary_metric: F1
 
 state:
-  current_phase: STEP_7_FINAL_TEST_EVALUATION
+  current_phase: STEP_8_POST_HOLDOUT_ERROR_AND_ROBUSTNESS_ANALYSIS
   status: COMPLETE
-  next_phase: STEP_8_POST_HOLDOUT_ERROR_AND_ROBUSTNESS_ANALYSIS
+  next_phase: STEP_9_SEQUENCE_LEVEL_EXTENSION
 
 dataset:
   authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
@@ -128,6 +128,37 @@ final_test:
   preflight_run_id: 35645087781
   final_test_run_id: 35645274486
   final_test_artifact_id: 10659537469
+
+post_holdout_diagnostics:
+  status: COMPLETE
+  analysis_only: true
+  model_changed: false
+  threshold_changed: false
+  post_test_tuning_performed: false
+  final_test_metrics_changed: false
+  source_group_bootstrap:
+    replicates: 20000
+    f1_lower_95: 0.6141724329913305
+    f1_median: 0.7536468307444972
+    f1_upper_95: 0.8828837474710794
+  sequence_diagnostics:
+    groups_with_zero_errors: 11
+    groups_with_any_error: 13
+    median_prediction_transitions_per_group: 1.0
+    max_prediction_transitions_in_group: 8
+    max_consecutive_error_run: 15
+  confidence_diagnostics:
+    mean_margin_correct: 0.3897843895451367
+    mean_margin_error: 0.26120334777519383
+  robustness:
+    brightness_1_15_f1_delta: -0.055088811401558635
+    contrast_1_15_f1_delta: -0.04863384172528262
+    jpeg_quality_70_f1_delta: -0.008254425226603135
+    gaussian_blur_r1_f1_delta: -0.0024103376704532886
+    contrast_0_85_f1_delta: -0.0009539275696424099
+    brightness_0_85_f1_delta: 0.006919225562455611
+  verified_run_id: 35653218914
+  artifact_id: 10662912779
 
 target_provenance:
   current_interpretation: clip-derived labels inherited by frames
