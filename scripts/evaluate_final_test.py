@@ -141,6 +141,7 @@ def main() -> None:
     parser.add_argument("--checkpoint", required=True, type=Path)
     parser.add_argument("--archive", required=True, type=Path)
     parser.add_argument("--out-dir", required=True, type=Path)
+    parser.add_argument("--preflight-only", action="store_true")
     args = parser.parse_args()
 
     archive_sha = sha256_file(args.archive)
@@ -169,6 +170,29 @@ def main() -> None:
 
     images_root = resolve_images_root(args.dataset_root)
     test_df = build_test_manifest(images_root, args.split)
+
+    missing_files = [p for p in test_df["path"] if not Path(p).is_file()]
+    if missing_files:
+        raise AssertionError(f"Missing frozen test files: {missing_files[:10]}")
+
+    if args.preflight_only:
+        args.out_dir.mkdir(parents=True, exist_ok=True)
+        preflight = {
+            "status": "PREFLIGHT_COMPLETE",
+            "archive_sha256": archive_sha,
+            "checkpoint_sha256": checkpoint_sha,
+            "checkpoint_epoch": int(checkpoint["epoch"]),
+            "checkpoint_threshold": float(checkpoint["threshold"]),
+            "test_frames_verified_without_opening_pixels": int(len(test_df)),
+            "test_source_groups_verified": int(test_df["source_group_id"].nunique()),
+            "test_pixels_opened": false,
+            "test_metrics_computed": false,
+        }
+        (args.out_dir / "final_test_preflight.json").write_text(
+            json.dumps(preflight, indent=2) + "\n", encoding="utf-8"
+        )
+        print(json.dumps(preflight, indent=2))
+        return
 
     eval_transform = transforms.Compose(
         [
