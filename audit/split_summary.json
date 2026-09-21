@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE",
+  "split_policy": "source-group-disjoint",
+  "group_key": ["label", "video_id"],
+  "ratio_target": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "group_counts": {
+    "train": 70,
+    "validation": 23,
+    "test": 24
+  },
+  "frame_counts": {
+    "train": 1795,
+    "validation": 597,
+    "test": 597
+  },
+  "class_frame_counts": {
+    "train": {"flip": 872, "notflip": 923},
+    "validation": {"flip": 290, "notflip": 307},
+    "test": {"flip": 290, "notflip": 307}
+  },
+  "group_overlap_counts": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "selection_used_pixel_or_model_information": false,
+  "test_holdout_status": "FROZEN_UNTOUCHED_FOR_MODEL_SELECTION",
+  "source_group_split_sha256": "5eaf917adc51db9a9bd10d9d4c6487050284df6e47c928d18ec5d1e94d64b551",
+  "frame_split_sha256": "a2b50b0a1826924cb84da0f17732457a8a23410afada3c0e3fce8a2693628dfe",
+  "verified_clean_run": 8
+}
