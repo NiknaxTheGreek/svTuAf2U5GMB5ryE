@@ -1,0 +1,30 @@
+{
+  "status": "FINAL_TEST_COMPLETE",
+  "evaluation_type": "one-shot frozen holdout evaluation",
+  "architecture": "MobileNetV3-Small",
+  "checkpoint_epoch": 4,
+  "checkpoint_sha256": "49f2256715eb293adb2caaac410b6b4ed7dd6a2c3ba99828504f672a244170f1",
+  "decision_threshold": 0.5,
+  "threshold_tuned_on_test": false,
+  "test": {
+    "f1": 0.7514450867052023,
+    "precision": 0.851528384279476,
+    "recall": 0.6724137931034483,
+    "accuracy": 0.7839195979899497,
+    "tn": 273,
+    "fp": 34,
+    "fn": 95,
+    "tp": 195,
+    "support": 597,
+    "positive_support": 290,
+    "negative_support": 307
+  },
+  "validation_f1_selected_model": 0.9295302013422819,
+  "validation_to_test_f1_delta": -0.17808511463707962,
+  "test_source_groups": 24,
+  "test_groups_with_any_error": 13,
+  "test_groups_with_zero_errors": 11,
+  "post_test_tuning_allowed": false,
+  "verified_run_id": 35645274486,
+  "artifact_id": 10659537469
+}
