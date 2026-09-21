@@ -1,0 +1,46 @@
+project:
+  repository: svTuAf2U5GMB5ryE
+  language: Python
+  task: binary single-image classification
+  target:
+    positive: flip
+    negative: notflip
+  primary_metric: F1
+
+state:
+  current_phase: STEP_2_DATASET_INSPECTION
+  status: COMPLETE
+  next_phase: STEP_3_RECONSTRUCT_SOURCE_CLIPS
+
+dataset:
+  authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  total_images: 2989
+  unreadable_images: 0
+  image_properties: 1080x1920_RGB_JPEG
+  raw_labels:
+    - flip
+    - notflip
+
+source_grouping:
+  filename_contract: "<VideoID>_<FrameNumber>.jpg"
+  verified_group_key:
+    - label
+    - VideoID
+  merged_source_groups: 117
+  supplied_testing_groups: 115
+  supplied_testing_groups_also_in_training: 115
+
+split_status:
+  supplied_train_test_structure_exists: true
+  leakage_safe: false
+  source_clip_disjoint: false
+  reason: All supplied testing source groups are represented in training; frame numbering and perceptual similarity show the folders partition frames from the same clips.
+  exact_cross_split_duplicates: 0
+  perceptual_near_duplicate_candidates: 517
+  random_frame_split_allowed: false
+  required_next_split: group_disjoint_by_label_and_VideoID
+
+target_provenance:
+  current_interpretation: clip-derived labels inherited by frames
+  independently_adjudicated_frame_labels: NOT_VERIFIED
+  reporting_scope: performance_against_supplied_labels
