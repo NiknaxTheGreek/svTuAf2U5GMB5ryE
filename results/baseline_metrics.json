@@ -1,0 +1,35 @@
+{
+  "status": "COMPLETE",
+  "model": "StandardScaler + LogisticRegression",
+  "feature_count": 26,
+  "decision_threshold": 0.5,
+  "threshold_tuned_on_validation": false,
+  "test_pixels_opened": false,
+  "test_metrics_computed": false,
+  "train": {
+    "f1": 0.8457008244994111,
+    "precision": 0.8692493946731235,
+    "recall": 0.823394495412844,
+    "accuracy": 0.8540389972144847,
+    "tn": 815,
+    "fp": 108,
+    "fn": 154,
+    "tp": 718
+  },
+  "validation": {
+    "f1": 0.8369905956112853,
+    "precision": 0.7672413793103449,
+    "recall": 0.9206896551724137,
+    "accuracy": 0.8257956448911222,
+    "tn": 226,
+    "fp": 81,
+    "fn": 23,
+    "tp": 267
+  },
+  "sanity_references_validation": {
+    "always_flip_f1": 0.6538895152198422,
+    "always_notflip_f1": 0.0
+  },
+  "locked_validation_baseline_f1": 0.8369905956112853,
+  "verified_clean_run": 9
+}
