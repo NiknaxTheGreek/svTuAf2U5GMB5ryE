@@ -226,3 +226,5 @@ def main() -> None:
 
 if __name__=="__main__":
     main()
+
+# Workflow trigger: authoritative audit execution
