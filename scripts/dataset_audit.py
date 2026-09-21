@@ -12,7 +12,7 @@ from pathlib import Path
 from PIL import Image
 
 IMG_EXTS={".jpg",".jpeg",".png",".bmp",".webp",".tif",".tiff"}
-NAME_RE=re.compile(r"^(?P<video_id>.+)_(?P<frame_num>\\d+)$")
+NAME_RE=re.compile(r"^(?P<video_id>.+)_(?P<frame_num>\d+)$")
 
 def resolve_root(root: Path) -> Path:
     root=root.resolve()
@@ -193,7 +193,9 @@ def main() -> None:
                 "dhash_hamming_distance":best_dist,
                 "same_label":test_row["label"]==best_train["label"],
                 "same_label_video_id":(
-                    test_row["label"]==best_train["label"]
+                    test_row["video_id"] is not None
+                    and best_train["video_id"] is not None
+                    and test_row["label"]==best_train["label"]
                     and test_row["video_id"]==best_train["video_id"]
                 ),
                 "frame_num_delta":(
