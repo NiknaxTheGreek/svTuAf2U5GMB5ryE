@@ -1,0 +1,62 @@
+name: Step 6 MobileNetV3 model
+
+on:
+  push:
+    paths:
+      - ".github/workflows/model-step6.yml"
+      - "scripts/train_mobilenet_v3_small.py"
+      - "splits/source_group_split.csv"
+      - "results/baseline_metrics.json"
+  workflow_dispatch:
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow pandas scikit-learn
+          pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          echo "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f  data/images.zip" | sha256sum -c -
+
+      - name: Verify and extract dataset
+        run: |
+          unzip -t data/images.zip > /tmp/unzip_test.txt
+          tail -n 3 /tmp/unzip_test.txt
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+
+      - name: Train and validate MobileNetV3-Small
+        run: |
+          python scripts/train_mobilenet_v3_small.py \
+            --dataset-root data/extracted \
+            --split splits/source_group_split.csv \
+            --baseline-metrics results/baseline_metrics.json \
+            --archive data/images.zip \
+            --out-dir model_output
+          cat model_output/model_metrics.json
+
+      - name: Upload model artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: step6-mobilenetv3-model
+          path: model_output/
+          if-no-files-found: error
+          retention-days: 30
