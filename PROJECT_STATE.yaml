@@ -11,9 +11,9 @@ project:
   primary_metric: F1
 
 state:
-  current_phase: STEP_5_BASELINE
+  current_phase: STEP_6_SINGLE_IMAGE_MODEL
   status: COMPLETE
-  next_phase: STEP_6_SINGLE_IMAGE_MODEL
+  next_phase: STEP_7_FINAL_TEST_EVALUATION
 
 dataset:
   authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
@@ -80,6 +80,28 @@ baseline:
   test_pixels_opened: false
   test_metrics_computed: false
   verified_clean_run: 9
+
+single_image_model:
+  status: COMPLETE
+  architecture: MobileNetV3-Small
+  pretrained_weights: ImageNet_IMAGENET1K_V1
+  image_size: 160
+  decision_threshold: 0.5
+  threshold_tuned: false
+  selected_epoch: 4
+  validation_f1: 0.9295302013422819
+  validation_precision: 0.9052287581699346
+  validation_recall: 0.9551724137931035
+  validation_accuracy: 0.9296482412060302
+  baseline_validation_f1: 0.8369905956112853
+  f1_delta_vs_baseline: 0.09253960573099662
+  beats_baseline: true
+  selected_checkpoint_sha256: 49f2256715eb293adb2caaac410b6b4ed7dd6a2c3ba99828504f672a244170f1
+  selected_checkpoint_run_id: 35637600828
+  selected_checkpoint_artifact: step6-mobilenetv3-model
+  test_pixels_opened: false
+  test_metrics_computed: false
+  verified_run: 1
 
 target_provenance:
   current_interpretation: clip-derived labels inherited by frames
