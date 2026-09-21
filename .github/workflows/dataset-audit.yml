@@ -59,9 +59,7 @@ jobs:
 
       - name: Reconstruct canonical source groups
         run: |
-          python scripts/reconstruct_source_groups.py \\
-            --inventory audit_output/image_inventory.csv \\
-            --out-dir source_group_output
+          python scripts/reconstruct_source_groups.py --inventory audit_output/image_inventory.csv --out-dir source_group_output
           cat source_group_output/source_group_summary.json
 
       - name: Record archive checksum
