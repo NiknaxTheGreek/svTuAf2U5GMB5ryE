@@ -190,6 +190,34 @@ post_holdout_analysis:
   verified_run_id: 35653218914
   artifact_id: 10662912779
 
+sequence_extension:
+  status: COMPLETE
+  extension_type: post_holdout_exploratory
+  aggregation_selected_using: validation_only
+  selected_method: mean_probability
+  sequence_threshold: 0.5
+  validation:
+    source_groups: 23
+    f1: 0.9629629629629629
+    precision: 0.9285714285714286
+    recall: 1.0
+    accuracy: 0.9565217391304348
+  exploratory_test:
+    source_groups: 24
+    f1: 0.8
+    precision: 0.8333333333333334
+    recall: 0.7692307692307693
+    accuracy: 0.7916666666666666
+    tn: 9
+    fp: 2
+    fn: 3
+    tp: 10
+  frame_model_changed: false
+  frame_threshold_changed: false
+  reported_single_frame_final_test_result_changed: false
+  verified_run_id: 35776906695
+  artifact_id: 10715933773
+
 target_provenance:
   current_interpretation: clip-derived labels inherited by frames
   independently_adjudicated_frame_labels: NOT_VERIFIED
