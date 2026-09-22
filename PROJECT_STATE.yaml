@@ -12,8 +12,19 @@ project:
 
 state:
   current_phase: STEP_10_REPRODUCIBILITY_AND_PROJECT_REPORT
-  status: IN_PROGRESS
-  next_phase: CLEAN_RUN_VERIFICATION
+  status: COMPLETE
+  next_phase: PROJECT_COMPLETE
+
+verification:
+  repository_verifier: scripts/verify_repository.py
+  clean_run_status: PASS
+  first_clean_run_id: 35778695488
+  required_files: PASS
+  python_syntax: PASS
+  environment_pins: PASS
+  frozen_split: PASS
+  locked_metrics: PASS
+  state_and_documentation: PASS
 
 dataset:
   authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
