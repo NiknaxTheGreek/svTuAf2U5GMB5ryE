@@ -160,6 +160,36 @@ post_holdout_diagnostics:
   verified_run_id: 35653218914
   artifact_id: 10662912779
 
+post_holdout_analysis:
+  status: COMPLETE
+  analysis_only: true
+  model_changed: false
+  threshold_changed: false
+  post_test_tuning_performed: false
+  source_group_bootstrap:
+    replicates: 20000
+    f1_95_interval:
+      lower: 0.6141724329913305
+      upper: 0.8828837474710794
+  confidence:
+    mean_margin_correct: 0.3897843895451367
+    mean_margin_error: 0.26120334777519383
+  sequence:
+    groups_with_zero_errors: 11
+    groups_with_any_error: 13
+    median_prediction_transitions_per_group: 1.0
+    max_prediction_transitions_in_group: 8
+    max_consecutive_error_run: 15
+  robustness:
+    brightness_plus_15_f1: 0.6963562753036437
+    contrast_plus_15_f1: 0.7028112449799198
+    jpeg_quality_70_f1: 0.7431906614785992
+    gaussian_blur_r1_f1: 0.7490347490347491
+    contrast_minus_15_f1: 0.75049115913556
+    brightness_minus_15_f1: 0.758364312267658
+  verified_run_id: 35653218914
+  artifact_id: 10662912779
+
 target_provenance:
   current_interpretation: clip-derived labels inherited by frames
   independently_adjudicated_frame_labels: NOT_VERIFIED
