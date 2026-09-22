@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+data/
+model_output/
+baseline_output/
+audit_output/
+source_group_output/
+split_output/
+final_test_output/
+post_holdout_output/
+sequence_output/
+*.pt
+*.zip
+.DS_Store
