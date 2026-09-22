@@ -1,0 +1,81 @@
+name: Step 9 sequence extension
+
+on:
+  push:
+    paths:
+      - ".github/workflows/sequence-step9.yml"
+      - "scripts/sequence_extension.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  sequence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy scikit-learn
+
+      - name: Download immutable validation predictions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p step6_artifact
+          curl --fail --location --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/10657705539/zip" \
+            -o step6_artifact.zip
+          unzip -q step6_artifact.zip -d step6_artifact
+          PRED="$(find step6_artifact -name validation_predictions.csv -print -quit)"
+          test -n "$PRED"
+          cp "$PRED" validation_predictions.csv
+          echo "e3521f7cf87dd7c1ad8537ab869a452cae62dde7cac785556c3f4a4f1f270d92  validation_predictions.csv" | sha256sum -c -
+
+      - name: Download immutable final-test predictions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p step7_artifact
+          curl --fail --location --silent --show-error \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/10659537469/zip" \
+            -o step7_artifact.zip
+          unzip -q step7_artifact.zip -d step7_artifact
+          PRED="$(find step7_artifact -name test_predictions.csv -print -quit)"
+          test -n "$PRED"
+          cp "$PRED" test_predictions.csv
+          echo "3db3083ddccb0fafe9142f1e183104b3b193311033fcb231c3ba6ca9211822cf  test_predictions.csv" | sha256sum -c -
+
+      - name: Run sequence extension
+        run: |
+          python scripts/sequence_extension.py \
+            --validation-predictions validation_predictions.csv \
+            --test-predictions test_predictions.csv \
+            --out-dir sequence_output
+          cat sequence_output/sequence_metrics.json
+
+      - name: Upload sequence artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: step9-sequence-extension
+          path: sequence_output/
+          if-no-files-found: error
+          retention-days: 30
