@@ -2,36 +2,38 @@ project:
   repository: svTuAf2U5GMB5ryE
   language: Python
   task: binary single-image classification
+  primary_metric: F1
   target:
     positive: flip
     negative: notflip
     mapping:
       notflip: 0
       flip: 1
-  primary_metric: F1
 
 state:
-  current_phase: STEP_8_POST_HOLDOUT_ERROR_AND_ROBUSTNESS_ANALYSIS
-  status: COMPLETE
-  next_phase: STEP_9_SEQUENCE_LEVEL_EXTENSION
+  current_phase: STEP_10_REPRODUCIBILITY_AND_PROJECT_REPORT
+  status: IN_PROGRESS
+  next_phase: CLEAN_RUN_VERIFICATION
 
 dataset:
   authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
   total_images: 2989
-  unreadable_images: 0
   image_properties: 1080x1920_RGB_JPEG
+  unreadable_images: 0
   raw_labels:
     - flip
     - notflip
+  target_provenance: clip-derived labels inherited by frames
+  independently_adjudicated_frame_labels: NOT_VERIFIED
+  reporting_scope: performance_against_supplied_labels
 
 source_grouping:
-  filename_contract: "<VideoID>_<FrameNumber>.jpg"
-  verified_group_key:
+  canonical_key:
     - label
     - VideoID
-  canonical_source_group_count: 117
-  flip_source_groups: 65
-  notflip_source_groups: 52
+  canonical_source_groups: 117
+  flip_groups: 65
+  notflip_groups: 52
   groups_crossing_supplied_split: 115
   groups_training_only: 2
   groups_testing_only: 0
@@ -43,10 +45,6 @@ source_grouping:
 split:
   policy: source_group_disjoint
   frozen: true
-  ratio_target:
-    train: 0.60
-    validation: 0.20
-    test: 0.20
   source_group_counts:
     train: 70
     validation: 23
@@ -59,59 +57,33 @@ split:
     train_validation: 0
     train_test: 0
     validation_test: 0
-  test_holdout_status: FROZEN_UNTOUCHED_FOR_MODEL_SELECTION
   source_group_split_sha256: 5eaf917adc51db9a9bd10d9d4c6487050284df6e47c928d18ec5d1e94d64b551
-  verified_clean_run: 8
 
 baseline:
-  status: COMPLETE
   model: StandardScaler_plus_LogisticRegression
-  feature_representation: 26_simple_global_image_statistics
-  threshold: 0.5
-  threshold_tuned_on_validation: false
-  train_f1: 0.8457008244994111
   validation_f1: 0.8369905956112853
   validation_precision: 0.7672413793103449
   validation_recall: 0.9206896551724137
   validation_accuracy: 0.8257956448911222
-  always_flip_validation_f1: 0.6538895152198422
-  always_notflip_validation_f1: 0.0
-  locked_validation_baseline_f1: 0.8369905956112853
-  test_pixels_opened: false
-  test_metrics_computed: false
-  verified_clean_run: 9
+  threshold: 0.5
 
 single_image_model:
-  status: COMPLETE
   architecture: MobileNetV3-Small
   pretrained_weights: ImageNet_IMAGENET1K_V1
   image_size: 160
-  decision_threshold: 0.5
-  threshold_tuned: false
   selected_epoch: 4
+  selected_checkpoint_sha256: 49f2256715eb293adb2caaac410b6b4ed7dd6a2c3ba99828504f672a244170f1
+  threshold: 0.5
   validation_f1: 0.9295302013422819
   validation_precision: 0.9052287581699346
   validation_recall: 0.9551724137931035
   validation_accuracy: 0.9296482412060302
-  baseline_validation_f1: 0.8369905956112853
-  f1_delta_vs_baseline: 0.09253960573099662
-  beats_baseline: true
-  selected_checkpoint_sha256: 49f2256715eb293adb2caaac410b6b4ed7dd6a2c3ba99828504f672a244170f1
-  selected_checkpoint_run_id: 35637600828
-  selected_checkpoint_artifact: step6-mobilenetv3-model
-  test_pixels_opened: false
-  test_metrics_computed: false
-  verified_run: 1
+  baseline_f1_delta: 0.09253960573099662
 
 final_test:
   status: COMPLETE
-  evaluation_type: one_shot_frozen_holdout
   holdout_status: CONSUMED
-  architecture: MobileNetV3-Small
-  checkpoint_epoch: 4
-  checkpoint_sha256: 49f2256715eb293adb2caaac410b6b4ed7dd6a2c3ba99828504f672a244170f1
-  threshold: 0.5
-  threshold_tuned_on_test: false
+  evaluation_type: one_shot_frozen_holdout
   test_frames: 597
   test_source_groups: 24
   f1: 0.7514450867052023
@@ -122,43 +94,10 @@ final_test:
   fp: 34
   fn: 95
   tp: 195
-  validation_f1: 0.9295302013422819
   validation_to_test_f1_delta: -0.17808511463707962
   post_test_tuning_allowed: false
-  preflight_run_id: 35645087781
-  final_test_run_id: 35645274486
-  final_test_artifact_id: 10659537469
-
-post_holdout_diagnostics:
-  status: COMPLETE
-  analysis_only: true
-  model_changed: false
-  threshold_changed: false
-  post_test_tuning_performed: false
-  final_test_metrics_changed: false
-  source_group_bootstrap:
-    replicates: 20000
-    f1_lower_95: 0.6141724329913305
-    f1_median: 0.7536468307444972
-    f1_upper_95: 0.8828837474710794
-  sequence_diagnostics:
-    groups_with_zero_errors: 11
-    groups_with_any_error: 13
-    median_prediction_transitions_per_group: 1.0
-    max_prediction_transitions_in_group: 8
-    max_consecutive_error_run: 15
-  confidence_diagnostics:
-    mean_margin_correct: 0.3897843895451367
-    mean_margin_error: 0.26120334777519383
-  robustness:
-    brightness_1_15_f1_delta: -0.055088811401558635
-    contrast_1_15_f1_delta: -0.04863384172528262
-    jpeg_quality_70_f1_delta: -0.008254425226603135
-    gaussian_blur_r1_f1_delta: -0.0024103376704532886
-    contrast_0_85_f1_delta: -0.0009539275696424099
-    brightness_0_85_f1_delta: 0.006919225562455611
-  verified_run_id: 35653218914
-  artifact_id: 10662912779
+  run_id: 35645274486
+  artifact_id: 10659537469
 
 post_holdout_analysis:
   status: COMPLETE
@@ -166,35 +105,22 @@ post_holdout_analysis:
   model_changed: false
   threshold_changed: false
   post_test_tuning_performed: false
-  source_group_bootstrap:
-    replicates: 20000
-    f1_95_interval:
-      lower: 0.6141724329913305
-      upper: 0.8828837474710794
-  confidence:
-    mean_margin_correct: 0.3897843895451367
-    mean_margin_error: 0.26120334777519383
-  sequence:
-    groups_with_zero_errors: 11
-    groups_with_any_error: 13
-    median_prediction_transitions_per_group: 1.0
-    max_prediction_transitions_in_group: 8
-    max_consecutive_error_run: 15
+  bootstrap_f1_95:
+    lower: 0.6141724329913305
+    upper: 0.8828837474710794
   robustness:
     brightness_plus_15_f1: 0.6963562753036437
     contrast_plus_15_f1: 0.7028112449799198
     jpeg_quality_70_f1: 0.7431906614785992
     gaussian_blur_r1_f1: 0.7490347490347491
-    contrast_minus_15_f1: 0.75049115913556
-    brightness_minus_15_f1: 0.758364312267658
-  verified_run_id: 35653218914
+  run_id: 35653218914
   artifact_id: 10662912779
 
 sequence_extension:
   status: COMPLETE
   extension_type: post_holdout_exploratory
-  aggregation_selected_using: validation_only
   selected_method: mean_probability
+  aggregation_selected_using: validation_only
   sequence_threshold: 0.5
   validation:
     source_groups: 23
@@ -208,17 +134,6 @@ sequence_extension:
     precision: 0.8333333333333334
     recall: 0.7692307692307693
     accuracy: 0.7916666666666666
-    tn: 9
-    fp: 2
-    fn: 3
-    tp: 10
-  frame_model_changed: false
-  frame_threshold_changed: false
   reported_single_frame_final_test_result_changed: false
-  verified_run_id: 35776906695
+  run_id: 35776906695
   artifact_id: 10715933773
-
-target_provenance:
-  current_interpretation: clip-derived labels inherited by frames
-  independently_adjudicated_frame_labels: NOT_VERIFIED
-  reporting_scope: performance_against_supplied_labels
