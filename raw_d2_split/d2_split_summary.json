@@ -1,0 +1,71 @@
+{
+  "dataset": "MonReader",
+  "split_id": "D2",
+  "split_name": "source_safe_all_images",
+  "selection_policy": {
+    "primary": "Match supplied D1 test frame and class counts exactly while keeping each frozen environment group indivisible.",
+    "test_environment_group_target": 11,
+    "group_type_targets": {
+      "multi_clip": 3,
+      "singleton": 8
+    },
+    "group_category_targets": {
+      "mixed": 1,
+      "pure_flip": 5,
+      "pure_notflip": 5
+    },
+    "tie_break": "Lexicographically smallest sorted environment_group_id tuple among exact feasible solutions.",
+    "relaxation_policy": "None. Fail if the exact frozen constraints become infeasible."
+  },
+  "d1_reference_test": {
+    "frames": 597,
+    "flip_frames": 290,
+    "notflip_frames": 307
+  },
+  "d2": {
+    "train": {
+      "environment_groups": 44,
+      "multi_clip_groups": 12,
+      "singleton_groups": 32,
+      "pure_flip_groups": 19,
+      "pure_notflip_groups": 20,
+      "mixed_groups": 5,
+      "temporal_clips": 91,
+      "frames": 2392,
+      "flip_frames": 1162,
+      "notflip_frames": 1230
+    },
+    "test": {
+      "environment_groups": 11,
+      "multi_clip_groups": 3,
+      "singleton_groups": 8,
+      "pure_flip_groups": 5,
+      "pure_notflip_groups": 5,
+      "mixed_groups": 1,
+      "temporal_clips": 26,
+      "frames": 597,
+      "flip_frames": 290,
+      "notflip_frames": 307
+    },
+    "test_environment_group_ids": [
+      "E02",
+      "E05",
+      "E12",
+      "S01",
+      "S02",
+      "S17",
+      "S18",
+      "S19",
+      "S27",
+      "S28",
+      "S36"
+    ]
+  },
+  "overlap_checks": {
+    "environment_group_overlap": 0,
+    "sequence_overlap": 0,
+    "frame_path_overlap": 0
+  },
+  "holdout_note": "Environment-group construction used visual evidence before D2 assignment. After this assignment is frozen, the D2 test partition must not be used for model selection, threshold selection, debugging, or redesign.",
+  "d4_reuse_policy": "D4 must reuse this exact environment-group train/test assignment and then apply the frozen deduplication mask within those assignments; D4 must not re-optimize the source split after deduplication."
+}

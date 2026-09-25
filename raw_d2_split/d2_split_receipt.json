@@ -1,0 +1,14 @@
+{
+  "inputs": {
+    "raw_environment_groups/environment_group_summary.csv": "14e0365eeeef8a3857ae9bef89c1938f6cf049fe901d35f12e7caff1ae7e87c7",
+    "raw_environment_groups/environment_group_manifest.csv": "f0e7cc1d4b87a3fec80cfa1b277afc613b5ca6b1da2f9d64f75f15e4ba6b2c53",
+    "raw_temporal_audit/ordered_sequence_manifest.csv": "881856007eedd02d204fdbed3a46aae250340d39e5c52c3a1cc337ba3e05de57"
+  },
+  "outputs": {
+    "d2_environment_group_split.csv": "c0616e518250fdd916269deca4c496582f65ecc5edec1ef2c45de20da30cb27a",
+    "d2_sequence_split.csv": "2ee680f3e53c92cced943cf45857f33259d99148709368c3e3eb0afd32ee2564",
+    "d2_frame_split_manifest.csv": "48eef3d49f6df755ac74cddd6e22f3a3ad9c593bfa72ce62b7d5e234d0f21ed3",
+    "d2_split_summary.json": "b214c15653edfd73a7673a6b605eb90a0a499ee39dda62b3a37e7c2e4cd2ca88"
+  },
+  "status": "PASS"
+}
