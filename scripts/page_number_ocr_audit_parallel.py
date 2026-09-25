@@ -15,7 +15,7 @@ from PIL import Image, ImageOps, ImageFilter
 import pytesseract
 from pytesseract import Output
 
-SAMPLE_POSITIONS = 5
+SAMPLE_POSITIONS = 3
 MAX_PAGE_NUM = 1200
 
 def sample_indices(n: int, k: int = SAMPLE_POSITIONS) -> list[int]:
@@ -165,7 +165,7 @@ def main():
             "pair_score": round(pair_score, 4) if pair else "",
         }
 
-    with ThreadPoolExecutor(max_workers=6) as ex:
+    with ThreadPoolExecutor(max_workers=8) as ex:
         frame_rows = list(ex.map(process_task, tasks))
     frame_rows.sort(key=lambda r: (r["label"], r["video_id"], r["sample_position_index"]))
 
