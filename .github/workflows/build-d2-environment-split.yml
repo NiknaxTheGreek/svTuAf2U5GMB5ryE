@@ -1,0 +1,56 @@
+name: Build source-safe D2 split
+
+on:
+  push:
+    branches: [raw-eda-scratch]
+    paths:
+      - "scripts/build_d2_environment_split.py"
+      - ".github/workflows/build-d2-environment-split.yml"
+      - "raw_environment_groups/environment_group_summary.csv"
+      - "raw_environment_groups/environment_group_manifest.csv"
+      - "raw_temporal_audit/ordered_sequence_manifest.csv"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Syntax check
+        run: python -m py_compile scripts/build_d2_environment_split.py
+
+      - name: Build and validate D2 split
+        run: |
+          rm -rf raw_d2_split
+          python scripts/build_d2_environment_split.py \
+            --group-summary raw_environment_groups/environment_group_summary.csv \
+            --group-manifest raw_environment_groups/environment_group_manifest.csv \
+            --frame-manifest raw_temporal_audit/ordered_sequence_manifest.csv \
+            --out-dir raw_d2_split
+
+      - name: Inspect summary
+        run: |
+          cat raw_d2_split/d2_split_summary.json
+          cat raw_d2_split/d2_split_receipt.json
+
+      - name: Commit frozen D2 artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_d2_split/
+          if git diff --cached --quiet; then
+            echo "No D2 split changes."
+          else
+            git commit -m "Freeze source-safe D2 80-20 split"
+            git pull --rebase origin raw-eda-scratch
+            git push origin HEAD:raw-eda-scratch
+          fi
