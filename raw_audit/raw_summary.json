@@ -1,0 +1,35 @@
+{
+  "scan_complete": true,
+  "dataset_root_name": "images",
+  "all_file_count": 2989,
+  "image_file_count": 2989,
+  "non_image_file_count": 0,
+  "folder_image_counts": {
+    "testing|flip": 290,
+    "testing|notflip": 307,
+    "training|flip": 1162,
+    "training|notflip": 1230
+  },
+  "file_extension_counts": {
+    ".jpg": 2989
+  },
+  "image_property_counts": {
+    "1080x1920|RGB|JPEG": 2989
+  },
+  "unreadable_image_count": 0,
+  "filename_pattern_violation_count": 0,
+  "total_image_bytes": 949956558,
+  "minimum_image_size_bytes": 143466,
+  "maximum_image_size_bytes": 472424,
+  "preview_source_paths": [
+    "training/flip/0001_000000010.jpg",
+    "training/flip/0034_000000024.jpg",
+    "training/notflip/0001_000000001.jpg",
+    "training/notflip/0033_000000029.jpg",
+    "testing/flip/0001_000000020.jpg",
+    "testing/flip/0036_000000007.jpg",
+    "testing/notflip/0001_000000002.jpg",
+    "testing/notflip/0032_000000029.jpg"
+  ],
+  "scope_note": "Raw inventory/metadata only. No duplicate analysis, leakage analysis, class-balance interpretation, feature analysis, or modeling is performed here."
+}
