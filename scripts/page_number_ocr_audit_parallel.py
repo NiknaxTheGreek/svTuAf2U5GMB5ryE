@@ -26,7 +26,9 @@ def sample_indices(n: int, k: int = SAMPLE_POSITIONS) -> list[int]:
 
 def prep(im: Image.Image) -> Image.Image:
     im = im.convert("L")
-    # Keep enough resolution for small page numbers.
+    # Page numbers in the inspected textbooks are in the upper page band.
+    # Stage 1 crops there to reduce body-text false positives and runtime.
+    im = im.crop((0, 0, im.width, max(1, int(round(im.height * 0.45)))))
     target_w = 900
     if im.width != target_w:
         h = int(round(im.height * target_w / im.width))
