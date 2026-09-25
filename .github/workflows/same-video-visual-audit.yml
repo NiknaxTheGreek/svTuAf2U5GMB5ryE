@@ -1,0 +1,53 @@
+name: Blind same-VideoID visual audit
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/same-video-visual-audit.yml"
+      - "scripts/compare_same_video_labels.py"
+
+permissions:
+  contents: write
+
+jobs:
+  visual-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: python -m pip install --upgrade gdown pillow
+
+      - name: Download authoritative dataset
+        run: |
+          gdown --id 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O images.zip
+          test "$(stat -c%s images.zip)" = "939921132"
+          unzip -t images.zip >/dev/null
+          rm -rf extracted
+          mkdir extracted
+          unzip -q images.zip -d extracted
+
+      - name: Build same-VideoID comparison sheet
+        run: |
+          rm -rf raw_visual_audit
+          python scripts/compare_same_video_labels.py             --inventory raw_audit/image_inventory.csv             --image-root extracted             --out-dir raw_visual_audit
+
+      - name: Commit visual audit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_visual_audit/
+          if git diff --cached --quiet; then
+            echo "No visual audit changes."
+          else
+            git commit -m "Record blind same-VideoID visual audit"
+            git push origin HEAD:raw-eda-scratch
+          fi
