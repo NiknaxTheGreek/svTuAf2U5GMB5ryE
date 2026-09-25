@@ -1,0 +1,36 @@
+{
+  "image_count": 2989,
+  "screen_rule": "dHash <= 4 AND pHash <= 4",
+  "screened_pair_count": 13253,
+  "confirm_rule": "SSIM >= 0.95",
+  "ssim_resolution": "256x455 grayscale",
+  "confirmed_pair_count": 2095,
+  "confirmed_pair_buckets": {
+    "same_sequence_cross_split": 658,
+    "same_sequence_same_split": 1437
+  },
+  "near_duplicate_group_count": 189,
+  "images_in_near_duplicate_groups": 1266,
+  "images_removed_if_one_rep_per_group": 1077,
+  "images_retained_after_dedup": 1912,
+  "retained_by_label": {
+    "flip": 1278,
+    "notflip": 634
+  },
+  "removed_by_label": {
+    "notflip": 903,
+    "flip": 174
+  },
+  "removed_by_original_split": {
+    "testing": 206,
+    "training": 871
+  },
+  "group_size_min": 2,
+  "group_size_median": 4.0,
+  "group_size_max": 30,
+  "groups_spanning_multiple_sequences": 0,
+  "groups_spanning_both_original_splits": 111,
+  "groups_spanning_both_labels": 0,
+  "representative_rule": "deterministic earliest by (label, video_id, frame_num, path) within each connected component",
+  "scope_note": "Confirmed near-duplicate groups are based on perceptual-hash screening plus SSIM confirmation. Connected components allow transitive grouping. Canonical raw data are not modified."
+}
