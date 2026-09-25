@@ -1,0 +1,16 @@
+{
+  "paired_same_numeric_video_ids": 104,
+  "window_frames_per_endpoint": 3,
+  "interpretation": "Lower cross-ID percentile means the same-ID boundary is unusually smooth relative to unrelated joins.",
+  "preferred_notflip_to_flip_count": 56,
+  "preferred_flip_to_notflip_count": 48,
+  "ties": 0,
+  "notflip_to_flip_strong_same_id_boundary_count": 14,
+  "flip_to_notflip_strong_same_id_boundary_count": 8,
+  "either_direction_strong_same_id_boundary_count": 22,
+  "median_notflip_to_flip_composite_percentile": 0.18359375,
+  "median_flip_to_notflip_composite_percentile": 0.23529411764705882,
+  "median_notflip_to_flip_boundary_ratio_vs_within": 8.698186840361185,
+  "median_flip_to_notflip_boundary_ratio_vs_within": 10.337364012432857,
+  "scope_note": "This tests visual stitchability/session continuity only. Even a smooth join does not prove the two clips came from one uninterrupted original recording, and it does not recover original FPS."
+}
