@@ -1,0 +1,39 @@
+name: Freeze conservative environment groups
+
+on:
+  push:
+    branches: [raw-eda-scratch]
+    paths:
+      - "scripts/finalize_environment_groups.py"
+      - ".github/workflows/freeze-environment-groups.yml"
+      - "raw_session_candidate_review/reviewed_candidate_links.csv"
+
+permissions:
+  contents: write
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build final environment grouping manifest
+        run: |
+          rm -rf raw_environment_groups
+          python scripts/finalize_environment_groups.py \
+            --inventory raw_audit/image_inventory.csv \
+            --reviewed-links raw_session_candidate_review/reviewed_candidate_links.csv \
+            --out-dir raw_environment_groups
+      - name: Commit frozen grouping artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_environment_groups/
+          git commit -m "Freeze conservative environment groups for D2 and D4"
+          git pull --rebase origin raw-eda-scratch
+          git push origin HEAD:raw-eda-scratch
