@@ -1,0 +1,64 @@
+{
+  "paired_ids": 52,
+  "notflip_clip_count": 52,
+  "flip_clip_count": 65,
+  "cross_label_pair_count": 3380,
+  "signature_metrics": [
+    "mean_full_l1",
+    "median_full_l1",
+    "border_l1",
+    "center_l1",
+    "color_hist_cosine"
+  ],
+  "interpretation": "For each clip, lower same-ID rank/percentile means its opposite-label same-ID clip is visually closer than unrelated IDs. Rank 1 means nearest opposite-label clip.",
+  "per_metric": {
+    "mean_full_l1": {
+      "notflip_to_flip_rank1_count": 2,
+      "flip_to_notflip_rank1_count": 2,
+      "notflip_to_flip_top5_count": 8,
+      "flip_to_notflip_top5_count": 15,
+      "median_pct_notflip_to_flip": 0.171875,
+      "median_pct_flip_to_notflip": 0.22549019607843138
+    },
+    "median_full_l1": {
+      "notflip_to_flip_rank1_count": 3,
+      "flip_to_notflip_rank1_count": 3,
+      "notflip_to_flip_top5_count": 11,
+      "flip_to_notflip_top5_count": 15,
+      "median_pct_notflip_to_flip": 0.171875,
+      "median_pct_flip_to_notflip": 0.1764705882352941
+    },
+    "border_l1": {
+      "notflip_to_flip_rank1_count": 2,
+      "flip_to_notflip_rank1_count": 2,
+      "notflip_to_flip_top5_count": 10,
+      "flip_to_notflip_top5_count": 16,
+      "median_pct_notflip_to_flip": 0.15625,
+      "median_pct_flip_to_notflip": 0.17647058823529413
+    },
+    "center_l1": {
+      "notflip_to_flip_rank1_count": 2,
+      "flip_to_notflip_rank1_count": 4,
+      "notflip_to_flip_top5_count": 10,
+      "flip_to_notflip_top5_count": 14,
+      "median_pct_notflip_to_flip": 0.1953125,
+      "median_pct_flip_to_notflip": 0.23529411764705882
+    },
+    "color_hist_cosine": {
+      "notflip_to_flip_rank1_count": 2,
+      "flip_to_notflip_rank1_count": 2,
+      "notflip_to_flip_top5_count": 7,
+      "flip_to_notflip_top5_count": 9,
+      "median_pct_notflip_to_flip": 0.46875,
+      "median_pct_flip_to_notflip": 0.27450980392156865
+    }
+  },
+  "composite": {
+    "same_id_top_1_count_by_composite_mean_percentile": 0,
+    "same_id_top_5pct_count": 2,
+    "same_id_top_10pct_count": 7,
+    "median_composite_mean_percentile": 0.2544730392156863,
+    "mean_composite_mean_percentile": 0.30123256033182505
+  },
+  "scope_note": "Whole-clip appearance similarity can support a shared recording/session hypothesis, but cannot prove the clips came from the same uninterrupted recording. Similar books, person, table, camera, or lighting can also create closeness."
+}
