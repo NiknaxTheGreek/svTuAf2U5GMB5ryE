@@ -1,0 +1,36 @@
+name: Original visual features
+on:
+  push:
+    branches: [raw-eda-scratch]
+    paths:
+      - ".github/workflows/original-visual-features.yml"
+      - "scripts/visual_feature_audit.py"
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install gdown pillow numpy opencv-python-headless
+      - run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          rm -rf data/extracted
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+      - run: |
+          rm -rf raw_visual_features
+          python scripts/visual_feature_audit.py --inventory raw_audit/image_inventory.csv --image-root data/extracted --out-dir raw_visual_features --dataset-name original
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_visual_features/
+          git diff --cached --quiet || (git commit -m "Record original visual features" && git push origin HEAD:raw-eda-scratch)
