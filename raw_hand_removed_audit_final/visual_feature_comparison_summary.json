@@ -1,0 +1,147 @@
+{
+  "image_count": 2989,
+  "images_with_nonzero_mask": 2989,
+  "images_without_detected_border_skin": 0,
+  "dimensions_unique": [
+    [
+      1080,
+      1920
+    ]
+  ],
+  "method": "quarter-resolution border-connected skin-region detection (YCrCb+HSV), morphology+dilation, Telea inpainting, feathered full-resolution composite",
+  "feature_measurement_resolution": "270x480 for comparable original/cleaned global features",
+  "purpose": "derived hand/arm-ablation dataset; canonical originals remain authoritative",
+  "mask_fraction": {
+    "mean": 0.5897562151758092,
+    "median": 0.5917746913580247,
+    "max": 0.8296604938271605
+  },
+  "feature_stats": {
+    "brightness_mean": {
+      "original": {
+        "mean": 139.71672455897962,
+        "std": 11.185872400042962,
+        "min": 110.59095679012346,
+        "max": 161.54931327160494
+      },
+      "cleaned": {
+        "mean": 152.190634840609,
+        "std": 15.249244920856473,
+        "min": 87.86723765432099,
+        "max": 176.59632716049381
+      },
+      "paired_delta": {
+        "mean": 12.47391028162935,
+        "std": 8.039171311514249,
+        "median": 12.257554012345679,
+        "min": -22.983225308641977,
+        "max": 38.45731481481482
+      }
+    },
+    "contrast_std": {
+      "original": {
+        "mean": 56.509366206570185,
+        "std": 7.761864964406266,
+        "min": 42.29416264432048,
+        "max": 72.51550595076186
+      },
+      "cleaned": {
+        "mean": 60.583459477761075,
+        "std": 12.467722657781902,
+        "min": 36.12593072272625,
+        "max": 85.13195708674644
+      },
+      "paired_delta": {
+        "mean": 4.074093271190881,
+        "std": 5.419276908901926,
+        "median": 5.886673843184532,
+        "min": -10.00284870143242,
+        "max": 20.48281011866142
+      }
+    },
+    "sharpness_laplacian_var": {
+      "original": {
+        "mean": 573.1153395020203,
+        "std": 265.5063350990762,
+        "min": 28.057198340513548,
+        "max": 1445.9541212443203
+      },
+      "cleaned": {
+        "mean": 137.521963153966,
+        "std": 94.44812110810632,
+        "min": 17.324274291028427,
+        "max": 505.9898605157369
+      },
+      "paired_delta": {
+        "mean": -435.5933763480542,
+        "std": 234.21038855103305,
+        "median": -410.34257931670095,
+        "min": -1208.18035949985,
+        "max": -4.262888157471707
+      }
+    },
+    "saturation_mean": {
+      "original": {
+        "mean": 44.056505422144575,
+        "std": 7.588616150926205,
+        "min": 27.53224537037037,
+        "max": 65.88778549382717
+      },
+      "cleaned": {
+        "mean": 20.488173038796575,
+        "std": 8.952901927381053,
+        "min": 8.492507716049383,
+        "max": 43.71104166666667
+      },
+      "paired_delta": {
+        "mean": -23.568332383347993,
+        "std": 10.050208805327982,
+        "median": -22.39188271604938,
+        "min": -55.712121913580255,
+        "max": -2.9131790123456796
+      }
+    },
+    "edge_density": {
+      "original": {
+        "mean": 0.06930623190381191,
+        "std": 0.02143446613332555,
+        "min": 0.010625,
+        "max": 0.12388117283950617
+      },
+      "cleaned": {
+        "mean": 0.01666980316716851,
+        "std": 0.010306271984725886,
+        "min": 0.0024305555555555556,
+        "max": 0.056712962962962965
+      },
+      "paired_delta": {
+        "mean": -0.05263642873664341,
+        "std": 0.019628160334545033,
+        "median": -0.05179012345679011,
+        "min": -0.108125,
+        "max": -0.006442901234567902
+      }
+    },
+    "jpeg_bytes": {
+      "original": {
+        "mean": 317817.5168952827,
+        "std": 60928.075168391166,
+        "min": 143466.0,
+        "max": 472424.0
+      },
+      "cleaned": {
+        "mean": 180402.54600200735,
+        "std": 29298.961743839212,
+        "min": 127550.0,
+        "max": 288161.0
+      },
+      "paired_delta": {
+        "mean": -137414.97089327534,
+        "std": 55675.70205843588,
+        "median": -132033.0,
+        "min": -280729.0,
+        "max": 1501.0
+      }
+    }
+  }
+}
