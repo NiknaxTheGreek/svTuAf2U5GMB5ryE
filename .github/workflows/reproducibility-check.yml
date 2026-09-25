@@ -2,6 +2,8 @@ name: Final repository verification
 
 on:
   push:
+    branches-ignore:
+      - raw-eda-scratch
     paths:
       - "README.md"
       - "PROJECT_STATE.yaml"
