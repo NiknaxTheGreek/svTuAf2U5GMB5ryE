@@ -1,0 +1,32 @@
+{
+  "image_count": 2989,
+  "total_unordered_pairs": 4465566,
+  "hashes": {
+    "dhash_bits": 64,
+    "phash_bits": 64
+  },
+  "very_high_similarity_rule": "dHash <= 4 AND pHash <= 4",
+  "moderate_similarity_rule": "dHash <= 8 AND pHash <= 8",
+  "pair_counts": {
+    "moderate__different_sequence_cross_split_cross_label": 3392,
+    "moderate__different_sequence_cross_split_same_label": 8277,
+    "moderate__different_sequence_same_split_cross_label": 7490,
+    "moderate__different_sequence_same_split_same_label": 17711,
+    "moderate__same_sequence_cross_split": 5807,
+    "moderate__same_sequence_same_split": 12477,
+    "very__different_sequence_cross_split_cross_label": 250,
+    "very__different_sequence_cross_split_same_label": 520,
+    "very__different_sequence_same_split_cross_label": 457,
+    "very__different_sequence_same_split_same_label": 1136,
+    "very__same_sequence_cross_split": 3469,
+    "very__same_sequence_same_split": 7421
+  },
+  "nearest_neighbor_outside_sequence": {
+    "median_combined_distance": 11.0,
+    "q1_combined_distance": 8.0,
+    "q3_combined_distance": 15.0,
+    "images_whose_nearest_other_sequence_neighbor_is_cross_split": 1163,
+    "images_whose_nearest_other_sequence_neighbor_is_cross_label": 953
+  },
+  "scope_note": "Perceptual hashes are screening tools, not ground-truth duplicate labels. Similarity within one temporal clip is expected. Cross-sequence/cross-split matches are candidates for visual inspection; no image is deleted automatically."
+}
