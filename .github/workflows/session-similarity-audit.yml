@@ -1,0 +1,57 @@
+name: Whole-clip session similarity audit
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/session-similarity-audit.yml"
+      - "scripts/session_similarity_audit.py"
+
+permissions:
+  contents: write
+
+jobs:
+  session-similarity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow numpy
+
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          unzip -t data/images.zip >/dev/null
+          rm -rf data/extracted
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+
+      - name: Compare whole-clip same-ID appearance
+        run: |
+          rm -rf raw_session_audit
+          python scripts/session_similarity_audit.py             --inventory raw_audit/image_inventory.csv             --image-root data/extracted             --out-dir raw_session_audit
+
+      - name: Commit session audit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_session_audit/
+          if git diff --cached --quiet; then
+            echo "No session audit changes."
+          else
+            git commit -m "Record whole-clip session similarity audit"
+            git push origin HEAD:raw-eda-scratch
+          fi
