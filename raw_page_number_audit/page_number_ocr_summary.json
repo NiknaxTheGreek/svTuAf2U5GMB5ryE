@@ -1,0 +1,9 @@
+{
+  "sequence_count": 117,
+  "sampled_frame_count": 585,
+  "sample_positions_per_sequence_target": 5,
+  "frames_with_any_numeric_token": 541,
+  "frames_with_candidate_page_pair": 453,
+  "sequences_with_at_least_one_page_pair": 112,
+  "scope_note": "Stage-1 OCR audit samples up to five frames per temporal clip. OCR candidates are noisy measurements, not verified page labels. Unreadable frames remain unresolved rather than forced."
+}
