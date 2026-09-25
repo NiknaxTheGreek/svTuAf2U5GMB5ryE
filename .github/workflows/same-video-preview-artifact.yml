@@ -1,0 +1,30 @@
+name: Same-VideoID preview artifact
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/same-video-preview-artifact.yml"
+
+jobs:
+  publish-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - name: Verify preview exists
+        run: |
+          test -f raw_visual_audit/same_video_cross_label_contact_sheet.jpg
+          test -f raw_visual_audit/same_video_selected_frames.csv
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: same-video-cross-label-preview
+          path: |
+            raw_visual_audit/same_video_cross_label_contact_sheet.jpg
+            raw_visual_audit/same_video_selected_frames.csv
+          if-no-files-found: error
