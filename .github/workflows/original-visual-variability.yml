@@ -1,0 +1,53 @@
+name: Original visual variability audit
+
+on:
+  push:
+    branches: [raw-eda-scratch]
+    paths:
+      - "scripts/original_visual_variability.py"
+      - ".github/workflows/original-visual-variability.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  variability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown numpy opencv-python-headless
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          rm -rf data/extracted && mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+      - name: Run variability audit
+        run: |
+          rm -rf raw_visual_variability
+          python scripts/original_visual_variability.py \
+            --inventory raw_audit/image_inventory.csv \
+            --image-root data/extracted \
+            --out-dir raw_visual_variability
+      - name: Commit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_visual_variability/
+          if git diff --cached --quiet; then
+            echo "No variability changes."
+          else
+            git commit -m "Record original visual variability audit"
+            git pull --rebase origin raw-eda-scratch
+            git push origin HEAD:raw-eda-scratch
+          fi
