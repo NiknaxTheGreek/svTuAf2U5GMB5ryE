@@ -29,12 +29,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install "mediapipe==0.10.14" pillow numpy
+          pip install gdown pillow numpy opencv-python-headless torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install gdown pillow numpy opencv-python-headless
 
       - name: Download authoritative dataset
         run: |
           mkdir -p data
-          gdown --version >/dev/null 2>&1 || pip install gdown
           gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
           test "$(stat -c%s data/images.zip)" = "939921132"
           rm -rf data/extracted data/hand_arm_cleaned
