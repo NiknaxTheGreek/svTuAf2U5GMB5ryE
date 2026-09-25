@@ -1,0 +1,21 @@
+{
+  "sequence_key": [
+    "label",
+    "video_id"
+  ],
+  "sequence_count": 117,
+  "total_files": 2989,
+  "shuffles_per_sequence": 200,
+  "random_seed": 20260925,
+  "metric_interpretation": "Lower adjacent distance means smoother visual continuity.",
+  "sequences_ordered_smoother_than_95pct_shuffles_gray_mae": 117,
+  "sequences_ordered_smoother_than_95pct_shuffles_dhash": 117,
+  "sequences_ordered_smoother_than_95pct_shuffles_both_metrics": 117,
+  "median_gray_percentile": 0.0,
+  "median_dhash_percentile": 0.0,
+  "mean_ordered_gray_mae": 0.01204820812986288,
+  "mean_shuffle_gray_mae": 0.04547255889303648,
+  "mean_ordered_dhash_hamming": 3.0184577031013293,
+  "mean_shuffle_dhash_hamming": 9.651166977148788,
+  "scope_note": "This validates within-(label,VideoID) filename ordering against random shuffling. It does not establish real-world FPS or cross-label clip concatenation."
+}
