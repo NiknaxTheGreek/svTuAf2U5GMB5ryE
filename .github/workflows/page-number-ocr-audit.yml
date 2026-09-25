@@ -50,7 +50,7 @@ jobs:
       - name: Sample and OCR page-number candidates
         run: |
           rm -rf raw_page_number_audit
-          python scripts/page_number_ocr_audit.py             --inventory raw_audit/image_inventory.csv             --image-root data/extracted             --out-dir raw_page_number_audit
+          python scripts/page_number_ocr_audit_parallel.py --inventory raw_audit/image_inventory.csv --image-root data/extracted --out-dir raw_page_number_audit
 
       - name: Commit OCR audit outputs
         run: |
