@@ -1,21 +1,37 @@
 #!/usr/bin/env python3
 from __future__ import annotations
+
 import argparse, csv, json, math, os
 from pathlib import Path
-from collections import Counter, defaultdict
+from collections import Counter
 
 import cv2
 import numpy as np
-from PIL import Image
-import mediapipe as mp
+from PIL import Image, ImageOps
+import torch
+from torchvision.models.segmentation import (
+    lraspp_mobilenet_v3_large,
+    LRASPP_MobileNet_V3_Large_Weights,
+)
 
-HANDS = mp.solutions.hands
-POSE = mp.solutions.pose
+INFER_W = 320
+INFER_H = 568
+BATCH_SIZE = 12
+PERSON_PROB_THRESHOLD = 0.25
+MIN_COMPONENT_PIXELS = 18
+DILATE_KERNEL = 7
+INPAINT_RADIUS = 5
+
+def resolve(root: Path, rel: str) -> Path:
+    p = root / rel
+    if p.exists():
+        return p
+    return root / "images" / rel
 
 def feat(arr_bgr: np.ndarray):
     gray = cv2.cvtColor(arr_bgr, cv2.COLOR_BGR2GRAY)
-    h = np.bincount(gray.ravel(), minlength=256).astype(np.float64)
-    p = h / max(h.sum(), 1)
+    hist = np.bincount(gray.ravel(), minlength=256).astype(np.float64)
+    p = hist / max(hist.sum(), 1)
     nz = p[p > 0]
     entropy = float(-(nz * np.log2(nz)).sum())
     lap = cv2.Laplacian(gray, cv2.CV_64F)
@@ -28,85 +44,25 @@ def feat(arr_bgr: np.ndarray):
         "edge_density": float((edges > 0).mean()),
     }
 
-def skin_mask(bgr):
-    ycrcb = cv2.cvtColor(bgr, cv2.COLOR_BGR2YCrCb)
-    hsv = cv2.cvtColor(bgr, cv2.COLOR_BGR2HSV)
-    m1 = cv2.inRange(ycrcb, np.array([0,133,77],np.uint8), np.array([255,173,127],np.uint8))
-    # broad warm-skin guard, intentionally permissive but used only near detected limbs
-    m2 = cv2.inRange(hsv, np.array([0,18,30],np.uint8), np.array([35,255,255],np.uint8))
-    m = cv2.bitwise_and(m1,m2)
-    return cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((7,7),np.uint8), iterations=2)
-
-def normpt(lm, w, h):
-    return (int(np.clip(lm.x,0,1)*(w-1)), int(np.clip(lm.y,0,1)*(h-1)))
-
-def build_mask(bgr, hand_model, pose_model):
-    H,W = bgr.shape[:2]
-    scale = min(1.0, 720.0/max(H,W))
-    small = cv2.resize(bgr, (int(W*scale), int(H*scale)), interpolation=cv2.INTER_AREA) if scale < 1 else bgr
-    rgb = cv2.cvtColor(small, cv2.COLOR_BGR2RGB)
-    hres = hand_model.process(rgb)
-    pres = pose_model.process(rgb)
-
-    coarse = np.zeros((H,W), np.uint8)
-    hand_count = 0
-    arm_segments = 0
-
-    if hres.multi_hand_landmarks:
-        for hand in hres.multi_hand_landmarks:
-            pts = []
-            for lm in hand.landmark:
-                x = int(np.clip(lm.x,0,1)*(W-1))
-                y = int(np.clip(lm.y,0,1)*(H-1))
-                pts.append([x,y])
-            pts=np.asarray(pts,np.int32)
-            hull=cv2.convexHull(pts)
-            cv2.fillConvexPoly(coarse,hull,255)
-            hand_count += 1
-
-    if pres.pose_landmarks:
-        lms = pres.pose_landmarks.landmark
-        # shoulder->elbow->wrist for both arms
-        for s,e,wri in [(11,13,15),(12,14,16)]:
-            ls,le,lw=lms[s],lms[e],lms[wri]
-            if max(ls.visibility,le.visibility,lw.visibility) < 0.35:
-                continue
-            ps,pe,pw = normpt(ls,W,H),normpt(le,W,H),normpt(lw,W,H)
-            # width proportional to image width, conservative
-            cv2.line(coarse,ps,pe,255,max(26,int(W*0.055)))
-            cv2.line(coarse,pe,pw,255,max(22,int(W*0.045)))
-            cv2.circle(coarse,pw,max(24,int(W*0.035)),255,-1)
-            arm_segments += 1
-
-    if hand_count==0 and arm_segments==0:
-        return coarse, hand_count, arm_segments
-
-    # Expand coarse detection then intersect with skin, while always keeping central hand hull core.
-    expand = cv2.dilate(coarse, np.ones((max(9,int(W*0.018))|1,)*2,np.uint8), iterations=1)
-    skin = skin_mask(bgr)
-    refined = cv2.bitwise_and(expand, skin)
-
-    # retain coarse hand/arm core to avoid fragmented masks
-    refined = cv2.bitwise_or(refined, cv2.erode(coarse, np.ones((5,5),np.uint8), iterations=1))
-    refined = cv2.morphologyEx(refined, cv2.MORPH_CLOSE, np.ones((11,11),np.uint8), iterations=2)
-    refined = cv2.dilate(refined, np.ones((9,9),np.uint8), iterations=1)
-    return refined, hand_count, arm_segments
-
-def clean_one(bgr, mask):
-    if np.count_nonzero(mask)==0:
-        return bgr.copy()
-    # Telea inpainting; deterministic for fixed image/mask.
-    return cv2.inpaint(bgr, mask, 5, cv2.INPAINT_TELEA)
-
 def summarize(vals):
     a=np.asarray(vals,dtype=float)
-    if len(a)==0: return {}
     return {
-        "n": int(len(a)), "mean": float(a.mean()), "std": float(a.std()),
-        "min": float(a.min()), "q1": float(np.quantile(a,.25)),
-        "median": float(np.median(a)), "q3": float(np.quantile(a,.75)),
-        "max": float(a.max())
+        "n":int(len(a)), "mean":float(a.mean()), "std":float(a.std()),
+        "min":float(a.min()), "q1":float(np.quantile(a,.25)),
+        "median":float(np.median(a)), "q3":float(np.quantile(a,.75)),
+        "max":float(a.max())
     }
+
+def clean_lowres_mask(mask: np.ndarray) -> np.ndarray:
+    m=(mask.astype(np.uint8)*255)
+    m=cv2.morphologyEx(m,cv2.MORPH_CLOSE,np.ones((3,3),np.uint8),iterations=1)
+    n,lab,stats,_=cv2.connectedComponentsWithStats((m>0).astype(np.uint8),8)
+    out=np.zeros_like(m)
+    for k in range(1,n):
+        if int(stats[k,cv2.CC_STAT_AREA]) >= MIN_COMPONENT_PIXELS:
+            out[lab==k]=255
+    out=cv2.dilate(out,np.ones((DILATE_KERNEL,DILATE_KERNEL),np.uint8),iterations=1)
+    return out
 
 def main():
     ap=argparse.ArgumentParser()
@@ -121,20 +77,52 @@ def main():
     with args.inventory.open(newline="",encoding="utf-8") as f:
         rows=list(csv.DictReader(f))
 
+    weights=LRASPP_MobileNet_V3_Large_Weights.DEFAULT
+    categories=list(weights.meta["categories"])
+    person_idx=categories.index("person")
+
+    model=lraspp_mobilenet_v3_large(weights=weights).eval()
+    torch.set_grad_enabled(False)
+    torch.set_num_threads(max(1,min(4,os.cpu_count() or 1)))
+
+    mean=torch.tensor([0.485,0.456,0.406],dtype=torch.float32).view(3,1,1)
+    std=torch.tensor([0.229,0.224,0.225],dtype=torch.float32).view(3,1,1)
+
     manifests=[]
     features=[]
     qa=[]
-    with HANDS.Hands(static_image_mode=True,max_num_hands=2,min_detection_confidence=0.35) as hand_model, \
-         POSE.Pose(static_image_mode=True,model_complexity=1,enable_segmentation=False,min_detection_confidence=0.35) as pose_model:
-        for idx,r in enumerate(rows):
-            src=args.image_root/r["path"]
-            if not src.exists(): src=args.image_root/"images"/r["path"]
-            bgr=cv2.imread(str(src),cv2.IMREAD_COLOR)
-            if bgr is None:
-                raise RuntimeError(f"Cannot read {src}")
-            H,W=bgr.shape[:2]
-            mask,hc,ac=build_mask(bgr,hand_model,pose_model)
-            cleaned=clean_one(bgr,mask)
+
+    for start in range(0,len(rows),BATCH_SIZE):
+        batch=rows[start:start+BATCH_SIZE]
+        tensors=[]
+        originals=[]
+        srcs=[]
+
+        for r in batch:
+            src=resolve(args.image_root,r["path"])
+            srcs.append(src)
+            with Image.open(src) as im:
+                rgb=im.convert("RGB")
+                originals.append(np.asarray(rgb,dtype=np.uint8))
+                small=rgb.resize((INFER_W,INFER_H),Image.Resampling.BILINEAR)
+            arr=np.asarray(small,dtype=np.float32)/255.0
+            ten=torch.from_numpy(arr).permute(2,0,1)
+            tensors.append((ten-mean)/std)
+
+        x=torch.stack(tensors,dim=0)
+        logits=model(x)["out"]
+        person_prob=torch.softmax(logits,dim=1)[:,person_idx].cpu().numpy()
+
+        for bi,(r,src,rgb) in enumerate(zip(batch,srcs,originals)):
+            H,W=rgb.shape[:2]
+            low=clean_lowres_mask(person_prob[bi] >= PERSON_PROB_THRESHOLD)
+            mask=cv2.resize(low,(W,H),interpolation=cv2.INTER_NEAREST)
+
+            bgr=cv2.cvtColor(rgb,cv2.COLOR_RGB2BGR)
+            if np.any(mask):
+                cleaned=cv2.inpaint(bgr,mask,INPAINT_RADIUS,cv2.INPAINT_TELEA)
+            else:
+                cleaned=bgr.copy()
 
             dst=args.clean_root/r["path"]
             dst.parent.mkdir(parents=True,exist_ok=True)
@@ -145,8 +133,10 @@ def main():
             rec={
                 "path":r["path"],"label":r["label"],"split":r["split"],
                 "video_id":r["video_id"],"frame_num":r["frame_num"],
-                "width":W,"height":H,"hand_count":hc,"arm_segments":ac,
-                "mask_fraction":cov,"changed":int(cov>0)
+                "width":W,"height":H,
+                "mask_fraction":cov,"changed":int(cov>0),
+                "original_bytes":int(src.stat().st_size),
+                "cleaned_bytes":int(dst.stat().st_size),
             }
             manifests.append(rec)
             features.append({
@@ -156,22 +146,23 @@ def main():
                 **{f"delta_{k}":fc[k]-fo[k] for k in fo}
             })
             if cov>0:
-                qa.append((cov,r["path"],str(src),str(dst),mask.copy()))
-            if (idx+1)%100==0:
-                print(f"processed {idx+1}/{len(rows)}", flush=True)
+                qa.append((cov,r["path"],str(src),str(dst)))
+        print(f"processed {min(start+BATCH_SIZE,len(rows))}/{len(rows)}",flush=True)
 
-    # CSV outputs
     def write_csv(path,data):
         with path.open("w",newline="",encoding="utf-8") as f:
             w=csv.DictWriter(f,fieldnames=list(data[0].keys()))
             w.writeheader(); w.writerows(data)
+
     write_csv(args.out_dir/"cleaned_manifest.csv",manifests)
     write_csv(args.out_dir/"visual_features_original_vs_cleaned.csv",features)
 
-    # summary stats overall + labels
     keys=["brightness_mean","contrast_std","sharpness_laplacian_var","entropy_bits","edge_density"]
     summary={
         "image_count":len(rows),
+        "method":"Torchvision LRASPP MobileNetV3-Large semantic person segmentation + mask cleanup/dilation + OpenCV TELEA inpainting",
+        "person_probability_threshold":PERSON_PROB_THRESHOLD,
+        "inference_size":[INFER_W,INFER_H],
         "changed_image_count":sum(x["changed"] for x in manifests),
         "unchanged_image_count":sum(1-x["changed"] for x in manifests),
         "mask_fraction":summarize([x["mask_fraction"] for x in manifests]),
@@ -182,9 +173,18 @@ def main():
               "mask_fraction":summarize([x["mask_fraction"] for x in manifests if x["label"]==lab])
             } for lab in ["flip","notflip"]
         },
-        "dimensions": {
-            "unique_widths": sorted(set(int(x["width"]) for x in manifests)),
-            "unique_heights": sorted(set(int(x["height"]) for x in manifests))
+        "dimensions":{
+            "unique_widths_original":sorted(set(int(x["width"]) for x in manifests)),
+            "unique_heights_original":sorted(set(int(x["height"]) for x in manifests)),
+            "cleaned_preserves_dimensions":all(
+                cv2.imread(str(args.clean_root/x["path"])).shape[:2]==(int(x["height"]),int(x["width"]))
+                for x in manifests
+            )
+        },
+        "jpeg_bytes":{
+            "original":summarize([x["original_bytes"] for x in manifests]),
+            "cleaned":summarize([x["cleaned_bytes"] for x in manifests]),
+            "paired_delta":summarize([x["cleaned_bytes"]-x["original_bytes"] for x in manifests])
         },
         "features":{}
     }
@@ -198,26 +198,30 @@ def main():
             "cleaned_flip":summarize([x[f"clean_{k}"] for x in features if x["label"]=="flip"]),
             "cleaned_notflip":summarize([x[f"clean_{k}"] for x in features if x["label"]=="notflip"]),
         }
+
+    summary["scope_note"]="Derived ablation dataset only. Canonical images are unchanged. Inpainting may introduce artifacts, so this dataset is used for sensitivity testing, not as a new ground truth."
     (args.out_dir/"hand_arm_cleaning_summary.json").write_text(json.dumps(summary,indent=2),encoding="utf-8")
 
-    # QA contact sheet: 12 largest masks + 12 around median nonzero
+    # QA sheet: 12 largest masks + 12 around median nonzero.
     qa=sorted(qa,reverse=True,key=lambda x:x[0])
     picks=qa[:12]
     if len(qa)>24:
         mid=len(qa)//2
         picks += qa[max(0,mid-6):mid+6]
-    cell=(216,384)
-    sheet=Image.new("RGB",(4*cell[0],math.ceil(len(picks)/2)*cell[1]),"white")
-    # two columns per example: before/after; 2 examples across
-    rowsheet=math.ceil(len(picks)/2)
-    sheet=Image.new("RGB",(4*cell[0],rowsheet*cell[1]),"white")
-    for k,(_,rel,src,dst,_) in enumerate(picks):
-        rr=k//2; cc=(k%2)*2
-        for offset,p in [(0,src),(1,dst)]:
-            with Image.open(p) as im:
-                t=ImageOps.fit(im.convert("RGB"),cell,method=Image.Resampling.BILINEAR)
-            sheet.paste(t,((cc+offset)*cell[0],rr*cell[1]))
-    sheet.save(args.out_dir/"hand_arm_cleaning_qa.jpg",quality=90)
+    if picks:
+        cell=(180,320)
+        examples_per_row=2
+        rowsheet=math.ceil(len(picks)/examples_per_row)
+        sheet=Image.new("RGB",(examples_per_row*2*cell[0],rowsheet*cell[1]),"white")
+        for k,(_,rel,src,dst) in enumerate(picks):
+            rr=k//examples_per_row; ex=k%examples_per_row
+            for offset,p in [(0,src),(1,dst)]:
+                with Image.open(p) as im:
+                    t=ImageOps.fit(im.convert("RGB"),cell,method=Image.Resampling.BILINEAR)
+                sheet.paste(t,((ex*2+offset)*cell[0],rr*cell[1]))
+        sheet.save(args.out_dir/"hand_arm_cleaning_qa.jpg",quality=90)
+
+    print(json.dumps(summary,indent=2))
 
 if __name__=="__main__":
     main()
