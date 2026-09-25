@@ -1,0 +1,41 @@
+name: Fresh video grouping inspection
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/video-group-inspection.yml"
+      - "scripts/inspect_video_groups.py"
+
+permissions:
+  contents: write
+
+jobs:
+  inspect-video-groups:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Group frames into video candidates
+        run: |
+          rm -rf raw_video_groups
+          python scripts/inspect_video_groups.py             --inventory raw_audit/image_inventory.csv             --out-dir raw_video_groups
+
+      - name: Commit fresh grouping outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_video_groups/
+          if git diff --cached --quiet; then
+            echo "No grouping changes."
+          else
+            git commit -m "Record fresh video grouping inspection"
+            git push origin HEAD:raw-eda-scratch
+          fi
