@@ -28,7 +28,7 @@ jobs:
 
       - name: Download authoritative dataset
         run: |
-          gdown --id 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O images.zip
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O images.zip
           test "$(stat -c%s images.zip)" = "939921132"
           unzip -t images.zip >/dev/null
           rm -rf extracted
