@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import base64
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
@@ -109,7 +110,7 @@ def main():
 
     sheet = out / "same_video_cross_label_contact_sheet.jpg"
     canvas.save(sheet, quality=92)
-
+    (out / "same_video_cross_label_contact_sheet.b64.txt").write_text(\n        base64.b64encode(sheet.read_bytes()).decode("ascii"), encoding="ascii"\n    )\n
     with open(out / "same_video_selected_frames.csv", "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["video_id","label","position","split","frame_num","path"])
         w.writeheader()
