@@ -1,0 +1,155 @@
+name: Build hand-arm removed dataset parallel
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/build-hand-removed-parallel.yml"
+      - "scripts/build_hand_removed_dataset_parallel.py"
+
+permissions:
+  contents: write
+
+jobs:
+  shard:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow numpy opencv-python-headless
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+      - name: Process shard
+        run: |
+          mkdir -p shard_out/hand_removed_v1 shard_out/reports
+          python scripts/build_hand_removed_dataset_parallel.py             --inventory raw_audit/image_inventory.csv             --image-root data/extracted             --out-root shard_out/hand_removed_v1             --report-dir shard_out/reports             --shard-index ${{ matrix.shard }} --num-shards 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hand-clean-shard-${{ matrix.shard }}
+          path: shard_out/
+          compression-level: 0
+
+  merge:
+    needs: shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: hand-clean-shard-*
+          path: merged
+          merge-multiple: true
+      - name: Merge reports, verify, and archive
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import csv,json,hashlib,zipfile,numpy as np
+          root=Path("merged/hand_removed_v1")
+          reps=Path("merged/reports")
+          out=Path("raw_hand_removed_audit_final"); out.mkdir(exist_ok=True)
+          jpgs=list(root.rglob("*.jpg"))
+          assert len(jpgs)==2989, len(jpgs)
+
+          def merge_csv(pattern,outfile):
+              files=sorted(reps.glob(pattern)); allrows=[]; fields=None
+              for p in files:
+                  with p.open(newline="",encoding="utf-8") as f:
+                      rr=list(csv.DictReader(f))
+                  if rr and fields is None: fields=list(rr[0].keys())
+                  allrows.extend(rr)
+              allrows.sort(key=lambda r:r["path"])
+              with (out/outfile).open("w",newline="",encoding="utf-8") as f:
+                  w=csv.DictWriter(f,fieldnames=fields); w.writeheader(); w.writerows(allrows)
+              return allrows
+          mani=merge_csv("shard_*_manifest.csv","hand_removed_manifest.csv")
+          feats=merge_csv("shard_*_features.csv","paired_visual_features.csv")
+          assert len(mani)==2989 and len(feats)==2989
+
+          metrics=["brightness_mean","contrast_std","sharpness_laplacian_var","saturation_mean","edge_density"]
+          summ={
+            "image_count":2989,
+            "images_with_nonzero_mask":sum(float(r["mask_fraction"])>0 for r in mani),
+            "images_without_detected_border_skin":sum(float(r["mask_fraction"])==0 for r in mani),
+            "dimensions_unique":sorted({(int(r["width"]),int(r["height"])) for r in mani}),
+            "method":"quarter-resolution border-connected skin-region detection (YCrCb+HSV), morphology+dilation, Telea inpainting, feathered full-resolution composite",
+            "feature_measurement_resolution":"270x480 for comparable original/cleaned global features",
+            "purpose":"derived hand/arm-ablation dataset; canonical originals remain authoritative",
+            "mask_fraction":{},
+            "feature_stats":{}
+          }
+          masks=np.array([float(r["mask_fraction"]) for r in mani])
+          summ["mask_fraction"]={"mean":float(masks.mean()),"median":float(np.median(masks)),"max":float(masks.max())}
+          for m in metrics:
+              o=np.array([float(r["original_"+m]) for r in feats]); c=np.array([float(r["cleaned_"+m]) for r in feats]); d=c-o
+              summ["feature_stats"][m]={
+                "original":{"mean":float(o.mean()),"std":float(o.std()),"min":float(o.min()),"max":float(o.max())},
+                "cleaned":{"mean":float(c.mean()),"std":float(c.std()),"min":float(c.min()),"max":float(c.max())},
+                "paired_delta":{"mean":float(d.mean()),"std":float(d.std()),"median":float(np.median(d)),"min":float(d.min()),"max":float(d.max())}
+              }
+          o=np.array([float(r["original_jpeg_bytes"]) for r in feats]); c=np.array([float(r["cleaned_jpeg_bytes"]) for r in feats]); d=c-o
+          summ["feature_stats"]["jpeg_bytes"]={
+            "original":{"mean":float(o.mean()),"std":float(o.std()),"min":float(o.min()),"max":float(o.max())},
+            "cleaned":{"mean":float(c.mean()),"std":float(c.std()),"min":float(c.min()),"max":float(c.max())},
+            "paired_delta":{"mean":float(d.mean()),"std":float(d.std()),"median":float(np.median(d)),"min":float(d.min()),"max":float(d.max())}
+          }
+          (out/"visual_feature_comparison_summary.json").write_text(json.dumps(summ,indent=2))
+
+          for p in sorted(reps.glob("preview_*.jpg")):
+              (out/p.name).write_bytes(p.read_bytes())
+
+          z=Path("hand_removed_v1.zip")
+          with zipfile.ZipFile(z,"w",compression=zipfile.ZIP_STORED) as f:
+              for p in sorted(root.rglob("*.jpg")):
+                  f.write(p,Path("hand_removed_v1")/p.relative_to(root))
+          h=hashlib.sha256()
+          with z.open("rb") as fh:
+              for b in iter(lambda:fh.read(1024*1024),b""): h.update(b)
+          meta={"archive":z.name,"bytes":z.stat().st_size,"sha256":h.hexdigest(),"image_count":2989}
+          (out/"archive_metadata.json").write_text(json.dumps(meta,indent=2))
+          print(json.dumps(summ,indent=2)); print(json.dumps(meta,indent=2))
+          PY
+      - name: Commit audit reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin raw-eda-scratch || true
+          git add -f raw_hand_removed_audit_final/
+          if ! git diff --cached --quiet; then
+            git commit -m "Record final hand-arm removal dataset audit"
+            git push origin HEAD:raw-eda-scratch
+          fi
+      - name: Upload final cleaned dataset
+        uses: actions/upload-artifact@v4
+        with:
+          name: hand-removed-v1-final
+          path: hand_removed_v1.zip
+          compression-level: 0
+      - name: Upload final reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: hand-removed-v1-final-reports
+          path: raw_hand_removed_audit_final/
