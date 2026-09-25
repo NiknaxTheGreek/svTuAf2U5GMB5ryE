@@ -1,10 +1,7 @@
 {
   "image_count": 2989,
   "total_unordered_pairs": 4465566,
-  "hashes": {
-    "dhash_bits": 64,
-    "phash_bits": 64
-  },
+  "exact_sha256_duplicate_groups_already_observed": 0,
   "very_high_similarity_rule": "dHash <= 4 AND pHash <= 4",
   "moderate_similarity_rule": "dHash <= 8 AND pHash <= 8",
   "pair_counts": {
@@ -25,8 +22,8 @@
     "median_combined_distance": 11.0,
     "q1_combined_distance": 8.0,
     "q3_combined_distance": 15.0,
-    "images_whose_nearest_other_sequence_neighbor_is_cross_split": 1163,
-    "images_whose_nearest_other_sequence_neighbor_is_cross_label": 953
+    "cross_split_count": 1163,
+    "cross_label_count": 953
   },
-  "scope_note": "Perceptual hashes are screening tools, not ground-truth duplicate labels. Similarity within one temporal clip is expected. Cross-sequence/cross-split matches are candidates for visual inspection; no image is deleted automatically."
+  "scope_note": "Perceptual hashes screen for visual similarity; they do not prove duplication. Within-sequence similarity is expected. Cross-sequence/cross-split candidates require interpretation; no image is deleted."
 }
