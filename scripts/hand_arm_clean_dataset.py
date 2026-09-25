@@ -6,26 +6,17 @@ from pathlib import Path
 
 import cv2
 import numpy as np
-import torch
 from PIL import Image
-from transformers import AutoImageProcessor, AutoModelForSemanticSegmentation
+from transformers import AutoImageProcessor
+from huggingface_hub import hf_hub_download
+import onnxruntime as ort
 
 try:
     import mediapipe as mp
 except Exception:
     mp = None
 
-MODEL_ID = "pirocheto/schp-pascal-7"
-
-def arm_label_ids(model):
-    id2label = getattr(model.config, "id2label", {}) or {}
-    out=[]
-    for k,v in id2label.items():
-        s=str(v).lower().replace("_"," ").replace("-"," ")
-        if "arm" in s:
-            out.append(int(k))
-    # Pascal-7 fallback: 3 Upper Arms, 4 Lower Arms
-    return sorted(set(out or [3,4]))
+MODEL_ID = "pirocheto/schp-pascal-7"\nMODEL_REVISION = "e97480b846bf0f23a9f9b7ab673dc1c86af89467"\nONNX_FILE = "onnx/schp-pascal-7-int8-static.onnx"
 
 def hand_mask_mediapipe(rgb: np.ndarray) -> np.ndarray:
     h,w,_=rgb.shape
@@ -57,26 +48,25 @@ def hand_mask_mediapipe(rgb: np.ndarray) -> np.ndarray:
         hands.close()
     return mask
 
-def schp_arm_mask(pil_img, processor, model, device, arm_ids):
+def schp_arm_mask(pil_img, processor, session, arm_ids):
     orig_w,orig_h=pil_img.size
-    inputs=processor(images=pil_img,return_tensors="pt")
-    inputs={k:v.to(device) for k,v in inputs.items()}
-    with torch.inference_mode():
-        outputs=model(**inputs)
-    logits=outputs.logits
-    logits=torch.nn.functional.interpolate(
-        logits,size=(orig_h,orig_w),mode="bilinear",align_corners=False
-    )
-    pred=logits.argmax(dim=1)[0].detach().cpu().numpy()
-    mask=np.isin(pred,np.asarray(arm_ids)).astype(np.uint8)*255
+    inputs=processor(images=pil_img,return_tensors="np")
+    pixel_values=np.asarray(inputs["pixel_values"],dtype=np.float32)
+    input_name=session.get_inputs()[0].name
+    out_names=[o.name for o in session.get_outputs()]
+    target="logits" if "logits" in out_names else out_names[0]
+    logits=session.run([target],{input_name:pixel_values})[0]
+    pred=logits.argmax(axis=1)[0].astype(np.uint8)
+    mask512=np.isin(pred,np.asarray(arm_ids)).astype(np.uint8)*255
+    mask=cv2.resize(mask512,(orig_w,orig_h),interpolation=cv2.INTER_NEAREST)
     return mask
 
-def clean_one(src: Path, dst: Path, processor, model, device, arm_ids):
+def clean_one(src: Path, dst: Path, processor, session, arm_ids):
     pil=Image.open(src).convert("RGB")
     rgb=np.asarray(pil)
     h,w,_=rgb.shape
 
-    arm=schp_arm_mask(pil,processor,model,device,arm_ids)
+    arm=schp_arm_mask(pil,processor,session,arm_ids)
     hand=hand_mask_mediapipe(rgb)
     mask=np.maximum(arm,hand)
 
@@ -125,10 +115,12 @@ def main():
         idx=np.linspace(0,len(rows)-1,args.limit,dtype=int)
         rows=[rows[i] for i in idx]
 
-    device=torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    processor=AutoImageProcessor.from_pretrained(MODEL_ID,trust_remote_code=True)
-    model=AutoModelForSemanticSegmentation.from_pretrained(MODEL_ID,trust_remote_code=True).to(device).eval()
-    arm_ids=arm_label_ids(model)
+    processor=AutoImageProcessor.from_pretrained(MODEL_ID,revision=MODEL_REVISION,trust_remote_code=True)
+    model_path=hf_hub_download(MODEL_ID,ONNX_FILE,revision=MODEL_REVISION)
+    opts=ort.SessionOptions()
+    opts.intra_op_num_threads=max(1,min(8,__import__("os").cpu_count() or 1))
+    session=ort.InferenceSession(model_path,opts,providers=["CPUExecutionProvider"])
+    arm_ids=[3,4]
 
     report=[]
     for k,r in enumerate(rows,1):
@@ -136,7 +128,7 @@ def main():
         if not src.exists():
             src=args.image_root/"images"/r["path"]
         dst=args.out_root/r["path"]
-        frac,arm_px,hand_px=clean_one(src,dst,processor,model,device,arm_ids)
+        frac,arm_px,hand_px=clean_one(src,dst,processor,session,arm_ids)
         report.append({
             "path":r["path"],"label":r["label"],"video_id":r["video_id"],
             "frame_num":r["frame_num"],"split":r["split"],
@@ -152,7 +144,7 @@ def main():
         w.writeheader(); w.writerows(report)
     summary={
         "processed":len(report),
-        "model":MODEL_ID,
+        "model":MODEL_ID,\n        "model_revision":MODEL_REVISION,\n        "onnx_file":ONNX_FILE,
         "arm_label_ids":arm_ids,
         "mediapipe_enabled":mp is not None,
         "mean_mask_fraction":float(np.mean([x["mask_fraction"] for x in report])),
