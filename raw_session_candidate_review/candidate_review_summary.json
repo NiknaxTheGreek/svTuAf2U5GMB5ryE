@@ -1,0 +1,190 @@
+{
+  "candidate_pair_count": 82,
+  "candidate_clip_count": 77,
+  "connected_component_count": 15,
+  "component_sizes": [
+    12,
+    9,
+    8,
+    8,
+    6,
+    5,
+    5,
+    4,
+    4,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2
+  ],
+  "components": [
+    {
+      "component_id": "C01",
+      "clips": [
+        "flip__0003",
+        "flip__0005",
+        "flip__0007",
+        "flip__0008",
+        "notflip__0001"
+      ]
+    },
+    {
+      "component_id": "C02",
+      "clips": [
+        "flip__0012",
+        "flip__0013",
+        "flip__0022"
+      ]
+    },
+    {
+      "component_id": "C03",
+      "clips": [
+        "flip__0016",
+        "flip__0017",
+        "flip__0018",
+        "flip__0019",
+        "flip__0020",
+        "flip__0021"
+      ]
+    },
+    {
+      "component_id": "C04",
+      "clips": [
+        "flip__0023",
+        "flip__0026",
+        "flip__0027"
+      ]
+    },
+    {
+      "component_id": "C05",
+      "clips": [
+        "flip__0024",
+        "flip__0025",
+        "flip__0031",
+        "flip__0032",
+        "flip__0033",
+        "notflip__0023",
+        "notflip__0024",
+        "notflip__0025",
+        "notflip__0026"
+      ]
+    },
+    {
+      "component_id": "C06",
+      "clips": [
+        "flip__0028",
+        "flip__0029",
+        "notflip__0019",
+        "notflip__0020"
+      ]
+    },
+    {
+      "component_id": "C07",
+      "clips": [
+        "flip__0035",
+        "flip__0036",
+        "flip__0037",
+        "flip__0039",
+        "flip__0043",
+        "flip__0045",
+        "flip__0046",
+        "notflip__0028",
+        "notflip__0029",
+        "notflip__0032",
+        "notflip__0038",
+        "notflip__0040"
+      ]
+    },
+    {
+      "component_id": "C08",
+      "clips": [
+        "flip__0038",
+        "flip__0047"
+      ]
+    },
+    {
+      "component_id": "C09",
+      "clips": [
+        "flip__0049",
+        "flip__0052",
+        "flip__0056",
+        "flip__0057",
+        "flip__0064"
+      ]
+    },
+    {
+      "component_id": "C10",
+      "clips": [
+        "flip__0050",
+        "flip__0058"
+      ]
+    },
+    {
+      "component_id": "C11",
+      "clips": [
+        "flip__0051",
+        "flip__0053",
+        "flip__0054",
+        "flip__0055",
+        "flip__0059",
+        "flip__0061",
+        "flip__0062",
+        "notflip__0041"
+      ]
+    },
+    {
+      "component_id": "C12",
+      "clips": [
+        "flip__0065",
+        "notflip__0053",
+        "notflip__0055",
+        "notflip__0058"
+      ]
+    },
+    {
+      "component_id": "C13",
+      "clips": [
+        "notflip__0004",
+        "notflip__0005",
+        "notflip__0008"
+      ]
+    },
+    {
+      "component_id": "C14",
+      "clips": [
+        "notflip__0034",
+        "notflip__0035",
+        "notflip__0037"
+      ]
+    },
+    {
+      "component_id": "C15",
+      "clips": [
+        "notflip__0042",
+        "notflip__0044",
+        "notflip__0045",
+        "notflip__0046",
+        "notflip__0047",
+        "notflip__0048",
+        "notflip__0049",
+        "notflip__0057"
+      ]
+    }
+  ],
+  "review_pages": [
+    "all_candidates_page_01.jpg",
+    "all_candidates_page_02.jpg",
+    "all_candidates_page_03.jpg",
+    "all_candidates_page_04.jpg",
+    "all_candidates_page_05.jpg",
+    "all_candidates_page_06.jpg",
+    "all_candidates_page_07.jpg",
+    "all_candidates_page_08.jpg",
+    "all_candidates_page_09.jpg",
+    "all_candidates_page_10.jpg",
+    "all_candidates_page_11.jpg"
+  ],
+  "review_rule": "Each candidate pair shows first/middle/last frame from both temporal clips. Visual review should favor precision: merge only when book/layout/background/camera/hand setup strongly agree; ambiguous pairs remain separate."
+}
