@@ -1,0 +1,206 @@
+{
+  "clip_count": 117,
+  "pair_count": 6786,
+  "candidate_rule": "composite percentile <= 0.05 AND reciprocal top-3 nearest neighbors",
+  "strong_candidate_pair_count": 82,
+  "top_24_for_visual_inspection": [
+    {
+      "sequence_a": "notflip__0025",
+      "sequence_b": "notflip__0026",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.001694915254237288,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "notflip__0044",
+      "sequence_b": "notflip__0048",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.0017391304347826088,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "flip__0024",
+      "sequence_b": "flip__0033",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.0031982313927781873,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "notflip__0046",
+      "sequence_b": "notflip__0057",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.005747973470891673,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "flip__0012",
+      "sequence_b": "flip__0022",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.00576271186440678,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "notflip__0023",
+      "sequence_b": "notflip__0024",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.006757553426676492,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "notflip__0047",
+      "sequence_b": "notflip__0049",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.007789240972733973,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "flip__0052",
+      "sequence_b": "flip__0056",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.007877671333824613,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "notflip__0042",
+      "sequence_b": "notflip__0045",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.008142962417096536,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "flip__0028",
+      "sequence_b": "notflip__0019",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.008901989683124542,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "flip__0028",
+      "sequence_b": "flip__0029",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.009263080324244657,
+      "rank_a_to_b": 2,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "notflip__0044",
+      "sequence_b": "notflip__0049",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.010117907148120855,
+      "rank_a_to_b": 2,
+      "rank_b_to_a": 2
+    },
+    {
+      "sequence_a": "flip__0065",
+      "sequence_b": "notflip__0058",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.010346352247605013,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "notflip__0045",
+      "sequence_b": "notflip__0047",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.010427413411938098,
+      "rank_a_to_b": 2,
+      "rank_b_to_a": 2
+    },
+    {
+      "sequence_a": "notflip__0024",
+      "sequence_b": "notflip__0025",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.010641120117907148,
+      "rank_a_to_b": 2,
+      "rank_b_to_a": 2
+    },
+    {
+      "sequence_a": "notflip__0044",
+      "sequence_b": "notflip__0047",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.011503316138540899,
+      "rank_a_to_b": 3,
+      "rank_b_to_a": 3
+    },
+    {
+      "sequence_a": "flip__0018",
+      "sequence_b": "flip__0019",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.012652910832719234,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "flip__0012",
+      "sequence_b": "flip__0013",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.01339719970523213,
+      "rank_a_to_b": 2,
+      "rank_b_to_a": 1
+    },
+    {
+      "sequence_a": "notflip__0055",
+      "sequence_b": "notflip__0058",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.013684598378776712,
+      "rank_a_to_b": 1,
+      "rank_b_to_a": 2
+    },
+    {
+      "sequence_a": "notflip__0047",
+      "sequence_b": "notflip__0048",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.0137656595431098,
+      "rank_a_to_b": 4,
+      "rank_b_to_a": 2
+    },
+    {
+      "sequence_a": "notflip__0042",
+      "sequence_b": "notflip__0047",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.013861459100957997,
+      "rank_a_to_b": 2,
+      "rank_b_to_a": 5
+    },
+    {
+      "sequence_a": "flip__0029",
+      "sequence_b": "notflip__0019",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.014907885040530582,
+      "rank_a_to_b": 2,
+      "rank_b_to_a": 2
+    },
+    {
+      "sequence_a": "notflip__0042",
+      "sequence_b": "notflip__0049",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.015298452468680914,
+      "rank_a_to_b": 3,
+      "rank_b_to_a": 3
+    },
+    {
+      "sequence_a": "notflip__0019",
+      "sequence_b": "notflip__0020",
+      "same_numeric_video_id": 0,
+      "composite_pct": 0.015666912306558586,
+      "rank_a_to_b": 3,
+      "rank_b_to_a": 1
+    }
+  ],
+  "contact_sheets": [
+    "session_candidates_page_1.jpg",
+    "session_candidates_page_2.jpg",
+    "session_candidates_page_3.jpg"
+  ],
+  "method_note": "Clip signatures use five temporally spaced frames per clip. Median-frame border/background, coarse geometry/color, edge structure, color histogram and center statistics are combined. These are candidate session/environment similarities, not ground-truth session labels."
+}
