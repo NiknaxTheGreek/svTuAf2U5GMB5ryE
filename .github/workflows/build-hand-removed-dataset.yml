@@ -1,0 +1,92 @@
+name: Build hand-arm removed dataset
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/build-hand-removed-dataset.yml"
+      - "scripts/build_hand_removed_dataset.py"
+
+permissions:
+  contents: write
+
+jobs:
+  build-cleaned:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow numpy opencv-python-headless
+
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          rm -rf data/extracted
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+
+      - name: Build full hand-arm removed dataset and compare visual features
+        run: |
+          rm -rf derived/hand_removed_v1 raw_hand_removed_audit
+          mkdir -p derived/hand_removed_v1 raw_hand_removed_audit
+          python scripts/build_hand_removed_dataset.py             --inventory raw_audit/image_inventory.csv             --image-root data/extracted             --out-root derived/hand_removed_v1             --report-dir raw_hand_removed_audit
+
+      - name: Verify output count and create archive
+        run: |
+          test "$(find derived/hand_removed_v1 -type f -name '*.jpg' | wc -l)" = "2989"
+          python - <<'PY'
+          from pathlib import Path
+          import zipfile, hashlib, json
+          root=Path("derived/hand_removed_v1")
+          z=Path("hand_removed_v1.zip")
+          with zipfile.ZipFile(z,"w",compression=zipfile.ZIP_DEFLATED,compresslevel=6) as f:
+              for p in sorted(root.rglob("*.jpg")):
+                  f.write(p,p.relative_to(root.parent))
+          h=hashlib.sha256()
+          with z.open("rb") as fh:
+              for c in iter(lambda:fh.read(1024*1024),b""):
+                  h.update(c)
+          meta={"archive":"hand_removed_v1.zip","bytes":z.stat().st_size,"sha256":h.hexdigest(),"image_count":2989}
+          Path("raw_hand_removed_audit/archive_metadata.json").write_text(json.dumps(meta,indent=2))
+          print(json.dumps(meta,indent=2))
+          PY
+
+      - name: Commit audit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_hand_removed_audit/
+          if git diff --cached --quiet; then
+            echo "No hand-removed audit changes."
+          else
+            git commit -m "Record hand-arm removed dataset audit"
+            git push origin HEAD:raw-eda-scratch
+          fi
+
+      - name: Upload cleaned dataset artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hand-removed-v1-dataset
+          path: hand_removed_v1.zip
+          compression-level: 0
+          if-no-files-found: error
+
+      - name: Upload preview and reports artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hand-removed-v1-audit
+          path: raw_hand_removed_audit/
+          if-no-files-found: error
