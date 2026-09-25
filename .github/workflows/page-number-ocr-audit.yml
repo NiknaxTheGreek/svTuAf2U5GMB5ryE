@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/page-number-ocr-audit.yml"
       - "scripts/page_number_ocr_audit.py"
+      - "scripts/page_number_ocr_audit_parallel.py"
 
 permissions:
   contents: write
