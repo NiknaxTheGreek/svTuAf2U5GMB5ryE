@@ -1,0 +1,77 @@
+{
+  "input_image_rows": 2989,
+  "folder_defined_group_count": 232,
+  "folder_defined_group_counts": {
+    "training|flip": 65,
+    "training|notflip": 52,
+    "testing|flip": 63,
+    "testing|notflip": 52
+  },
+  "frames_per_folder_defined_group": {
+    "testing|flip": {
+      "min": 1,
+      "median": 4,
+      "max": 12
+    },
+    "testing|notflip": {
+      "min": 2,
+      "median": 6.0,
+      "max": 11
+    },
+    "training|flip": {
+      "min": 7,
+      "median": 17,
+      "max": 43
+    },
+    "training|notflip": {
+      "min": 6,
+      "median": 24.0,
+      "max": 28
+    }
+  },
+  "candidate_source_group_key": [
+    "label",
+    "video_id"
+  ],
+  "candidate_source_group_count": 117,
+  "candidate_source_groups_present_in_both_splits": 115,
+  "candidate_source_groups_training_only": 2,
+  "candidate_source_groups_testing_only": 0,
+  "groups_with_exact_frame_number_overlap_across_splits": 0,
+  "groups_with_split_membership_transitions": 115,
+  "groups_with_adjacent_cross_split_frames": 115,
+  "total_adjacent_cross_split_frame_pairs": 918,
+  "same_video_id_used_in_both_labels_by_split": {
+    "training": {
+      "count": 52,
+      "examples": [
+        "0001",
+        "0002",
+        "0003",
+        "0004",
+        "0005",
+        "0006",
+        "0007",
+        "0008",
+        "0009",
+        "0010"
+      ]
+    },
+    "testing": {
+      "count": 50,
+      "examples": [
+        "0001",
+        "0002",
+        "0003",
+        "0004",
+        "0005",
+        "0006",
+        "0007",
+        "0008",
+        "0009",
+        "0010"
+      ]
+    }
+  },
+  "scope_note": "Fresh grouping inspection from raw image_inventory.csv only. No modeling or use of earlier group/split outputs."
+}
