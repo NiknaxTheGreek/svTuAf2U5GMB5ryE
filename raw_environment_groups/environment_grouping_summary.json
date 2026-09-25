@@ -1,0 +1,32 @@
+{
+  "sequence_count": 117,
+  "reviewed_candidate_links": 82,
+  "merge_links": 82,
+  "ambiguous_links": 0,
+  "separate_links": 0,
+  "environment_group_count": 55,
+  "multi_clip_group_count": 15,
+  "singleton_group_count": 40,
+  "multi_clip_group_sizes": [
+    12,
+    9,
+    8,
+    8,
+    6,
+    5,
+    5,
+    4,
+    4,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2
+  ],
+  "mixed_label_group_count": 6,
+  "largest_group_frame_count": 290,
+  "smallest_group_frame_count": 8,
+  "review_policy": "Candidate links were visually reviewed using first/middle/last frames from both clips. Only reviewed MERGE links are unioned. AMBIGUOUS would remain separate. Connected components are used only after link-level review.",
+  "scope_note": "These are conservative acquisition-environment grouping units for source-safe splitting, not claims of known recording-session ground truth."
+}
