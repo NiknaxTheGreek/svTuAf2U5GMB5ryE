@@ -1,0 +1,95 @@
+name: Raw MonReader dataset inventory
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/raw-dataset-inventory.yml"
+      - "scripts/raw_dataset_inventory.py"
+
+permissions:
+  contents: write
+
+jobs:
+  raw-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout scratch branch
+        uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install raw inspection dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow
+
+      - name: Download authoritative public dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          python - <<'PY'
+          from pathlib import Path
+          p = Path("data/images.zip")
+          expected = 939_921_132
+          actual = p.stat().st_size
+          print("archive_bytes=", actual)
+          if actual != expected:
+              raise SystemExit(f"Unexpected archive size: {actual} != {expected}")
+          PY
+
+      - name: Verify and extract complete ZIP
+        run: |
+          unzip -t data/images.zip
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+
+      - name: Scan every raw file
+        run: |
+          rm -rf raw_audit
+          python scripts/raw_dataset_inventory.py             --root data/extracted             --out-dir raw_audit
+
+      - name: Record authoritative archive identity
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json
+          p = Path("data/images.zip")
+          h = hashlib.sha256()
+          with p.open("rb") as f:
+              for chunk in iter(lambda: f.read(1024 * 1024), b""):
+                  h.update(chunk)
+          meta = {
+              "file_name": p.name,
+              "size_bytes": p.stat().st_size,
+              "sha256": h.hexdigest(),
+          }
+          Path("raw_audit/archive_metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
+          print(json.dumps(meta, indent=2))
+          PY
+
+      - name: Commit raw inspection outputs to scratch branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_audit/raw_summary.json \
+                     raw_audit/archive_metadata.json \
+                     raw_audit/all_files_inventory.csv \
+                     raw_audit/image_inventory.csv \
+                     raw_audit/unreadable.json \
+                     raw_audit/filename_violations.json \
+                     raw_audit/preview_grid.b64.txt
+          if git diff --cached --quiet; then
+            echo "No raw audit changes to commit."
+          else
+            git commit -m "Record fresh raw dataset inventory"
+            git push origin HEAD:raw-eda-scratch
+          fi
