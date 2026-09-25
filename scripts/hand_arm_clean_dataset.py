@@ -16,7 +16,9 @@ try:
 except Exception:
     mp = None
 
-MODEL_ID = "pirocheto/schp-pascal-7"\nMODEL_REVISION = "e97480b846bf0f23a9f9b7ab673dc1c86af89467"\nONNX_FILE = "onnx/schp-pascal-7-int8-static.onnx"
+MODEL_ID = "pirocheto/schp-pascal-7"
+MODEL_REVISION = "e97480b846bf0f23a9f9b7ab673dc1c86af89467"
+ONNX_FILE = "onnx/schp-pascal-7-int8-static.onnx"
 
 def hand_mask_mediapipe(rgb: np.ndarray) -> np.ndarray:
     h,w,_=rgb.shape
@@ -144,7 +146,9 @@ def main():
         w.writeheader(); w.writerows(report)
     summary={
         "processed":len(report),
-        "model":MODEL_ID,\n        "model_revision":MODEL_REVISION,\n        "onnx_file":ONNX_FILE,
+        "model":MODEL_ID,
+        "model_revision":MODEL_REVISION,
+        "onnx_file":ONNX_FILE,
         "arm_label_ids":arm_ids,
         "mediapipe_enabled":mp is not None,
         "mean_mask_fraction":float(np.mean([x["mask_fraction"] for x in report])),
