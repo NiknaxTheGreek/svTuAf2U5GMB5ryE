@@ -34,14 +34,28 @@ def pair_dist(a: np.ndarray, b: np.ndarray) -> tuple[float, float]:
     ham = float(np.count_nonzero(ha != hb))
     return mae, ham
 
-def mean_adjacent_distance(order, arrays):
+def build_pairwise(arrays):
+    n = len(arrays)
+    mae = np.zeros((n, n), dtype=np.float32)
+    ham = np.zeros((n, n), dtype=np.float32)
+    hashes = [dhash(a) for a in arrays]
+    for i in range(n):
+        for j in range(i + 1, n):
+            m = float(np.mean(np.abs(arrays[i] - arrays[j])))
+            h = float(np.count_nonzero(hashes[i] != hashes[j]))
+            mae[i, j] = mae[j, i] = m
+            ham[i, j] = ham[j, i] = h
+    return mae, ham
+
+def mean_adjacent_distance(order, mae_matrix, ham_matrix):
     if len(order) < 2:
         return (math.nan, math.nan)
-    maes, hams = [], []
-    for i in range(len(order)-1):
-        m,h = pair_dist(arrays[order[i]], arrays[order[i+1]])
-        maes.append(m); hams.append(h)
-    return float(np.mean(maes)), float(np.mean(hams))
+    idx_a = np.asarray(order[:-1], dtype=int)
+    idx_b = np.asarray(order[1:], dtype=int)
+    return (
+        float(np.mean(mae_matrix[idx_a, idx_b])),
+        float(np.mean(ham_matrix[idx_a, idx_b])),
+    )
 
 def zscore(obs, vals):
     mu = float(np.mean(vals))
@@ -81,13 +95,14 @@ def main():
             arrays.append(load_gray(p))
 
         true_order = list(range(len(rr)))
-        obs_mae, obs_ham = mean_adjacent_distance(true_order, arrays)
+        mae_matrix, ham_matrix = build_pairwise(arrays)
+        obs_mae, obs_ham = mean_adjacent_distance(true_order, mae_matrix, ham_matrix)
 
         shuffle_mae, shuffle_ham = [], []
         for _ in range(N_SHUFFLES):
             order = true_order.copy()
             rng.shuffle(order)
-            m,h = mean_adjacent_distance(order, arrays)
+            m,h = mean_adjacent_distance(order, mae_matrix, ham_matrix)
             shuffle_mae.append(m); shuffle_ham.append(h)
 
         z_mae, mu_mae, sd_mae = zscore(obs_mae, shuffle_mae)
