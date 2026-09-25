@@ -1,0 +1,53 @@
+name: MediaPipe hand-arm sample audit
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/mediapipe-hand-arm-sample.yml"
+      - "scripts/mediapipe_hand_arm_sample.py"
+
+permissions:
+  contents: write
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install "numpy<2" gdown pillow opencv-python-headless mediapipe==0.10.21
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+      - name: Run 60-image sample
+        run: |
+          rm -rf raw_hand_removed_mediapipe_sample
+          python scripts/mediapipe_hand_arm_sample.py             --inventory raw_audit/image_inventory.csv             --image-root data/extracted             --out-dir raw_hand_removed_mediapipe_sample             --limit 60
+      - name: Commit sample outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin raw-eda-scratch || true
+          git add -f raw_hand_removed_mediapipe_sample/
+          if ! git diff --cached --quiet; then
+            git commit -m "Record MediaPipe hand-arm sample audit"
+            git push origin HEAD:raw-eda-scratch
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mediapipe-hand-arm-sample
+          path: raw_hand_removed_mediapipe_sample/
