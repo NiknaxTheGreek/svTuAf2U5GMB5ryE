@@ -12,6 +12,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: page-number-ocr-audit
+  cancel-in-progress: true
+
 jobs:
   page-ocr:
     runs-on: ubuntu-latest
@@ -57,5 +61,6 @@ jobs:
             echo "No OCR audit changes."
           else
             git commit -m "Record textbook page-number OCR audit"
+            git pull --rebase origin raw-eda-scratch
             git push origin HEAD:raw-eda-scratch
           fi
