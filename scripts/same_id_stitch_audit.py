@@ -71,10 +71,10 @@ def main():
         seqs[key] = imgs
         meta[key] = rr
 
-    paired_ids = sorted(
+    paired_ids = sorted({
         vid for (label, vid) in grouped
         if ("flip", vid) in grouped and ("notflip", vid) in grouped
-    )
+    })
 
     features = {}
     for key, seq in seqs.items():
