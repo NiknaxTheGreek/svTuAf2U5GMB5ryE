@@ -1,0 +1,63 @@
+name: Session-oriented clip similarity screen
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/session-cluster-screen.yml"
+      - "scripts/session_cluster_screen.py"
+
+permissions:
+  contents: write
+
+jobs:
+  session-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow numpy
+
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          rm -rf data/extracted
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+
+      - name: Run session-oriented clip similarity screen
+        run: |
+          rm -rf raw_session_cluster_screen
+          python scripts/session_cluster_screen.py             --inventory raw_audit/image_inventory.csv             --image-root data/extracted             --out-dir raw_session_cluster_screen
+
+      - name: Commit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_session_cluster_screen/
+          if git diff --cached --quiet; then
+            echo "No session-screen changes."
+          else
+            git commit -m "Record session-oriented clip similarity screen"
+            git push origin HEAD:raw-eda-scratch
+          fi
+
+      - name: Upload contact sheets
+        uses: actions/upload-artifact@v4
+        with:
+          name: session-candidate-contact-sheets
+          path: raw_session_cluster_screen/session_candidates_page_*.jpg
+          if-no-files-found: error
