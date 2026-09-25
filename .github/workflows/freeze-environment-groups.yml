@@ -34,6 +34,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f raw_environment_groups/
-          git commit -m "Freeze conservative environment groups for D2 and D4"
-          git pull --rebase origin raw-eda-scratch
-          git push origin HEAD:raw-eda-scratch
+          if git diff --cached --quiet; then
+            echo "No grouping changes."
+          else
+            git commit -m "Freeze conservative environment groups for D2 and D4"
+            git pull --rebase origin raw-eda-scratch
+            git push origin HEAD:raw-eda-scratch
+          fi
