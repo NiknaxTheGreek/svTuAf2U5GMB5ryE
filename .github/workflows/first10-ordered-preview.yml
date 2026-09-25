@@ -1,0 +1,103 @@
+name: First 10 ordered frames preview
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/first10-ordered-preview.yml"
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow
+
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          rm -rf data/extracted
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+
+      - name: Build first 10 ordered preview
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps, ImageDraw, ImageFont
+          import csv
+
+          inv = Path("raw_temporal_audit/ordered_sequence_manifest.csv")
+          root = Path("data/extracted")
+          out = Path("first10_preview")
+          out.mkdir(exist_ok=True)
+
+          with inv.open(newline="", encoding="utf-8") as f:
+              rows = list(csv.DictReader(f))
+
+          rows = [r for r in rows if r["sequence_id"] == "flip__0001"]
+          rows = sorted(rows, key=lambda r: int(r["sequence_position"]))[:10]
+
+          thumb_w, thumb_h = 216, 384
+          cols, rows_n = 5, 2
+          label_h = 42
+          gap = 10
+          canvas_w = cols*thumb_w + (cols+1)*gap
+          canvas_h = rows_n*(thumb_h+label_h) + (rows_n+1)*gap
+          canvas = Image.new("RGB", (canvas_w, canvas_h), "white")
+          draw = ImageDraw.Draw(canvas)
+          font = ImageFont.load_default()
+
+          copied = []
+          for i, r in enumerate(rows):
+              p = root / r["path"]
+              if not p.exists():
+                  p = root / "images" / r["path"]
+              with Image.open(p) as im:
+                  im = im.convert("RGB")
+                  fitted = ImageOps.contain(im, (thumb_w, thumb_h))
+                  cell = Image.new("RGB", (thumb_w, thumb_h), "white")
+                  cell.paste(fitted, ((thumb_w-fitted.width)//2, (thumb_h-fitted.height)//2))
+
+              rowi, coli = divmod(i, cols)
+              x = gap + coli*thumb_w + coli*gap
+              y = gap + rowi*(thumb_h+label_h) + rowi*gap
+              canvas.paste(cell, (x, y))
+              label = f'#{i+1}  frame {int(r["frame_num"])}'
+              draw.text((x, y+thumb_h+6), label, fill="black", font=font)
+
+              dest = out / f'{i+1:02d}_frame_{int(r["frame_num"]):03d}.jpg'
+              with Image.open(p) as original:
+                  original.convert("RGB").save(dest, quality=95)
+              copied.append((i+1, r["frame_num"], r["path"]))
+
+          canvas.save(out / "first10_ordered_contact_sheet.jpg", quality=92)
+
+          with (out / "first10_ordered_manifest.csv").open("w", newline="", encoding="utf-8") as f:
+              w = csv.writer(f)
+              w.writerow(["order","frame_num","original_path"])
+              w.writerows(copied)
+
+          print(copied)
+          PY
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: first10-ordered-preview
+          path: first10_preview/
+          if-no-files-found: error
