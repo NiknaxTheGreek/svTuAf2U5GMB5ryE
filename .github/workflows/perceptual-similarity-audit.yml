@@ -1,0 +1,56 @@
+name: Fresh perceptual similarity audit
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - ".github/workflows/perceptual-similarity-audit.yml"
+      - "scripts/perceptual_similarity_audit.py"
+
+permissions:
+  contents: write
+
+jobs:
+  similarity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow numpy imagehash
+
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          rm -rf data/extracted
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+
+      - name: Run full perceptual similarity audit
+        run: |
+          rm -rf raw_similarity_audit
+          python scripts/perceptual_similarity_audit.py             --inventory raw_audit/image_inventory.csv             --image-root data/extracted             --out-dir raw_similarity_audit
+
+      - name: Commit similarity audit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_similarity_audit/
+          if git diff --cached --quiet; then
+            echo "No similarity audit changes."
+          else
+            git commit -m "Record fresh perceptual similarity audit"
+            git push origin HEAD:raw-eda-scratch
+          fi
