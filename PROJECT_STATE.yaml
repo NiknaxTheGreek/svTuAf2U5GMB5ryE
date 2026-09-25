@@ -11,9 +11,72 @@ project:
       flip: 1
 
 state:
-  current_phase: STEP_10_REPRODUCIBILITY_AND_PROJECT_REPORT
-  status: COMPLETE
-  next_phase: PROJECT_COMPLETE
+  current_phase: RAW_EDA_REVISION_D2_SOURCE_SAFE_SPLIT
+  status: IN_PROGRESS
+  next_phase: RAW_EDA_REVISION_D3_D4_DEDUP_SPLITS
+  branch: raw-eda-scratch
+  note: "The legacy release sections below are retained for provenance only and predate the current D1-D4 methodology revision."
+
+raw_eda_revision:
+  d1:
+    definition: supplied_train_test_all_images
+    train_frames: 2392
+    test_frames: 597
+    test_flip_frames: 290
+    test_notflip_frames: 307
+  conservative_environment_grouping:
+    status: FROZEN
+    temporal_clips: 117
+    environment_groups: 55
+    multi_clip_groups: 15
+    singleton_groups: 40
+    mixed_label_groups: 6
+    reviewed_candidate_links: 82
+    merge_links: 82
+    ambiguous_links: 0
+    separate_links: 0
+    scope_note: "Conservative acquisition-environment grouping units for leakage control; not claimed ground-truth recording sessions."
+  d2:
+    definition: source_safe_all_images
+    status: FROZEN
+    train_environment_groups: 44
+    test_environment_groups: 11
+    train_temporal_clips: 91
+    test_temporal_clips: 26
+    train_frames: 2392
+    test_frames: 597
+    train_flip_frames: 1162
+    train_notflip_frames: 1230
+    test_flip_frames: 290
+    test_notflip_frames: 307
+    environment_group_overlap: 0
+    sequence_overlap: 0
+    frame_path_overlap: 0
+    test_environment_group_ids:
+      - E02
+      - E05
+      - E12
+      - S01
+      - S02
+      - S17
+      - S18
+      - S19
+      - S27
+      - S28
+      - S36
+    workflow_run_id: 36194950980
+    artifact_commit: c5cb97c7f5e423fed2f06a1dad6cf6b08856692c
+    summary_sha256: b214c15653edfd73a7673a6b605eb90a0a499ee39dda62b3a37e7c2e4cd2ca88
+    frame_manifest_sha256: 48eef3d49f6df755ac74cddd6e22f3a3ad9c593bfa72ce62b7d5e234d0f21ed3
+    holdout_policy: "Environment grouping used visual evidence before assignment. From D2 freeze onward, test images are excluded from model selection, thresholding, debugging, and redesign."
+  d3:
+    definition: supplied_train_test_deduplicated
+    status: PENDING_MANIFEST
+  d4:
+    definition: source_safe_deduplicated
+    status: PENDING_MANIFEST
+    split_reuse_policy: "Reuse the exact D2 environment-group assignment, then apply the frozen deduplication mask within each assignment; never re-optimize the source split after deduplication."
+  next_action: "Construct and validate D3/D4 deduplicated manifests from the frozen global deduplication evidence while preserving the D2 assignment for D4."
 
 verification:
   repository_verifier: scripts/verify_repository.py
