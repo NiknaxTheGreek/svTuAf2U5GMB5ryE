@@ -1,0 +1,170 @@
+{
+  "image_count": 2989,
+  "screen_rule": "cross-split only; dHash <= 4 AND pHash <= 4",
+  "ssim_resolution": "256x455 grayscale",
+  "candidate_pair_count": 4239,
+  "overall": {
+    "mean_ssim": 0.8457443746799232,
+    "median_ssim": 0.8714232702034861,
+    "q1_ssim": 0.7728123013972357,
+    "q3_ssim": 0.9298916984538355,
+    "ssim_ge_0_95": 658,
+    "ssim_ge_0_98": 202,
+    "ssim_ge_0_99": 56
+  },
+  "per_bucket": {
+    "different_sequence_cross_split_cross_label": {
+      "pair_count": 250,
+      "mean_ssim": 0.7906521177950719,
+      "median_ssim": 0.8330037166296023,
+      "q1_ssim": 0.7020844399465707,
+      "q3_ssim": 0.867312834200316,
+      "ssim_ge_0_95": 0,
+      "ssim_ge_0_98": 0,
+      "ssim_ge_0_99": 0
+    },
+    "different_sequence_cross_split_same_label": {
+      "pair_count": 520,
+      "mean_ssim": 0.6784202087992289,
+      "median_ssim": 0.6881046698018245,
+      "q1_ssim": 0.6543841906468464,
+      "q3_ssim": 0.700818105014409,
+      "ssim_ge_0_95": 0,
+      "ssim_ge_0_98": 0,
+      "ssim_ge_0_99": 0
+    },
+    "same_sequence_cross_split": {
+      "pair_count": 3469,
+      "mean_ssim": 0.8747964445787914,
+      "median_ssim": 0.8922798248969734,
+      "q1_ssim": 0.8289930053767736,
+      "q3_ssim": 0.9401636117784815,
+      "ssim_ge_0_95": 658,
+      "ssim_ge_0_98": 202,
+      "ssim_ge_0_99": 56
+    }
+  },
+  "top_10_pairs": [
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999993053355317,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/notflip/0001_000000004.jpg",
+      "path_b": "training/notflip/0001_000000003.jpg",
+      "sequence_a": "notflip__0001",
+      "sequence_b": "notflip__0001",
+      "label_a": "notflip",
+      "label_b": "notflip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999986918783903,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/notflip/0001_000000002.jpg",
+      "path_b": "training/notflip/0001_000000003.jpg",
+      "sequence_a": "notflip__0001",
+      "sequence_b": "notflip__0001",
+      "label_a": "notflip",
+      "label_b": "notflip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999977542760324,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/notflip/0041_000000003.jpg",
+      "path_b": "training/notflip/0041_000000002.jpg",
+      "sequence_a": "notflip__0041",
+      "sequence_b": "notflip__0041",
+      "label_a": "notflip",
+      "label_b": "notflip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999848220229273,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/notflip/0016_000000001.jpg",
+      "path_b": "training/notflip/0016_000000003.jpg",
+      "sequence_a": "notflip__0016",
+      "sequence_b": "notflip__0016",
+      "label_a": "notflip",
+      "label_b": "notflip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999829684084407,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/notflip/0016_000000001.jpg",
+      "path_b": "training/notflip/0016_000000002.jpg",
+      "sequence_a": "notflip__0016",
+      "sequence_b": "notflip__0016",
+      "label_a": "notflip",
+      "label_b": "notflip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999802623038753,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/notflip/0001_000000002.jpg",
+      "path_b": "training/notflip/0001_000000001.jpg",
+      "sequence_a": "notflip__0001",
+      "sequence_b": "notflip__0001",
+      "label_a": "notflip",
+      "label_b": "notflip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999799235805478,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/notflip/0001_000000004.jpg",
+      "path_b": "training/notflip/0001_000000001.jpg",
+      "sequence_a": "notflip__0001",
+      "sequence_b": "notflip__0001",
+      "label_a": "notflip",
+      "label_b": "notflip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999775026721136,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/notflip/0041_000000001.jpg",
+      "path_b": "training/notflip/0041_000000002.jpg",
+      "sequence_a": "notflip__0041",
+      "sequence_b": "notflip__0041",
+      "label_a": "notflip",
+      "label_b": "notflip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.9999229441844223,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/flip/0063_000000014.jpg",
+      "path_b": "training/flip/0063_000000013.jpg",
+      "sequence_a": "flip__0063",
+      "sequence_b": "flip__0063",
+      "label_a": "flip",
+      "label_b": "flip"
+    },
+    {
+      "bucket": "same_sequence_cross_split",
+      "ssim": 0.999897405840798,
+      "dhash": 0,
+      "phash": 0,
+      "path_a": "testing/flip/0016_000000008.jpg",
+      "path_b": "training/flip/0016_000000009.jpg",
+      "sequence_a": "flip__0016",
+      "sequence_b": "flip__0016",
+      "label_a": "flip",
+      "label_b": "flip"
+    }
+  ],
+  "scope_note": "SSIM confirms structural visual similarity after perceptual-hash screening. It does not establish identical semantics or label correctness. No images are removed automatically."
+}
