@@ -1,0 +1,89 @@
+{
+  "dataset": "MonReader",
+  "dedup_evidence": {
+    "screen_rule": "dHash <= 4 AND pHash <= 4",
+    "confirm_rule": "SSIM >= 0.95",
+    "ssim_resolution": "256x455 grayscale",
+    "near_duplicate_groups": 189,
+    "images_in_near_duplicate_groups": 1266,
+    "removed_frames": 1077,
+    "retained_frames": 1912,
+    "representative_rule": "deterministic earliest by (label, video_id, frame_num, path) within each connected component",
+    "groups_spanning_multiple_sequences": 0,
+    "groups_spanning_both_labels": 0,
+    "groups_spanning_both_supplied_splits": 111,
+    "cross_supplied_group_representative_split_counts": {
+      "testing": 37,
+      "training": 74
+    }
+  },
+  "population_effect": {
+    "retained_by_label": {
+      "flip": 1278,
+      "notflip": 634
+    },
+    "removed_by_label": {
+      "flip": 174,
+      "notflip": 903
+    },
+    "removed_by_supplied_split": {
+      "testing": 206,
+      "training": 871
+    },
+    "removed_by_d2_split": {
+      "test": 189,
+      "train": 888
+    }
+  },
+  "d3": {
+    "definition": "supplied_train_test_deduplicated",
+    "status": "FROZEN",
+    "train": {
+      "frames": 1521,
+      "flip_frames": 1024,
+      "notflip_frames": 497,
+      "temporal_clips": 117,
+      "environment_groups": 55
+    },
+    "test": {
+      "frames": 391,
+      "flip_frames": 254,
+      "notflip_frames": 137,
+      "temporal_clips": 108,
+      "environment_groups": 52
+    },
+    "overlap_checks": {
+      "environment_group_overlap": 52,
+      "sequence_overlap": 108,
+      "frame_path_overlap": 0
+    },
+    "interpretation": "Post-hoc deduplicated sensitivity dataset preserving the supplied train/test labels. Deduplication removes repeated frames but does not make the supplied split source-independent.",
+    "holdout_status": "NOT_UNTOUCHED_POST_HOC_REPAIR"
+  },
+  "d4": {
+    "definition": "source_safe_deduplicated",
+    "status": "FROZEN",
+    "train": {
+      "frames": 1504,
+      "flip_frames": 1009,
+      "notflip_frames": 495,
+      "temporal_clips": 91,
+      "environment_groups": 44
+    },
+    "test": {
+      "frames": 408,
+      "flip_frames": 269,
+      "notflip_frames": 139,
+      "temporal_clips": 26,
+      "environment_groups": 11
+    },
+    "overlap_checks": {
+      "environment_group_overlap": 0,
+      "sequence_overlap": 0,
+      "frame_path_overlap": 0
+    },
+    "split_reuse_check": "PASS",
+    "interpretation": "Uses the exact frozen D2 environment-group assignment, then applies the frozen global deduplication mask. No source split is re-optimized after deduplication.",
+    "holdout_policy": "The D4 test partition inherits D2 protection and must not be used for model selection, threshold selection, debugging, or redesign."
+  }
+}

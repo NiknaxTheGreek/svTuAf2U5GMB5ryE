@@ -1,0 +1,25 @@
+{
+  "inputs": {
+    "raw_d2_split/d2_frame_split_manifest.csv": "48eef3d49f6df755ac74cddd6e22f3a3ad9c593bfa72ce62b7d5e234d0f21ed3",
+    "raw_global_dedup/near_duplicate_membership.csv": "29640da921e22ba96f29cc65a167e7eb3df4e3014ca4dedd13ea9f10761ed6e2",
+    "raw_global_dedup/near_duplicate_groups.csv": "4e2a711f14ada35067f14451883fdc6dffe76627235183f7d721055f164ebba9",
+    "raw_global_dedup/global_dedup_summary.json": "6eb378cdec2410410fc66baae1d5bc4046604f60f6fe185981a7904cb19c6cc6"
+  },
+  "outputs": {
+    "dedup_frame_audit.csv": "3dc71771211fbe186fb71b3dc46d7e9f8c8e408be34ca9ea31b1128baa155c70",
+    "d3_frame_manifest.csv": "7583b706109164bef2c2abdc77c96fabb71e53f976ef3a7c9030282c5abfdcf4",
+    "d4_frame_manifest.csv": "68144c1ad150f0557e05e05d083e3a0199b8a43b13ed64b47ef77db2920a1ff5",
+    "d3_d4_split_summary.json": "e33a0099da14f09c01fbe46dff4c06f69942c7c58eb39eac47651cfa59d467a6"
+  },
+  "acceptance": {
+    "dedup_groups_have_exactly_one_representative": true,
+    "dedup_groups_single_sequence": true,
+    "dedup_groups_single_label": true,
+    "d3_d4_same_retained_population": true,
+    "d4_reuses_d2_assignment": true,
+    "d4_zero_environment_overlap": true,
+    "d4_zero_sequence_overlap": true,
+    "d4_zero_frame_path_overlap": true
+  },
+  "status": "PASS"
+}
