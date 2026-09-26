@@ -11,9 +11,9 @@ project:
       flip: 1
 
 state:
-  current_phase: D1_D4_COMMON_EPOCH_SELECTION
+  current_phase: CNN_FAMILY_COMPARISON_MODEL_SELECTION
   status: IN_PROGRESS
-  next_phase: D1_D4_FINAL_REFIT
+  next_phase: D1_D4_TWO_FAMILY_FINAL_REFIT
   branch: raw-eda-scratch
   note: "The legacy release sections below are retained for provenance only and predate the current D1-D4 methodology revision."
 
@@ -149,11 +149,34 @@ raw_eda_revision:
     protocol_sha256: 7c6e090b42456756b93b206316c7c918b0f594af018515eee91e129d0e868d88
     final_refit_policy: "After epoch selection, retrain D1-D4 from the same pretrained initialization/seed on each full non-test training portion. Return temporary validation rows to training."
   common_epoch_selection:
-    status: RUNNING
+    status: COMPLETE
     workflow_run_id: 36233696906
+    selected_epoch: 1
+    validation_f1: 0.8114754098360656
+    validation_precision: 0.8148148148148148
+    validation_recall: 0.8081632653061225
+    validation_accuracy: 0.8075313807531381
     protected_test_pixels_opened: false
     protected_test_metrics_computed: false
-  next_action: "Finish D2-only epoch selection, freeze the selected epoch, then refit D1-D4 on their full non-test training portions before one locked evaluation."
+  cnn_family_comparison:
+    status: SCRATCH_EPOCH_SELECTION_QUEUED
+    protocol_id: CNN_FAMILY_COMPARISON_V1
+    pretrained_family: MobileNetV3-Small_ImageNet
+    pretrained_selected_epoch: 1
+    scratch_family: fixed_4_block_CNN_random_initialization
+    scratch_candidate_epochs: 30
+    scratch_threshold: 0.5
+    scratch_architecture_search: false
+    scratch_workflow_run_id: 36241609587
+    final_evaluation_plan: "Refit and evaluate 2 model families x D1-D4 only after both family-specific epochs are frozen."
+  hand_arm_ablation:
+    status: PARTIALLY_OPTIMIZED_NOT_FINAL
+    rejected_skin_mask_method_mean_mask_fraction: 0.5897562151758092
+    current_successful_ablation_method: "Torchvision LRASPP MobileNetV3-Large person segmentation + cleanup/dilation + Telea inpainting"
+    current_mean_mask_fraction: 0.22901503493777597
+    current_scope: "Useful sensitivity ablation, but not yet a precise hand/arm-only remover."
+    targeted_schp_mediapipe_status: "Prototype attempted; no reproducible full-dataset frozen output."
+  next_action: "Finish scratch-CNN D2-only epoch selection, then freeze and refit both model families across D1-D4 before one locked protected-test evaluation."
 
 verification:
   repository_verifier: scripts/verify_repository.py
