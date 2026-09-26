@@ -1,0 +1,59 @@
+name: Build frozen D3 and D4 dedup manifests
+
+on:
+  push:
+    branches: [raw-eda-scratch]
+    paths:
+      - "scripts/build_d3_d4_dedup_manifests.py"
+      - ".github/workflows/build-d3-d4-dedup.yml"
+      - "raw_d2_split/d2_frame_split_manifest.csv"
+      - "raw_global_dedup/near_duplicate_membership.csv"
+      - "raw_global_dedup/near_duplicate_groups.csv"
+      - "raw_global_dedup/global_dedup_summary.json"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Syntax check
+        run: python -m py_compile scripts/build_d3_d4_dedup_manifests.py
+
+      - name: Build and validate D3/D4
+        run: |
+          rm -rf raw_d3_d4_split
+          python scripts/build_d3_d4_dedup_manifests.py \
+            --d2-frame-manifest raw_d2_split/d2_frame_split_manifest.csv \
+            --dedup-membership raw_global_dedup/near_duplicate_membership.csv \
+            --dedup-groups raw_global_dedup/near_duplicate_groups.csv \
+            --dedup-summary raw_global_dedup/global_dedup_summary.json \
+            --out-dir raw_d3_d4_split
+
+      - name: Inspect summary and receipt
+        run: |
+          cat raw_d3_d4_split/d3_d4_split_summary.json
+          cat raw_d3_d4_split/d3_d4_split_receipt.json
+
+      - name: Commit frozen D3/D4 artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_d3_d4_split/
+          if git diff --cached --quiet; then
+            echo "No D3/D4 changes."
+          else
+            git commit -m "Freeze deduplicated D3 and D4 manifests"
+            git pull --rebase origin raw-eda-scratch
+            git push origin HEAD:raw-eda-scratch
+          fi
