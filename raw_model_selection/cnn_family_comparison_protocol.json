@@ -1,0 +1,62 @@
+{
+  "protocol_id": "CNN_FAMILY_COMPARISON_V1",
+  "purpose": "Compare a fixed CNN trained from random initialization against the frozen pretrained MobileNetV3-Small under the same D1-D4 dataset definitions and protected-test information boundary.",
+  "shared_rules": {
+    "selection_population": "D2 training only via raw_model_selection/d2_model_selection_frame_manifest.csv",
+    "image_size": 160,
+    "seed": 2026,
+    "decision_threshold": 0.5,
+    "threshold_tuned": false,
+    "loss": "unweighted BCEWithLogitsLoss",
+    "data_augmentation": "RandomResizedCrop(160, scale=0.90-1.00, ratio=0.95-1.05), RandomHorizontalFlip(0.5), ColorJitter(brightness=0.10, contrast=0.10), ImageNet normalization",
+    "model_selection_metric": "validation F1",
+    "model_selection_tie_break": "earliest epoch",
+    "D2_D4_test_access_during_selection": false,
+    "final_refit": "After each family locks its own epoch using D2 development only, retrain D1-D4 from that family's frozen initialization rule on each dataset's full non-test training portion.",
+    "final_evaluation": "Evaluate all 8 frozen models (2 families x D1-D4) in one locked invocation."
+  },
+  "families": {
+    "pretrained_mobilenetv3_small": {
+      "status": "EPOCH_SELECTED",
+      "initialization": "ImageNet IMAGENET1K_V1",
+      "architecture": "torchvision MobileNetV3-Small with final classifier replaced by Linear(in_features,1)",
+      "selected_epoch": 1,
+      "selection_source": "raw_epoch_selection/epoch_selection.json",
+      "optimizer_schedule": {
+        "epochs_1_2": "classifier only; AdamW lr=0.001 weight_decay=0.0001",
+        "epochs_3_plus": "last four feature blocks + classifier; AdamW lr=0.0002 weight_decay=0.0001"
+      }
+    },
+    "scratch_cnn": {
+      "status": "ARCHITECTURE_FROZEN_EPOCH_PENDING",
+      "initialization": "PyTorch random initialization under seed 2026",
+      "architecture": [
+        "Conv2d(3,32,3,padding=1) + BatchNorm2d(32) + ReLU + MaxPool2d(2)",
+        "Conv2d(32,64,3,padding=1) + BatchNorm2d(64) + ReLU + MaxPool2d(2)",
+        "Conv2d(64,128,3,padding=1) + BatchNorm2d(128) + ReLU + MaxPool2d(2)",
+        "Conv2d(128,256,3,padding=1) + BatchNorm2d(256) + ReLU",
+        "AdaptiveAvgPool2d(1)",
+        "Dropout(p=0.30)",
+        "Linear(256,1)"
+      ],
+      "optimizer": "AdamW",
+      "learning_rate": 0.0003,
+      "weight_decay": 0.0001,
+      "candidate_epochs": "1..30",
+      "architecture_search": false,
+      "optimizer_search": false,
+      "augmentation_search": false
+    }
+  },
+  "reporting": {
+    "primary_metric": "F1",
+    "secondary_metrics": ["precision","recall","accuracy","balanced_accuracy","confusion_matrix"],
+    "required_comparisons": [
+      "scratch vs pretrained within each of D1,D2,D3,D4",
+      "D1 vs D2 within each model family",
+      "D3 vs D4 within each model family",
+      "all-image vs deduplicated contrasts with interpretation guardrails"
+    ],
+    "guardrail": "Dataset test populations differ by design. Report metric differences descriptively; do not present them as causal estimates."
+  }
+}
