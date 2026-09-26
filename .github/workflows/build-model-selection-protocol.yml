@@ -1,0 +1,57 @@
+name: Freeze D1-D4 model selection protocol
+
+on:
+  push:
+    branches: [raw-eda-scratch]
+    paths:
+      - "scripts/build_model_selection_protocol.py"
+      - ".github/workflows/build-model-selection-protocol.yml"
+      - "raw_d2_split/d2_environment_group_split.csv"
+      - "raw_d2_split/d2_frame_split_manifest.csv"
+      - "scripts/train_mobilenet_v3_small.py"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Syntax check
+        run: python -m py_compile scripts/build_model_selection_protocol.py
+
+      - name: Build and validate model-selection protocol
+        run: |
+          rm -rf raw_model_selection
+          python scripts/build_model_selection_protocol.py \
+            --d2-environment-split raw_d2_split/d2_environment_group_split.csv \
+            --d2-frame-manifest raw_d2_split/d2_frame_split_manifest.csv \
+            --training-script scripts/train_mobilenet_v3_small.py \
+            --out-dir raw_model_selection
+
+      - name: Inspect protocol and receipt
+        run: |
+          cat raw_model_selection/model_selection_protocol.json
+          cat raw_model_selection/model_selection_protocol_receipt.json
+
+      - name: Commit frozen protocol
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_model_selection/
+          if git diff --cached --quiet; then
+            echo "No protocol changes."
+          else
+            git commit -m "Freeze leakage-safe D1-D4 model selection protocol"
+            git pull --rebase origin raw-eda-scratch
+            git push origin HEAD:raw-eda-scratch
+          fi
