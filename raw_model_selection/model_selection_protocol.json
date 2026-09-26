@@ -1,0 +1,113 @@
+{
+  "protocol_id": "D1_D4_COMMON_MODEL_SELECTION_V1",
+  "selection_population": "D2 training only",
+  "selection_reason": "Use source-safe non-test data to select the common training duration without inspecting D2/D4 protected test images or metrics.",
+  "development_split": {
+    "target_validation_fraction_of_d2_training_frames": 0.2,
+    "validation_environment_groups": [
+      "E07",
+      "E08",
+      "E10",
+      "E13",
+      "S03",
+      "S12",
+      "S20",
+      "S21",
+      "S22"
+    ],
+    "constraints": {
+      "exact_validation_frames": 478,
+      "exact_validation_group_count": 9,
+      "max_single_validation_group_frames": 100,
+      "requires_at_least_one_mixed_label_environment": true,
+      "tie_break": "Among exact feasible sets, minimize absolute flip-rate deviation from D2 training, then choose lexicographically smallest group tuple."
+    },
+    "dev_train": {
+      "frames": 1914,
+      "flip_frames": 917,
+      "notflip_frames": 997,
+      "environment_groups": 35,
+      "temporal_clips": 71
+    },
+    "dev_validation": {
+      "frames": 478,
+      "flip_frames": 245,
+      "notflip_frames": 233,
+      "environment_groups": 9,
+      "temporal_clips": 20
+    },
+    "protected_test": {
+      "frames": 597,
+      "flip_frames": 290,
+      "notflip_frames": 307,
+      "environment_groups": 11,
+      "temporal_clips": 26
+    },
+    "dev_train_validation_environment_overlap": 0,
+    "dev_train_validation_sequence_overlap": 0
+  },
+  "fixed_model_recipe": {
+    "architecture": "MobileNetV3-Small",
+    "pretrained_weights": "ImageNet IMAGENET1K_V1",
+    "image_size": 160,
+    "seed": 2026,
+    "batch_size": 64,
+    "head_epochs": 2,
+    "maximum_finetune_epochs": 6,
+    "maximum_total_epochs": 8,
+    "head_learning_rate": 0.001,
+    "finetune_learning_rate": 0.0002,
+    "optimizer": "AdamW",
+    "weight_decay": 0.0001,
+    "unfrozen_feature_blocks_during_finetune": 4,
+    "loss": "unweighted BCEWithLogitsLoss",
+    "decision_threshold": 0.5,
+    "threshold_tuned": false,
+    "data_augmentation": "RandomResizedCrop(160, scale=0.90-1.00, ratio=0.95-1.05), RandomHorizontalFlip(0.5), ColorJitter(brightness=0.10, contrast=0.10), ImageNet normalization"
+  },
+  "selection_rule": {
+    "only_selected_quantity": "training epoch",
+    "candidate_epochs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "metric": "validation F1",
+    "choose": "highest validation F1",
+    "tie_break": "earliest epoch",
+    "architecture_search": false,
+    "threshold_search": false,
+    "augmentation_search": false,
+    "optimizer_search": false
+  },
+  "final_refit_rule": {
+    "after_epoch_lock": "Retrain one model for each D1-D4 dataset from the same pretrained initialization/seed for the selected number of epochs using that dataset's full non-test training portion.",
+    "validation_rows_returned_to_final_training": true,
+    "same_recipe_across_D1_D4": true,
+    "class_rebalancing": "none"
+  },
+  "final_evaluation_rule": {
+    "D2_D4_test_access_before_all_models_frozen": false,
+    "evaluate_all_D1_D4_final_models_in_one_locked_evaluation_workflow": true,
+    "primary_metric": "F1",
+    "secondary_metrics": [
+      "precision",
+      "recall",
+      "accuracy",
+      "balanced_accuracy",
+      "confusion_matrix"
+    ],
+    "claim_scope": {
+      "D1": "supplied-split performance with known source leakage",
+      "D2": "unseen conservative environment-group performance on all images",
+      "D3": "post-hoc deduplicated supplied-split sensitivity result; source leakage remains",
+      "D4": "unseen conservative environment-group performance after frozen deduplication"
+    }
+  },
+  "training_recipe_source_sha256": "101464dd269bb8e8a0be6d49cd031850d43af5f85ce122c21ea23904f123973a"
+}

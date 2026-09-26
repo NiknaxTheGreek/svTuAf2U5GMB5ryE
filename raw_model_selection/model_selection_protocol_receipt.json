@@ -1,0 +1,22 @@
+{
+  "inputs": {
+    "raw_d2_split/d2_environment_group_split.csv": "c0616e518250fdd916269deca4c496582f65ecc5edec1ef2c45de20da30cb27a",
+    "raw_d2_split/d2_frame_split_manifest.csv": "48eef3d49f6df755ac74cddd6e22f3a3ad9c593bfa72ce62b7d5e234d0f21ed3",
+    "scripts/train_mobilenet_v3_small.py": "101464dd269bb8e8a0be6d49cd031850d43af5f85ce122c21ea23904f123973a"
+  },
+  "outputs": {
+    "d2_model_selection_environment_split.csv": "cd89dd104c7e6a3822af6095014abdd5748c90d966faf84db4f41937c217c348",
+    "d2_model_selection_frame_manifest.csv": "bd37e70f3df54ed133a6fec40e20468a194b363b2eb59057f028fbd296c5a3c4",
+    "model_selection_protocol.json": "7c6e090b42456756b93b206316c7c918b0f594af018515eee91e129d0e868d88"
+  },
+  "acceptance": {
+    "selection_uses_only_D2_training_groups": true,
+    "protected_test_groups_in_development": 0,
+    "development_train_validation_environment_overlap": 0,
+    "development_train_validation_sequence_overlap": 0,
+    "threshold_fixed_at_0_5": true,
+    "only_epoch_selected": true,
+    "final_refit_uses_full_training_portion": true
+  },
+  "status": "PASS"
+}
