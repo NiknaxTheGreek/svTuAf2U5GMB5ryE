@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "inputs": {
+    "raw_model_selection/d2_model_selection_frame_manifest.csv": "bd37e70f3df54ed133a6fec40e20468a194b363b2eb59057f028fbd296c5a3c4",
+    "raw_model_selection/cnn_family_comparison_protocol.json": "669e41f47f7e481583cd66976eb92df843fad025d6c6982e83f897326887358b",
+    "data/images.zip": "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
+  },
+  "outputs": {
+    "scratch_epoch_selection.json": "acbafe1fb010ae95b3a054a17473fb10c23ca0cd793fe54c174a12f0859e2642",
+    "scratch_epoch_selection_history.csv": "f6e745ca64186b9f0cb991d3bee35d6acfa3d8ad150ce43c5f4cdc8b9ba057fe",
+    "scratch_epoch_selection_validation_predictions.csv": "586e1781f349123ab22cbdb92e91d851c5fc603976d04ea83b07ae2516ebe831"
+  },
+  "protected_test_pixels_opened": false,
+  "protected_test_metrics_computed": false
+}

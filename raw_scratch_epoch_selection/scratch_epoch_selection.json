@@ -1,0 +1,47 @@
+{
+  "status": "COMPLETE",
+  "protocol_id": "CNN_FAMILY_COMPARISON_V1",
+  "model_family": "scratch_cnn",
+  "architecture": [
+    "Conv2d(3,32,3,padding=1) + BatchNorm2d(32) + ReLU + MaxPool2d(2)",
+    "Conv2d(32,64,3,padding=1) + BatchNorm2d(64) + ReLU + MaxPool2d(2)",
+    "Conv2d(64,128,3,padding=1) + BatchNorm2d(128) + ReLU + MaxPool2d(2)",
+    "Conv2d(128,256,3,padding=1) + BatchNorm2d(256) + ReLU",
+    "AdaptiveAvgPool2d(1)",
+    "Dropout(p=0.30)",
+    "Linear(256,1)"
+  ],
+  "parameter_count": 389633,
+  "trainable_parameter_count": 389633,
+  "selected_epoch": 13,
+  "selected_by": "highest D2 development validation F1; earliest epoch wins ties",
+  "validation_metrics": {
+    "f1": 0.8534798534798534,
+    "precision": 0.7740863787375415,
+    "recall": 0.9510204081632653,
+    "accuracy": 0.8326359832635983,
+    "tn": 165,
+    "fp": 68,
+    "fn": 12,
+    "tp": 233,
+    "support": 478
+  },
+  "candidate_epoch_count": 30,
+  "threshold": 0.5,
+  "threshold_tuned": false,
+  "optimizer": "AdamW",
+  "learning_rate": 0.0003,
+  "weight_decay": 0.0001,
+  "selection_population": {
+    "dev_train_frames": 1914,
+    "dev_validation_frames": 478,
+    "protected_test_frames": 597,
+    "protected_test_pixels_opened": false,
+    "protected_test_metrics_computed": false
+  },
+  "final_refit_instruction": "Use the selected scratch epoch unchanged for D1-D4. Reinitialize the scratch CNN under seed 2026 for every dataset and train on each full non-test training portion. Do not reuse the selection model.",
+  "artifact_sha256": {
+    "scratch_epoch_selection_history.csv": "f6e745ca64186b9f0cb991d3bee35d6acfa3d8ad150ce43c5f4cdc8b9ba057fe",
+    "scratch_epoch_selection_validation_predictions.csv": "586e1781f349123ab22cbdb92e91d851c5fc603976d04ea83b07ae2516ebe831"
+  }
+}
