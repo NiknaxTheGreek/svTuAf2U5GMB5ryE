@@ -1,0 +1,98 @@
+name: Refit frozen D1-D4 final models
+
+on:
+  push:
+    branches: [raw-eda-scratch]
+    paths:
+      - "raw_epoch_selection/epoch_selection.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  refit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: raw-eda-scratch
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install gdown pillow pandas
+          pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
+
+      - name: Syntax check
+        run: python -m py_compile scripts/refit_d1_d4_final_models.py
+
+      - name: Download authoritative dataset
+        run: |
+          mkdir -p data
+          gdown 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          test "$(stat -c%s data/images.zip)" = "939921132"
+          echo "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f  data/images.zip" | sha256sum -c -
+          rm -rf data/extracted
+          mkdir -p data/extracted
+          unzip -q data/images.zip -d data/extracted
+
+      - name: Refit all four models without test access
+        run: |
+          rm -rf raw_final_models
+          python scripts/refit_d1_d4_final_models.py \
+            --dataset-root data/extracted \
+            --archive data/images.zip \
+            --epoch-selection raw_epoch_selection/epoch_selection.json \
+            --protocol raw_model_selection/model_selection_protocol.json \
+            --d2-manifest raw_d2_split/d2_frame_split_manifest.csv \
+            --d3-manifest raw_d3_d4_split/d3_frame_manifest.csv \
+            --d4-manifest raw_d3_d4_split/d4_frame_manifest.csv \
+            --out-dir raw_final_models
+          cat raw_final_models/final_model_manifest.json
+          cat raw_final_models/final_refit_receipt.json
+
+      - name: Record workflow identity
+        env:
+          RUN_ID: ${{ github.run_id }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path("raw_final_models/final_refit_workflow.json")
+          p.write_text(json.dumps({
+              "workflow_run_id": int(os.environ["RUN_ID"]),
+              "trigger_head_sha": os.environ["HEAD_SHA"],
+              "artifact_name": "d1-d4-final-models",
+              "status": "MODELS_FROZEN_TEST_NOT_EVALUATED"
+          }, indent=2) + "\n")
+          PY
+
+      - name: Upload frozen model artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: d1-d4-final-models
+          path: raw_final_models/
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Commit non-binary freeze receipts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f raw_final_models/*.json raw_final_models/*_training_history.csv
+          if git diff --cached --quiet; then
+            echo "No final-refit receipt changes."
+          else
+            git commit -m "Freeze D1-D4 final model hashes before evaluation"
+            git pull --rebase origin raw-eda-scratch
+            git push origin HEAD:raw-eda-scratch
+          fi
