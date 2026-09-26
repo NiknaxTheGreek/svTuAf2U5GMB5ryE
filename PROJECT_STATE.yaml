@@ -11,9 +11,9 @@ project:
       flip: 1
 
 state:
-  current_phase: RAW_EDA_REVISION_D3_D4_DEDUP_SPLITS
-  status: COMPLETE
-  next_phase: D1_D4_MODEL_SELECTION_PROTOCOL
+  current_phase: D1_D4_COMMON_EPOCH_SELECTION
+  status: IN_PROGRESS
+  next_phase: D1_D4_FINAL_REFIT
   branch: raw-eda-scratch
   note: "The legacy release sections below are retained for provenance only and predate the current D1-D4 methodology revision."
 
@@ -123,7 +123,37 @@ raw_eda_revision:
     summary_sha256: e33a0099da14f09c01fbe46dff4c06f69942c7c58eb39eac47651cfa59d467a6
     d3_frame_manifest_sha256: 7583b706109164bef2c2abdc77c96fabb71e53f976ef3a7c9030282c5abfdcf4
     d4_frame_manifest_sha256: 68144c1ad150f0557e05e05d083e3a0199b8a43b13ed64b47ef77db2920a1ff5
-  next_action: "Freeze a leakage-safe model-selection protocol inside the training portion before any D1-D4 comparative model fitting."
+  model_selection_protocol:
+    status: FROZEN
+    protocol_id: D1_D4_COMMON_MODEL_SELECTION_V1
+    selection_population: D2_TRAIN_ONLY
+    dev_train_frames: 1914
+    dev_validation_frames: 478
+    dev_validation_flip_frames: 245
+    dev_validation_notflip_frames: 233
+    dev_validation_environment_groups: 9
+    protected_test_frames: 597
+    protected_test_environment_groups: 11
+    dev_train_validation_environment_overlap: 0
+    dev_train_validation_sequence_overlap: 0
+    architecture: MobileNetV3-Small
+    pretrained_weights: ImageNet_IMAGENET1K_V1
+    image_size: 160
+    seed: 2026
+    maximum_total_epochs: 8
+    selected_quantity: training_epoch_only
+    decision_threshold: 0.5
+    threshold_tuned: false
+    workflow_run_id: 36233616064
+    artifact_commit: 9627e4b4f1ebd6a9344d7322220cff1e6f2fa68d
+    protocol_sha256: 7c6e090b42456756b93b206316c7c918b0f594af018515eee91e129d0e868d88
+    final_refit_policy: "After epoch selection, retrain D1-D4 from the same pretrained initialization/seed on each full non-test training portion. Return temporary validation rows to training."
+  common_epoch_selection:
+    status: RUNNING
+    workflow_run_id: 36233696906
+    protected_test_pixels_opened: false
+    protected_test_metrics_computed: false
+  next_action: "Finish D2-only epoch selection, freeze the selected epoch, then refit D1-D4 on their full non-test training portions before one locked evaluation."
 
 verification:
   repository_verifier: scripts/verify_repository.py
