@@ -1,0 +1,32 @@
+{
+  "status": "COMPLETE",
+  "protocol_id": "D1_D4_COMMON_MODEL_SELECTION_V1",
+  "selected_epoch": 1,
+  "selected_by": "highest D2 development validation F1; earliest epoch wins ties",
+  "validation_metrics": {
+    "f1": 0.8114754098360656,
+    "precision": 0.8148148148148148,
+    "recall": 0.8081632653061225,
+    "accuracy": 0.8075313807531381,
+    "tn": 188,
+    "fp": 45,
+    "fn": 47,
+    "tp": 198,
+    "support": 478
+  },
+  "candidate_epoch_count": 8,
+  "threshold": 0.5,
+  "threshold_tuned": false,
+  "selection_population": {
+    "dev_train_frames": 1914,
+    "dev_validation_frames": 478,
+    "protected_test_frames": 597,
+    "protected_test_pixels_opened": false,
+    "protected_test_metrics_computed": false
+  },
+  "final_refit_instruction": "Use the selected epoch unchanged for D1-D4. Reinitialize from the same pretrained weights/seed and train on each dataset's full non-test training portion. Do not reuse this development checkpoint as a final model.",
+  "artifact_sha256": {
+    "epoch_selection_history.csv": "04b8311398136bd4c8bed3bb084070512cc476517f976225c9f546e7c8cb89c3",
+    "epoch_selection_validation_predictions.csv": "9656d92a284489ea6617e823656b93149a677e8a9976e45241cb1ed753e21b4c"
+  }
+}
