@@ -3,23 +3,28 @@ from __future__ import annotations
 from collections.abc import Iterable, Sequence
 
 import numpy as np
-import torch
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
 
 def build_optimizer(
-    parameters: Iterable[torch.nn.Parameter],
+    parameters: Iterable,
     *,
     name: str,
     learning_rate: float,
     weight_decay: float = 0.0,
     momentum: float = 0.9,
-) -> torch.optim.Optimizer:
+):
+    import torch
+
     params = list(parameters)
     key = name.lower()
-    common = {"params": params, "lr": learning_rate, "weight_decay": weight_decay}
+    common = {
+        "params": params,
+        "lr": learning_rate,
+        "weight_decay": weight_decay,
+    }
     if key == "adam":
         return torch.optim.Adam(**common)
     if key == "adamw":
@@ -83,10 +88,16 @@ def standardized_logistic_coefficients(
     model: Pipeline,
     feature_names: Sequence[str],
 ) -> list[tuple[str, float]]:
-    coefficients = np.asarray(model.named_steps["logistic"].coef_, dtype=float)
+    coefficients = np.asarray(
+        model.named_steps["logistic"].coef_, dtype=float
+    )
     if coefficients.shape != (1, len(feature_names)):
-        raise ValueError("Coefficient shape does not match feature names")
+        raise ValueError(
+            "Coefficient shape does not match feature names"
+        )
     return [
         (name, float(value))
-        for name, value in zip(feature_names, coefficients[0], strict=True)
+        for name, value in zip(
+            feature_names, coefficients[0], strict=True
+        )
     ]

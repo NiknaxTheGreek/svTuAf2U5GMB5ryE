@@ -31,3 +31,6 @@ jobs:
       - name: Execute split-design notebook
         if: hashFiles('manifests/splits/split_summary.json') != ''
         run: python -m scripts.execute_notebook notebooks/02_split_design.ipynb --output /tmp/02_split_design.executed.ipynb
+      - name: Execute baseline notebook
+        if: hashFiles('outputs/metrics/baseline_summary.json') != ''
+        run: python -m scripts.execute_notebook notebooks/03_baselines.ipynb --output /tmp/03_baselines.executed.ipynb
