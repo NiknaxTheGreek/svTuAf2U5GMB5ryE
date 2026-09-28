@@ -22,7 +22,7 @@ jobs:
       - name: Install CPU execution dependencies once
         run: |
           python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
-          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0 torchvision==0.25.0
       - name: Verify frozen Stage 1 definition
         run: |
           python -m scripts.generate_scratch_stage1 --output /tmp/stage1-regenerated.json
