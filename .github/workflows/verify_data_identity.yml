@@ -40,3 +40,37 @@ jobs:
               raise SystemExit(f"sha256 mismatch: {digest} != {expected_sha256}")
           print("DATA_IDENTITY=PASS")
           PY
+      - name: Inspect archive structure
+        run: |
+          python - <<'PY'
+          from collections import Counter
+          from pathlib import PurePosixPath
+          from zipfile import ZipFile
+
+          archive = "/tmp/images.zip"
+          with ZipFile(archive) as zf:
+              infos = [i for i in zf.infolist() if not i.is_dir()]
+
+          print(f"file_count={len(infos)}")
+          suffixes = Counter(PurePosixPath(i.filename).suffix.lower() for i in infos)
+          print("suffix_counts=", dict(sorted(suffixes.items())))
+
+          depth_counts = Counter(len(PurePosixPath(i.filename).parts) for i in infos)
+          print("path_depth_counts=", dict(sorted(depth_counts.items())))
+
+          prefix_counts = Counter()
+          for i in infos:
+              parts = PurePosixPath(i.filename).parts
+              prefix_counts["/".join(parts[: min(4, len(parts)-1)])] += 1
+
+          print("top_prefixes:")
+          for key, count in prefix_counts.most_common(30):
+              print(f"  {count:6d}  {key}")
+
+          print("first_paths:")
+          for i in infos[:30]:
+              print(f"  {i.filename}")
+          print("last_paths:")
+          for i in infos[-30:]:
+              print(f"  {i.filename}")
+          PY
