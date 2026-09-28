@@ -173,3 +173,102 @@ def validate_stage1_payload(payload: dict[str, Any]) -> None:
         )
         if int(trial["parameter_count"]) != expected_parameters:
             raise ValueError("Parameter count does not match architecture")
+
+
+
+def derive_stage2_search_space(top8_records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Derive the locked Stage-2 envelope from exactly eight successful Stage-1 records."""
+    if len(top8_records) != 8:
+        raise ValueError("Stage 2 requires exactly eight Stage-1 records")
+    if any(record.get("status") != "success" for record in top8_records):
+        raise ValueError("Stage-2 envelope can use successful Stage-1 records only")
+
+    configs = [record["config"] for record in top8_records]
+    optimizers = [name for name in OPTIMIZERS if any(cfg["optimizer"] == name for cfg in configs)]
+    if not optimizers:
+        raise ValueError("No optimizer survived into the top eight")
+
+    def linear_bounds(key: str, original_min: float, original_max: float) -> tuple[float, float]:
+        values = [float(cfg[key]) for cfg in configs]
+        expansion = 0.10 * (original_max - original_min)
+        lower = max(original_min, min(values) - expansion)
+        upper = min(original_max, max(values) + expansion)
+        return lower, upper
+
+    def integer_bounds(key: str, original_min: int, original_max: int) -> tuple[int, int]:
+        lower, upper = linear_bounds(key, float(original_min), float(original_max))
+        return max(original_min, int(np.floor(lower))), min(original_max, int(np.ceil(upper)))
+
+    def log_bounds(
+        key: str,
+        original_min: float,
+        original_max: float,
+        *,
+        positive_only: bool = False,
+    ) -> tuple[float, float] | None:
+        values = [float(cfg[key]) for cfg in configs]
+        if positive_only:
+            values = [value for value in values if value > 0.0]
+            if not values:
+                return None
+        log_original_min = np.log10(original_min)
+        log_original_max = np.log10(original_max)
+        expansion = 0.10 * (log_original_max - log_original_min)
+        logged = [np.log10(value) for value in values]
+        lower = max(log_original_min, min(logged) - expansion)
+        upper = min(log_original_max, max(logged) + expansion)
+        return float(10.0**lower), float(10.0**upper)
+
+    learning_rate = log_bounds("learning_rate", 1e-5, 1e-2)
+    assert learning_rate is not None
+    positive_weight_decay = log_bounds(
+        "weight_decay", 1e-6, 1e-2, positive_only=True
+    )
+    weight_decay_zero = any(float(cfg["weight_decay"]) == 0.0 for cfg in configs)
+    batch_min, batch_max = integer_bounds("batch_size", 8, 256)
+    depth_min, depth_max = integer_bounds("depth", 1, 7)
+    filters_min, filters_max = integer_bounds("start_filters", 8, 64)
+    dropout_min, dropout_max = linear_bounds("dropout", 0.0, 0.5)
+
+    weight_decay: dict[str, Any] = {
+        "zero_retained": weight_decay_zero,
+        "positive_retained": positive_weight_decay is not None,
+    }
+    if positive_weight_decay is not None:
+        weight_decay.update(
+            {
+                "positive_distribution": "log_uniform",
+                "positive_min": positive_weight_decay[0],
+                "positive_max": positive_weight_decay[1],
+            }
+        )
+
+    return {
+        "optimizer": optimizers,
+        "learning_rate": {
+            "distribution": "log_uniform",
+            "min": learning_rate[0],
+            "max": learning_rate[1],
+        },
+        "batch_size": {
+            "distribution": "integer_uniform",
+            "min": batch_min,
+            "max": batch_max,
+        },
+        "weight_decay": weight_decay,
+        "dropout": {
+            "distribution": "uniform",
+            "min": dropout_min,
+            "max": dropout_max,
+        },
+        "depth": {
+            "distribution": "integer_uniform",
+            "min": depth_min,
+            "max": depth_max,
+        },
+        "start_filters": {
+            "distribution": "integer_uniform",
+            "min": filters_min,
+            "max": filters_max,
+        },
+    }
