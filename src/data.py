@@ -525,3 +525,60 @@ class MonReaderDirectoryDataset:
             "video_id": row["video_id"],
             "frame_number": int(row["frame_number"]),
         }
+
+
+
+class MonReaderMemmapDataset:
+    """Read preprocessed uint8 tensors from an exact NumPy memmap cache."""
+
+    def __init__(self, cache_data, cache_index, rows):
+        from pathlib import Path
+
+        self.cache_data = str(Path(cache_data))
+        self.cache_index = str(Path(cache_index))
+        self.rows = list(rows)
+        self._array = None
+        if not self.rows:
+            raise ValueError("Dataset rows are empty")
+        with Path(self.cache_index).open("r", newline="", encoding="utf-8") as handle:
+            index_rows = list(csv.DictReader(handle))
+        self._sample_to_index = {row["sample_id"]: int(row["cache_index"]) for row in index_rows}
+        if len(self._sample_to_index) != len(index_rows):
+            raise ValueError("Cache index contains duplicate sample IDs")
+        missing = [row["sample_id"] for row in self.rows if row["sample_id"] not in self._sample_to_index]
+        if missing:
+            raise ValueError(f"Cache is missing dataset samples: {missing[:5]}")
+
+    def __len__(self):
+        return len(self.rows)
+
+    def __getstate__(self):
+        state = self.__dict__.copy()
+        state["_array"] = None
+        return state
+
+    def _memmap(self):
+        if self._array is None:
+            self._array = np.load(self.cache_data, mmap_mode="r")
+            if self._array.ndim != 4 or self._array.shape[1:] != (3, 398, 224):
+                raise ValueError(f"Unexpected cache shape: {self._array.shape}")
+            if self._array.dtype != np.uint8:
+                raise ValueError(f"Unexpected cache dtype: {self._array.dtype}")
+        return self._array
+
+    def __getitem__(self, index):
+        import torch
+
+        from src.evaluation import label_to_int
+
+        row = self.rows[index]
+        cache_index = self._sample_to_index[row["sample_id"]]
+        array = np.array(self._memmap()[cache_index], copy=True)
+        tensor = torch.from_numpy(array).to(dtype=torch.float32) / 255.0
+        return {
+            "image": tensor,
+            "label": torch.tensor(float(label_to_int(row["label"])), dtype=torch.float32),
+            "sample_id": row["sample_id"],
+            "video_id": row["video_id"],
+            "frame_number": int(row["frame_number"]),
+        }
