@@ -14,7 +14,11 @@ Five public-facing regimes are frozen before modeling expands: **Original**, **R
 
 Temporal ordering is defined by ascending `FrameNumber`. The primary Temporal-Ordered analysis uses only videos with at least 20 frames and assigns earliest 80% to training, middle 10% to validation, and latest 10% to testing. Source-Safe + Temporal uses a complete held-out environment/session for final testing and chronological fitting/validation inside the remaining eligible videos.
 
-See `notebooks/01_data_audit.ipynb` for the data audit and `notebooks/02_split_design.ipynb` for split construction and leakage checks.
+See `notebooks/01_data_audit.ipynb` for the data audit, `notebooks/02_split_design.ipynb` for split construction and leakage checks, and `notebooks/03_baselines.ipynb` for the reproducible majority and handcrafted-logistic baseline stage.
+
+## Baseline reference
+
+Before CNN tuning, the project establishes two simple references on the supplied Original benchmark: a majority-class classifier and an L2-regularized logistic regression over nested handcrafted visual-feature sets. The saved prediction files reproduce the reported metric bundles at the fixed 0.5 threshold; detailed selection results and coefficients are kept in the baseline notebook and generated artifacts.
 
 ## Workflow
 
