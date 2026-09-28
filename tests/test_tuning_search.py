@@ -8,6 +8,7 @@ from pathlib import Path
 from src.tuning import (
     derive_stage2_search_space,
     generate_stage1_random_trials,
+    propose_stage2_bayesian_trial,
     scratch_parameter_count,
     stage1_payload,
     validate_stage1_payload,
@@ -118,3 +119,57 @@ def test_stage2_can_retain_only_zero_weight_decay() -> None:
         "zero_retained": True,
         "positive_retained": False,
     }
+
+
+
+def test_stage2_bayesian_proposal_is_deterministic_and_unseen() -> None:
+    records = [
+        _success_record(
+            optimizer="adam" if index < 4 else "sgd",
+            learning_rate=10.0 ** (-4.0 + 0.1 * index),
+            batch_size=50 + index,
+            weight_decay=0.0 if index == 0 else 10.0 ** (-5.0 + 0.1 * index),
+            dropout=0.20 + 0.01 * index,
+            depth=3 + (index % 2),
+            start_filters=20 + index,
+        )
+        | {
+            "trial_id": f"stage1-{index + 1:03d}",
+            "best_validation_f1": 0.70 + index * 0.01,
+        }
+        for index in range(8)
+    ]
+    space = derive_stage2_search_space(records)
+    first = propose_stage2_bayesian_trial(
+        space, records, iteration=1, candidate_count=256
+    )
+    second = propose_stage2_bayesian_trial(
+        space, records, iteration=1, candidate_count=256
+    )
+    assert first == second
+    assert first["trial_id"] == "stage2-001"
+    assert first["optimizer"] in space["optimizer"]
+    assert not any(
+        (
+            first["optimizer"],
+            first["learning_rate"],
+            first["batch_size"],
+            first["weight_decay"],
+            first["dropout"],
+            first["depth"],
+            first["start_filters"],
+        )
+        == (
+            record["config"]["optimizer"],
+            record["config"]["learning_rate"],
+            record["config"]["batch_size"],
+            record["config"]["weight_decay"],
+            record["config"]["dropout"],
+            record["config"]["depth"],
+            record["config"]["start_filters"],
+        )
+        for record in records
+    )
+    assert first["parameter_count"] == scratch_parameter_count(
+        first["depth"], first["start_filters"]
+    )

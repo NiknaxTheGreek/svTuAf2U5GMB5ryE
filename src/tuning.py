@@ -272,3 +272,255 @@ def derive_stage2_search_space(top8_records: list[dict[str, Any]]) -> dict[str, 
             "max": filters_max,
         },
     }
+
+
+
+def _sample_stage2_candidates(
+    search_space: dict[str, Any],
+    *,
+    seed: int,
+    count: int,
+) -> list[dict[str, Any]]:
+    if count < 1:
+        raise ValueError("candidate count must be positive")
+    rng = np.random.default_rng(seed)
+    candidates: list[dict[str, Any]] = []
+    optimizers = list(search_space["optimizer"])
+    if not optimizers:
+        raise ValueError("Stage-2 optimizer set is empty")
+    wd = search_space["weight_decay"]
+    for _ in range(count):
+        if wd["zero_retained"] and wd["positive_retained"]:
+            use_zero = bool(rng.integers(0, 2))
+        else:
+            use_zero = bool(wd["zero_retained"])
+        if use_zero:
+            weight_decay = 0.0
+        else:
+            weight_decay = float(
+                10.0
+                ** rng.uniform(
+                    np.log10(float(wd["positive_min"])),
+                    np.log10(float(wd["positive_max"])),
+                )
+            )
+        candidate = {
+            "optimizer": str(rng.choice(optimizers)),
+            "learning_rate": float(
+                10.0
+                ** rng.uniform(
+                    np.log10(float(search_space["learning_rate"]["min"])),
+                    np.log10(float(search_space["learning_rate"]["max"])),
+                )
+            ),
+            "batch_size": int(
+                rng.integers(
+                    int(search_space["batch_size"]["min"]),
+                    int(search_space["batch_size"]["max"]) + 1,
+                )
+            ),
+            "weight_decay": weight_decay,
+            "dropout": float(
+                rng.uniform(
+                    float(search_space["dropout"]["min"]),
+                    float(search_space["dropout"]["max"]),
+                )
+            ),
+            "depth": int(
+                rng.integers(
+                    int(search_space["depth"]["min"]),
+                    int(search_space["depth"]["max"]) + 1,
+                )
+            ),
+            "start_filters": int(
+                rng.integers(
+                    int(search_space["start_filters"]["min"]),
+                    int(search_space["start_filters"]["max"]) + 1,
+                )
+            ),
+        }
+        candidates.append(candidate)
+    return candidates
+
+
+def _stage2_feature_vector(
+    config: dict[str, Any],
+    search_space: dict[str, Any],
+) -> np.ndarray:
+    optimizers = list(search_space["optimizer"])
+    vector: list[float] = [
+        1.0 if config["optimizer"] == optimizer else 0.0
+        for optimizer in optimizers
+    ]
+
+    def scaled(value: float, lower: float, upper: float) -> float:
+        if upper <= lower:
+            return 0.0
+        return (value - lower) / (upper - lower)
+
+    lr_min = np.log10(float(search_space["learning_rate"]["min"]))
+    lr_max = np.log10(float(search_space["learning_rate"]["max"]))
+    vector.append(
+        scaled(np.log10(float(config["learning_rate"])), lr_min, lr_max)
+    )
+    vector.append(
+        scaled(
+            float(config["batch_size"]),
+            float(search_space["batch_size"]["min"]),
+            float(search_space["batch_size"]["max"]),
+        )
+    )
+
+    wd = search_space["weight_decay"]
+    is_zero = float(float(config["weight_decay"]) == 0.0)
+    vector.append(is_zero)
+    if wd["positive_retained"]:
+        wd_min = np.log10(float(wd["positive_min"]))
+        wd_max = np.log10(float(wd["positive_max"]))
+        wd_value = (
+            wd_min
+            if is_zero
+            else np.log10(float(config["weight_decay"]))
+        )
+        vector.append(scaled(wd_value, wd_min, wd_max))
+
+    vector.append(
+        scaled(
+            float(config["dropout"]),
+            float(search_space["dropout"]["min"]),
+            float(search_space["dropout"]["max"]),
+        )
+    )
+    vector.append(
+        scaled(
+            float(config["depth"]),
+            float(search_space["depth"]["min"]),
+            float(search_space["depth"]["max"]),
+        )
+    )
+    vector.append(
+        scaled(
+            float(config["start_filters"]),
+            float(search_space["start_filters"]["min"]),
+            float(search_space["start_filters"]["max"]),
+        )
+    )
+    return np.asarray(vector, dtype=np.float64)
+
+
+def _config_signature(config: dict[str, Any]) -> tuple[Any, ...]:
+    return (
+        str(config["optimizer"]),
+        float(config["learning_rate"]),
+        int(config["batch_size"]),
+        float(config["weight_decay"]),
+        float(config["dropout"]),
+        int(config["depth"]),
+        int(config["start_filters"]),
+    )
+
+
+def propose_stage2_bayesian_trial(
+    search_space: dict[str, Any],
+    observations: list[dict[str, Any]],
+    *,
+    iteration: int,
+    seed: int = 42,
+    candidate_count: int = 4096,
+) -> dict[str, Any]:
+    """Propose one deterministic Bayesian-optimization candidate using GP expected improvement."""
+    if iteration < 1:
+        raise ValueError("iteration must be positive")
+    successful = [
+        record
+        for record in observations
+        if record.get("status") == "success"
+        and np.isfinite(float(record["best_validation_f1"]))
+    ]
+    if len(successful) < 2:
+        raise ValueError("Bayesian proposal requires at least two successful observations")
+
+    from math import erf, exp, pi, sqrt
+
+    from sklearn.gaussian_process import GaussianProcessRegressor
+    from sklearn.gaussian_process.kernels import ConstantKernel, Matern, WhiteKernel
+
+    x_train = np.vstack(
+        [
+            _stage2_feature_vector(record["config"], search_space)
+            for record in successful
+        ]
+    )
+    y_train = np.asarray(
+        [float(record["best_validation_f1"]) for record in successful],
+        dtype=np.float64,
+    )
+    seen = {_config_signature(record["config"]) for record in observations}
+
+    candidates = _sample_stage2_candidates(
+        search_space,
+        seed=seed + iteration * 1009,
+        count=candidate_count,
+    )
+    unique: list[dict[str, Any]] = []
+    unique_signatures: set[tuple[Any, ...]] = set()
+    for candidate in candidates:
+        signature = _config_signature(candidate)
+        if signature in seen or signature in unique_signatures:
+            continue
+        unique_signatures.add(signature)
+        unique.append(candidate)
+    if not unique:
+        raise RuntimeError("Bayesian candidate pool contains no unseen configurations")
+
+    x_candidates = np.vstack(
+        [_stage2_feature_vector(candidate, search_space) for candidate in unique]
+    )
+    dimension = x_train.shape[1]
+    kernel = ConstantKernel(1.0, (1e-3, 1e3)) * Matern(
+        length_scale=np.ones(dimension),
+        length_scale_bounds=(1e-2, 1e2),
+        nu=2.5,
+    ) + WhiteKernel(noise_level=1e-6, noise_level_bounds=(1e-10, 1e-2))
+    model = GaussianProcessRegressor(
+        kernel=kernel,
+        alpha=1e-8,
+        normalize_y=True,
+        random_state=seed,
+        n_restarts_optimizer=2,
+    )
+    model.fit(x_train, y_train)
+    mean, std = model.predict(x_candidates, return_std=True)
+    best = float(np.max(y_train))
+    improvement = mean - best
+    z = np.divide(
+        improvement,
+        std,
+        out=np.zeros_like(improvement),
+        where=std > 0,
+    )
+    cdf = np.asarray(
+        [0.5 * (1.0 + erf(float(value) / sqrt(2.0))) for value in z],
+        dtype=np.float64,
+    )
+    pdf = np.asarray(
+        [exp(-0.5 * float(value) ** 2) / sqrt(2.0 * pi) for value in z],
+        dtype=np.float64,
+    )
+    expected_improvement = improvement * cdf + std * pdf
+    expected_improvement[std <= 0] = 0.0
+    best_index = int(np.argmax(expected_improvement))
+    proposal = dict(unique[best_index])
+    proposal.update(
+        {
+            "trial_id": f"stage2-{iteration:03d}",
+            "seed": seed,
+            "parameter_count": scratch_parameter_count(
+                int(proposal["depth"]),
+                int(proposal["start_filters"]),
+            ),
+            "acquisition": "expected_improvement",
+            "candidate_pool_size": candidate_count,
+        }
+    )
+    return proposal
