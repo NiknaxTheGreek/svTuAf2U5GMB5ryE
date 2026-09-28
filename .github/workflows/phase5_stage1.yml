@@ -58,7 +58,7 @@ jobs:
           retention-days: 1
 
   collect:
-    if: always()
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Execute frozen Stage 1 scratch search'
     needs: stage1
     runs-on: ubuntu-latest
     steps:
