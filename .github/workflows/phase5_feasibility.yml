@@ -1,0 +1,90 @@
+name: Phase 5 feasibility gate
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+permissions:
+  contents: write
+
+jobs:
+  feasibility:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install feasibility dependencies
+        run: python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1 torch==2.10.0 torchvision==0.25.0
+      - name: Freeze development memberships
+        run: python -m scripts.build_scratch_development_splits
+      - name: Validate development memberships
+        run: |
+          python - <<'PY'
+          import csv
+          from collections import defaultdict
+
+          tuning = list(csv.DictReader(open("manifests/splits/SPLIT-007_original_tuning.csv", newline="", encoding="utf-8")))
+          gate = list(csv.DictReader(open("manifests/splits/SPLIT-008_original_source_gate.csv", newline="", encoding="utf-8")))
+
+          assert len(tuning) == 2392
+          assert sum(row["partition"] == "fit" for row in tuning) == 2152
+          assert sum(row["partition"] == "validation" for row in tuning) == 240
+          assert len(gate) == 2392
+
+          by_video = defaultdict(set)
+          for row in gate:
+              by_video[row["video_id"]].add(row["partition"])
+          assert all(len(partitions) == 1 for partitions in by_video.values())
+          assert {row["partition"] for row in gate} == {"fit", "validation"}
+          print("DEVELOPMENT_SPLITS=PASS")
+          PY
+      - name: Download authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n'             "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"             "/tmp/images.zip" | sha256sum --check
+      - name: Run one full-population CPU feasibility epoch
+        run: |
+          python -m scripts.run_scratch_feasibility             --archive /tmp/images.zip             --output-root /tmp/feasibility
+      - name: Inspect feasibility result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("/tmp/feasibility/feasibility_summary.json").read_text())
+          assert payload["status"] == "pass"
+          assert payload["scientific_result"] is False
+          assert payload["fit_count"] == 2152
+          assert payload["validation_count"] == 240
+          assert payload["best_epoch"] == 1
+          assert payload["validation_metrics"]["n"] == 240
+          print(json.dumps({
+              "parameter_count": payload["parameter_count"],
+              "validation_f1": payload["validation_metrics"]["f1"],
+              "loss": payload["validation_metrics"]["loss"],
+              "checkpoint_sha256": payload["checkpoint_sha256"],
+          }, sort_keys=True))
+          print("SCRATCH_FEASIBILITY=PASS")
+          PY
+      - name: Upload private feasibility artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-scratch-feasibility
+          path: /tmp/feasibility
+          if-no-files-found: error
+          retention-days: 1
+      - name: Freeze development memberships only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifests/splits/SPLIT-007_original_tuning.csv manifests/splits/SPLIT-008_original_source_gate.csv
+          if git diff --cached --quiet; then
+            echo "Memberships already frozen."
+          else
+            git commit -m "Freeze Phase 5 development memberships [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
