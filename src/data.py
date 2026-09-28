@@ -408,3 +408,83 @@ def build_dataset_artifacts(
         "summary": summary,
         "representative_sample_count": len(selected),
     }
+
+
+
+class MonReaderZipDataset:
+    """Lazy ZIP-backed PyTorch dataset for registered MonReader samples."""
+
+    def __init__(self, archive_path, rows, transform):
+        from pathlib import Path
+
+        self.archive_path = str(Path(archive_path))
+        self.rows = list(rows)
+        self.transform = transform
+        self._archive = None
+        if not self.rows:
+            raise ValueError("Dataset rows are empty")
+
+    def __len__(self):
+        return len(self.rows)
+
+    def __getstate__(self):
+        state = self.__dict__.copy()
+        state["_archive"] = None
+        return state
+
+    def _zip(self):
+        from zipfile import ZipFile
+
+        if self._archive is None:
+            self._archive = ZipFile(self.archive_path)
+        return self._archive
+
+    def __getitem__(self, index):
+        from io import BytesIO
+
+        import torch
+        from PIL import Image
+
+        from src.evaluation import label_to_int
+
+        row = self.rows[index]
+        encoded = self._zip().read(row["archive_member"])
+        with Image.open(BytesIO(encoded)) as image:
+            tensor = self.transform(image.convert("RGB"))
+        return {
+            "image": tensor,
+            "label": torch.tensor(float(label_to_int(row["label"])), dtype=torch.float32),
+            "sample_id": row["sample_id"],
+            "video_id": row["video_id"],
+            "frame_number": int(row["frame_number"]),
+        }
+
+
+def join_manifest_with_membership(
+    manifest_path: str | Path,
+    membership_path: str | Path,
+    *,
+    allowed_partitions: set[str] | None = None,
+) -> list[dict[str, str]]:
+    manifest = load_manifest(manifest_path)
+    with Path(membership_path).open("r", newline="", encoding="utf-8") as handle:
+        membership = list(csv.DictReader(handle))
+    manifest_by_id = {row["sample_id"]: row for row in manifest}
+    if len(manifest_by_id) != len(manifest):
+        raise ValueError("Manifest sample IDs are not unique")
+    result: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for member in membership:
+        sample_id = member["sample_id"]
+        if sample_id in seen:
+            raise ValueError(f"Duplicate membership sample: {sample_id}")
+        seen.add(sample_id)
+        if sample_id not in manifest_by_id:
+            raise ValueError(f"Membership sample is absent from dataset manifest: {sample_id}")
+        partition = member["partition"]
+        if allowed_partitions is not None and partition not in allowed_partitions:
+            continue
+        row = dict(manifest_by_id[sample_id])
+        row["partition"] = partition
+        result.append(row)
+    return result
