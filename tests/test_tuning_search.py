@@ -9,6 +9,8 @@ from src.tuning import (
     derive_stage2_search_space,
     generate_stage1_random_trials,
     propose_stage2_bayesian_trial,
+    select_top_combined_candidates,
+    assess_three_seed_stability,
     scratch_parameter_count,
     stage1_payload,
     validate_stage1_payload,
@@ -173,3 +175,65 @@ def test_stage2_bayesian_proposal_is_deterministic_and_unseen() -> None:
     assert first["parameter_count"] == scratch_parameter_count(
         first["depth"], first["start_filters"]
     )
+
+
+
+def test_combined_top_five_uses_validation_f1_then_trial_id() -> None:
+    stage1 = [
+        {
+            "trial_id": "stage1-001",
+            "status": "success",
+            "best_validation_f1": 0.80,
+        },
+        {
+            "trial_id": "stage1-002",
+            "status": "failed",
+            "best_validation_f1": 0.99,
+        },
+        {
+            "trial_id": "stage1-003",
+            "status": "success",
+            "best_validation_f1": 0.85,
+        },
+    ]
+    stage2 = [
+        {
+            "trial_id": f"stage2-{index:03d}",
+            "status": "success",
+            "best_validation_f1": value,
+        }
+        for index, value in enumerate(
+            [0.90, 0.88, 0.85, 0.83, 0.81], start=1
+        )
+    ]
+    top = select_top_combined_candidates(stage1, stage2, count=5)
+    assert [record["trial_id"] for record in top] == [
+        "stage2-001",
+        "stage2-002",
+        "stage1-003",
+        "stage2-003",
+        "stage2-004",
+    ]
+
+
+def test_three_seed_stability_gate_passes_locked_rule() -> None:
+    records = [
+        {"seed": 1, "status": "success", "validation_f1": 0.90},
+        {"seed": 2, "status": "success", "validation_f1": 0.89},
+        {"seed": 3, "status": "success", "validation_f1": 0.885},
+    ]
+    result = assess_three_seed_stability(records)
+    assert result["passed"] is True
+    assert result["std_f1"] <= 0.02
+    assert result["max_distance_from_best"] <= 0.02
+
+
+def test_three_seed_stability_gate_fails_distance_rule() -> None:
+    records = [
+        {"seed": 1, "status": "success", "validation_f1": 0.90},
+        {"seed": 2, "status": "success", "validation_f1": 0.89},
+        {"seed": 3, "status": "success", "validation_f1": 0.875},
+    ]
+    result = assess_three_seed_stability(records)
+    assert result["passed"] is False
+    assert result["max_distance_from_best"] > 0.02

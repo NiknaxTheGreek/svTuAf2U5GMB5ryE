@@ -524,3 +524,70 @@ def propose_stage2_bayesian_trial(
         }
     )
     return proposal
+
+
+
+def select_top_combined_candidates(
+    stage1_records: list[dict[str, Any]],
+    stage2_records: list[dict[str, Any]],
+    *,
+    count: int = 5,
+) -> list[dict[str, Any]]:
+    if count < 1:
+        raise ValueError("count must be positive")
+    successes = [
+        record
+        for record in [*stage1_records, *stage2_records]
+        if record.get("status") == "success"
+        and np.isfinite(float(record["best_validation_f1"]))
+    ]
+    if len(successes) < count:
+        raise ValueError(
+            f"Need at least {count} successful combined candidates; found {len(successes)}"
+        )
+    ranked = sorted(
+        successes,
+        key=lambda record: (
+            -float(record["best_validation_f1"]),
+            str(record["trial_id"]),
+        ),
+    )
+    return ranked[:count]
+
+
+def assess_three_seed_stability(
+    seed_records: list[dict[str, Any]],
+    *,
+    std_limit: float = 0.02,
+    distance_limit: float = 0.02,
+) -> dict[str, Any]:
+    if len(seed_records) != 3:
+        raise ValueError("Stability assessment requires exactly three seed records")
+    if any(record.get("status") != "success" for record in seed_records):
+        raise ValueError("All three stability runs must be successful")
+    seeds = [int(record["seed"]) for record in seed_records]
+    if len(set(seeds)) != 3:
+        raise ValueError("Stability assessment requires three distinct seeds")
+    f1_values = np.asarray(
+        [float(record["validation_f1"]) for record in seed_records],
+        dtype=np.float64,
+    )
+    if not np.isfinite(f1_values).all():
+        raise ValueError("Stability F1 values must be finite")
+    best_f1 = float(np.max(f1_values))
+    std_f1 = float(np.std(f1_values, ddof=0))
+    distances = [float(best_f1 - value) for value in f1_values]
+    passed = std_f1 <= std_limit and all(
+        distance <= distance_limit for distance in distances
+    )
+    return {
+        "passed": passed,
+        "seed_count": 3,
+        "seeds": seeds,
+        "f1_values": [float(value) for value in f1_values],
+        "best_f1": best_f1,
+        "std_f1": std_f1,
+        "max_distance_from_best": max(distances),
+        "std_limit": std_limit,
+        "distance_limit": distance_limit,
+    }
