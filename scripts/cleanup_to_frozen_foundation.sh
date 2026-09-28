@@ -15,7 +15,7 @@ KEEP_PATHS=(
   ".gitignore"
   "requirements.txt"
   "requirements-torch-cpu.txt"
-  ".github/workflows/backup_before_cleanup.yml"
+  ".github"
   "audit/audit_summary.json"
   "audit/source_group_summary.json"
   "raw_audit/archive_metadata.json"
@@ -440,28 +440,6 @@ for forbidden in [
 
 print("PASS: frozen MonReader D1-D4 foundation verified")
 PY
-
-cat > .github/workflows/foundation-check.yml <<'EOF'
-name: Verify frozen MonReader foundation
-
-on:
-  push:
-    branches: [raw-eda-scratch]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
-jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Verify frozen foundation
-        run: python scripts/verify_frozen_foundation.py
-      - name: Compile retained Python
-        run: python -m compileall -q scripts
-EOF
 
 python scripts/verify_frozen_foundation.py
 python -m compileall -q scripts
