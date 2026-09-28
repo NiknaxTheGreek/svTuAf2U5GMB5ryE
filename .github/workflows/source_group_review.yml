@@ -1,0 +1,131 @@
+name: Build private source-group review
+
+on:
+  push:
+    branches: ["phase/03-splits"]
+
+jobs:
+  source-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install review dependency
+        run: python -m pip install Pillow==12.3.0
+      - name: Download authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t" \
+            --output /tmp/images.zip
+          printf '%s  %s\n'             "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"             "/tmp/images.zip" | sha256sum --check
+      - name: Build visual review package
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+
+          import csv
+          import math
+          import re
+          from collections import defaultdict
+          from io import BytesIO
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          from PIL import Image, ImageDraw, ImageFont, ImageStat
+
+          archive_path = Path("/tmp/images.zip")
+          out = Path("/tmp/source-review")
+          sheets = out / "contact_sheets"
+          frames_dir = out / "representative_frames"
+          sheets.mkdir(parents=True, exist_ok=True)
+          frames_dir.mkdir(parents=True, exist_ok=True)
+
+          pat = re.compile(r"^images/(training|testing)/(flip|notflip)/(\d{4})_(\d{9})\.jpg$")
+          groups = defaultdict(list)
+
+          with ZipFile(archive_path) as zf:
+              for info in zf.infolist():
+                  if info.is_dir():
+                      continue
+                  m = pat.fullmatch(info.filename)
+                  if not m:
+                      raise RuntimeError(f"unexpected member: {info.filename}")
+                  split, label, raw, frame = m.groups()
+                  video_id = f"{label}/{raw}"
+                  groups[video_id].append((int(frame), split, info.filename))
+
+              records = []
+              representative = {}
+              for video_id in sorted(groups):
+                  items = sorted(groups[video_id])
+                  idxs = sorted(set([0, len(items)//2, len(items)-1]))
+                  chosen = [items[i] for i in idxs]
+                  thumbs = []
+                  means = []
+                  for pos,(frame,split,member) in enumerate(chosen):
+                      data = zf.read(member)
+                      with Image.open(BytesIO(data)) as im:
+                          rgb = im.convert("RGB")
+                          means.append(ImageStat.Stat(rgb.resize((64,64))).mean)
+                          thumb = rgb.copy()
+                          thumb.thumbnail((180,320))
+                          thumbs.append((frame,split,member,thumb))
+                          fname = f"{video_id.replace('/','_')}_{pos}_{frame:09d}.jpg"
+                          rgb.save(frames_dir / fname, format="JPEG", quality=85)
+                  representative[video_id] = thumbs
+                  avg = [sum(x[i] for x in means)/len(means) for i in range(3)]
+                  records.append({
+                      "video_id": video_id,
+                      "label": video_id.split("/")[0],
+                      "raw_video_id": video_id.split("/")[1],
+                      "frame_count": len(items),
+                      "min_frame": items[0][0],
+                      "max_frame": items[-1][0],
+                      "supplied_splits": "|".join(sorted({x[1] for x in items})),
+                      "representative_members": "|".join(x[2] for x in chosen),
+                      "mean_r": f"{avg[0]:.2f}",
+                      "mean_g": f"{avg[1]:.2f}",
+                      "mean_b": f"{avg[2]:.2f}",
+                  })
+
+          with (out / "video_review.csv").open("w", newline="", encoding="utf-8") as f:
+              writer = csv.DictWriter(f, fieldnames=list(records[0]))
+              writer.writeheader()
+              writer.writerows(records)
+
+          font = ImageFont.load_default()
+          rows_per_sheet = 8
+          row_h = 370
+          label_w = 170
+          thumb_w = 190
+          sheet_w = label_w + 3 * thumb_w
+          for page_start in range(0, len(records), rows_per_sheet):
+              page_records = records[page_start:page_start+rows_per_sheet]
+              canvas = Image.new("RGB", (sheet_w, row_h * len(page_records)), "white")
+              draw = ImageDraw.Draw(canvas)
+              for row_idx, rec in enumerate(page_records):
+                  y = row_idx * row_h
+                  vid = rec["video_id"]
+                  draw.text((8,y+8), f"{vid}\nn={rec['frame_count']}\n{rec['supplied_splits']}", fill="black", font=font)
+                  for col,(frame,split,member,thumb) in enumerate(representative[vid]):
+                      x = label_w + col * thumb_w
+                      canvas.paste(thumb, (x, y+5))
+                      draw.text((x,y+328), f"F{frame} | {split}", fill="black", font=font)
+                  draw.line((0,y+row_h-1,sheet_w,y+row_h-1), fill="gray", width=1)
+              page_no = page_start // rows_per_sheet + 1
+              canvas.save(sheets / f"source_review_{page_no:02d}.jpg", quality=88)
+
+          print(f"videos={len(records)}")
+          print(f"contact_sheets={math.ceil(len(records)/rows_per_sheet)}")
+          PY
+      - name: Upload private review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-source-group-review
+          path: /tmp/source-review
+          if-no-files-found: error
+          retention-days: 1
