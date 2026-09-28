@@ -19,7 +19,7 @@ def _config(trial_id: str = "stage2-001") -> dict[str, object]:
         "depth": 2,
         "start_filters": 16,
         "seed": 42,
-        "parameter_count": 5073,
+        "parameter_count": 5169,
     }
 
 
@@ -136,3 +136,81 @@ def test_stability_script_enforces_locked_gate(tmp_path: Path) -> None:
     assert completed.returncode == 0, completed.stderr
     payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["assessment"]["passed"] is True
+
+
+
+def test_generic_config_rejects_wrong_parameter_count(tmp_path: Path) -> None:
+    config = _config()
+    config["parameter_count"] = 1
+    path = tmp_path / "bad.json"
+    path.write_text(json.dumps(config), encoding="utf-8")
+    import pytest
+    with pytest.raises(ValueError, match="Parameter-count mismatch"):
+        load_frozen_config(path)
+
+
+def test_source_gate_and_stability_config_builders(tmp_path: Path) -> None:
+    candidates = []
+    for index in range(1, 6):
+        candidates.append(
+            {
+                "trial_id": f"stage1-{index:03d}",
+                "best_validation_f1": 0.9 - index * 0.01,
+                "config": _config(f"stage1-{index:03d}"),
+            }
+        )
+    top5 = tmp_path / "top5.json"
+    top5.write_text(json.dumps({"candidates": candidates}), encoding="utf-8")
+    gate_dir = tmp_path / "gate-configs"
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "scripts.build_source_gate_configs",
+            "--top5",
+            str(top5),
+            "--output-dir",
+            str(gate_dir),
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    configs = sorted(gate_dir.glob("source-gate-*.json"))
+    assert len(configs) == 5
+    first = json.loads(configs[0].read_text(encoding="utf-8"))
+    assert first["source_candidate_id"] == "stage1-001"
+    assert first["seed"] == 42
+
+    canonical = tmp_path / "canonical.json"
+    canonical.write_text(
+        json.dumps(
+            {
+                "source_candidate_id": "stage1-001",
+                "config": _config("stage1-001"),
+            }
+        ),
+        encoding="utf-8",
+    )
+    stability_dir = tmp_path / "stability-configs"
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "scripts.build_stability_configs",
+            "--canonical",
+            str(canonical),
+            "--output-dir",
+            str(stability_dir),
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    protocol = json.loads(
+        (stability_dir / "stability_protocol.json").read_text(encoding="utf-8")
+    )
+    assert protocol["seeds"] == [42, 43, 44]
+    assert len(list(stability_dir.glob("stability-seed-*.json"))) == 3

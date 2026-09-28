@@ -11,6 +11,7 @@ from torch.utils.data import DataLoader
 
 from src.data import MonReaderDirectoryDataset, join_manifest_with_membership
 from src.models import ScratchCNN, ScratchCNNConfig, count_trainable_parameters
+from src.tuning import scratch_parameter_count
 from src.preprocessing import build_base_transform
 from src.training import build_optimizer, evaluate_binary_model, run_binary_training
 from src.utils import make_torch_generator, seed_dataloader_worker, seed_everything
@@ -50,6 +51,14 @@ def load_frozen_config(path: Path) -> dict[str, object]:
         start_filters=int(payload["start_filters"]),
         dropout=float(payload["dropout"]),
     )
+    expected_parameters = scratch_parameter_count(
+        int(payload["depth"]), int(payload["start_filters"])
+    )
+    if "parameter_count" in payload and int(payload["parameter_count"]) != expected_parameters:
+        raise ValueError(
+            f"Parameter-count mismatch in frozen config: {payload['parameter_count']} != {expected_parameters}"
+        )
+    payload["parameter_count"] = expected_parameters
     return payload
 
 
@@ -86,6 +95,8 @@ def main() -> int:
         "membership": args.membership.as_posix(),
         "device": "cpu",
     }
+    if "source_candidate_id" in config:
+        result["source_candidate_id"] = str(config["source_candidate_id"])
     try:
         seed = int(config["seed"])
         seed_everything(seed)
