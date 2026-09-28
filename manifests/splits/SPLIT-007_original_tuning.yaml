@@ -1,0 +1,27 @@
+split_id: SPLIT-007
+name: Original Tuning
+dataset_id: DATA-001
+status: canonical
+population: supplied training partition only; supplied testing remains excluded
+manifest:
+  path: manifests/splits/SPLIT-007_original_tuning.csv
+  sha256: 57da2f27bf0e269de281e3c766086c871d93797746b1ae2ee8a01dda303220f9
+  row_count: 2392
+partition_counts:
+  fit: 2152
+  validation: 240
+partition_label_counts:
+  fit:
+    flip: 1045
+    notflip: 1107
+  validation:
+    flip: 117
+    notflip: 123
+partition_video_counts:
+  fit: 117
+  validation: 100
+rule:
+  type: frame_stratified
+  fit_fraction: 0.9
+  validation_fraction: 0.1
+  seed: 42

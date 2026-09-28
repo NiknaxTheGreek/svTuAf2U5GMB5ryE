@@ -1,0 +1,27 @@
+split_id: SPLIT-008
+name: Original Source-Disjoint Gate
+dataset_id: DATA-001
+status: canonical
+population: supplied training partition only; supplied testing remains excluded
+manifest:
+  path: manifests/splits/SPLIT-008_original_source_gate.csv
+  sha256: 31c82a4c252dbab8226f466832c0241cd648eff815c80ed926557b881653e8db
+  row_count: 2392
+partition_counts:
+  fit: 2153
+  validation: 239
+partition_label_counts:
+  fit:
+    flip: 1046
+    notflip: 1107
+  validation:
+    flip: 116
+    notflip: 123
+partition_video_counts:
+  fit: 104
+  validation: 13
+rule:
+  type: video_disjoint_development_gate
+  validation_video_fraction: 0.1
+  seed: 42
+  group: video_id
