@@ -488,3 +488,40 @@ def join_manifest_with_membership(
         row["partition"] = partition
         result.append(row)
     return result
+
+
+
+class MonReaderDirectoryDataset:
+    """Directory-backed dataset for an extracted authoritative archive."""
+
+    def __init__(self, image_root, rows, transform):
+        from pathlib import Path
+
+        self.image_root = Path(image_root)
+        self.rows = list(rows)
+        self.transform = transform
+        if not self.rows:
+            raise ValueError("Dataset rows are empty")
+
+    def __len__(self):
+        return len(self.rows)
+
+    def __getitem__(self, index):
+        import torch
+        from PIL import Image
+
+        from src.evaluation import label_to_int
+
+        row = self.rows[index]
+        path = self.image_root / row["archive_member"]
+        if not path.is_file():
+            raise FileNotFoundError(path)
+        with Image.open(path) as image:
+            tensor = self.transform(image.convert("RGB"))
+        return {
+            "image": tensor,
+            "label": torch.tensor(float(label_to_int(row["label"])), dtype=torch.float32),
+            "sample_id": row["sample_id"],
+            "video_id": row["video_id"],
+            "frame_number": int(row["frame_number"]),
+        }

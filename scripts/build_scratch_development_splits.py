@@ -3,8 +3,10 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
+
+import yaml
 
 
 def _stable_key(value: str, *, seed: int) -> str:
@@ -84,7 +86,15 @@ def build_source_disjoint_gate(
     return sorted(output, key=lambda row: row["sample_id"])
 
 
-def write_membership(path: str | Path, rows: list[dict[str, str]]) -> None:
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def write_membership(path: str | Path, rows: list[dict[str, str]]) -> str:
     output = Path(path)
     output.parent.mkdir(parents=True, exist_ok=True)
     with output.open("w", newline="", encoding="utf-8") as handle:
@@ -94,14 +104,78 @@ def write_membership(path: str | Path, rows: list[dict[str, str]]) -> None:
         )
         writer.writeheader()
         writer.writerows(rows)
+    return _sha256(output)
+
+
+def _write_registration(path: Path, *, split_id: str, name: str, csv_path: Path, digest: str, rows, rule) -> None:
+    counts = Counter(row["partition"] for row in rows)
+    labels = defaultdict(Counter)
+    videos = defaultdict(set)
+    for row in rows:
+        labels[row["partition"]][row["label"]] += 1
+        videos[row["partition"]].add(row["video_id"])
+    payload = {
+        "split_id": split_id,
+        "name": name,
+        "dataset_id": "DATA-001",
+        "status": "canonical",
+        "population": "supplied training partition only; supplied testing remains excluded",
+        "manifest": {
+            "path": csv_path.as_posix(),
+            "sha256": digest,
+            "row_count": len(rows),
+        },
+        "partition_counts": dict(sorted(counts.items())),
+        "partition_label_counts": {
+            key: dict(sorted(value.items())) for key, value in sorted(labels.items())
+        },
+        "partition_video_counts": {
+            key: len(value) for key, value in sorted(videos.items())
+        },
+        "rule": rule,
+    }
+    path.write_text(yaml.safe_dump(payload, sort_keys=False), encoding="utf-8")
 
 
 def main() -> int:
     original = Path("manifests/splits/SPLIT-001_original.csv")
     tuning = build_original_tuning_membership(original)
     gate = build_source_disjoint_gate(original)
-    write_membership("manifests/splits/SPLIT-007_original_tuning.csv", tuning)
-    write_membership("manifests/splits/SPLIT-008_original_source_gate.csv", gate)
+    tuning_path = Path("manifests/splits/SPLIT-007_original_tuning.csv")
+    gate_path = Path("manifests/splits/SPLIT-008_original_source_gate.csv")
+    tuning_digest = write_membership(tuning_path, tuning)
+    gate_digest = write_membership(gate_path, gate)
+    _write_registration(
+        tuning_path.with_suffix(".yaml"),
+        split_id="SPLIT-007",
+        name="Original Tuning",
+        csv_path=tuning_path,
+        digest=tuning_digest,
+        rows=tuning,
+        rule={"type": "frame_stratified", "fit_fraction": 0.9, "validation_fraction": 0.1, "seed": 42},
+    )
+    _write_registration(
+        gate_path.with_suffix(".yaml"),
+        split_id="SPLIT-008",
+        name="Original Source-Disjoint Gate",
+        csv_path=gate_path,
+        digest=gate_digest,
+        rows=gate,
+        rule={
+            "type": "video_disjoint_development_gate",
+            "validation_video_fraction": 0.1,
+            "seed": 42,
+            "group": "video_id",
+        },
+    )
+    compatibility_path = Path("manifests/dataset_split_compatibility.yaml")
+    compatibility = yaml.safe_load(compatibility_path.read_text(encoding="utf-8"))
+    registered = list(compatibility["compatibility"]["DATA-001"])
+    for split_id in ("SPLIT-007", "SPLIT-008"):
+        if split_id not in registered:
+            registered.append(split_id)
+    compatibility["compatibility"]["DATA-001"] = registered
+    compatibility_path.write_text(yaml.safe_dump(compatibility, sort_keys=False), encoding="utf-8")
     print(
         json.dumps(
             {

@@ -1,0 +1,100 @@
+name: Phase 5 scratch feasibility
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+permissions:
+  contents: write
+
+jobs:
+  feasibility:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Build frozen development memberships
+        run: python -m scripts.build_scratch_development_splits
+      - name: Validate development memberships
+        run: |
+          python - <<'PY'
+          import csv
+          from collections import Counter, defaultdict
+
+          def read(path):
+              with open(path, newline="", encoding="utf-8") as f:
+                  return list(csv.DictReader(f))
+
+          tuning = read("manifests/splits/SPLIT-007_original_tuning.csv")
+          gate = read("manifests/splits/SPLIT-008_original_source_gate.csv")
+          baseline = read("outputs/tables/baseline_tuning_membership.csv")
+
+          assert len(tuning) == 2392
+          assert Counter(row["partition"] for row in tuning) == {"fit": 2152, "validation": 240}
+          baseline_map = {row["sample_id"]: row["partition"] for row in baseline}
+          tuning_map = {row["sample_id"]: row["partition"] for row in tuning}
+          assert tuning_map == baseline_map
+
+          assert len(gate) == 2392
+          by_video = defaultdict(set)
+          for row in gate:
+              by_video[row["video_id"]].add(row["partition"])
+          assert all(len(values) == 1 for values in by_video.values())
+          validation = [row for row in gate if row["partition"] == "validation"]
+          assert {row["label"] for row in validation} == {"flip", "notflip"}
+          assert validation
+          print("DEVELOPMENT_SPLITS=PASS")
+          print("source_gate_counts=", dict(Counter(row["partition"] for row in gate)))
+          print("source_gate_validation_videos=", len({row["video_id"] for row in validation}))
+          PY
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n'             "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"             "/tmp/images.zip" | sha256sum --check
+          unzip -q /tmp/images.zip -d /tmp/monreader
+      - name: Run one full-data CPU feasibility epoch
+        run: |
+          mkdir -p /tmp/phase5
+          timeout 900s python -m scripts.run_scratch_feasibility             --image-root /tmp/monreader             --output /tmp/phase5/feasibility.json             --checkpoint /tmp/phase5/feasibility.pt             --batch-size 32             --workers 2
+      - name: Validate feasibility artifact
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("/tmp/phase5/feasibility.json").read_text())
+          assert payload["status"] == "ok"
+          assert payload["train_count"] == 2152
+          assert payload["validation_count"] == 240
+          assert payload["best_epoch"] == 1
+          assert payload["elapsed_seconds"] < 900
+          assert len(payload["checkpoint_sha256"]) == 64
+          print("CPU_FEASIBILITY=PASS")
+          print("elapsed_seconds=", round(payload["elapsed_seconds"], 3))
+          print("parameter_count=", payload["parameter_count"])
+          PY
+      - name: Upload private feasibility artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase5-cpu-feasibility
+          path: /tmp/phase5
+          if-no-files-found: error
+          retention-days: 1
+      - name: Freeze development split registrations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             manifests/splits/SPLIT-007_original_tuning.csv             manifests/splits/SPLIT-007_original_tuning.yaml             manifests/splits/SPLIT-008_original_source_gate.csv             manifests/splits/SPLIT-008_original_source_gate.yaml             manifests/dataset_split_compatibility.yaml
+          if git diff --cached --quiet; then
+            echo "Development splits already frozen."
+          else
+            git commit -m "Freeze Phase 5 development splits [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
