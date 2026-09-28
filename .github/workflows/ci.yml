@@ -24,3 +24,6 @@ jobs:
         run: python -m pytest -q
       - name: Synthetic CLI smoke
         run: python run_experiment.py --config configs/base.yaml --device cpu
+      - name: Execute data-audit notebook
+        if: ${{ hashFiles('manifests/datasets/DATA-001.csv') != '' }}
+        run: python -m scripts.execute_notebook notebooks/01_data_audit.ipynb --output /tmp/01_data_audit.executed.ipynb

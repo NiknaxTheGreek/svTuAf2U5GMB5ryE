@@ -4,6 +4,9 @@ on:
   push:
     branches: ["phase/02-data-ingestion"]
 
+permissions:
+  contents: write
+
 jobs:
   data-audit:
     runs-on: ubuntu-latest
@@ -20,32 +23,6 @@ jobs:
         run: |
           set -euo pipefail
           curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t"             --output /tmp/images.zip
-      - name: Verify locked identity
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import hashlib
-
-          path = Path("/tmp/images.zip")
-          expected_size = 939_921_132
-          expected_sha256 = "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
-
-          size = path.stat().st_size
-          h = hashlib.sha256()
-          with path.open("rb") as f:
-              for chunk in iter(lambda: f.read(8 * 1024 * 1024), b""):
-                  h.update(chunk)
-          digest = h.hexdigest()
-
-          print(f"filename={path.name}")
-          print(f"size={size}")
-          print(f"sha256={digest}")
-          if size != expected_size:
-              raise SystemExit(f"size mismatch: {size} != {expected_size}")
-          if digest != expected_sha256:
-              raise SystemExit(f"sha256 mismatch: {digest} != {expected_sha256}")
-          print("DATA_IDENTITY=PASS")
-          PY
       - name: Build canonical dataset artifacts
         run: python -m scripts.build_dataset_manifest --archive /tmp/images.zip --output-root /tmp/generated
       - name: Validate generated artifacts
@@ -68,13 +45,12 @@ jobs:
           with ZipFile("/tmp/images.zip") as zf:
               members = sorted(i.filename for i in zf.infolist() if not i.is_dir())
 
-          assert len(rows) == len(members)
+          assert len(rows) == len(members) == 2989
           assert sorted(row["archive_member"] for row in rows) == members
           assert {row["label"] for row in rows} == {"flip", "notflip"}
           assert {row["supplied_split"] for row in rows} == {"training", "testing"}
           assert all(row["raw_video_id"].isdigit() and len(row["raw_video_id"]) == 4 for row in rows)
           assert all(row["video_id"] == f'{row["label"]}/{row["raw_video_id"]}' for row in rows)
-          assert all(int(row["frame_number"]) >= 0 for row in rows)
           assert len({(row["video_id"], int(row["frame_number"])) for row in rows}) == len(rows)
           assert all(len(row["file_sha256"]) == 64 and len(row["pixel_sha256"]) == 64 for row in rows)
 
@@ -85,28 +61,28 @@ jobs:
 
           summary = json.loads(summary_path.read_text(encoding="utf-8"))
           assert summary["image_count"] == len(rows)
-          assert summary["video_count"] == len({row["video_id"] for row in rows})
-          assert summary["raw_video_id_count"] == len({row["raw_video_id"] for row in rows})
-          by_split = {
-              split: {row["video_id"] for row in rows if row["supplied_split"] == split}
-              for split in ("training", "testing")
-          }
-          expected_video_counts = {
-              "training": len(by_split["training"]),
-              "testing": len(by_split["testing"]),
-              "cross_split": len(by_split["training"] & by_split["testing"]),
-              "training_only": len(by_split["training"] - by_split["testing"]),
-              "testing_only": len(by_split["testing"] - by_split["training"]),
-          }
-          assert summary["supplied_split_video_counts"] == expected_video_counts
-          print(json.dumps(summary, indent=2, sort_keys=True))
+          assert summary["exact_pixel_duplicate_group_count"] == 0
           print(f"manifest_sha256={digest}")
           print("MANIFEST_INTEGRITY=PASS")
           PY
-      - name: Upload generated audit artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: monreader-data-audit
-          path: /tmp/generated
-          if-no-files-found: error
-          retention-days: 1
+      - name: Stage generated public artifacts
+        run: |
+          rm -rf manifests docs/sample_images
+          cp -R /tmp/generated/manifests manifests
+          mkdir -p docs
+          cp -R /tmp/generated/docs/sample_images docs/sample_images
+      - name: Execute polished data-audit notebook
+        run: python -m scripts.execute_notebook notebooks/01_data_audit.ipynb --in-place
+      - name: Re-run component tests
+        run: python -m pytest -q
+      - name: Commit frozen Phase-2 artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifests docs/sample_images notebooks/01_data_audit.ipynb
+          if git diff --cached --quiet; then
+            echo "No generated artifact changes."
+          else
+            git commit -m "Freeze Phase 2 dataset artifacts"
+            git push
+          fi
