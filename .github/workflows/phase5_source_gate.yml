@@ -1,0 +1,123 @@
+name: Phase 5 source-disjoint candidate gate
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+permissions:
+  contents: write
+
+jobs:
+  source-gate:
+    if: github.actor != 'github-actions[bot]' && (github.event.head_commit.message == 'Execute scratch source gate' || github.event.head_commit.message == 'Resume scratch source gate')
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install CPU execution dependencies
+        run: |
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Validate frozen top five
+        run: |
+          test -f configs/sweeps/scratch_top5_source_gate.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("configs/sweeps/scratch_top5_source_gate.json").read_text())
+          assert payload["count"] == 5
+          assert len(payload["candidate_ids"]) == 5
+          print("TOP5_SOURCE_GATE=PASS", payload["candidate_ids"])
+          PY
+      - name: Download authoritative archive and build exact cache
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t" \
+            --output /tmp/images.zip
+          printf '%s  %s\n' \
+            "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f" \
+            "/tmp/images.zip" | sha256sum --check
+          unzip -q /tmp/images.zip -d /tmp/monreader
+          mkdir -p /tmp/cache
+          python -m scripts.build_scratch_cache \
+            --image-root /tmp/monreader \
+            --membership manifests/splits/SPLIT-008_original_source_gate.csv \
+            --output-data /tmp/cache/source_gate_uint8.npy \
+            --output-index /tmp/cache/source_gate_index.csv
+      - name: Freeze gate configs
+        run: |
+          mkdir -p configs/sweeps/scratch_source_gate_configs
+          python -m scripts.build_source_gate_configs \
+            --top5 configs/sweeps/scratch_top5_source_gate.json \
+            --output-dir configs/sweeps/scratch_source_gate_configs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add configs/sweeps/scratch_source_gate_configs
+          if ! git diff --cached --quiet; then
+            git commit -m "Freeze scratch source-gate configs [skip ci]"
+            git push origin "HEAD:\${GITHUB_REF_NAME}"
+          fi
+      - name: Execute or resume five source-disjoint gate runs
+        env:
+          OMP_NUM_THREADS: "4"
+          MKL_NUM_THREADS: "4"
+        run: |
+          set -euo pipefail
+          mkdir -p outputs/metrics/scratch_source_gate /tmp/checkpoints
+          for rank in $(seq 1 5); do
+            printf -v gate_id "source-gate-%02d" "\${rank}"
+            config_path="configs/sweeps/scratch_source_gate_configs/\${gate_id}.json"
+            result_path="outputs/metrics/scratch_source_gate/\${gate_id}.json"
+            if [ -f "\${result_path}" ]; then
+              echo "Skipping committed \${gate_id}"
+              continue
+            fi
+            set +e
+            timeout --signal=TERM --kill-after=30s 5400s \
+              python -m scripts.run_scratch_config_cached \
+                --cache-data /tmp/cache/source_gate_uint8.npy \
+                --cache-index /tmp/cache/source_gate_index.csv \
+                --config "\${config_path}" \
+                --membership manifests/splits/SPLIT-008_original_source_gate.csv \
+                --output "\${result_path}" \
+                --checkpoint "/tmp/checkpoints/\${gate_id}.pt" \
+                --workers 2 \
+                --stage source_gate
+            exit_code=$?
+            set -e
+            if [ ! -f "\${result_path}" ]; then
+              python -m scripts.record_frozen_config_failure \
+                --config "\${config_path}" \
+                --output "\${result_path}" \
+                --stage source_gate \
+                --exit-code "\${exit_code}"
+            fi
+            git add "\${result_path}"
+            git commit -m "Record \${gate_id} [skip ci]"
+            git push origin "HEAD:\${GITHUB_REF_NAME}"
+          done
+      - name: Select and freeze canonical scratch config
+        run: |
+          python -m scripts.select_canonical_scratch \
+            --top5 configs/sweeps/scratch_top5_source_gate.json \
+            --gate-results-root outputs/metrics/scratch_source_gate \
+            --output configs/sweeps/scratch_canonical.json
+          git add configs/sweeps/scratch_canonical.json
+          git commit -m "Freeze canonical scratch config [skip ci]"
+          git push origin "HEAD:\${GITHUB_REF_NAME}"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("configs/sweeps/scratch_canonical.json").read_text())
+          assert payload["selection_metric"] == "source_disjoint_validation_f1"
+          assert len(payload["ranking"]) == 5
+          print("CANONICAL_SCRATCH=PASS", payload["source_candidate_id"], payload["best_validation_f1"])
+          PY

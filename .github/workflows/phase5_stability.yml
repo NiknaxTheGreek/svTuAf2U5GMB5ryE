@@ -1,0 +1,109 @@
+name: Phase 5 scratch stability gate
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+permissions:
+  contents: write
+
+jobs:
+  stability:
+    if: github.actor != 'github-actions[bot]' && (github.event.head_commit.message == 'Execute scratch stability' || github.event.head_commit.message == 'Resume scratch stability')
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install CPU execution dependencies
+        run: |
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Validate canonical input
+        run: |
+          test -f configs/sweeps/scratch_canonical.json
+          python -m scripts.build_stability_configs \
+            --canonical configs/sweeps/scratch_canonical.json \
+            --output-dir /tmp/stability-configs
+          test "$(find /tmp/stability-configs -name 'stability-seed-*.json' | wc -l)" -eq 3
+      - name: Download authoritative archive and build exact cache
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t" \
+            --output /tmp/images.zip
+          printf '%s  %s\n' \
+            "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f" \
+            "/tmp/images.zip" | sha256sum --check
+          unzip -q /tmp/images.zip -d /tmp/monreader
+          mkdir -p /tmp/cache
+          python -m scripts.build_scratch_cache \
+            --image-root /tmp/monreader \
+            --membership manifests/splits/SPLIT-008_original_source_gate.csv \
+            --output-data /tmp/cache/stability_uint8.npy \
+            --output-index /tmp/cache/stability_index.csv
+      - name: Freeze stability protocol and configs
+        run: |
+          mkdir -p configs/sweeps/scratch_stability
+          cp /tmp/stability-configs/* configs/sweeps/scratch_stability/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add configs/sweeps/scratch_stability
+          if ! git diff --cached --quiet; then
+            git commit -m "Freeze scratch stability configs [skip ci]"
+            git push origin "HEAD:\${GITHUB_REF_NAME}"
+          fi
+      - name: Execute or resume three seed runs
+        env:
+          OMP_NUM_THREADS: "4"
+          MKL_NUM_THREADS: "4"
+        run: |
+          set -euo pipefail
+          mkdir -p outputs/metrics/scratch_stability /tmp/checkpoints
+          for seed in 42 43 44; do
+            trial_id="stability-seed-\${seed}"
+            config_path="configs/sweeps/scratch_stability/\${trial_id}.json"
+            result_path="outputs/metrics/scratch_stability/\${trial_id}.json"
+            if [ -f "\${result_path}" ]; then
+              echo "Skipping committed \${trial_id}"
+              continue
+            fi
+            set +e
+            timeout --signal=TERM --kill-after=30s 5400s \
+              python -m scripts.run_scratch_config_cached \
+                --cache-data /tmp/cache/stability_uint8.npy \
+                --cache-index /tmp/cache/stability_index.csv \
+                --config "\${config_path}" \
+                --membership manifests/splits/SPLIT-008_original_source_gate.csv \
+                --output "\${result_path}" \
+                --checkpoint "/tmp/checkpoints/\${trial_id}.pt" \
+                --workers 2 \
+                --stage stability
+            exit_code=$?
+            set -e
+            if [ ! -f "\${result_path}" ]; then
+              python -m scripts.record_frozen_config_failure \
+                --config "\${config_path}" \
+                --output "\${result_path}" \
+                --stage stability \
+                --exit-code "\${exit_code}"
+            fi
+            git add "\${result_path}"
+            git commit -m "Record \${trial_id} [skip ci]"
+            git push origin "HEAD:\${GITHUB_REF_NAME}"
+          done
+      - name: Apply locked stability acceptance rule
+        run: |
+          python -m scripts.assess_scratch_stability \
+            --canonical configs/sweeps/scratch_canonical.json \
+            --results-root outputs/metrics/scratch_stability \
+            --output outputs/metrics/scratch_stability_summary.json
+          git add outputs/metrics/scratch_stability_summary.json
+          git commit -m "Freeze scratch stability assessment [skip ci]"
+          git push origin "HEAD:\${GITHUB_REF_NAME}"
