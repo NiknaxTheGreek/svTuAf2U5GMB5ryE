@@ -1,0 +1,76 @@
+name: Upload authoritative images archive to Git LFS
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Upload authoritative images archive'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Git LFS and downloader
+        run: |
+          set -euo pipefail
+          git lfs install
+          python -m pip install gdown==5.2.0
+
+      - name: Download authoritative archive
+        run: |
+          set -euo pipefail
+          mkdir -p data
+          gdown --id 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+
+      - name: Verify authoritative identity
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          path = Path("data/images.zip")
+          expected_size = 939_921_132
+          expected_sha256 = "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
+
+          size = path.stat().st_size
+          h = hashlib.sha256()
+          with path.open("rb") as f:
+              for chunk in iter(lambda: f.read(8 * 1024 * 1024), b""):
+                  h.update(chunk)
+          digest = h.hexdigest()
+
+          print(f"size={size}")
+          print(f"sha256={digest}")
+
+          if size != expected_size:
+              raise SystemExit(f"size mismatch: {size} != {expected_size}")
+          if digest != expected_sha256:
+              raise SystemExit(f"sha256 mismatch: {digest} != {expected_sha256}")
+
+          print("AUTHORITATIVE_ARCHIVE=PASS")
+          PY
+
+      - name: Commit archive through Git LFS
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .gitattributes data/images.zip
+          git lfs status
+          git commit -m "Add authoritative images archive via Git LFS [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Verify tracked LFS object
+        run: |
+          set -euo pipefail
+          git lfs ls-files
+          git lfs fsck
