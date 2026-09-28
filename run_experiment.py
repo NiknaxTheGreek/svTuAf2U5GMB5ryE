@@ -5,14 +5,17 @@ import json
 import logging
 import math
 import sys
+from pathlib import Path
 
 import torch
 
 from src.config import apply_overrides, load_config, to_runtime
+from src.splits import validate_dataset_split_compatibility
 from src.training import build_optimizer
 from src.utils import configure_logging, resolve_device, seed_everything
 
 LOGGER = logging.getLogger("monreader")
+ROOT = Path(__file__).resolve().parent
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -63,6 +66,8 @@ def run_synthetic_smoke(runtime) -> dict[str, object]:
         "status": "ok",
         "mode": runtime.mode,
         "device": device.type,
+        "dataset_id": runtime.dataset_id,
+        "split_id": runtime.split_id,
         "seed": runtime.seed,
         "optimizer": runtime.optimizer_name,
         "loss": round(value, 6),
@@ -76,6 +81,11 @@ def main(argv: list[str] | None = None) -> int:
         config = load_config(args.config)
         config = apply_overrides(config, seed=args.seed, device=args.device)
         runtime = to_runtime(config)
+        validate_dataset_split_compatibility(
+            ROOT / "manifests" / "dataset_split_compatibility.yaml",
+            dataset_id=runtime.dataset_id,
+            split_id=runtime.split_id,
+        )
         if runtime.mode != "synthetic_smoke":
             raise ValueError(f"Unsupported run mode: {runtime.mode}")
         result = run_synthetic_smoke(runtime)
