@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 
 
-TEXT_SUFFIXES = {".py", ".md", ".yaml", ".yml", ".toml", ".txt", ".gitignore", ".python-version"}
+TEXT_SUFFIXES = {".py", ".md", ".yaml", ".yml", ".toml", ".txt", ".csv", ".ipynb", ".gitignore", ".python-version"}
 FORBIDDEN_PATTERNS = [
     re.compile(r"AKIA[0-9A-Z]{16}"),
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
@@ -26,3 +26,9 @@ def test_no_obvious_secrets_or_private_absolute_paths() -> None:
                 if pattern.search(text):
                     offenders.append(f"{path}: {pattern.pattern}")
     assert not offenders, offenders
+
+
+def test_readme_excludes_internal_registry_ids() -> None:
+    readme = Path("README.md").read_text(encoding="utf-8")
+    for token in ("DATA-", "SPLIT-", "EXP-"):
+        assert token not in readme

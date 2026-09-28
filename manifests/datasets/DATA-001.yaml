@@ -1,0 +1,38 @@
+dataset_id: DATA-001
+name: original_rgb
+status: canonical
+description: Original RGB MonReader images with supplied flip/notflip labels and supplied
+  training/testing membership.
+source_archive:
+  file_name: images.zip
+  size_bytes: 939921132
+  sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+manifest:
+  path: manifests/datasets/DATA-001.csv
+  sha256: 715b24a5d05a809724f892756079977b32d93670770a9510a43153ade9048cf4
+  row_count: 2989
+labels:
+- flip
+- notflip
+supplied_splits:
+- testing
+- training
+video_identity:
+  raw_video_id: first four-digit filename field
+  canonical_video_id: '{label}/{raw_video_id}'
+  reason: Raw numeric video IDs are reused across class folders; ambiguous cross-class
+    relationships remain separate by default.
+lineage:
+  parent_dataset_id: null
+  transform: none
+training_only_statistics:
+  rgb_mean:
+  - 0.5842355714
+  - 0.5357742942
+  - 0.5087261296
+  rgb_std:
+  - 0.2237576128
+  - 0.2390915509
+  - 0.2460816142
+  pixel_count: 4960051200
+  population: supplied training partition only
