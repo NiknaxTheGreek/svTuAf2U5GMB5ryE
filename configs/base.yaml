@@ -1,0 +1,10 @@
+project_name: monreader
+run_name: phase01-synthetic-smoke
+seed: 42
+device: auto
+mode: synthetic_smoke
+optimizer:
+  name: adam
+  learning_rate: 0.001
+  weight_decay: 0.0
+  momentum: 0.9
