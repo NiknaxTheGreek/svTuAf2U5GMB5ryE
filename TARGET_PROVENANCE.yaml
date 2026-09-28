@@ -1,0 +1,11 @@
+task: MonReader flip/notflip classification
+label_source: "Labels supplied with the dataset at clip/folder level and inherited by frames."
+independent_frame_annotation_verified: false
+independent_real_world_adjudication_verified: false
+contamination_risks:
+  - "Adjacent frames inherit the same clip label."
+  - "Supplied training/testing folders split many source clips across both partitions."
+terminal_status: PROXY_ONLY_WITH_CLAIM_RESTRICTION
+fit_permission: "Permitted only when framed as prediction of supplied labels."
+permitted_claim: "The model predicts the supplied flip/notflip labels on the stated evaluation population."
+prohibited_claim: "Do not claim independently adjudicated real-world page-turn truth without new evidence."

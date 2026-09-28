@@ -1,313 +1,148 @@
 project:
-  repository: svTuAf2U5GMB5ryE
+  repository: NiknaxTheGreek/svTuAf2U5GMB5ryE
   language: Python
   task: binary single-image classification
+  target_mapping:
+    notflip: 0
+    flip: 1
   primary_metric: F1
-  target:
-    positive: flip
-    negative: notflip
-    mapping:
-      notflip: 0
-      flip: 1
 
 state:
-  current_phase: CNN_FAMILY_COMPARISON_MODEL_SELECTION
-  status: IN_PROGRESS
-  next_phase: D1_D4_TWO_FAMILY_FINAL_REFIT
   branch: raw-eda-scratch
-  note: "The legacy release sections below are retained for provenance only and predate the current D1-D4 methodology revision."
-
-raw_eda_revision:
-  d1:
-    definition: supplied_train_test_all_images
-    train_frames: 2392
-    test_frames: 597
-    test_flip_frames: 290
-    test_notflip_frames: 307
-  conservative_environment_grouping:
-    status: FROZEN
-    temporal_clips: 117
-    environment_groups: 55
-    multi_clip_groups: 15
-    singleton_groups: 40
-    mixed_label_groups: 6
-    reviewed_candidate_links: 82
-    merge_links: 82
-    ambiguous_links: 0
-    separate_links: 0
-    scope_note: "Conservative acquisition-environment grouping units for leakage control; not claimed ground-truth recording sessions."
-  d2:
-    definition: source_safe_all_images
-    status: FROZEN
-    train_environment_groups: 44
-    test_environment_groups: 11
-    train_temporal_clips: 91
-    test_temporal_clips: 26
-    train_frames: 2392
-    test_frames: 597
-    train_flip_frames: 1162
-    train_notflip_frames: 1230
-    test_flip_frames: 290
-    test_notflip_frames: 307
-    environment_group_overlap: 0
-    sequence_overlap: 0
-    frame_path_overlap: 0
-    test_environment_group_ids:
-      - E02
-      - E05
-      - E12
-      - S01
-      - S02
-      - S17
-      - S18
-      - S19
-      - S27
-      - S28
-      - S36
-    workflow_run_id: 36194950980
-    artifact_commit: c5cb97c7f5e423fed2f06a1dad6cf6b08856692c
-    summary_sha256: b214c15653edfd73a7673a6b605eb90a0a499ee39dda62b3a37e7c2e4cd2ca88
-    frame_manifest_sha256: 48eef3d49f6df755ac74cddd6e22f3a3ad9c593bfa72ce62b7d5e234d0f21ed3
-    holdout_policy: "Environment grouping used visual evidence before assignment. From D2 freeze onward, test images are excluded from model selection, thresholding, debugging, and redesign."
-  deduplication:
-    status: FROZEN
-    screen_rule: "dHash <= 4 AND pHash <= 4"
-    confirm_rule: "SSIM >= 0.95 at 256x455 grayscale"
-    near_duplicate_groups: 189
-    images_in_near_duplicate_groups: 1266
-    removed_frames: 1077
-    retained_frames: 1912
-    retained_flip_frames: 1278
-    retained_notflip_frames: 634
-    groups_spanning_multiple_sequences: 0
-    groups_spanning_both_labels: 0
-    groups_spanning_both_supplied_splits: 111
-    representative_rule: "deterministic earliest by (label, video_id, frame_num, path) within each connected component"
-  d3:
-    definition: supplied_train_test_deduplicated
-    status: FROZEN
-    train_frames: 1521
-    test_frames: 391
-    train_flip_frames: 1024
-    train_notflip_frames: 497
-    test_flip_frames: 254
-    test_notflip_frames: 137
-    train_environment_groups: 55
-    test_environment_groups: 52
-    environment_group_overlap: 52
-    sequence_overlap: 108
-    frame_path_overlap: 0
-    holdout_status: NOT_UNTOUCHED_POST_HOC_REPAIR
-    interpretation: "Deduplication removes repeated frames but preserves the supplied split, so source/environment leakage remains."
-  d4:
-    definition: source_safe_deduplicated
-    status: FROZEN
-    train_frames: 1504
-    test_frames: 408
-    train_flip_frames: 1009
-    train_notflip_frames: 495
-    test_flip_frames: 269
-    test_notflip_frames: 139
-    train_environment_groups: 44
-    test_environment_groups: 11
-    train_temporal_clips: 91
-    test_temporal_clips: 26
-    environment_group_overlap: 0
-    sequence_overlap: 0
-    frame_path_overlap: 0
-    split_reuse_policy: "Reuse the exact D2 environment-group assignment, then apply the frozen deduplication mask within each assignment; never re-optimize the source split after deduplication."
-    holdout_policy: "D4 inherits D2 test protection: no model selection, threshold selection, debugging, or redesign using D4 test."
-  d3_d4:
-    workflow_run_id: 36233322184
-    artifact_commit: 9d70655fea91d07c64b7c475e88390e529f70ec1
-    summary_sha256: e33a0099da14f09c01fbe46dff4c06f69942c7c58eb39eac47651cfa59d467a6
-    d3_frame_manifest_sha256: 7583b706109164bef2c2abdc77c96fabb71e53f976ef3a7c9030282c5abfdcf4
-    d4_frame_manifest_sha256: 68144c1ad150f0557e05e05d083e3a0199b8a43b13ed64b47ef77db2920a1ff5
-  model_selection_protocol:
-    status: FROZEN
-    protocol_id: D1_D4_COMMON_MODEL_SELECTION_V1
-    selection_population: D2_TRAIN_ONLY
-    dev_train_frames: 1914
-    dev_validation_frames: 478
-    dev_validation_flip_frames: 245
-    dev_validation_notflip_frames: 233
-    dev_validation_environment_groups: 9
-    protected_test_frames: 597
-    protected_test_environment_groups: 11
-    dev_train_validation_environment_overlap: 0
-    dev_train_validation_sequence_overlap: 0
-    architecture: MobileNetV3-Small
-    pretrained_weights: ImageNet_IMAGENET1K_V1
-    image_size: 160
-    seed: 2026
-    maximum_total_epochs: 8
-    selected_quantity: training_epoch_only
-    decision_threshold: 0.5
-    threshold_tuned: false
-    workflow_run_id: 36233616064
-    artifact_commit: 9627e4b4f1ebd6a9344d7322220cff1e6f2fa68d
-    protocol_sha256: 7c6e090b42456756b93b206316c7c918b0f594af018515eee91e129d0e868d88
-    final_refit_policy: "After epoch selection, retrain D1-D4 from the same pretrained initialization/seed on each full non-test training portion. Return temporary validation rows to training."
-  common_epoch_selection:
-    status: COMPLETE
-    workflow_run_id: 36233696906
-    selected_epoch: 1
-    validation_f1: 0.8114754098360656
-    validation_precision: 0.8148148148148148
-    validation_recall: 0.8081632653061225
-    validation_accuracy: 0.8075313807531381
-    protected_test_pixels_opened: false
-    protected_test_metrics_computed: false
-  cnn_family_comparison:
-    status: SCRATCH_EPOCH_SELECTION_QUEUED
-    protocol_id: CNN_FAMILY_COMPARISON_V1
-    pretrained_family: MobileNetV3-Small_ImageNet
-    pretrained_selected_epoch: 1
-    scratch_family: fixed_4_block_CNN_random_initialization
-    scratch_candidate_epochs: 30
-    scratch_threshold: 0.5
-    scratch_architecture_search: false
-    scratch_workflow_run_id: 36241609587
-    final_evaluation_plan: "Refit and evaluate 2 model families x D1-D4 only after both family-specific epochs are frozen."
-  hand_arm_ablation:
-    status: PARTIALLY_OPTIMIZED_NOT_FINAL
-    rejected_skin_mask_method_mean_mask_fraction: 0.5897562151758092
-    current_successful_ablation_method: "Torchvision LRASPP MobileNetV3-Large person segmentation + cleanup/dilation + Telea inpainting"
-    current_mean_mask_fraction: 0.22901503493777597
-    current_scope: "Useful sensitivity ablation, but not yet a precise hand/arm-only remover."
-    targeted_schp_mediapipe_status: "Prototype attempted; no reproducible full-dataset frozen output."
-  next_action: "Finish scratch-CNN D2-only epoch selection, then freeze and refit both model families across D1-D4 before one locked protected-test evaluation."
-
-verification:
-  repository_verifier: scripts/verify_repository.py
-  clean_run_status: PASS
-  first_clean_run_id: 35778695488
-  required_files: PASS
-  python_syntax: PASS
-  environment_pins: PASS
-  frozen_split: PASS
-  locked_metrics: PASS
-  state_and_documentation: PASS
+  status: FOUNDATION_FROZEN_READY_FOR_MODELING
+  current_phase: D1_D4_FROZEN_FOUNDATION
+  next_action: "Define and freeze a fresh model-selection protocol, then compare fixed models across D1-D4 without opening protected D2/D4 test pixels."
+  legacy_modeling_active: false
+  note: "Legacy model scores and consumed-holdout analyses were removed from the active branch after verified backup."
 
 dataset:
   authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
   total_images: 2989
   image_properties: 1080x1920_RGB_JPEG
+  flip_frames: 1452
+  notflip_frames: 1537
   unreadable_images: 0
-  raw_labels:
-    - flip
-    - notflip
-  target_provenance: clip-derived labels inherited by frames
-  independently_adjudicated_frame_labels: NOT_VERIFIED
-  reporting_scope: performance_against_supplied_labels
+  filename_violations: 0
+  exact_duplicate_groups: 0
 
-source_grouping:
-  canonical_key:
-    - label
-    - VideoID
-  canonical_source_groups: 117
-  flip_groups: 65
-  notflip_groups: 52
-  groups_crossing_supplied_split: 115
-  groups_training_only: 2
-  groups_testing_only: 0
-  groups_with_frame_gaps: 3
-  duplicate_source_frame_keys: 0
-  source_groups_csv_sha256: 904271e433d13e9b83bb8cf87fc9bb996add3a8bde11b885a156a45b86b334fb
-  frames_with_source_group_csv_sha256: 6b34a5892f1efabe08ca70f6136cd02511c9e43e20db35f86ceec0319acdff6c
+temporal_structure:
+  canonical_clip_key: [label, video_id]
+  temporal_clips: 117
+  flip_clips: 65
+  notflip_clips: 52
+  clips_crossing_supplied_split: 115
+  clips_training_only: 2
+  clips_testing_only: 0
+  clips_with_frame_gaps: 3
+  temporal_order_evidence: "117/117 clips smoother than 95% of random shuffles on grayscale MAE and dHash."
 
-split:
-  policy: source_group_disjoint
-  frozen: true
-  source_group_counts:
-    train: 70
-    validation: 23
-    test: 24
-  frame_counts:
-    train: 1795
-    validation: 597
-    test: 597
-  source_group_overlap:
-    train_validation: 0
-    train_test: 0
-    validation_test: 0
-  source_group_split_sha256: 5eaf917adc51db9a9bd10d9d4c6487050284df6e47c928d18ec5d1e94d64b551
+environment_grouping:
+  status: FROZEN
+  environment_groups: 55
+  multi_clip_groups: 15
+  singleton_groups: 40
+  mixed_label_groups: 6
+  reviewed_candidate_links: 82
+  merge_links: 82
+  ambiguous_links: 0
+  separate_links: 0
+  scope: "Conservative acquisition-environment grouping units for leakage control; not claimed ground-truth recording sessions."
 
-baseline:
-  model: StandardScaler_plus_LogisticRegression
-  validation_f1: 0.8369905956112853
-  validation_precision: 0.7672413793103449
-  validation_recall: 0.9206896551724137
-  validation_accuracy: 0.8257956448911222
-  threshold: 0.5
-
-single_image_model:
-  architecture: MobileNetV3-Small
-  pretrained_weights: ImageNet_IMAGENET1K_V1
-  image_size: 160
-  selected_epoch: 4
-  selected_checkpoint_sha256: 49f2256715eb293adb2caaac410b6b4ed7dd6a2c3ba99828504f672a244170f1
-  threshold: 0.5
-  validation_f1: 0.9295302013422819
-  validation_precision: 0.9052287581699346
-  validation_recall: 0.9551724137931035
-  validation_accuracy: 0.9296482412060302
-  baseline_f1_delta: 0.09253960573099662
-
-final_test:
-  status: COMPLETE
-  holdout_status: CONSUMED
-  evaluation_type: one_shot_frozen_holdout
+d1:
+  definition: supplied_train_test_all_images
+  train_frames: 2392
   test_frames: 597
-  test_source_groups: 24
-  f1: 0.7514450867052023
-  precision: 0.851528384279476
-  recall: 0.6724137931034483
-  accuracy: 0.7839195979899497
-  tn: 273
-  fp: 34
-  fn: 95
-  tp: 195
-  validation_to_test_f1_delta: -0.17808511463707962
-  post_test_tuning_allowed: false
-  run_id: 35645274486
-  artifact_id: 10659537469
+  test_flip_frames: 290
+  test_notflip_frames: 307
+  interpretation: "Supplied split; known same-sequence/source leakage."
 
-post_holdout_analysis:
-  status: COMPLETE
-  analysis_only: true
-  model_changed: false
-  threshold_changed: false
-  post_test_tuning_performed: false
-  bootstrap_f1_95:
-    lower: 0.6141724329913305
-    upper: 0.8828837474710794
-  robustness:
-    brightness_plus_15_f1: 0.6963562753036437
-    contrast_plus_15_f1: 0.7028112449799198
-    jpeg_quality_70_f1: 0.7431906614785992
-    gaussian_blur_r1_f1: 0.7490347490347491
-  run_id: 35653218914
-  artifact_id: 10662912779
+d2:
+  definition: source_safe_all_images
+  status: FROZEN
+  train_environment_groups: 44
+  test_environment_groups: 11
+  train_temporal_clips: 91
+  test_temporal_clips: 26
+  train_frames: 2392
+  test_frames: 597
+  train_flip_frames: 1162
+  train_notflip_frames: 1230
+  test_flip_frames: 290
+  test_notflip_frames: 307
+  environment_group_overlap: 0
+  sequence_overlap: 0
+  frame_path_overlap: 0
+  frame_manifest_sha256: 48eef3d49f6df755ac74cddd6e22f3a3ad9c593bfa72ce62b7d5e234d0f21ed3
+  summary_sha256: b214c15653edfd73a7673a6b605eb90a0a499ee39dda62b3a37e7c2e4cd2ca88
+  holdout_policy: "Protected. No model selection, threshold selection, debugging, or redesign may use D2 test pixels."
 
-sequence_extension:
-  status: COMPLETE
-  extension_type: post_holdout_exploratory
-  selected_method: mean_probability
-  aggregation_selected_using: validation_only
-  sequence_threshold: 0.5
-  validation:
-    source_groups: 23
-    f1: 0.9629629629629629
-    precision: 0.9285714285714286
-    recall: 1.0
-    accuracy: 0.9565217391304348
-  exploratory_test:
-    source_groups: 24
-    f1: 0.8
-    precision: 0.8333333333333334
-    recall: 0.7692307692307693
-    accuracy: 0.7916666666666666
-  reported_single_frame_final_test_result_changed: false
-  run_id: 35776906695
-  artifact_id: 10715933773
+deduplication:
+  status: FROZEN
+  screen_rule: "dHash <= 4 AND pHash <= 4"
+  confirm_rule: "SSIM >= 0.95 at 256x455 grayscale"
+  confirmed_pairs: 2095
+  near_duplicate_groups: 189
+  images_in_groups: 1266
+  removed_frames: 1077
+  retained_frames: 1912
+  retained_flip_frames: 1278
+  retained_notflip_frames: 634
+  representative_rule: "Deterministic earliest by (label, video_id, frame_num, path) within each connected component."
+
+d3:
+  definition: supplied_train_test_deduplicated
+  status: FROZEN
+  train_frames: 1521
+  test_frames: 391
+  train_flip_frames: 1024
+  train_notflip_frames: 497
+  test_flip_frames: 254
+  test_notflip_frames: 137
+  environment_group_overlap: 52
+  sequence_overlap: 108
+  holdout_status: NOT_UNTOUCHED_POST_HOC_REPAIR
+
+d4:
+  definition: source_safe_deduplicated
+  status: FROZEN
+  train_frames: 1504
+  test_frames: 408
+  train_flip_frames: 1009
+  train_notflip_frames: 495
+  test_flip_frames: 269
+  test_notflip_frames: 139
+  train_environment_groups: 44
+  test_environment_groups: 11
+  train_temporal_clips: 91
+  test_temporal_clips: 26
+  environment_group_overlap: 0
+  sequence_overlap: 0
+  frame_path_overlap: 0
+  frame_manifest_sha256: 68144c1ad150f0557e05e05d083e3a0199b8a43b13ed64b47ef77db2920a1ff5
+  summary_sha256: e33a0099da14f09c01fbe46dff4c06f69942c7c58eb39eac47651cfa59d467a6
+  holdout_policy: "Inherits D2 protection."
+
+diagnostics:
+  shortcut_feature_analysis:
+    status: RETAINED_DIAGNOSTIC
+    strongest_simple_associations: [saturation, brightness]
+    supplied_split_feature_only_f1: 0.6875
+    provisional_clip_grouped_feature_only_f1: 0.7157190635451505
+    note: "Descriptive shortcut diagnostic only; provisional clip-grouped result is not the frozen D2 evaluation."
+
+target_provenance:
+  source: "Supplied clip labels inherited by frames."
+  independent_frame_adjudication: NOT_VERIFIED
+  terminal_status: PROXY_ONLY_WITH_CLAIM_RESTRICTION
+  permitted_claim: "Performance against the supplied flip/notflip labels only."
+
+backup:
+  status: VERIFIED_ON_GOOGLE_DRIVE
+  pre_clean_checkpoint_commit: 6b2c0e4010820b534abc48c88b7b7b2f6c60d3ce
+  github_actions_run_id: 36419431888
+  github_artifact_id: 10968437198
+  github_artifact_digest: sha256:aadb38e8ab6c90b6bd7e35b238eab3aa01895816c2963ac38fd0f64eec971930
+  drive_folder_id: 18f0dP7E5qFWULSflq9Fu8bEmp32HBQry
+  drive_file_id: 1LDSm4E4pmKnlauyvRZy90CmL1wCr28sm
+  drive_file_name: monreader-pre-clean-backup-2026-09-28.zip
+  drive_size_bytes: 32415034
