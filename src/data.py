@@ -24,7 +24,7 @@ EXPECTED_ARCHIVE_SIZE = 939_921_132
 EXPECTED_ARCHIVE_SHA256 = "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
 VALID_LABELS = frozenset({"flip", "notflip"})
 VALID_SUPPLIED_SPLITS = frozenset({"training", "testing"})
-_IMAGE_NAME_RE = re.compile(r"^(?P<source>\d{4})_(?P<frame>\d{9})\.jpg$")
+_IMAGE_NAME_RE = re.compile(r"^(?P<video>\d{4})_(?P<frame>\d{9})\.jpg$")
 
 
 @dataclass(frozen=True)
@@ -32,7 +32,8 @@ class ParsedImagePath:
     archive_member: str
     supplied_split: str
     label: str
-    source_id: str
+    raw_video_id: str
+    video_id: str
     frame_number: int
 
 
@@ -42,7 +43,8 @@ class ManifestRow:
     archive_member: str
     supplied_split: str
     label: str
-    source_id: str
+    raw_video_id: str
+    video_id: str
     frame_number: int
     width: int
     height: int
@@ -99,7 +101,8 @@ def parse_archive_member(member: str) -> ParsedImagePath:
         archive_member=member,
         supplied_split=supplied_split,
         label=label,
-        source_id=match.group("source"),
+        raw_video_id=match.group("video"),
+        video_id=f"{label}/{match.group('video')}",
         frame_number=int(match.group("frame")),
     )
 
@@ -115,13 +118,14 @@ def decoded_pixel_sha256(image: Image.Image) -> str:
 
 
 def _sample_id(parsed: ParsedImagePath) -> str:
-    return f"{parsed.supplied_split}/{parsed.label}/{parsed.source_id}_{parsed.frame_number:09d}"
+    return f"{parsed.supplied_split}/{parsed.video_id}_{parsed.frame_number:09d}"
 
 
 def scan_archive(archive_path: str | Path) -> tuple[list[ManifestRow], dict[str, object]]:
     rows: list[ManifestRow] = []
     split_label_counts: Counter[str] = Counter()
-    source_counts: Counter[str] = Counter()
+    video_counts: Counter[str] = Counter()
+    raw_video_counts: Counter[str] = Counter()
     dimension_counts: Counter[str] = Counter()
     pixel_hash_members: defaultdict[str, list[ManifestRow]] = defaultdict(list)
 
@@ -159,7 +163,8 @@ def scan_archive(archive_path: str | Path) -> tuple[list[ManifestRow], dict[str,
                 archive_member=parsed.archive_member,
                 supplied_split=parsed.supplied_split,
                 label=parsed.label,
-                source_id=parsed.source_id,
+                raw_video_id=parsed.raw_video_id,
+                video_id=parsed.video_id,
                 frame_number=parsed.frame_number,
                 width=width,
                 height=height,
@@ -171,7 +176,8 @@ def scan_archive(archive_path: str | Path) -> tuple[list[ManifestRow], dict[str,
             )
             rows.append(row)
             split_label_counts[f"{row.supplied_split}/{row.label}"] += 1
-            source_counts[row.source_id] += 1
+            video_counts[row.video_id] += 1
+            raw_video_counts[row.raw_video_id] += 1
             dimension_counts[f"{width}x{height}"] += 1
             pixel_hash_members[pixel_digest].append(row)
 
@@ -189,6 +195,16 @@ def scan_archive(archive_path: str | Path) -> tuple[list[ManifestRow], dict[str,
     if any(row.frame_number < 0 for row in rows):
         raise ValueError("Manifest contains a negative FrameNumber")
 
+    video_frame_keys = [(row.video_id, row.frame_number) for row in rows]
+    if len(set(video_frame_keys)) != len(video_frame_keys):
+        raise ValueError("Canonical video_id + FrameNumber values are not unique")
+
+    videos_by_split: defaultdict[str, set[str]] = defaultdict(set)
+    for row in rows:
+        videos_by_split[row.supplied_split].add(row.video_id)
+    training_videos = videos_by_split["training"]
+    testing_videos = videos_by_split["testing"]
+
     duplicate_groups = [group for group in pixel_hash_members.values() if len(group) > 1]
     cross_label_duplicate_groups = sum(1 for group in duplicate_groups if len({r.label for r in group}) > 1)
     cross_split_duplicate_groups = sum(1 for group in duplicate_groups if len({r.supplied_split for r in group}) > 1)
@@ -204,8 +220,17 @@ def scan_archive(archive_path: str | Path) -> tuple[list[ManifestRow], dict[str,
         "label_counts": dict(sorted(Counter(row.label for row in rows).items())),
         "supplied_split_counts": dict(sorted(Counter(row.supplied_split for row in rows).items())),
         "split_label_counts": dict(sorted(split_label_counts.items())),
-        "source_count": len(source_counts),
-        "source_counts": dict(sorted(source_counts.items())),
+        "video_count": len(video_counts),
+        "video_counts": dict(sorted(video_counts.items())),
+        "raw_video_id_count": len(raw_video_counts),
+        "raw_video_id_counts": dict(sorted(raw_video_counts.items())),
+        "supplied_split_video_counts": {
+            "training": len(training_videos),
+            "testing": len(testing_videos),
+            "cross_split": len(training_videos & testing_videos),
+            "training_only": len(training_videos - testing_videos),
+            "testing_only": len(testing_videos - training_videos),
+        },
         "dimension_counts": dict(sorted(dimension_counts.items())),
         "aspect_ratio_min": min(row.aspect_ratio for row in rows),
         "aspect_ratio_max": max(row.aspect_ratio for row in rows),
@@ -242,7 +267,7 @@ def summarize_manifest(path: str | Path) -> dict[str, object]:
         "image_count": len(rows),
         "label_counts": dict(sorted(Counter(row["label"] for row in rows).items())),
         "supplied_split_counts": dict(sorted(Counter(row["supplied_split"] for row in rows).items())),
-        "source_count": len({row["source_id"] for row in rows}),
+        "video_count": len({row["video_id"] for row in rows}),
         "dimension_counts": dict(sorted(Counter(f'{row["width"]}x{row["height"]}' for row in rows).items())),
     }
 
@@ -259,13 +284,13 @@ def select_representative_rows(
     rng = random.Random(seed)
     selected: list[ManifestRow] = []
     for key in sorted(grouped):
-        source_groups: defaultdict[str, list[ManifestRow]] = defaultdict(list)
+        video_groups: defaultdict[str, list[ManifestRow]] = defaultdict(list)
         for row in grouped[key]:
-            source_groups[row.source_id].append(row)
-        sources = sorted(source_groups)
-        chosen_sources = rng.sample(sources, k=min(per_stratum, len(sources)))
-        for source in sorted(chosen_sources):
-            candidates = sorted(source_groups[source], key=lambda row: row.frame_number)
+            video_groups[row.video_id].append(row)
+        videos = sorted(video_groups)
+        chosen_videos = rng.sample(videos, k=min(per_stratum, len(videos)))
+        for video in sorted(chosen_videos):
+            candidates = sorted(video_groups[video], key=lambda row: row.frame_number)
             selected.append(candidates[len(candidates) // 2])
     return selected
 
@@ -283,7 +308,7 @@ def write_representative_sample(
     selected = select_representative_rows(rows, per_stratum=per_stratum, seed=seed)
     with ZipFile(archive_path) as archive:
         for row in selected:
-            filename = f"{row.supplied_split}_{row.label}_{row.source_id}_{row.frame_number:09d}.jpg"
+            filename = f"{row.supplied_split}_{row.label}_{row.raw_video_id}_{row.frame_number:09d}.jpg"
             (output / filename).write_bytes(archive.read(row.archive_member))
     write_manifest(selected, output / "sample_manifest.csv")
     return selected
@@ -310,6 +335,11 @@ def write_dataset_registration(
         },
         "labels": sorted(VALID_LABELS),
         "supplied_splits": sorted(VALID_SUPPLIED_SPLITS),
+        "video_identity": {
+            "raw_video_id": "first four-digit filename field",
+            "canonical_video_id": "{label}/{raw_video_id}",
+            "reason": "Raw numeric video IDs are reused across class folders; ambiguous cross-class relationships remain separate by default.",
+        },
         "lineage": {"parent_dataset_id": None, "transform": "none"},
         "training_only_statistics": {
             "rgb_mean": summary["training_rgb_mean"],

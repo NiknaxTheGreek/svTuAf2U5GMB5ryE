@@ -38,7 +38,8 @@ def test_parse_archive_member() -> None:
     parsed = parse_archive_member("images/training/flip/0058_000000030.jpg")
     assert parsed.supplied_split == "training"
     assert parsed.label == "flip"
-    assert parsed.source_id == "0058"
+    assert parsed.raw_video_id == "0058"
+    assert parsed.video_id == "flip/0058"
     assert parsed.frame_number == 30
 
 
@@ -55,6 +56,15 @@ def test_parse_archive_member() -> None:
 def test_parse_archive_member_rejects_invalid_structure(member: str) -> None:
     with pytest.raises(ValueError):
         parse_archive_member(member)
+
+
+def test_video_identity_keeps_reused_numeric_ids_separate_by_label() -> None:
+    flip = parse_archive_member("images/training/flip/0001_000000020.jpg")
+    notflip = parse_archive_member("images/testing/notflip/0001_000000020.jpg")
+    assert flip.raw_video_id == notflip.raw_video_id == "0001"
+    assert flip.video_id == "flip/0001"
+    assert notflip.video_id == "notflip/0001"
+    assert flip.video_id != notflip.video_id
 
 
 def test_verify_archive_identity(tmp_path: Path) -> None:
@@ -83,7 +93,8 @@ def test_scan_archive_decodes_and_detects_exact_pixel_duplicates(tmp_path: Path)
     )
     rows, summary = scan_archive(archive)
     assert len(rows) == 4
-    assert summary["source_count"] == 4
+    assert summary["video_count"] == 4
+    assert summary["raw_video_id_count"] == 4
     assert summary["exact_pixel_duplicate_group_count"] == 1
     assert summary["cross_split_exact_duplicate_group_count"] == 1
     assert rows[0].width == 8
