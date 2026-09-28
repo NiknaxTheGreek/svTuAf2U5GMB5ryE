@@ -1,0 +1,56 @@
+name: MonReader pre-clean backup
+
+on:
+  push:
+    branches:
+      - raw-eda-scratch
+    paths:
+      - '.github/workflows/backup_before_cleanup.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: raw-eda-scratch
+
+      - name: Fetch all refs
+        run: |
+          git fetch --all --tags --prune
+          git branch -a
+          git log -1 --oneline
+
+      - name: Create full Git bundle and branch snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p backup
+          REPO="svTuAf2U5GMB5ryE"
+          SHA="$(git rev-parse HEAD)"
+          git bundle create "backup/${REPO}-full-${SHA}.bundle" --all
+          git archive --format=tar.gz --prefix="${REPO}-raw-eda-scratch/"             -o "backup/${REPO}-raw-eda-scratch-${SHA}.tar.gz" HEAD
+          git show --no-patch --format=fuller HEAD > backup/CHECKPOINT.txt
+          {
+            echo "repository=NiknaxTheGreek/${REPO}"
+            echo "branch=raw-eda-scratch"
+            echo "commit=${SHA}"
+            echo "created_utc=$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          } >> backup/CHECKPOINT.txt
+          (cd backup && sha256sum * > SHA256SUMS.txt)
+          cat backup/CHECKPOINT.txt
+          cat backup/SHA256SUMS.txt
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-pre-clean-backup
+          path: backup/
+          retention-days: 90
+          if-no-files-found: error
