@@ -1,0 +1,39 @@
+split_id: SPLIT-002
+name: Random Stratified
+dataset_id: DATA-001
+status: canonical
+manifest:
+  path: manifests/splits/SPLIT-002_random_stratified.csv
+  sha256: 26a0673d9de161515909eb0170463a0b411aad4eb668286bd3fff30d137fe6df
+  row_count: 2989
+summary:
+  row_count: 2989
+  partition_counts:
+    test: 301
+    train: 2390
+    validation: 298
+  partition_label_counts:
+    test:
+      flip: 146
+      notflip: 155
+    train:
+      flip: 1161
+      notflip: 1229
+    validation:
+      flip: 145
+      notflip: 153
+  partition_video_counts:
+    test: 106
+    train: 117
+    validation: 110
+  partition_environment_counts:
+    test: 4
+    train: 4
+    validation: 4
+rule:
+  type: frame_stratified
+  ratios:
+  - 0.8
+  - 0.1
+  - 0.1
+  seed: 42

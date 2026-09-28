@@ -1,0 +1,45 @@
+split_id: SPLIT-005
+name: Temporal-Ordered
+dataset_id: DATA-001
+status: canonical
+manifest:
+  path: manifests/splits/SPLIT-005_temporal_ordered.csv
+  sha256: 5c8d2e13c6eda5b2b150abb91a263e0cedc2a2d375ce5a474fcefa20cbdb6415
+  row_count: 2989
+summary:
+  row_count: 2989
+  partition_counts:
+    excluded_short_video: 332
+    test: 283
+    train: 2109
+    validation: 265
+  partition_label_counts:
+    excluded_short_video:
+      flip: 324
+      notflip: 8
+    test:
+      flip: 127
+      notflip: 156
+    train:
+      flip: 888
+      notflip: 1221
+    validation:
+      flip: 113
+      notflip: 152
+  partition_video_counts:
+    excluded_short_video: 24
+    test: 93
+    train: 93
+    validation: 93
+  partition_environment_counts:
+    excluded_short_video: 4
+    test: 4
+    train: 4
+    validation: 4
+rule:
+  type: within_video_chronological
+  ratios:
+  - 0.8
+  - 0.1
+  - 0.1
+  minimum_frames: 20

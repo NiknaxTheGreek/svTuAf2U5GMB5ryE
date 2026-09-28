@@ -23,7 +23,11 @@ jobs:
       - name: Test
         run: python -m pytest -q
       - name: Synthetic CLI smoke
+        if: hashFiles('manifests/dataset_split_compatibility.yaml') != ''
         run: python run_experiment.py --config configs/base.yaml --device cpu
       - name: Execute data-audit notebook
-        if: ${{ hashFiles('manifests/datasets/DATA-001.csv') != '' }}
+        if: hashFiles('manifests/datasets/DATA-001.csv') != ''
         run: python -m scripts.execute_notebook notebooks/01_data_audit.ipynb --output /tmp/01_data_audit.executed.ipynb
+      - name: Execute split-design notebook
+        if: hashFiles('manifests/splits/split_summary.json') != ''
+        run: python -m scripts.execute_notebook notebooks/02_split_design.ipynb --output /tmp/02_split_design.executed.ipynb

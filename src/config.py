@@ -27,6 +27,8 @@ class ExperimentConfig(BaseModel):
 
     project_name: str = Field(min_length=1)
     run_name: str = Field(min_length=1)
+    dataset_id: str = Field(min_length=1)
+    split_id: str = Field(min_length=1)
     seed: int = Field(default=42, ge=0, le=2**32 - 1)
     device: DeviceChoice = "auto"
     mode: RunMode = "synthetic_smoke"
@@ -37,6 +39,8 @@ class ExperimentConfig(BaseModel):
 class RuntimeConfig:
     project_name: str
     run_name: str
+    dataset_id: str
+    split_id: str
     seed: int
     device: DeviceChoice
     mode: RunMode
@@ -75,6 +79,8 @@ def to_runtime(config: ExperimentConfig) -> RuntimeConfig:
     return RuntimeConfig(
         project_name=config.project_name,
         run_name=config.run_name,
+        dataset_id=config.dataset_id,
+        split_id=config.split_id,
         seed=config.seed,
         device=config.device,
         mode=config.mode,
