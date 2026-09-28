@@ -1,0 +1,29 @@
+name: Phase 5 cancel obsolete runs
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  cleanup:
+    if: github.event.head_commit.message == 'Cancel obsolete Phase 5 runs'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel superseded Stage 1 run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          run_id=36497575456
+          status=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id" --jq .status)
+          echo "run=$run_id status=$status"
+          if [ "$status" = "queued" ] || [ "$status" = "in_progress" ]; then
+            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/cancel"
+            echo "cancel_requested=$run_id"
+          else
+            echo "already_terminal=$run_id"
+          fi
