@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import subprocess
+import sys
 from io import BytesIO
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
@@ -129,3 +131,14 @@ def test_scan_archive_rejects_corrupt_jpeg(tmp_path: Path) -> None:
     _write_zip(archive, {"images/training/flip/0001_000000001.jpg": b"not a jpeg"})
     with pytest.raises(ValueError, match="Image decode failed"):
         scan_archive(archive)
+
+
+def test_manifest_builder_module_entrypoint() -> None:
+    completed = subprocess.run(
+        [sys.executable, "-m", "scripts.build_dataset_manifest", "--help"],
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert "canonical MonReader dataset manifest" in completed.stdout

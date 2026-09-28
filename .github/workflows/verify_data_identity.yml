@@ -47,7 +47,7 @@ jobs:
           print("DATA_IDENTITY=PASS")
           PY
       - name: Build canonical dataset artifacts
-        run: python scripts/build_dataset_manifest.py --archive /tmp/images.zip --output-root /tmp/generated
+        run: python -m scripts.build_dataset_manifest --archive /tmp/images.zip --output-root /tmp/generated
       - name: Validate generated artifacts
         run: |
           python - <<'PY'
