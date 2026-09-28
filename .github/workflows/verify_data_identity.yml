@@ -1,0 +1,42 @@
+name: Verify authoritative data identity
+
+on:
+  push:
+    branches: ["phase/02-data-ingestion"]
+
+jobs:
+  verify-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Download candidate archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t"             --output /tmp/images.zip
+      - name: Verify locked identity
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+
+          path = Path("/tmp/images.zip")
+          expected_size = 939_921_132
+          expected_sha256 = "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
+
+          size = path.stat().st_size
+          h = hashlib.sha256()
+          with path.open("rb") as f:
+              for chunk in iter(lambda: f.read(8 * 1024 * 1024), b""):
+                  h.update(chunk)
+          digest = h.hexdigest()
+
+          print(f"filename={path.name}")
+          print(f"size={size}")
+          print(f"sha256={digest}")
+
+          if size != expected_size:
+              raise SystemExit(f"size mismatch: {size} != {expected_size}")
+          if digest != expected_sha256:
+              raise SystemExit(f"sha256 mismatch: {digest} != {expected_sha256}")
+          print("DATA_IDENTITY=PASS")
+          PY
