@@ -6,9 +6,9 @@ TEXT_SUFFIXES = {".py", ".md", ".yaml", ".yml", ".toml", ".txt", ".csv", ".ipynb
 FORBIDDEN_PATTERNS = [
     re.compile(r"AKIA[0-9A-Z]{16}"),
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
-    re.compile(r"(?i)(api[_-]?key|secret[_-]?key|access[_-]?token)\\s*[:=]\\s*['\\\"][^'\\\"]+"),
-    re.compile(r"/home/[^/\\s]+/"),
-    re.compile(r"[A-Za-z]:\\\\Users\\\\[^\\\\\\s]+\\\\"),
+    re.compile(r"(?i)(api[_-]?key|secret[_-]?key|access[_-]?token)\s*[:=]\s*['\"][^'\"]+"),
+    re.compile(r"/home/[^/\s]+/"),
+    re.compile(r"[A-Za-z]:\\Users\\[^\\\s]+\\"),
 ]
 
 
