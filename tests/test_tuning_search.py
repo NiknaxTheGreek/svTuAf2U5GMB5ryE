@@ -100,7 +100,7 @@ def test_stage2_envelope_uses_exact_expansion_rules() -> None:
     assert space["dropout"]["max"] == pytest.approx(0.32)
     assert space["weight_decay"]["zero_retained"] is True
     assert space["weight_decay"]["positive_retained"] is True
-    assert space["weight_decay"]["positive_min"] == pytest.approx(10.0 ** -5.4)
+    assert space["weight_decay"]["positive_min"] == pytest.approx(10.0 ** -5.3)
     assert space["weight_decay"]["positive_max"] == pytest.approx(10.0 ** -3.9)
 
 
