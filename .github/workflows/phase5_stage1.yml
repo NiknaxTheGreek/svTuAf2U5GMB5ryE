@@ -1,0 +1,99 @@
+name: Phase 5 Stage 1 random search
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+jobs:
+  stage1:
+    if: github.actor != 'github-actions[bot]'
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Download and extract authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n'             "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"             "/tmp/images.zip" | sha256sum --check
+          unzip -q /tmp/images.zip -d /tmp/monreader
+      - name: Execute frozen shard
+        env:
+          OMP_NUM_THREADS: "4"
+          MKL_NUM_THREADS: "4"
+        run: |
+          set -u
+          mkdir -p /tmp/stage1-results /tmp/stage1-checkpoints
+          while IFS= read -r trial_id; do
+            echo "=== ${trial_id} ==="
+            set +e
+            timeout --signal=TERM --kill-after=30s 1800s               python -m scripts.run_scratch_trial                 --image-root /tmp/monreader                 --trial-config configs/sweeps/scratch_stage1_random.json                 --trial-id "${trial_id}"                 --output "/tmp/stage1-results/${trial_id}.json"                 --checkpoint "/tmp/stage1-checkpoints/${trial_id}.pt"                 --workers 2
+            exit_code=$?
+            set -e
+            if [ ! -f "/tmp/stage1-results/${trial_id}.json" ]; then
+              python -m scripts.record_scratch_trial_failure                 --trial-config configs/sweeps/scratch_stage1_random.json                 --trial-id "${trial_id}"                 --output "/tmp/stage1-results/${trial_id}.json"                 --exit-code "${exit_code}"
+            fi
+          done < <(
+            python -m scripts.list_scratch_stage1_shard               --config configs/sweeps/scratch_stage1_random.json               --shard "${{ matrix.shard }}"               --shards 10
+          )
+      - name: Validate shard result count
+        run: test "$(find /tmp/stage1-results -name 'stage1-*.json' | wc -l)" -eq 4
+      - name: Upload shard results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage1-shard-${{ matrix.shard }}
+          path: /tmp/stage1-results
+          if-no-files-found: warn
+          retention-days: 1
+
+  collect:
+    if: always()
+    needs: stage1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install aggregation dependency
+        run: python -m pip install numpy==2.3.5
+      - name: Download shard artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: stage1-shard-*
+          path: /tmp/stage1-shards
+      - name: Aggregate all frozen trials
+        id: aggregate
+        continue-on-error: true
+        run: |
+          python -m scripts.aggregate_scratch_stage1             --trial-config configs/sweeps/scratch_stage1_random.json             --results-root /tmp/stage1-shards             --output /tmp/stage1-aggregate/stage1_results.json
+      - name: Upload aggregate
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase5-stage1-random-results
+          path: /tmp/stage1-aggregate
+          if-no-files-found: error
+          retention-days: 1
+      - name: Enforce minimum valid trials
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("/tmp/stage1-aggregate/stage1_results.json").read_text())
+          print("success_count=", payload["success_count"])
+          print("failure_count=", payload["failure_count"])
+          print("top8_trial_ids=", payload["top8_trial_ids"])
+          if payload["success_count"] < 8:
+              raise SystemExit("Fewer than eight valid Stage-1 trials; stop before Stage 2.")
+          PY
