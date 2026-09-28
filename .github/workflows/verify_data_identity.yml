@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   data-audit:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -83,6 +84,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated artifact changes."
           else
-            git commit -m "Freeze Phase 2 dataset artifacts"
+            git commit -m "Freeze canonical dataset artifacts [skip ci]"
             git push
           fi
