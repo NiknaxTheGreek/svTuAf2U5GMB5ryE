@@ -26,7 +26,16 @@ jobs:
       - name: Verify frozen Stage 1 definition
         run: |
           python -m scripts.generate_scratch_stage1 --output /tmp/stage1-regenerated.json
-          cmp /tmp/stage1-regenerated.json configs/sweeps/scratch_stage1_random.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from src.tuning import validate_stage1_payload
+          regenerated = json.loads(Path("/tmp/stage1-regenerated.json").read_text())
+          frozen = json.loads(Path("configs/sweeps/scratch_stage1_random.json").read_text())
+          validate_stage1_payload(frozen)
+          assert regenerated == frozen, "Frozen Stage-1 values differ from deterministic regeneration"
+          print("STAGE1_DEFINITION=PASS")
+          PY
           test -f manifests/splits/SPLIT-007_original_tuning.csv
       - name: Download authoritative archive and build exact cache
         run: |
