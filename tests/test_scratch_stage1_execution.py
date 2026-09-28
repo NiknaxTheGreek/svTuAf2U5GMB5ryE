@@ -58,3 +58,59 @@ def test_external_failure_writer_preserves_frozen_config(tmp_path) -> None:
     assert payload["status"] == "failed"
     assert payload["failure_type"] == "timeout"
     assert payload["config"]["trial_id"] == "stage1-001"
+
+
+def test_external_sigterm_is_not_silently_called_timeout(tmp_path) -> None:
+    output = tmp_path / "stage1-001.json"
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "scripts.record_scratch_trial_failure",
+            "--trial-config",
+            "configs/sweeps/scratch_stage1_random.json",
+            "--trial-id",
+            "stage1-001",
+            "--output",
+            str(output),
+            "--exit-code",
+            "143",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    payload = json.loads(output.read_text())
+    assert payload["failure_type"] == "process_terminated"
+
+
+def test_reviewed_oom_override_requires_and_preserves_evidence(tmp_path) -> None:
+    output = tmp_path / "stage1-001.json"
+    completed = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "scripts.record_scratch_trial_failure",
+            "--trial-config",
+            "configs/sweeps/scratch_stage1_random.json",
+            "--trial-id",
+            "stage1-001",
+            "--output",
+            str(output),
+            "--exit-code",
+            "143",
+            "--failure-type",
+            "out_of_memory",
+            "--evidence",
+            "Repeated same-config runner termination during first training batch.",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    payload = json.loads(output.read_text())
+    assert payload["failure_type"] == "out_of_memory"
+    assert "Repeated same-config" in payload["failure_evidence"]
+    assert payload["config"]["trial_id"] == "stage1-001"
