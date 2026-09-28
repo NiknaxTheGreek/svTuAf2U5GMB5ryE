@@ -1,0 +1,143 @@
+name: Phase 5 Stage 1 safe random search
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+jobs:
+  preflight:
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Execute Stage 1 safe retry'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install CPU execution dependencies
+        run: |
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Verify CPU runtime and frozen search
+        run: |
+          python - <<'PY'
+          import json
+          import torch
+          from pathlib import Path
+          from src.models import ScratchCNN, ScratchCNNConfig
+          from src.tuning import validate_stage1_payload
+
+          payload = json.loads(Path("configs/sweeps/scratch_stage1_random.json").read_text())
+          validate_stage1_payload(payload)
+          assert len(payload["trials"]) == 40
+          assert torch.cuda.is_available() is False
+          output = ScratchCNN(ScratchCNNConfig(depth=1, start_filters=8, dropout=0.1))(
+              torch.zeros(2, 3, 398, 224)
+          )
+          assert output.shape == (2, 1)
+          print("STAGE1_PREFLIGHT=PASS")
+          print("torch_version=", torch.__version__)
+          PY
+
+  trial:
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Execute Stage 1 safe retry'
+    needs: preflight
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        trial_index: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          cache: pip
+          cache-dependency-path: requirements.lock
+      - name: Install CPU execution dependencies
+        run: |
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download and extract authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n'             "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"             "/tmp/images.zip" | sha256sum --check
+          unzip -q /tmp/images.zip -d /tmp/monreader
+      - name: Execute one frozen trial
+        env:
+          OMP_NUM_THREADS: "4"
+          MKL_NUM_THREADS: "4"
+        run: |
+          set -u
+          printf -v trial_id "stage1-%03d" "${{ matrix.trial_index }}"
+          mkdir -p /tmp/stage1-result /tmp/stage1-checkpoint
+          set +e
+          timeout --signal=TERM --kill-after=30s 1800s             python -m scripts.run_scratch_trial               --image-root /tmp/monreader               --trial-config configs/sweeps/scratch_stage1_random.json               --trial-id "${trial_id}"               --output "/tmp/stage1-result/${trial_id}.json"               --checkpoint "/tmp/stage1-checkpoint/${trial_id}.pt"               --workers 2
+          exit_code=$?
+          set -e
+          if [ ! -f "/tmp/stage1-result/${trial_id}.json" ]; then
+            python -m scripts.record_scratch_trial_failure               --trial-config configs/sweeps/scratch_stage1_random.json               --trial-id "${trial_id}"               --output "/tmp/stage1-result/${trial_id}.json"               --exit-code "${exit_code}"
+          fi
+          test -f "/tmp/stage1-result/${trial_id}.json"
+      - name: Upload trial record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage1-trial-${{ matrix.trial_index }}
+          path: /tmp/stage1-result
+          if-no-files-found: warn
+          retention-days: 1
+
+  collect:
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Execute Stage 1 safe retry' && always()
+    needs: trial
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install aggregation dependency
+        run: python -m pip install numpy==2.3.5
+      - name: Download trial artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: stage1-trial-*
+          path: /tmp/stage1-results
+      - name: Aggregate all frozen trials
+        id: aggregate
+        continue-on-error: true
+        run: |
+          python -m scripts.aggregate_scratch_stage1             --trial-config configs/sweeps/scratch_stage1_random.json             --results-root /tmp/stage1-results             --output /tmp/stage1-aggregate/stage1_results.json
+      - name: Upload aggregate
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase5-stage1-safe-results
+          path: /tmp/stage1-aggregate
+          if-no-files-found: error
+          retention-days: 1
+      - name: Enforce complete trial accounting and minimum valid trials
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          payload = json.loads(Path("/tmp/stage1-aggregate/stage1_results.json").read_text())
+          missing = [
+              record["trial_id"]
+              for record in payload["results"]
+              if record.get("failure_type") == "missing_result"
+          ]
+          print("success_count=", payload["success_count"])
+          print("failure_count=", payload["failure_count"])
+          print("missing_result_count=", len(missing))
+          print("top8_trial_ids=", payload["top8_trial_ids"])
+          if missing:
+              raise SystemExit(f"Infrastructure results missing for: {missing}")
+          if payload["success_count"] < 8:
+              raise SystemExit("Fewer than eight valid Stage-1 trials; stop before Stage 2.")
+          PY
