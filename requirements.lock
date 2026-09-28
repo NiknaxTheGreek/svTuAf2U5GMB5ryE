@@ -1,4 +1,4 @@
-# Phase-1 reproducibility lock. Update only through a validated dependency change.
+# Reproducibility lock. Update only through a validated dependency change.
 numpy==2.3.5
 Pillow==12.3.0
 pydantic==2.13.4
