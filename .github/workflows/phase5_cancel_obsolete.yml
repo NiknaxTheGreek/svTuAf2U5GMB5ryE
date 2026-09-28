@@ -18,12 +18,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          run_id=36497575456
-          status=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id" --jq .status)
-          echo "run=$run_id status=$status"
-          if [ "$status" = "queued" ] || [ "$status" = "in_progress" ]; then
-            gh api --method POST "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/cancel"
-            echo "cancel_requested=$run_id"
-          else
-            echo "already_terminal=$run_id"
-          fi
+          for run_id in 36497575456 36498217211; do
+            status=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id" --jq .status)
+            echo "run=$run_id status=$status"
+            if [ "$status" = "queued" ] || [ "$status" = "in_progress" ]; then
+              gh api --method POST "repos/$GITHUB_REPOSITORY/actions/runs/$run_id/cancel"
+              echo "cancel_requested=$run_id"
+            else
+              echo "already_terminal=$run_id"
+            fi
+          done
