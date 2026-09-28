@@ -97,7 +97,7 @@ jobs:
           MKL_NUM_THREADS: "4"
         run: |
           set -u
-          printf -v trial_id "stage1-%03d" "\${{ matrix.trial_index }}"
+          printf -v trial_id "stage1-%03d" "${{ matrix.trial_index }}"
           mkdir -p /tmp/stage1-result /tmp/stage1-checkpoint
           set +e
           timeout --signal=TERM --kill-after=30s 5400s \
@@ -105,25 +105,25 @@ jobs:
               --cache-data /tmp/cache/stage1_uint8.npy \
               --cache-index /tmp/cache/stage1_index.csv \
               --trial-config configs/sweeps/scratch_stage1_random.json \
-              --trial-id "\${trial_id}" \
-              --output "/tmp/stage1-result/\${trial_id}.json" \
-              --checkpoint "/tmp/stage1-checkpoint/\${trial_id}.pt" \
+              --trial-id "${trial_id}" \
+              --output "/tmp/stage1-result/${trial_id}.json" \
+              --checkpoint "/tmp/stage1-checkpoint/${trial_id}.pt" \
               --workers 2
           exit_code=$?
           set -e
-          if [ ! -f "/tmp/stage1-result/\${trial_id}.json" ]; then
+          if [ ! -f "/tmp/stage1-result/${trial_id}.json" ]; then
             python -m scripts.record_scratch_trial_failure \
               --trial-config configs/sweeps/scratch_stage1_random.json \
-              --trial-id "\${trial_id}" \
-              --output "/tmp/stage1-result/\${trial_id}.json" \
-              --exit-code "\${exit_code}"
+              --trial-id "${trial_id}" \
+              --output "/tmp/stage1-result/${trial_id}.json" \
+              --exit-code "${exit_code}"
           fi
-          test -f "/tmp/stage1-result/\${trial_id}.json"
+          test -f "/tmp/stage1-result/${trial_id}.json"
       - name: Upload trial record
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: stage1-cached-trial-\${{ matrix.trial_index }}
+          name: stage1-cached-trial-${{ matrix.trial_index }}
           path: /tmp/stage1-result
           if-no-files-found: warn
           retention-days: 1

@@ -57,7 +57,7 @@ jobs:
           git add configs/sweeps/scratch_stability
           if ! git diff --cached --quiet; then
             git commit -m "Freeze scratch stability configs [skip ci]"
-            git push origin "HEAD:\${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
       - name: Execute or resume three seed runs
         env:
@@ -67,11 +67,11 @@ jobs:
           set -euo pipefail
           mkdir -p outputs/metrics/scratch_stability /tmp/checkpoints
           for seed in 42 43 44; do
-            trial_id="stability-seed-\${seed}"
-            config_path="configs/sweeps/scratch_stability/\${trial_id}.json"
-            result_path="outputs/metrics/scratch_stability/\${trial_id}.json"
-            if [ -f "\${result_path}" ]; then
-              echo "Skipping committed \${trial_id}"
+            trial_id="stability-seed-${seed}"
+            config_path="configs/sweeps/scratch_stability/${trial_id}.json"
+            result_path="outputs/metrics/scratch_stability/${trial_id}.json"
+            if [ -f "${result_path}" ]; then
+              echo "Skipping committed ${trial_id}"
               continue
             fi
             set +e
@@ -79,24 +79,24 @@ jobs:
               python -m scripts.run_scratch_config_cached \
                 --cache-data /tmp/cache/stability_uint8.npy \
                 --cache-index /tmp/cache/stability_index.csv \
-                --config "\${config_path}" \
+                --config "${config_path}" \
                 --membership manifests/splits/SPLIT-008_original_source_gate.csv \
-                --output "\${result_path}" \
-                --checkpoint "/tmp/checkpoints/\${trial_id}.pt" \
+                --output "${result_path}" \
+                --checkpoint "/tmp/checkpoints/${trial_id}.pt" \
                 --workers 2 \
                 --stage stability
             exit_code=$?
             set -e
-            if [ ! -f "\${result_path}" ]; then
+            if [ ! -f "${result_path}" ]; then
               python -m scripts.record_frozen_config_failure \
-                --config "\${config_path}" \
-                --output "\${result_path}" \
+                --config "${config_path}" \
+                --output "${result_path}" \
                 --stage stability \
-                --exit-code "\${exit_code}"
+                --exit-code "${exit_code}"
             fi
-            git add "\${result_path}"
-            git commit -m "Record \${trial_id} [skip ci]"
-            git push origin "HEAD:\${GITHUB_REF_NAME}"
+            git add "${result_path}"
+            git commit -m "Record ${trial_id} [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           done
       - name: Apply locked stability acceptance rule
         run: |
@@ -106,4 +106,4 @@ jobs:
             --output outputs/metrics/scratch_stability_summary.json
           git add outputs/metrics/scratch_stability_summary.json
           git commit -m "Freeze scratch stability assessment [skip ci]"
-          git push origin "HEAD:\${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

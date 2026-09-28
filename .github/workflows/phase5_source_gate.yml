@@ -63,7 +63,7 @@ jobs:
           git add configs/sweeps/scratch_source_gate_configs
           if ! git diff --cached --quiet; then
             git commit -m "Freeze scratch source-gate configs [skip ci]"
-            git push origin "HEAD:\${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
       - name: Execute or resume five source-disjoint gate runs
         env:
@@ -73,11 +73,11 @@ jobs:
           set -euo pipefail
           mkdir -p outputs/metrics/scratch_source_gate /tmp/checkpoints
           for rank in $(seq 1 5); do
-            printf -v gate_id "source-gate-%02d" "\${rank}"
-            config_path="configs/sweeps/scratch_source_gate_configs/\${gate_id}.json"
-            result_path="outputs/metrics/scratch_source_gate/\${gate_id}.json"
-            if [ -f "\${result_path}" ]; then
-              echo "Skipping committed \${gate_id}"
+            printf -v gate_id "source-gate-%02d" "${rank}"
+            config_path="configs/sweeps/scratch_source_gate_configs/${gate_id}.json"
+            result_path="outputs/metrics/scratch_source_gate/${gate_id}.json"
+            if [ -f "${result_path}" ]; then
+              echo "Skipping committed ${gate_id}"
               continue
             fi
             set +e
@@ -85,24 +85,24 @@ jobs:
               python -m scripts.run_scratch_config_cached \
                 --cache-data /tmp/cache/source_gate_uint8.npy \
                 --cache-index /tmp/cache/source_gate_index.csv \
-                --config "\${config_path}" \
+                --config "${config_path}" \
                 --membership manifests/splits/SPLIT-008_original_source_gate.csv \
-                --output "\${result_path}" \
-                --checkpoint "/tmp/checkpoints/\${gate_id}.pt" \
+                --output "${result_path}" \
+                --checkpoint "/tmp/checkpoints/${gate_id}.pt" \
                 --workers 2 \
                 --stage source_gate
             exit_code=$?
             set -e
-            if [ ! -f "\${result_path}" ]; then
+            if [ ! -f "${result_path}" ]; then
               python -m scripts.record_frozen_config_failure \
-                --config "\${config_path}" \
-                --output "\${result_path}" \
+                --config "${config_path}" \
+                --output "${result_path}" \
                 --stage source_gate \
-                --exit-code "\${exit_code}"
+                --exit-code "${exit_code}"
             fi
-            git add "\${result_path}"
-            git commit -m "Record \${gate_id} [skip ci]"
-            git push origin "HEAD:\${GITHUB_REF_NAME}"
+            git add "${result_path}"
+            git commit -m "Record ${gate_id} [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           done
       - name: Select and freeze canonical scratch config
         run: |
@@ -112,7 +112,7 @@ jobs:
             --output configs/sweeps/scratch_canonical.json
           git add configs/sweeps/scratch_canonical.json
           git commit -m "Freeze canonical scratch config [skip ci]"
-          git push origin "HEAD:\${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
           python - <<'PY'
           import json
           from pathlib import Path

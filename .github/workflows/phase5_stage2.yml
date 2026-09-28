@@ -59,12 +59,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           for iteration in $(seq 1 30); do
-            printf -v trial_id "stage2-%03d" "\${iteration}"
-            result_path="outputs/metrics/scratch_stage2_trials/\${trial_id}.json"
-            config_path="configs/sweeps/scratch_stage2_trials/\${trial_id}.json"
+            printf -v trial_id "stage2-%03d" "${iteration}"
+            result_path="outputs/metrics/scratch_stage2_trials/${trial_id}.json"
+            config_path="configs/sweeps/scratch_stage2_trials/${trial_id}.json"
 
-            if [ -f "\${result_path}" ] && [ -f "\${config_path}" ]; then
-              echo "Skipping committed \${trial_id}"
+            if [ -f "${result_path}" ] && [ -f "${config_path}" ]; then
+              echo "Skipping committed ${trial_id}"
               continue
             fi
 
@@ -72,34 +72,34 @@ jobs:
               --stage1-results outputs/metrics/scratch_stage1_results.json \
               --stage2-space configs/sweeps/scratch_stage2_bayesian.json \
               --prior-results-root outputs/metrics/scratch_stage2_trials \
-              --iteration "\${iteration}" \
-              --output "\${config_path}"
+              --iteration "${iteration}" \
+              --output "${config_path}"
 
             set +e
             timeout --signal=TERM --kill-after=30s 5400s \
               python -m scripts.run_scratch_config_cached \
                 --cache-data /tmp/cache/stage2_uint8.npy \
                 --cache-index /tmp/cache/stage2_index.csv \
-                --config "\${config_path}" \
+                --config "${config_path}" \
                 --membership manifests/splits/SPLIT-007_original_tuning.csv \
-                --output "\${result_path}" \
-                --checkpoint "/tmp/checkpoints/\${trial_id}.pt" \
+                --output "${result_path}" \
+                --checkpoint "/tmp/checkpoints/${trial_id}.pt" \
                 --workers 2 \
                 --stage bayesian
             exit_code=$?
             set -e
 
-            if [ ! -f "\${result_path}" ]; then
+            if [ ! -f "${result_path}" ]; then
               python -m scripts.record_frozen_config_failure \
-                --config "\${config_path}" \
-                --output "\${result_path}" \
+                --config "${config_path}" \
+                --output "${result_path}" \
                 --stage bayesian \
-                --exit-code "\${exit_code}"
+                --exit-code "${exit_code}"
             fi
 
-            git add "\${config_path}" "\${result_path}"
-            git commit -m "Record \${trial_id} [skip ci]"
-            git push origin "HEAD:\${GITHUB_REF_NAME}"
+            git add "${config_path}" "${result_path}"
+            git commit -m "Record ${trial_id} [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           done
       - name: Aggregate Stage 2 and freeze top five
         run: |
@@ -112,7 +112,7 @@ jobs:
             --output configs/sweeps/scratch_top5_source_gate.json
           git add outputs/metrics/scratch_stage2_results.json configs/sweeps/scratch_top5_source_gate.json
           git commit -m "Freeze Stage 2 aggregate and source-gate candidates [skip ci]"
-          git push origin "HEAD:\${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
       - name: Validate complete Stage 2
         run: |
           python - <<'PY'
