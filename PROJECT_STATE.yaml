@@ -8,7 +8,8 @@ project:
   primary_metric: F1
 
 state:
-  branch: raw-eda-scratch
+  canonical_branch: main
+  cleanup_source_branch: raw-eda-scratch
   status: FOUNDATION_FROZEN_READY_FOR_MODELING
   current_phase: D1_D4_FROZEN_FOUNDATION
   next_action: "Define and freeze a fresh model-selection protocol, then compare fixed models across D1-D4 without opening protected D2/D4 test pixels."
