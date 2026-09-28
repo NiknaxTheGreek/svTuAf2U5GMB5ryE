@@ -1,4 +1,5 @@
 name: Build authoritative data audit
+# One-time Phase 2 artifact freeze; removed after successful validation.
 
 on:
   push:
