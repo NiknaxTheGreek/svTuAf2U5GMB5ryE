@@ -1,1 +1,1 @@
-"""MonReader features module. Implemented incrementally by validated project phase."""
+"""MonReader handcrafted-feature utilities."""

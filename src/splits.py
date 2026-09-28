@@ -1,1 +1,1 @@
-"""MonReader splits module. Implemented incrementally by validated project phase."""
+"""MonReader split-construction utilities."""
