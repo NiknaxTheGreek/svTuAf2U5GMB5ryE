@@ -1,15 +1,22 @@
-name: Verify authoritative data identity
+name: Build authoritative data audit
 
 on:
   push:
     branches: ["phase/02-data-ingestion"]
 
 jobs:
-  verify-data:
+  data-audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
-      - name: Download candidate archive
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Download authoritative archive
         run: |
           set -euo pipefail
           curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t"             --output /tmp/images.zip
@@ -33,44 +40,57 @@ jobs:
           print(f"filename={path.name}")
           print(f"size={size}")
           print(f"sha256={digest}")
-
           if size != expected_size:
               raise SystemExit(f"size mismatch: {size} != {expected_size}")
           if digest != expected_sha256:
               raise SystemExit(f"sha256 mismatch: {digest} != {expected_sha256}")
           print("DATA_IDENTITY=PASS")
           PY
-      - name: Inspect archive structure
+      - name: Build canonical dataset artifacts
+        run: python scripts/build_dataset_manifest.py --archive /tmp/images.zip --output-root /tmp/generated
+      - name: Validate generated artifacts
         run: |
           python - <<'PY'
-          from collections import Counter
-          from pathlib import PurePosixPath
+          import csv
+          import hashlib
+          import json
+          from pathlib import Path
           from zipfile import ZipFile
+          import yaml
 
-          archive = "/tmp/images.zip"
-          with ZipFile(archive) as zf:
-              infos = [i for i in zf.infolist() if not i.is_dir()]
+          root = Path("/tmp/generated")
+          manifest = root / "manifests/datasets/DATA-001.csv"
+          summary_path = root / "manifests/datasets/DATA-001_summary.json"
+          registration_path = root / "manifests/datasets/DATA-001.yaml"
 
-          print(f"file_count={len(infos)}")
-          suffixes = Counter(PurePosixPath(i.filename).suffix.lower() for i in infos)
-          print("suffix_counts=", dict(sorted(suffixes.items())))
+          with manifest.open(newline="", encoding="utf-8") as f:
+              rows = list(csv.DictReader(f))
+          with ZipFile("/tmp/images.zip") as zf:
+              members = sorted(i.filename for i in zf.infolist() if not i.is_dir())
 
-          depth_counts = Counter(len(PurePosixPath(i.filename).parts) for i in infos)
-          print("path_depth_counts=", dict(sorted(depth_counts.items())))
+          assert len(rows) == len(members)
+          assert sorted(row["archive_member"] for row in rows) == members
+          assert {row["label"] for row in rows} == {"flip", "notflip"}
+          assert {row["supplied_split"] for row in rows} == {"training", "testing"}
+          assert all(row["source_id"].isdigit() and len(row["source_id"]) == 4 for row in rows)
+          assert all(int(row["frame_number"]) >= 0 for row in rows)
+          assert all(len(row["file_sha256"]) == 64 and len(row["pixel_sha256"]) == 64 for row in rows)
 
-          prefix_counts = Counter()
-          for i in infos:
-              parts = PurePosixPath(i.filename).parts
-              prefix_counts["/".join(parts[: min(4, len(parts)-1)])] += 1
+          digest = hashlib.sha256(manifest.read_bytes()).hexdigest()
+          registration = yaml.safe_load(registration_path.read_text(encoding="utf-8"))
+          assert registration["manifest"]["sha256"] == digest
+          assert registration["manifest"]["row_count"] == len(rows)
 
-          print("top_prefixes:")
-          for key, count in prefix_counts.most_common(30):
-              print(f"  {count:6d}  {key}")
-
-          print("first_paths:")
-          for i in infos[:30]:
-              print(f"  {i.filename}")
-          print("last_paths:")
-          for i in infos[-30:]:
-              print(f"  {i.filename}")
+          summary = json.loads(summary_path.read_text(encoding="utf-8"))
+          assert summary["image_count"] == len(rows)
+          print(json.dumps(summary, indent=2, sort_keys=True))
+          print(f"manifest_sha256={digest}")
+          print("MANIFEST_INTEGRITY=PASS")
           PY
+      - name: Upload generated audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-data-audit
+          path: /tmp/generated
+          if-no-files-found: error
+          retention-days: 1
