@@ -1,0 +1,476 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+git cat-file -e 6b2c0e4010820b534abc48c88b7b7b2f6c60d3ce^{commit}
+echo "Pre-clean checkpoint verified."
+echo "GitHub backup run: 36419431888"
+echo "GitHub artifact: 10968437198"
+echo "Drive backup file ID: 1LDSm4E4pmKnlauyvRZy90CmL1wCr28sm"
+
+KEEP=/tmp/monreader_keep
+rm -rf "$KEEP"
+mkdir -p "$KEEP"
+
+KEEP_PATHS=(
+  ".gitignore"
+  "requirements.txt"
+  "requirements-torch-cpu.txt"
+  ".github/workflows/backup_before_cleanup.yml"
+  "audit/audit_summary.json"
+  "audit/source_group_summary.json"
+  "raw_audit/archive_metadata.json"
+  "raw_audit/raw_summary.json"
+  "raw_audit/image_inventory.csv"
+  "raw_audit/filename_violations.json"
+  "raw_audit/unreadable.json"
+  "raw_video_groups/candidate_source_groups.csv"
+  "raw_video_groups/video_group_summary.json"
+  "raw_temporal_audit/ordered_sequence_manifest.csv"
+  "raw_temporal_audit/temporal_order_summary.json"
+  "raw_temporal_audit/temporal_order_vs_shuffle.csv"
+  "raw_similarity_audit/perceptual_similarity_summary.json"
+  "raw_similarity_audit/very_high_similarity_pairs.csv"
+  "raw_similarity_audit/moderate_similarity_pairs.csv"
+  "raw_ssim_audit/cross_split_ssim_summary.json"
+  "raw_ssim_audit/cross_split_very_high_similarity_ssim.csv"
+  "raw_session_cluster_screen/session_cluster_screen_summary.json"
+  "raw_session_cluster_screen/strong_session_candidates.csv"
+  "raw_session_candidate_review/reviewed_candidate_links.csv"
+  "raw_environment_groups/environment_group_manifest.csv"
+  "raw_environment_groups/environment_group_summary.csv"
+  "raw_environment_groups/environment_grouping_summary.json"
+  "raw_global_dedup/global_dedup_summary.json"
+  "raw_global_dedup/near_duplicate_groups.csv"
+  "raw_global_dedup/near_duplicate_membership.csv"
+  "raw_global_dedup/all_confirmed_near_duplicate_pairs.csv"
+  "raw_d2_split/d2_environment_group_split.csv"
+  "raw_d2_split/d2_sequence_split.csv"
+  "raw_d2_split/d2_frame_split_manifest.csv"
+  "raw_d2_split/d2_split_summary.json"
+  "raw_d2_split/d2_split_receipt.json"
+  "raw_d3_d4_split/d3_frame_manifest.csv"
+  "raw_d3_d4_split/d4_frame_manifest.csv"
+  "raw_d3_d4_split/dedup_frame_audit.csv"
+  "raw_d3_d4_split/d3_d4_split_summary.json"
+  "raw_d3_d4_split/d3_d4_split_receipt.json"
+  "raw_feature_abc/abc_original_feature_analysis.json"
+  "raw_feature_abc/feature_associations.csv"
+  "raw_visual_variability/original_variability_summary.json"
+  "scripts/raw_dataset_inventory.py"
+  "scripts/dataset_audit.py"
+  "scripts/reconstruct_source_groups.py"
+  "scripts/temporal_order_audit.py"
+  "scripts/perceptual_similarity_audit.py"
+  "scripts/targeted_cross_split_ssim.py"
+  "scripts/session_similarity_audit.py"
+  "scripts/session_cluster_screen.py"
+  "scripts/render_all_session_candidates.py"
+  "scripts/full_session_candidate_review.py"
+  "scripts/finalize_environment_groups.py"
+  "scripts/global_dedup_groups.py"
+  "scripts/build_d2_environment_split.py"
+  "scripts/build_d3_d4_dedup_manifests.py"
+  "scripts/original_visual_variability.py"
+  "scripts/original_feature_abc.py"
+)
+
+for p in "${KEEP_PATHS[@]}"; do
+  if [ ! -e "$p" ]; then
+    echo "Required keep-path missing: $p" >&2
+    exit 1
+  fi
+  mkdir -p "$KEEP/$(dirname "$p")"
+  cp -a "$p" "$KEEP/$p"
+done
+
+git ls-files -z | xargs -0 -r git rm -f
+cp -a "$KEEP"/. .
+
+mkdir -p docs scripts .github/workflows
+
+cat > PROJECT_STATE.yaml <<'EOF'
+project:
+  repository: NiknaxTheGreek/svTuAf2U5GMB5ryE
+  language: Python
+  task: binary single-image classification
+  target_mapping:
+    notflip: 0
+    flip: 1
+  primary_metric: F1
+
+state:
+  branch: raw-eda-scratch
+  status: FOUNDATION_FROZEN_READY_FOR_MODELING
+  current_phase: D1_D4_FROZEN_FOUNDATION
+  next_action: "Define and freeze a fresh model-selection protocol, then compare fixed models across D1-D4 without opening protected D2/D4 test pixels."
+  legacy_modeling_active: false
+  note: "Legacy model scores and consumed-holdout analyses were removed from the active branch after verified backup."
+
+dataset:
+  authoritative_archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  total_images: 2989
+  image_properties: 1080x1920_RGB_JPEG
+  flip_frames: 1452
+  notflip_frames: 1537
+  unreadable_images: 0
+  filename_violations: 0
+  exact_duplicate_groups: 0
+
+temporal_structure:
+  canonical_clip_key: [label, video_id]
+  temporal_clips: 117
+  flip_clips: 65
+  notflip_clips: 52
+  clips_crossing_supplied_split: 115
+  clips_training_only: 2
+  clips_testing_only: 0
+  clips_with_frame_gaps: 3
+  temporal_order_evidence: "117/117 clips smoother than 95% of random shuffles on grayscale MAE and dHash."
+
+environment_grouping:
+  status: FROZEN
+  environment_groups: 55
+  multi_clip_groups: 15
+  singleton_groups: 40
+  mixed_label_groups: 6
+  reviewed_candidate_links: 82
+  merge_links: 82
+  ambiguous_links: 0
+  separate_links: 0
+  scope: "Conservative acquisition-environment grouping units for leakage control; not claimed ground-truth recording sessions."
+
+d1:
+  definition: supplied_train_test_all_images
+  train_frames: 2392
+  test_frames: 597
+  test_flip_frames: 290
+  test_notflip_frames: 307
+  interpretation: "Supplied split; known same-sequence/source leakage."
+
+d2:
+  definition: source_safe_all_images
+  status: FROZEN
+  train_environment_groups: 44
+  test_environment_groups: 11
+  train_temporal_clips: 91
+  test_temporal_clips: 26
+  train_frames: 2392
+  test_frames: 597
+  train_flip_frames: 1162
+  train_notflip_frames: 1230
+  test_flip_frames: 290
+  test_notflip_frames: 307
+  environment_group_overlap: 0
+  sequence_overlap: 0
+  frame_path_overlap: 0
+  frame_manifest_sha256: 48eef3d49f6df755ac74cddd6e22f3a3ad9c593bfa72ce62b7d5e234d0f21ed3
+  summary_sha256: b214c15653edfd73a7673a6b605eb90a0a499ee39dda62b3a37e7c2e4cd2ca88
+  holdout_policy: "Protected. No model selection, threshold selection, debugging, or redesign may use D2 test pixels."
+
+deduplication:
+  status: FROZEN
+  screen_rule: "dHash <= 4 AND pHash <= 4"
+  confirm_rule: "SSIM >= 0.95 at 256x455 grayscale"
+  confirmed_pairs: 2095
+  near_duplicate_groups: 189
+  images_in_groups: 1266
+  removed_frames: 1077
+  retained_frames: 1912
+  retained_flip_frames: 1278
+  retained_notflip_frames: 634
+  representative_rule: "Deterministic earliest by (label, video_id, frame_num, path) within each connected component."
+
+d3:
+  definition: supplied_train_test_deduplicated
+  status: FROZEN
+  train_frames: 1521
+  test_frames: 391
+  train_flip_frames: 1024
+  train_notflip_frames: 497
+  test_flip_frames: 254
+  test_notflip_frames: 137
+  environment_group_overlap: 52
+  sequence_overlap: 108
+  holdout_status: NOT_UNTOUCHED_POST_HOC_REPAIR
+
+d4:
+  definition: source_safe_deduplicated
+  status: FROZEN
+  train_frames: 1504
+  test_frames: 408
+  train_flip_frames: 1009
+  train_notflip_frames: 495
+  test_flip_frames: 269
+  test_notflip_frames: 139
+  train_environment_groups: 44
+  test_environment_groups: 11
+  train_temporal_clips: 91
+  test_temporal_clips: 26
+  environment_group_overlap: 0
+  sequence_overlap: 0
+  frame_path_overlap: 0
+  frame_manifest_sha256: 68144c1ad150f0557e05e05d083e3a0199b8a43b13ed64b47ef77db2920a1ff5
+  summary_sha256: e33a0099da14f09c01fbe46dff4c06f69942c7c58eb39eac47651cfa59d467a6
+  holdout_policy: "Inherits D2 protection."
+
+diagnostics:
+  shortcut_feature_analysis:
+    status: RETAINED_DIAGNOSTIC
+    strongest_simple_associations: [saturation, brightness]
+    supplied_split_feature_only_f1: 0.6875
+    provisional_clip_grouped_feature_only_f1: 0.7157190635451505
+    note: "Descriptive shortcut diagnostic only; provisional clip-grouped result is not the frozen D2 evaluation."
+
+target_provenance:
+  source: "Supplied clip labels inherited by frames."
+  independent_frame_adjudication: NOT_VERIFIED
+  terminal_status: PROXY_ONLY_WITH_CLAIM_RESTRICTION
+  permitted_claim: "Performance against the supplied flip/notflip labels only."
+
+backup:
+  status: VERIFIED_ON_GOOGLE_DRIVE
+  pre_clean_checkpoint_commit: 6b2c0e4010820b534abc48c88b7b7b2f6c60d3ce
+  github_actions_run_id: 36419431888
+  github_artifact_id: 10968437198
+  github_artifact_digest: sha256:aadb38e8ab6c90b6bd7e35b238eab3aa01895816c2963ac38fd0f64eec971930
+  drive_folder_id: 18f0dP7E5qFWULSflq9Fu8bEmp32HBQry
+  drive_file_id: 1LDSm4E4pmKnlauyvRZy90CmL1wCr28sm
+  drive_file_name: monreader-pre-clean-backup-2026-09-28.zip
+  drive_size_bytes: 32415034
+EOF
+
+cat > TARGET_PROVENANCE.yaml <<'EOF'
+task: MonReader flip/notflip classification
+label_source: "Labels supplied with the dataset at clip/folder level and inherited by frames."
+independent_frame_annotation_verified: false
+independent_real_world_adjudication_verified: false
+contamination_risks:
+  - "Adjacent frames inherit the same clip label."
+  - "Supplied training/testing folders split many source clips across both partitions."
+terminal_status: PROXY_ONLY_WITH_CLAIM_RESTRICTION
+fit_permission: "Permitted only when framed as prediction of supplied labels."
+permitted_claim: "The model predicts the supplied flip/notflip labels on the stated evaluation population."
+prohibited_claim: "Do not claim independently adjudicated real-world page-turn truth without new evidence."
+EOF
+
+cat > README.md <<'EOF'
+# MonReader — leakage-safe experimental foundation
+
+This repository contains the active, cleaned MonReader foundation for classifying a single page image as flip or notflip.
+
+## Why the original split is not the final evaluation design
+
+The authoritative archive contains 2,989 valid RGB JPEG frames. Reconstructing clips with (label, VideoID) produced 117 temporal clips. Of those, 115 cross the supplied training/testing boundary. Perceptual similarity and SSIM analysis confirmed highly similar neighbouring frames from the same temporal sequence on opposite sides of that boundary.
+
+The supplied split is retained as D1 for comparison, not treated as an unseen-source evaluation.
+
+## Frozen constructions
+
+| Dataset | Construction | Train | Test | Source-safe? |
+|---|---|---:|---:|---|
+| D1 | supplied split, all images | 2,392 | 597 | No |
+| D2 | frozen environment-safe split, all images | 2,392 | 597 | Yes |
+| D3 | supplied split after frozen deduplication | 1,521 | 391 | No |
+| D4 | D2 assignment after frozen deduplication | 1,504 | 408 | Yes |
+
+D2 has 44 train and 11 test environment groups with zero environment-group, temporal-clip, or frame-path overlap. D4 reuses the exact D2 environment assignment and then applies the frozen deduplication mask.
+
+## Deduplication
+
+Perceptual candidates are screened with dHash <= 4 AND pHash <= 4 and confirmed with SSIM >= 0.95 at 256×455 grayscale. The frozen connected-component construction contains 189 groups and retains one deterministic representative per group, leaving 1,912 frames.
+
+## Diagnostic shortcut evidence
+
+Simple global visual properties carry meaningful class signal. Saturation and brightness are the strongest retained diagnostic associations. This motivates later controlled ablations, but hand-removal experiments and other exploratory preprocessing are intentionally not part of the active foundation.
+
+## Current status
+
+FOUNDATION_FROZEN_READY_FOR_MODELING
+
+The active branch intentionally contains no canonical legacy CNN/final-test result. Earlier modelling, post-holdout analysis, hand-removal pilots, OCR experiments, and other exploratory material were backed up before cleanup and are recoverable from the recorded Drive backup in PROJECT_STATE.yaml.
+
+The next step is to define and freeze a fresh modelling protocol using only the non-test portion of the source-safe construction, then compare fixed models across D1–D4 without using protected D2/D4 test pixels for selection or redesign.
+
+## Key evidence
+
+- audit/ — authoritative dataset and source-group receipts
+- raw_temporal_audit/ — temporal-order evidence
+- raw_similarity_audit/ and raw_ssim_audit/ — leakage/near-duplicate evidence
+- raw_environment_groups/ — frozen conservative environment grouping
+- raw_global_dedup/ — frozen deduplication evidence
+- raw_d2_split/ — frozen D2 manifests and receipt
+- raw_d3_d4_split/ — frozen D3/D4 manifests and receipt
+- raw_feature_abc/ — retained shortcut diagnostic
+- TARGET_PROVENANCE.yaml — label-provenance and claim boundary
+EOF
+
+cat > docs/DATA_AND_SPLIT_AUDIT.md <<'EOF'
+# Data and split audit
+
+The authoritative archive SHA-256 is 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f.
+
+The archive contains 2,989 readable 1080×1920 RGB JPEG images: 1,452 flip and 1,537 notflip. No filename violations or exact duplicate groups were found.
+
+Using (label, VideoID) as the temporal-clip key reconstructs 117 clips: 65 flip and 52 notflip. 115 clips appear in both supplied training and testing folders. Temporal ordering was empirically supported: all 117 ordered clips were smoother than 95% of 200 random shuffles under both grayscale MAE and dHash distance.
+
+Cross-split perceptual screening and SSIM confirmation showed highly similar neighbouring frames from the same temporal sequence on opposite sides of the supplied split. The supplied split is therefore retained as D1 but is not treated as source-independent.
+
+A conservative acquisition-environment review produced 55 frozen environment groups. These grouping units are used for leakage control and are not claimed to be known recording-session ground truth.
+
+D2 chooses 11 whole environment groups for test while exactly matching the supplied D1 test frame/class totals: 597 frames, with 290 flip and 307 notflip. D2 has zero environment-group, temporal-clip, and frame-path overlap.
+
+Deduplication uses perceptual-hash screening followed by SSIM confirmation. The frozen deduplication has 189 connected components, removes 1,077 frames, and retains 1,912 representatives. D3 applies it to the supplied split; D4 applies it within the exact frozen D2 assignment.
+EOF
+
+cat > docs/EXPERIMENT_PROTOCOL.md <<'EOF'
+# Frozen experiment protocol boundary
+
+## Active scientific question
+
+How much apparent MonReader classification performance changes when evaluation is made source-safe and when strong temporal near-duplicate redundancy is removed.
+
+## Controlled constructions
+
+- D1: supplied split, all frames.
+- D2: frozen environment-group-disjoint split, all frames.
+- D3: supplied split after frozen deduplication.
+- D4: exact D2 environment assignment after frozen deduplication.
+
+The intended comparisons are D1 vs D2 for split construction, D1 vs D3 for deduplication under the supplied split, and D2 vs D4 for deduplication under the source-safe split.
+
+## Protected evaluation rule
+
+D2 and D4 test pixels are protected. They must not be used for model-family selection, epoch selection, threshold selection, debugging, preprocessing redesign, or ablation choice.
+
+Model selection must use only non-test data. After the modelling protocol is frozen, selected configurations may be refit on their allowed full training populations and evaluated once on their corresponding frozen test partitions.
+
+## Legacy results
+
+Earlier source-group-only modelling and its final-test/sequence results are historical provenance, not active canonical results under this revised evaluation design. They were removed from the active branch after a verified GitHub Actions and Google Drive backup.
+EOF
+
+cat > scripts/verify_frozen_foundation.py <<'PY'
+from __future__ import annotations
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+def sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+required = [
+    "PROJECT_STATE.yaml",
+    "TARGET_PROVENANCE.yaml",
+    "README.md",
+    "audit/audit_summary.json",
+    "audit/source_group_summary.json",
+    "raw_environment_groups/environment_grouping_summary.json",
+    "raw_d2_split/d2_frame_split_manifest.csv",
+    "raw_d2_split/d2_split_summary.json",
+    "raw_d2_split/d2_split_receipt.json",
+    "raw_global_dedup/global_dedup_summary.json",
+    "raw_d3_d4_split/d3_frame_manifest.csv",
+    "raw_d3_d4_split/d4_frame_manifest.csv",
+    "raw_d3_d4_split/d3_d4_split_summary.json",
+    "raw_d3_d4_split/d3_d4_split_receipt.json",
+]
+missing = [p for p in required if not (ROOT / p).exists()]
+assert not missing, f"Missing required files: {missing}"
+
+with (ROOT / "audit/audit_summary.json").open() as f:
+    audit = json.load(f)
+assert audit["archive_sha256"] == "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
+assert audit["total_images"] == 2989
+assert audit["merged_source_group_count"] == 117
+assert audit["testing_source_groups_also_in_training"] == 115
+
+with (ROOT / "raw_environment_groups/environment_grouping_summary.json").open() as f:
+    env = json.load(f)
+assert env["environment_group_count"] == 55
+assert env["reviewed_candidate_links"] == 82
+
+with (ROOT / "raw_d2_split/d2_split_summary.json").open() as f:
+    d2 = json.load(f)
+assert d2["d2"]["train"]["environment_groups"] == 44
+assert d2["d2"]["test"]["environment_groups"] == 11
+assert d2["d2"]["test"]["frames"] == 597
+assert d2["d2"]["test"]["flip_frames"] == 290
+assert d2["d2"]["test"]["notflip_frames"] == 307
+assert d2["overlap_checks"] == {
+    "environment_group_overlap": 0,
+    "sequence_overlap": 0,
+    "frame_path_overlap": 0,
+}
+assert sha256(ROOT / "raw_d2_split/d2_frame_split_manifest.csv") == "48eef3d49f6df755ac74cddd6e22f3a3ad9c593bfa72ce62b7d5e234d0f21ed3"
+
+with (ROOT / "raw_global_dedup/global_dedup_summary.json").open() as f:
+    dd = json.load(f)
+assert dd["near_duplicate_group_count"] == 189
+assert dd["images_retained_after_dedup"] == 1912
+
+with (ROOT / "raw_d3_d4_split/d3_d4_split_summary.json").open() as f:
+    d34 = json.load(f)
+assert d34["d3"]["status"] == "FROZEN"
+assert d34["d4"]["status"] == "FROZEN"
+assert d34["d4"]["overlap_checks"] == {
+    "environment_group_overlap": 0,
+    "sequence_overlap": 0,
+    "frame_path_overlap": 0,
+}
+assert sha256(ROOT / "raw_d3_d4_split/d3_frame_manifest.csv") == "7583b706109164bef2c2abdc77c96fabb71e53f976ef3a7c9030282c5abfdcf4"
+assert sha256(ROOT / "raw_d3_d4_split/d4_frame_manifest.csv") == "68144c1ad150f0557e05e05d083e3a0199b8a43b13ed64b47ef77db2920a1ff5"
+
+for forbidden in [
+    "results",
+    "splits",
+    "raw_hand_arm_ablation",
+    "raw_hand_removed_audit_final",
+    "raw_page_number_audit",
+    "raw_model_selection",
+    "raw_epoch_selection",
+    "raw_scratch_epoch_selection",
+]:
+    assert not (ROOT / forbidden).exists(), f"Obsolete path still present: {forbidden}"
+
+print("PASS: frozen MonReader D1-D4 foundation verified")
+PY
+
+cat > .github/workflows/foundation-check.yml <<'EOF'
+name: Verify frozen MonReader foundation
+
+on:
+  push:
+    branches: [raw-eda-scratch]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen foundation
+        run: python scripts/verify_frozen_foundation.py
+      - name: Compile retained Python
+        run: python -m compileall -q scripts
+EOF
+
+python scripts/verify_frozen_foundation.py
+python -m compileall -q scripts
+echo "Tracked files after cleanup:"
+git ls-files | wc -l
+git status --short
+
+git config user.name "github-actions[bot]"
+git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+git add -A
+git commit -m "Clean MonReader to frozen D1-D4 foundation"
+git push origin HEAD:raw-eda-scratch
