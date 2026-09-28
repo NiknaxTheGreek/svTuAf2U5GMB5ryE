@@ -1,0 +1,40 @@
+split_id: SPLIT-003
+name: Video-Disjoint
+dataset_id: DATA-001
+status: canonical
+manifest:
+  path: manifests/splits/SPLIT-003_video_disjoint.csv
+  sha256: 6b8d6504c82aa0f425f6bb198b742cd80a1bd5c363fdbaad86f02bf8b5328ac7
+  row_count: 2989
+summary:
+  row_count: 2989
+  partition_counts:
+    test: 298
+    train: 2396
+    validation: 295
+  partition_label_counts:
+    test:
+      flip: 145
+      notflip: 153
+    train:
+      flip: 1162
+      notflip: 1234
+    validation:
+      flip: 145
+      notflip: 150
+  partition_video_counts:
+    test: 13
+    train: 93
+    validation: 11
+  partition_environment_counts:
+    test: 4
+    train: 4
+    validation: 3
+rule:
+  type: video_disjoint
+  ratios:
+  - 0.8
+  - 0.1
+  - 0.1
+  seed: 42
+  group: video_id

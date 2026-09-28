@@ -1,0 +1,336 @@
+{
+  "compatibility": {
+    "compatibility": {
+      "DATA-001": [
+        "SPLIT-001",
+        "SPLIT-002",
+        "SPLIT-003",
+        "SPLIT-004",
+        "SPLIT-005",
+        "SPLIT-006"
+      ]
+    }
+  },
+  "splits": {
+    "SPLIT-001": {
+      "dataset_id": "DATA-001",
+      "manifest": {
+        "path": "manifests/splits/SPLIT-001_original.csv",
+        "row_count": 2989,
+        "sha256": "2c2ce951773bb115acb9c88c5526fe86ac890187cc5c0a5478b36e881d2ca476"
+      },
+      "name": "Original",
+      "rule": {
+        "testing": "test",
+        "training": "train",
+        "type": "supplied",
+        "validation": null
+      },
+      "split_id": "SPLIT-001",
+      "status": "canonical",
+      "summary": {
+        "partition_counts": {
+          "test": 597,
+          "train": 2392
+        },
+        "partition_environment_counts": {
+          "test": 4,
+          "train": 4
+        },
+        "partition_label_counts": {
+          "test": {
+            "flip": 290,
+            "notflip": 307
+          },
+          "train": {
+            "flip": 1162,
+            "notflip": 1230
+          }
+        },
+        "partition_video_counts": {
+          "test": 115,
+          "train": 117
+        },
+        "row_count": 2989
+      }
+    },
+    "SPLIT-002": {
+      "dataset_id": "DATA-001",
+      "manifest": {
+        "path": "manifests/splits/SPLIT-002_random_stratified.csv",
+        "row_count": 2989,
+        "sha256": "26a0673d9de161515909eb0170463a0b411aad4eb668286bd3fff30d137fe6df"
+      },
+      "name": "Random Stratified",
+      "rule": {
+        "ratios": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "seed": 42,
+        "type": "frame_stratified"
+      },
+      "split_id": "SPLIT-002",
+      "status": "canonical",
+      "summary": {
+        "partition_counts": {
+          "test": 301,
+          "train": 2390,
+          "validation": 298
+        },
+        "partition_environment_counts": {
+          "test": 4,
+          "train": 4,
+          "validation": 4
+        },
+        "partition_label_counts": {
+          "test": {
+            "flip": 146,
+            "notflip": 155
+          },
+          "train": {
+            "flip": 1161,
+            "notflip": 1229
+          },
+          "validation": {
+            "flip": 145,
+            "notflip": 153
+          }
+        },
+        "partition_video_counts": {
+          "test": 106,
+          "train": 117,
+          "validation": 110
+        },
+        "row_count": 2989
+      }
+    },
+    "SPLIT-003": {
+      "dataset_id": "DATA-001",
+      "manifest": {
+        "path": "manifests/splits/SPLIT-003_video_disjoint.csv",
+        "row_count": 2989,
+        "sha256": "6b8d6504c82aa0f425f6bb198b742cd80a1bd5c363fdbaad86f02bf8b5328ac7"
+      },
+      "name": "Video-Disjoint",
+      "rule": {
+        "group": "video_id",
+        "ratios": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "seed": 42,
+        "type": "video_disjoint"
+      },
+      "split_id": "SPLIT-003",
+      "status": "canonical",
+      "summary": {
+        "partition_counts": {
+          "test": 298,
+          "train": 2396,
+          "validation": 295
+        },
+        "partition_environment_counts": {
+          "test": 4,
+          "train": 4,
+          "validation": 3
+        },
+        "partition_label_counts": {
+          "test": {
+            "flip": 145,
+            "notflip": 153
+          },
+          "train": {
+            "flip": 1162,
+            "notflip": 1234
+          },
+          "validation": {
+            "flip": 145,
+            "notflip": 150
+          }
+        },
+        "partition_video_counts": {
+          "test": 13,
+          "train": 93,
+          "validation": 11
+        },
+        "row_count": 2989
+      }
+    },
+    "SPLIT-004": {
+      "dataset_id": "DATA-001",
+      "manifest": {
+        "path": "manifests/splits/SPLIT-004_source_safe.csv",
+        "row_count": 2989,
+        "sha256": "29772811d155100d2edbe3ae2ae97c33ab47e3ded58898c2fe63c5c9ab7a790c"
+      },
+      "name": "Source-Safe",
+      "rule": {
+        "environment_partition": {
+          "ENV-01": "validation",
+          "ENV-02": "train",
+          "ENV-03": "test",
+          "ENV-04": "train"
+        },
+        "group": "environment_id",
+        "selection": "test environment closest to global class proportion; validation chosen likewise from remaining groups",
+        "type": "environment_session_disjoint"
+      },
+      "split_id": "SPLIT-004",
+      "status": "canonical",
+      "summary": {
+        "partition_counts": {
+          "test": 770,
+          "train": 1635,
+          "validation": 584
+        },
+        "partition_environment_counts": {
+          "test": 1,
+          "train": 2,
+          "validation": 1
+        },
+        "partition_label_counts": {
+          "test": {
+            "flip": 348,
+            "notflip": 422
+          },
+          "train": {
+            "flip": 855,
+            "notflip": 780
+          },
+          "validation": {
+            "flip": 249,
+            "notflip": 335
+          }
+        },
+        "partition_video_counts": {
+          "test": 29,
+          "train": 67,
+          "validation": 21
+        },
+        "row_count": 2989
+      }
+    },
+    "SPLIT-005": {
+      "dataset_id": "DATA-001",
+      "manifest": {
+        "path": "manifests/splits/SPLIT-005_temporal_ordered.csv",
+        "row_count": 2989,
+        "sha256": "5c8d2e13c6eda5b2b150abb91a263e0cedc2a2d375ce5a474fcefa20cbdb6415"
+      },
+      "name": "Temporal-Ordered",
+      "rule": {
+        "minimum_frames": 20,
+        "ratios": [
+          0.8,
+          0.1,
+          0.1
+        ],
+        "type": "within_video_chronological"
+      },
+      "split_id": "SPLIT-005",
+      "status": "canonical",
+      "summary": {
+        "partition_counts": {
+          "excluded_short_video": 332,
+          "test": 283,
+          "train": 2109,
+          "validation": 265
+        },
+        "partition_environment_counts": {
+          "excluded_short_video": 4,
+          "test": 4,
+          "train": 4,
+          "validation": 4
+        },
+        "partition_label_counts": {
+          "excluded_short_video": {
+            "flip": 324,
+            "notflip": 8
+          },
+          "test": {
+            "flip": 127,
+            "notflip": 156
+          },
+          "train": {
+            "flip": 888,
+            "notflip": 1221
+          },
+          "validation": {
+            "flip": 113,
+            "notflip": 152
+          }
+        },
+        "partition_video_counts": {
+          "excluded_short_video": 24,
+          "test": 93,
+          "train": 93,
+          "validation": 93
+        },
+        "row_count": 2989
+      }
+    },
+    "SPLIT-006": {
+      "dataset_id": "DATA-001",
+      "manifest": {
+        "path": "manifests/splits/SPLIT-006_source_safe_temporal.csv",
+        "row_count": 2989,
+        "sha256": "15355a01d8ecace1eea674059e0ee9c2861df358b94d166b33a4c292fd26cf2d"
+      },
+      "name": "Source-Safe + Temporal",
+      "rule": {
+        "inner_train_validation_ratios": [
+          0.9,
+          0.1
+        ],
+        "minimum_frames_for_inner_temporal": 20,
+        "outer_test_group_is_complete": true,
+        "test_environment": "ENV-03",
+        "type": "nested_environment_holdout_plus_temporal"
+      },
+      "split_id": "SPLIT-006",
+      "status": "canonical",
+      "summary": {
+        "partition_counts": {
+          "excluded_short_video": 293,
+          "test": 770,
+          "train": 1723,
+          "validation": 203
+        },
+        "partition_environment_counts": {
+          "excluded_short_video": 3,
+          "test": 1,
+          "train": 3,
+          "validation": 3
+        },
+        "partition_label_counts": {
+          "excluded_short_video": {
+            "flip": 285,
+            "notflip": 8
+          },
+          "test": {
+            "flip": 348,
+            "notflip": 422
+          },
+          "train": {
+            "flip": 729,
+            "notflip": 994
+          },
+          "validation": {
+            "flip": 90,
+            "notflip": 113
+          }
+        },
+        "partition_video_counts": {
+          "excluded_short_video": 21,
+          "test": 29,
+          "train": 67,
+          "validation": 67
+        },
+        "row_count": 2989
+      }
+    }
+  }
+}

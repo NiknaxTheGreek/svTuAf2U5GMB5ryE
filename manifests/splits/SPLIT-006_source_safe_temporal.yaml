@@ -1,0 +1,46 @@
+split_id: SPLIT-006
+name: Source-Safe + Temporal
+dataset_id: DATA-001
+status: canonical
+manifest:
+  path: manifests/splits/SPLIT-006_source_safe_temporal.csv
+  sha256: 15355a01d8ecace1eea674059e0ee9c2861df358b94d166b33a4c292fd26cf2d
+  row_count: 2989
+summary:
+  row_count: 2989
+  partition_counts:
+    excluded_short_video: 293
+    test: 770
+    train: 1723
+    validation: 203
+  partition_label_counts:
+    excluded_short_video:
+      flip: 285
+      notflip: 8
+    test:
+      flip: 348
+      notflip: 422
+    train:
+      flip: 729
+      notflip: 994
+    validation:
+      flip: 90
+      notflip: 113
+  partition_video_counts:
+    excluded_short_video: 21
+    test: 29
+    train: 67
+    validation: 67
+  partition_environment_counts:
+    excluded_short_video: 3
+    test: 1
+    train: 3
+    validation: 3
+rule:
+  type: nested_environment_holdout_plus_temporal
+  test_environment: ENV-03
+  inner_train_validation_ratios:
+  - 0.9
+  - 0.1
+  minimum_frames_for_inner_temporal: 20
+  outer_test_group_is_complete: true
