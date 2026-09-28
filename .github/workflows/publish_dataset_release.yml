@@ -1,0 +1,55 @@
+name: Publish authoritative dataset release
+
+on:
+  push:
+    branches: ["phase/05-scratch-original"]
+
+permissions:
+  contents: write
+
+jobs:
+  publish-dataset:
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Publish authoritative dataset release'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install Drive-aware downloader
+        run: python -m pip install gdown==5.2.0
+
+      - name: Download authoritative images.zip
+        run: |
+          set -euo pipefail
+          gdown --fuzzy \
+            "https://drive.google.com/file/d/1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm/view?usp=sharing" \
+            -O /tmp/images.zip
+
+      - name: Verify authoritative identity
+        run: |
+          set -euo pipefail
+          actual_size="$(stat -c%s /tmp/images.zip)"
+          expected_size="939921132"
+          echo "actual_size=$actual_size"
+          test "$actual_size" = "$expected_size"
+          actual_sha="$(sha256sum /tmp/images.zip | awk '{print $1}')"
+          expected_sha="033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
+          echo "actual_sha256=$actual_sha"
+          test "$actual_sha" = "$expected_sha"
+          echo "DATASET_IDENTITY=PASS"
+
+      - name: Publish GitHub release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: dataset-v1
+          name: MonReader authoritative dataset v1
+          body: |
+            Authoritative images.zip for MonReader.
+            Size: 939,921,132 bytes.
+            SHA-256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f.
+          files: /tmp/images.zip
+          fail_on_unmatched_files: true
