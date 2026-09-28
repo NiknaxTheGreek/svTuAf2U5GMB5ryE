@@ -6,7 +6,7 @@ on:
 
 jobs:
   stage1:
-    if: github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Execute frozen Stage 1 scratch search'
     strategy:
       fail-fast: false
       matrix:
