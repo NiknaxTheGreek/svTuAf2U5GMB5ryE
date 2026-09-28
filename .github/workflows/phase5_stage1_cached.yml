@@ -14,12 +14,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13.5"
-          cache: pip
-          cache-dependency-path: requirements.lock
       - name: Install cache dependencies
         run: |
           python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
-          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0
       - name: Download and extract authoritative archive
         run: |
           set -euo pipefail
@@ -70,7 +68,7 @@ jobs:
     needs: prepare
     strategy:
       fail-fast: false
-      max-parallel: 4
+      max-parallel: 1
       matrix:
         trial_index: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40]
     runs-on: ubuntu-latest
@@ -80,8 +78,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13.5"
-          cache: pip
-          cache-dependency-path: requirements.lock
       - name: Install CPU execution dependencies
         run: |
           python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1

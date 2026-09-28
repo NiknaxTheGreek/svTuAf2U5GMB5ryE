@@ -287,6 +287,14 @@ def run_binary_training(
                 "improved": improved,
             }
         )
+        print(
+            f"epoch={epoch} "
+            f"train_loss={train_metrics['loss']:.6f} "
+            f"validation_loss={validation_metrics['loss']:.6f} "
+            f"validation_f1={validation_metrics['f1']:.6f} "
+            f"improved={improved}",
+            flush=True,
+        )
         if should_stop:
             break
     if stopper.best_epoch is None or checkpoint_sha256 is None:

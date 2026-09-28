@@ -19,8 +19,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13.5"
-          cache: pip
-          cache-dependency-path: requirements.lock
       - name: Install CPU execution dependencies
         run: |
           python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
