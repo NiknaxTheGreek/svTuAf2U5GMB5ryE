@@ -1,0 +1,155 @@
+name: Phase 5 perfect-config convergence diagnostic
+
+on:
+  push:
+    branches: ["experiment/phase5-perfect-convergence"]
+
+permissions:
+  contents: write
+
+jobs:
+  convergence:
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Execute perfect convergence diagnostic'
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - candidate: stage1-008
+            config: configs/diagnostics/perfect_convergence_stage1_008.json
+          - candidate: stage2-006
+            config: configs/diagnostics/perfect_convergence_stage2_006.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install CPU execution dependencies
+        run: |
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+
+      - name: Validate runner and exact frozen hyperparameters
+        env:
+          CANDIDATE: ${{ matrix.candidate }}
+          CONFIG: ${{ matrix.config }}
+        run: |
+          python -m py_compile scripts/run_scratch_convergence.py
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          candidate_id = os.environ["CANDIDATE"]
+          diagnostic = json.loads(Path(os.environ["CONFIG"]).read_text())
+          frozen = json.loads(Path("configs/sweeps/scratch_top5_source_gate.json").read_text())
+          candidate = next(x for x in frozen["candidates"] if x["trial_id"] == candidate_id)
+          original = candidate["config"]
+          locked = [
+              "optimizer",
+              "learning_rate",
+              "batch_size",
+              "weight_decay",
+              "dropout",
+              "depth",
+              "start_filters",
+              "seed",
+              "parameter_count",
+          ]
+          for key in locked:
+              assert diagnostic[key] == original[key], (key, diagnostic[key], original[key])
+          assert diagnostic["source_candidate_id"] == candidate_id
+          print("EXACT_HYPERPARAMETERS=PASS", candidate_id)
+          PY
+
+      - name: Verify authoritative archive and build exact tuning cache
+        run: |
+          set -euo pipefail
+          test -f data/images.zip
+          printf '%s  %s\n'             "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"             "data/images.zip" | sha256sum --check
+          unzip -q data/images.zip -d /tmp/monreader
+          mkdir -p /tmp/cache
+          python -m scripts.build_scratch_cache             --image-root /tmp/monreader             --output-data /tmp/cache/convergence_uint8.npy             --output-index /tmp/cache/convergence_index.csv
+
+      - name: Train fixed configuration until curve plateau
+        env:
+          OMP_NUM_THREADS: "4"
+          MKL_NUM_THREADS: "4"
+          CANDIDATE: ${{ matrix.candidate }}
+          CONFIG: ${{ matrix.config }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/result /tmp/checkpoint
+          python -m scripts.run_scratch_convergence             --cache-data /tmp/cache/convergence_uint8.npy             --cache-index /tmp/cache/convergence_index.csv             --config "${CONFIG}"             --membership manifests/splits/SPLIT-007_original_tuning.csv             --output "/tmp/result/${CANDIDATE}.json"             --checkpoint "/tmp/checkpoint/${CANDIDATE}.pt"             --workers 2             --min-epochs 20             --max-epochs 80             --window 5             --relative-tolerance 0.005             --stable-checks 2
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: convergence-${{ matrix.candidate }}
+          path: /tmp/result/${{ matrix.candidate }}.json
+          if-no-files-found: error
+
+  collect:
+    if: github.actor != 'github-actions[bot]' && github.event.head_commit.message == 'Execute perfect convergence diagnostic'
+    needs: convergence
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: convergence-*
+          path: /tmp/convergence
+          merge-multiple: true
+
+      - name: Freeze convergence diagnostics
+        run: |
+          set -euo pipefail
+          mkdir -p reports/diagnostics/phase5_perfect_convergence
+          cp /tmp/convergence/*.json reports/diagnostics/phase5_perfect_convergence/
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("reports/diagnostics/phase5_perfect_convergence")
+          records = [json.loads(path.read_text()) for path in sorted(root.glob("stage*.json"))]
+          assert len(records) == 2
+          summary = {
+              "experiment": "phase5_perfect_config_convergence",
+              "membership": "manifests/splits/SPLIT-007_original_tuning.csv",
+              "test_set_used": False,
+              "criterion": {
+                  "min_epochs": 20,
+                  "max_epochs_cap": 80,
+                  "window": 5,
+                  "relative_tolerance": 0.005,
+                  "required_stable_checks": 2,
+              },
+              "results": [
+                  {
+                      "source_candidate_id": r["source_candidate_id"],
+                      "converged": r["converged"],
+                      "stop_reason": r["stop_reason"],
+                      "stopped_epoch": r["stopped_epoch"],
+                      "best_epoch": r["best_epoch"],
+                      "best_validation_f1": r["best_validation_f1"],
+                      "final_epoch_validation_f1": r["final_epoch_validation_metrics"]["f1"],
+                  }
+                  for r in records
+              ],
+          }
+          (root / "summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n")
+          print(json.dumps(summary, indent=2, sort_keys=True))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/diagnostics/phase5_perfect_convergence
+          git commit -m "Freeze perfect-config convergence diagnostics [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
