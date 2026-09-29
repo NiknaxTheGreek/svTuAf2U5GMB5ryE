@@ -21,18 +21,18 @@ def test_stage1_generation_is_deterministic() -> None:
     first = generate_stage1_random_trials()
     second = generate_stage1_random_trials()
     assert first == second
-    assert len(first) == 40
+    assert len(first) == 12
     assert first[0].trial_id == "stage1-001"
-    assert first[-1].trial_id == "stage1-040"
+    assert first[-1].trial_id == "stage1-012"
 
 
 def test_stage1_draw_matches_frozen_distribution_facts() -> None:
     trials = generate_stage1_random_trials()
-    assert sum(trial.weight_decay == 0.0 for trial in trials) == 11
-    assert min(trial.parameter_count for trial in trials) == 391
-    assert max(trial.parameter_count for trial in trials) == 66_455_221
-    assert trials[34].trial_id == "stage1-035"
-    assert trials[34].parameter_count == 66_455_221
+    assert sum(trial.weight_decay == 0.0 for trial in trials) == 4
+    assert min(trial.parameter_count for trial in trials) == 7_696
+    assert max(trial.parameter_count for trial in trials) == 1_202_461
+    assert trials[7].trial_id == "stage1-008"
+    assert trials[7].parameter_count == 1_202_461
 
 
 def test_stage1_trial_ranges_and_parameter_counts() -> None:
@@ -70,7 +70,7 @@ def _success_record(**config):
 def test_stage2_envelope_uses_exact_expansion_rules() -> None:
     records = [
         _success_record(
-            optimizer="adam" if index < 4 else "sgd",
+            optimizer="adam" if index < 4 else "rmsprop",
             learning_rate=10.0 ** (-4.0 + 0.1 * index),
             batch_size=50 + index,
             weight_decay=0.0 if index == 0 else 10.0 ** (-5.0 + 0.1 * index),
@@ -81,13 +81,13 @@ def test_stage2_envelope_uses_exact_expansion_rules() -> None:
         for index in range(8)
     ]
     space = derive_stage2_search_space(records)
-    assert space["optimizer"] == ["adam", "sgd"]
-    assert space["learning_rate"]["min"] == pytest.approx(10.0 ** -4.3)
-    assert space["learning_rate"]["max"] == pytest.approx(10.0 ** -3.0)
+    assert space["optimizer"] == ["adam", "rmsprop"]
+    assert space["learning_rate"]["min"] == pytest.approx(1e-4)
+    assert space["learning_rate"]["max"] == pytest.approx(10.0 ** -3.1522878745280337)
     assert space["batch_size"] == {
         "distribution": "integer_uniform",
-        "min": 25,
-        "max": 82,
+        "min": 40,
+        "max": 67,
     }
     assert space["depth"] == {
         "distribution": "integer_uniform",
@@ -96,15 +96,15 @@ def test_stage2_envelope_uses_exact_expansion_rules() -> None:
     }
     assert space["start_filters"] == {
         "distribution": "integer_uniform",
-        "min": 14,
-        "max": 33,
+        "min": 17,
+        "max": 30,
     }
-    assert space["dropout"]["min"] == pytest.approx(0.15)
-    assert space["dropout"]["max"] == pytest.approx(0.32)
+    assert space["dropout"]["min"] == pytest.approx(0.165)
+    assert space["dropout"]["max"] == pytest.approx(0.305)
     assert space["weight_decay"]["zero_retained"] is True
     assert space["weight_decay"]["positive_retained"] is True
-    assert space["weight_decay"]["positive_min"] == pytest.approx(10.0 ** -5.3)
-    assert space["weight_decay"]["positive_max"] == pytest.approx(10.0 ** -3.9)
+    assert space["weight_decay"]["positive_min"] == pytest.approx(10.0 ** -5.2)
+    assert space["weight_decay"]["positive_max"] == pytest.approx(1e-4)
 
 
 def test_stage2_drops_weight_decay_zero_when_absent() -> None:
@@ -127,7 +127,7 @@ def test_stage2_can_retain_only_zero_weight_decay() -> None:
 def test_stage2_bayesian_proposal_is_deterministic_and_unseen() -> None:
     records = [
         _success_record(
-            optimizer="adam" if index < 4 else "sgd",
+            optimizer="adam" if index < 4 else "rmsprop",
             learning_rate=10.0 ** (-4.0 + 0.1 * index),
             batch_size=50 + index,
             weight_decay=0.0 if index == 0 else 10.0 ** (-5.0 + 0.1 * index),
