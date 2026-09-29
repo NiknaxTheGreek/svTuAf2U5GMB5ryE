@@ -1,2 +1,3 @@
 execute-reduced-stage2
 retry-after-canonicalization
+retry-after-float-serialization
