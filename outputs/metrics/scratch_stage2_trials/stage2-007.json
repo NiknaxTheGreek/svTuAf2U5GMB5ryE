@@ -1,0 +1,232 @@
+{
+  "best_epoch": 2,
+  "best_validation_f1": 0.6906906906906907,
+  "best_validation_metrics": {
+    "accuracy": 0.5708333333333333,
+    "balanced_accuracy": 0.5808838857619345,
+    "confusion_matrix": {
+      "fn": 2,
+      "fp": 101,
+      "tn": 22,
+      "tp": 115
+    },
+    "f1": 0.6906906906906907,
+    "loss": 1.317371734480063,
+    "n": 240,
+    "negative_count": 123,
+    "positive_count": 117,
+    "pr_auc": 0.8420625462230964,
+    "precision": 0.5324074074074074,
+    "recall": 0.9829059829059829,
+    "roc_auc": 0.8108540059759572,
+    "threshold": 0.5
+  },
+  "checkpoint_sha256": "31b45b4f1871c13470efe58ac07a69a1885700c0f72bef7de544d5a7b257d38d",
+  "config": {
+    "acquisition": "expected_improvement",
+    "batch_size": 104,
+    "candidate_pool_size": 4096,
+    "depth": 5,
+    "dropout": 0.22439871753070412,
+    "learning_rate": 0.0001664276710150272,
+    "optimizer": "rmsprop",
+    "parameter_count": 1570081,
+    "seed": 42,
+    "start_filters": 32,
+    "trial_id": "stage2-007",
+    "weight_decay": 6.54488184222011e-05
+  },
+  "device": "cpu",
+  "elapsed_seconds": 1285.2138507670006,
+  "history": [
+    {
+      "epoch": 1,
+      "improved": true,
+      "train": {
+        "f1": 0.7749259624876604,
+        "loss": 0.4370294124663541,
+        "precision": 0.800203873598369,
+        "recall": 0.7511961722488039
+      },
+      "validation": {
+        "accuracy": 0.4875,
+        "balanced_accuracy": 0.5,
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 123,
+          "tn": 0,
+          "tp": 117
+        },
+        "f1": 0.6554621848739496,
+        "loss": 7.6423652012246714,
+        "n": 240,
+        "negative_count": 123,
+        "positive_count": 117,
+        "pr_auc": 0.6704850424658878,
+        "precision": 0.4875,
+        "recall": 1.0,
+        "roc_auc": 0.6380376624279064,
+        "threshold": 0.5
+      }
+    },
+    {
+      "epoch": 2,
+      "improved": true,
+      "train": {
+        "f1": 0.8789370078740157,
+        "loss": 0.27523068047810667,
+        "precision": 0.9047619047619048,
+        "recall": 0.8545454545454545
+      },
+      "validation": {
+        "accuracy": 0.5708333333333333,
+        "balanced_accuracy": 0.5808838857619345,
+        "confusion_matrix": {
+          "fn": 2,
+          "fp": 101,
+          "tn": 22,
+          "tp": 115
+        },
+        "f1": 0.6906906906906907,
+        "loss": 1.317371734480063,
+        "n": 240,
+        "negative_count": 123,
+        "positive_count": 117,
+        "pr_auc": 0.8420625462230964,
+        "precision": 0.5324074074074074,
+        "recall": 0.9829059829059829,
+        "roc_auc": 0.8108540059759572,
+        "threshold": 0.5
+      }
+    },
+    {
+      "epoch": 3,
+      "improved": false,
+      "train": {
+        "f1": 0.9110565110565111,
+        "loss": 0.20802837391435877,
+        "precision": 0.9363636363636364,
+        "recall": 0.8870813397129187
+      },
+      "validation": {
+        "accuracy": 0.6125,
+        "balanced_accuracy": 0.6025641025641025,
+        "confusion_matrix": {
+          "fn": 93,
+          "fp": 0,
+          "tn": 123,
+          "tp": 24
+        },
+        "f1": 0.3404255319148936,
+        "loss": 2.257456644376119,
+        "n": 240,
+        "negative_count": 123,
+        "positive_count": 117,
+        "pr_auc": 0.9107957098580012,
+        "precision": 1.0,
+        "recall": 0.20512820512820512,
+        "roc_auc": 0.8953512612049197,
+        "threshold": 0.5
+      }
+    },
+    {
+      "epoch": 4,
+      "improved": false,
+      "train": {
+        "f1": 0.9241245136186771,
+        "loss": 0.20146241532050102,
+        "precision": 0.9396636993076162,
+        "recall": 0.9090909090909091
+      },
+      "validation": {
+        "accuracy": 0.7666666666666667,
+        "balanced_accuracy": 0.7606837606837606,
+        "confusion_matrix": {
+          "fn": 56,
+          "fp": 0,
+          "tn": 123,
+          "tp": 61
+        },
+        "f1": 0.6853932584269663,
+        "loss": 0.7019844621419906,
+        "n": 240,
+        "negative_count": 123,
+        "positive_count": 117,
+        "pr_auc": 0.9682356824873486,
+        "precision": 1.0,
+        "recall": 0.5213675213675214,
+        "roc_auc": 0.9610173024807172,
+        "threshold": 0.5
+      }
+    },
+    {
+      "epoch": 5,
+      "improved": false,
+      "train": {
+        "f1": 0.9422792303897385,
+        "loss": 0.1478696130077635,
+        "precision": 0.9725050916496945,
+        "recall": 0.9138755980861244
+      },
+      "validation": {
+        "accuracy": 0.49166666666666664,
+        "balanced_accuracy": 0.5040650406504065,
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 122,
+          "tn": 1,
+          "tp": 117
+        },
+        "f1": 0.6573033707865169,
+        "loss": 2.6308431644768766,
+        "n": 240,
+        "negative_count": 123,
+        "positive_count": 117,
+        "pr_auc": 0.830984917193946,
+        "precision": 0.4895397489539749,
+        "recall": 1.0,
+        "roc_auc": 0.8069974289486486,
+        "threshold": 0.5
+      }
+    },
+    {
+      "epoch": 6,
+      "improved": false,
+      "train": {
+        "f1": 0.950533462657614,
+        "loss": 0.13227197874102006,
+        "precision": 0.9636184857423795,
+        "recall": 0.937799043062201
+      },
+      "validation": {
+        "accuracy": 0.4875,
+        "balanced_accuracy": 0.5,
+        "confusion_matrix": {
+          "fn": 0,
+          "fp": 123,
+          "tn": 0,
+          "tp": 117
+        },
+        "f1": 0.6554621848739496,
+        "loss": 14.736675961827196,
+        "n": 240,
+        "negative_count": 123,
+        "positive_count": 117,
+        "pr_auc": 0.74375,
+        "precision": 0.4875,
+        "recall": 1.0,
+        "roc_auc": 0.5,
+        "threshold": 0.5
+      }
+    }
+  ],
+  "membership": "manifests/splits/SPLIT-007_original_tuning.csv",
+  "parameter_count": 1570081,
+  "preprocessing_cache": "exact_uint8_memmap",
+  "seed": 42,
+  "stage": "bayesian",
+  "status": "success",
+  "train_count": 2152,
+  "trial_id": "stage2-007",
+  "validation_count": 240
+}
