@@ -1,0 +1,99 @@
+{
+  "candidate_ids": [
+    "stage1-008",
+    "stage2-006",
+    "stage2-002",
+    "stage2-003",
+    "stage1-009"
+  ],
+  "candidates": [
+    {
+      "best_validation_f1": 1,
+      "config": {
+        "batch_size": 96,
+        "depth": 5,
+        "dropout": 0.10932832448371436,
+        "learning_rate": 0.000442309625866803,
+        "optimizer": "adamw",
+        "parameter_count": 1202461,
+        "seed": 42,
+        "start_filters": 28,
+        "trial_id": "stage1-008",
+        "weight_decay": 0.0001261232943436022
+      },
+      "trial_id": "stage1-008"
+    },
+    {
+      "best_validation_f1": 1.0,
+      "config": {
+        "acquisition": "expected_improvement",
+        "batch_size": 35,
+        "candidate_pool_size": 4096,
+        "depth": 5,
+        "dropout": 0.21347744916689373,
+        "learning_rate": 0.0010213099102953237,
+        "optimizer": "adamw",
+        "parameter_count": 883801,
+        "seed": 42,
+        "start_filters": 24,
+        "trial_id": "stage2-006",
+        "weight_decay": 6.593882143081683e-05
+      },
+      "trial_id": "stage2-006"
+    },
+    {
+      "best_validation_f1": 0.9957081545064378,
+      "config": {
+        "acquisition": "expected_improvement",
+        "batch_size": 37,
+        "candidate_pool_size": 4096,
+        "depth": 5,
+        "dropout": 0.28574901783115025,
+        "learning_rate": 0.00011800455913747656,
+        "optimizer": "adam",
+        "parameter_count": 259936,
+        "seed": 42,
+        "start_filters": 13,
+        "trial_id": "stage2-002",
+        "weight_decay": 0.0
+      },
+      "trial_id": "stage2-002"
+    },
+    {
+      "best_validation_f1": 0.9913793103448276,
+      "config": {
+        "acquisition": "expected_improvement",
+        "batch_size": 35,
+        "candidate_pool_size": 4096,
+        "depth": 5,
+        "dropout": 0.26949854092010134,
+        "learning_rate": 0.000334532524333228,
+        "optimizer": "adamw",
+        "parameter_count": 614101,
+        "seed": 42,
+        "start_filters": 20,
+        "trial_id": "stage2-003",
+        "weight_decay": 0.00048680267780149835
+      },
+      "trial_id": "stage2-003"
+    },
+    {
+      "best_validation_f1": 0.9872340425531915,
+      "config": {
+        "batch_size": 110,
+        "depth": 5,
+        "dropout": 0.04891336926325843,
+        "learning_rate": 0.00037355327596359436,
+        "optimizer": "adamw",
+        "parameter_count": 221581,
+        "seed": 42,
+        "start_filters": 12,
+        "trial_id": "stage1-009",
+        "weight_decay": 0.00011155435048867032
+      },
+      "trial_id": "stage1-009"
+    }
+  ],
+  "count": 5,
+  "selection_metric": "original_tuning_validation_f1"
+}
