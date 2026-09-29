@@ -18,7 +18,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          for run_id in 36497575456 36498217211 36543349583 36605608290; do
+          for run_id in 36497575456 36498217211 36543349583 36605608290 36607572193; do
             status=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run_id" --jq .status)
             echo "run=$run_id status=$status"
             if [ "$status" = "queued" ] || [ "$status" = "in_progress" ]; then
