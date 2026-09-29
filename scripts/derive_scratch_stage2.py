@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
-from src.tuning import derive_stage2_search_space
+from src.tuning import STAGE1_TRIAL_COUNT, STAGE2_TRIAL_COUNT, derive_stage2_search_space
 
 
 def parse_args() -> argparse.Namespace:
@@ -19,11 +19,11 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     stage1 = json.loads(args.stage1_results.read_text(encoding="utf-8"))
-    if stage1.get("stage") != "random" or stage1.get("trial_count") != 40:
-        raise ValueError("Input is not the frozen 40-trial Stage-1 aggregate")
+    if stage1.get("stage") != "random" or stage1.get("trial_count") != STAGE1_TRIAL_COUNT:
+        raise ValueError("Input is not the frozen reduced Stage-1 aggregate")
     results = stage1.get("results")
-    if not isinstance(results, list) or len(results) != 40:
-        raise ValueError("Stage-1 aggregate must account for exactly 40 trials")
+    if not isinstance(results, list) or len(results) != STAGE1_TRIAL_COUNT:
+        raise ValueError(f"Stage-1 aggregate must account for exactly {STAGE1_TRIAL_COUNT} trials")
     by_id = {record["trial_id"]: record for record in results}
     top8_ids = stage1.get("top8_trial_ids")
     if not isinstance(top8_ids, list) or len(top8_ids) != 8:
@@ -33,17 +33,17 @@ def main() -> int:
     payload = {
         "stage": "bayesian",
         "seed": 42,
-        "trial_count": 30,
+        "trial_count": STAGE2_TRIAL_COUNT,
         "source_stage1_top8": top8_ids,
         "search_space": space,
         "fixed": {
             "augmentation": False,
             "canvas": {"height": 398, "width": 224},
             "class_sampling": "natural",
-            "early_stopping_patience": 8,
+            "early_stopping_patience": 4,
             "gradient_clipping": None,
             "loss": "BCEWithLogitsLoss",
-            "max_epochs": 50,
+            "max_epochs": 20,
             "scaling": "[0,1]",
             "scheduler": None,
             "seed": 42,
