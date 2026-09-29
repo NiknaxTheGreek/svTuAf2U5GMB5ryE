@@ -26,6 +26,8 @@ def main() -> int:
     parser.add_argument("--checkpoint", required=True, type=Path)
     parser.add_argument("--workers", type=int, default=2)
     parser.add_argument("--stage", required=True)
+    parser.add_argument("--max-epochs", type=int, default=50)
+    parser.add_argument("--patience", type=int, default=8)
     args = parser.parse_args()
 
     config = load_frozen_config(args.config)
@@ -105,8 +107,8 @@ def main() -> int:
             device=device,
             checkpoint_path=args.checkpoint,
             config=config,
-            max_epochs=50,
-            patience=8,
+            max_epochs=args.max_epochs,
+            patience=args.patience,
         )
         checkpoint = torch.load(args.checkpoint, map_location=device, weights_only=False)
         model.load_state_dict(checkpoint["model_state_dict"])
