@@ -1,0 +1,15 @@
+{
+  "source_candidate_id": "stage2-006",
+  "trial_id": "convergence-stage2-006",
+  "acquisition": "expected_improvement",
+  "batch_size": 35,
+  "candidate_pool_size": 4096,
+  "depth": 5,
+  "dropout": 0.21347744916689373,
+  "learning_rate": 0.0010213099102953237,
+  "optimizer": "adamw",
+  "parameter_count": 883801,
+  "seed": 42,
+  "start_filters": 24,
+  "weight_decay": 0.00006593882143081683
+}
