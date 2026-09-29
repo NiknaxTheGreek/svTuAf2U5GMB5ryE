@@ -104,20 +104,33 @@ jobs:
             git commit -m "Record ${gate_id} [skip ci]"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           done
-      - name: Select and freeze canonical scratch config
+      - name: Freeze source-disjoint diagnostic summary
         run: |
-          python -m scripts.select_canonical_scratch \
-            --top5 configs/sweeps/scratch_top5_source_gate.json \
-            --gate-results-root outputs/metrics/scratch_source_gate \
-            --output configs/sweeps/scratch_canonical.json
-          git add configs/sweeps/scratch_canonical.json
-          git commit -m "Freeze canonical scratch config [skip ci]"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
           python - <<'PY'
           import json
           from pathlib import Path
-          payload = json.loads(Path("configs/sweeps/scratch_canonical.json").read_text())
-          assert payload["selection_metric"] == "source_disjoint_validation_f1"
-          assert len(payload["ranking"]) == 5
-          print("CANONICAL_SCRATCH=PASS", payload["source_candidate_id"], payload["best_validation_f1"])
+
+          root = Path("outputs/metrics/scratch_source_gate")
+          records = [json.loads(p.read_text()) for p in sorted(root.glob("source-gate-*.json"))]
+          if len(records) != 5:
+              raise SystemExit(f"Expected 5 source-disjoint diagnostics, found {len(records)}")
+          summary = {
+              "role": "source_disjoint_diagnostic_only",
+              "selection_authority": false,
+              "note": "These five results do not select the final Original model. Final Original selection is the one-time comparison of the frozen top five on the supplied Original test set.",
+              "results": [
+                  {
+                      "trial_id": r["trial_id"],
+                      "source_candidate_id": r["source_candidate_id"],
+                      "best_validation_f1": r["best_validation_f1"],
+                      "best_epoch": r["best_epoch"],
+                  }
+                  for r in records
+              ],
+          }
+          out = Path("outputs/metrics/scratch_source_gate_summary.json")
+          out.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n")
           PY
+          git add outputs/metrics/scratch_source_gate_summary.json
+          git commit -m "Freeze source-disjoint diagnostic summary [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
