@@ -16,13 +16,16 @@ from src.tuning import validate_stage1_payload
 from src.utils import make_torch_generator, seed_dataloader_worker, seed_everything
 
 
-def load_trial(path: Path, trial_id: str) -> dict[str, object]:
+def load_trial(path: Path, trial_id: str) -> tuple[dict[str, object], dict[str, object]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
     validate_stage1_payload(payload)
     matches = [trial for trial in payload["trials"] if trial["trial_id"] == trial_id]
     if len(matches) != 1:
         raise ValueError(f"Expected one frozen Stage-1 config for {trial_id}")
-    return dict(matches[0])
+    fixed = payload.get("fixed")
+    if not isinstance(fixed, dict):
+        raise ValueError("Stage-1 fixed training settings are missing")
+    return dict(matches[0]), dict(fixed)
 
 
 def classify_failure(exc: Exception) -> str:
@@ -48,7 +51,7 @@ def main() -> int:
     parser.add_argument("--workers", type=int, default=2)
     args = parser.parse_args()
 
-    trial = load_trial(args.trial_config, args.trial_id)
+    trial, fixed = load_trial(args.trial_config, args.trial_id)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.checkpoint.parent.mkdir(parents=True, exist_ok=True)
     started = time.perf_counter()
@@ -60,6 +63,7 @@ def main() -> int:
         "membership": args.membership.as_posix(),
         "device": "cpu",
         "preprocessing_cache": "exact_uint8_memmap",
+        "fixed_training": fixed,
     }
     try:
         seed = int(trial["seed"])
@@ -123,8 +127,8 @@ def main() -> int:
             device=device,
             checkpoint_path=args.checkpoint,
             config=trial,
-            max_epochs=50,
-            patience=8,
+            max_epochs=int(fixed["max_epochs"]),
+            patience=int(fixed["early_stopping_patience"]),
         )
         checkpoint = torch.load(args.checkpoint, map_location=device, weights_only=False)
         model.load_state_dict(checkpoint["model_state_dict"])
