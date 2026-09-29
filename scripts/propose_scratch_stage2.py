@@ -4,7 +4,12 @@ import argparse
 import json
 from pathlib import Path
 
-from src.tuning import propose_stage2_bayesian_trial, scratch_parameter_count
+from src.tuning import (
+    STAGE1_TRIAL_COUNT,
+    STAGE2_TRIAL_COUNT,
+    propose_stage2_bayesian_trial,
+    scratch_parameter_count,
+)
 
 
 def load_prior_records(root: Path) -> list[dict[str, object]]:
@@ -27,13 +32,13 @@ def main() -> int:
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
 
-    if not 1 <= args.iteration <= 30:
-        raise ValueError("Stage-2 iteration must be in [1,30]")
+    if not 1 <= args.iteration <= STAGE2_TRIAL_COUNT:
+        raise ValueError(f"Stage-2 iteration must be in [1,{STAGE2_TRIAL_COUNT}]")
     stage1 = json.loads(args.stage1_results.read_text(encoding="utf-8"))
     stage2 = json.loads(args.stage2_space.read_text(encoding="utf-8"))
-    if stage1.get("stage") != "random" or stage1.get("trial_count") != 40:
+    if stage1.get("stage") != "random" or stage1.get("trial_count") != STAGE1_TRIAL_COUNT:
         raise ValueError("Invalid Stage-1 aggregate")
-    if stage2.get("stage") != "bayesian" or stage2.get("trial_count") != 30:
+    if stage2.get("stage") != "bayesian" or stage2.get("trial_count") != STAGE2_TRIAL_COUNT:
         raise ValueError("Invalid Stage-2 search-space registration")
 
     by_id = {record["trial_id"]: record for record in stage1["results"]}
