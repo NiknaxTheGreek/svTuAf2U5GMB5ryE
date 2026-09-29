@@ -1,1 +1,2 @@
 execute-reduced-stage2
+retry-after-canonicalization
