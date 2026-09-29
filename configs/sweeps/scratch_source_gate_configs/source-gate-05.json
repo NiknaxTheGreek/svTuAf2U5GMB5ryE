@@ -1,0 +1,13 @@
+{
+  "batch_size": 110,
+  "depth": 5,
+  "dropout": 0.04891336926325843,
+  "learning_rate": 0.00037355327596359436,
+  "optimizer": "adamw",
+  "parameter_count": 221581,
+  "seed": 42,
+  "source_candidate_id": "stage1-009",
+  "start_filters": 12,
+  "trial_id": "source-gate-05",
+  "weight_decay": 0.00011155435048867032
+}
