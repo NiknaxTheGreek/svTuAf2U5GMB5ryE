@@ -1,0 +1,70 @@
+{
+  "fixed": {
+    "augmentation": false,
+    "canvas": {
+      "height": 398,
+      "width": 224
+    },
+    "class_sampling": "natural",
+    "early_stopping_patience": 4,
+    "gradient_clipping": null,
+    "loss": "BCEWithLogitsLoss",
+    "max_epochs": 20,
+    "scaling": "[0,1]",
+    "scheduler": null,
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "search_space": {
+    "batch_size": {
+      "distribution": "integer_uniform",
+      "max": 120,
+      "min": 32
+    },
+    "depth": {
+      "distribution": "integer_uniform",
+      "max": 5,
+      "min": 2
+    },
+    "dropout": {
+      "distribution": "uniform",
+      "max": 0.3082551608576887,
+      "min": 0
+    },
+    "learning_rate": {
+      "distribution": "log_uniform",
+      "max": 0.002042183906218905,
+      "min": 0.00011449459673779625
+    },
+    "optimizer": [
+      "adam",
+      "adamw",
+      "rmsprop"
+    ],
+    "start_filters": {
+      "distribution": "integer_uniform",
+      "max": 32,
+      "min": 9
+    },
+    "weight_decay": {
+      "positive_distribution": "log_uniform",
+      "positive_max": 0.001,
+      "positive_min": 0.00005590961632050385,
+      "positive_retained": true,
+      "zero_retained": true
+    }
+  },
+  "seed": 42,
+  "source_stage1_top8": [
+    "stage1-008",
+    "stage1-009",
+    "stage1-006",
+    "stage1-011",
+    "stage1-001",
+    "stage1-007",
+    "stage1-010",
+    "stage1-002"
+  ],
+  "stage": "bayesian",
+  "trial_count": 8
+}
