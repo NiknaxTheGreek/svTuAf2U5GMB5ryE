@@ -1,0 +1,14 @@
+{
+  "acquisition": "expected_improvement",
+  "batch_size": 116,
+  "candidate_pool_size": 4096,
+  "depth": 2,
+  "dropout": 0.2184845705412052,
+  "learning_rate": 0.0001232284187168979,
+  "optimizer": "rmsprop",
+  "parameter_count": 18384,
+  "seed": 42,
+  "start_filters": 31,
+  "trial_id": "stage2-004",
+  "weight_decay": 0.0009948364288076856
+}
