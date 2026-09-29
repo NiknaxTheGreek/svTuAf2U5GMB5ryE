@@ -27,3 +27,14 @@ outputs/reports/*
 !outputs/predictions/majority_original_test.csv
 !outputs/predictions/handcrafted_logistic_original_validation.csv
 !outputs/predictions/handcrafted_logistic_original_test.csv
+!outputs/metrics/scratch_stage1_trials/
+!outputs/metrics/scratch_stage1_trials/*.json
+!outputs/metrics/scratch_stage1_results.json
+!outputs/metrics/scratch_stage2_trials/
+!outputs/metrics/scratch_stage2_trials/*.json
+!outputs/metrics/scratch_stage2_results.json
+!outputs/metrics/scratch_source_gate/
+!outputs/metrics/scratch_source_gate/*.json
+!outputs/metrics/scratch_stability/
+!outputs/metrics/scratch_stability/*.json
+!outputs/metrics/scratch_stability_summary.json
