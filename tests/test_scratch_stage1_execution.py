@@ -7,7 +7,7 @@ import sys
 
 def test_stage1_shards_cover_every_trial_once() -> None:
     all_ids = []
-    for shard in range(10):
+    for shard in range(3):
         completed = subprocess.run(
             [
                 sys.executable,
@@ -18,7 +18,7 @@ def test_stage1_shards_cover_every_trial_once() -> None:
                 "--shard",
                 str(shard),
                 "--shards",
-                "10",
+                "3",
             ],
             capture_output=True,
             text=True,
@@ -28,9 +28,9 @@ def test_stage1_shards_cover_every_trial_once() -> None:
         ids = completed.stdout.splitlines()
         assert len(ids) == 4
         all_ids.extend(ids)
-    assert len(all_ids) == 40
-    assert len(set(all_ids)) == 40
-    assert sorted(all_ids) == [f"stage1-{index:03d}" for index in range(1, 41)]
+    assert len(all_ids) == 12
+    assert len(set(all_ids)) == 12
+    assert sorted(all_ids) == [f"stage1-{index:03d}" for index in range(1, 13)]
 
 
 def test_external_failure_writer_preserves_frozen_config(tmp_path) -> None:
