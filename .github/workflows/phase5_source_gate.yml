@@ -88,7 +88,9 @@ jobs:
                 --output "${result_path}" \
                 --checkpoint "/tmp/checkpoints/${gate_id}.pt" \
                 --workers 2 \
-                --stage source_gate
+                --stage source_gate \
+                --max-epochs 20 \
+                --patience 4
             exit_code=$?
             set -e
             if [ ! -f "${result_path}" ]; then
