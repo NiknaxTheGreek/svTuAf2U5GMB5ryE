@@ -10,6 +10,10 @@ permissions:
 jobs:
   stage1:
     if: github.actor != 'github-actions[bot]' && (github.event.head_commit.message == 'Execute Stage 1 resume search' || github.event.head_commit.message == 'Resume Stage 1 resume search')
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     runs-on: ubuntu-latest
     timeout-minutes: 350
     steps:
@@ -17,13 +21,16 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13.5"
-      - name: Install CPU execution dependencies once
+
+      - name: Install CPU execution dependencies
         run: |
           python -m pip install numpy==2.3.5 Pillow==12.3.0 PyYAML==6.0.3 scikit-learn==1.9.1
           python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+
       - name: Verify frozen Stage 1 definition
         run: |
           python -m scripts.generate_scratch_stage1 --output /tmp/stage1-regenerated.json
@@ -31,13 +38,17 @@ jobs:
           import json
           from pathlib import Path
           from src.tuning import validate_stage1_payload
+
           regenerated = json.loads(Path("/tmp/stage1-regenerated.json").read_text())
           frozen = json.loads(Path("configs/sweeps/scratch_stage1_random.json").read_text())
           validate_stage1_payload(frozen)
           assert regenerated == frozen, "Frozen Stage-1 values differ from deterministic regeneration"
+          assert len(frozen["trials"]) == 40
           print("STAGE1_DEFINITION=PASS")
+          print("trials=", len(frozen["trials"]))
           PY
           test -f manifests/splits/SPLIT-007_original_tuning.csv
+
       - name: Verify Git LFS archive and build exact cache
         run: |
           set -euo pipefail
@@ -51,24 +62,17 @@ jobs:
             --image-root /tmp/monreader \
             --output-data /tmp/cache/stage1_uint8.npy \
             --output-index /tmp/cache/stage1_index.csv
-      - name: Execute or resume 40 frozen Stage 1 trials
+
+      - name: Execute frozen Stage 1 shard
         env:
           OMP_NUM_THREADS: "4"
           MKL_NUM_THREADS: "4"
         run: |
-          set -euo pipefail
-          mkdir -p outputs/metrics/scratch_stage1_trials /tmp/checkpoints
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set -u
+          mkdir -p /tmp/stage1-results /tmp/checkpoints
 
-          for trial_index in $(seq 1 40); do
-            printf -v trial_id "stage1-%03d" "$trial_index"
-            result_path="outputs/metrics/scratch_stage1_trials/$trial_id.json"
-
-            if [ -f "$result_path" ]; then
-              echo "Skipping committed $trial_id"
-              continue
-            fi
+          while IFS= read -r trial_id; do
+            result_path="/tmp/stage1-results/$trial_id.json"
 
             echo "=== START $trial_id ==="
             set +e
@@ -100,12 +104,64 @@ jobs:
           p = json.loads(Path("$result_path").read_text())
           print("RESULT", p["trial_id"], p["status"], p.get("best_validation_f1"), p.get("failure_type"))
           PY
+            echo "=== FINISH $trial_id ==="
+          done < <(
+            python -m scripts.list_scratch_stage1_shard \
+              --config configs/sweeps/scratch_stage1_random.json \
+              --shard "${{ matrix.shard }}" \
+              --shards 10
+          )
 
-            git add "$result_path"
-            git commit -m "Record $trial_id [skip ci]"
-            git push origin "HEAD:$GITHUB_REF_NAME"
-            echo "=== SAVED $trial_id ==="
-          done
+      - name: Validate shard result count
+        if: always()
+        run: |
+          count=$(find /tmp/stage1-results -maxdepth 1 -name 'stage1-*.json' 2>/dev/null | wc -l)
+          echo "SHARD_RESULT_COUNT=$count"
+          test "$count" -eq 4
+
+      - name: Upload shard results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage1-resume-shard-${{ matrix.shard }}
+          path: /tmp/stage1-results
+          if-no-files-found: warn
+          retention-days: 7
+
+  collect:
+    if: always() && github.actor != 'github-actions[bot]' && (github.event.head_commit.message == 'Execute Stage 1 resume search' || github.event.head_commit.message == 'Resume Stage 1 resume search')
+    needs: stage1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install aggregation dependency
+        run: python -m pip install numpy==2.3.5
+
+      - name: Download all Stage 1 shard results
+        uses: actions/download-artifact@v4
+        with:
+          pattern: stage1-resume-shard-*
+          path: /tmp/stage1-results
+          merge-multiple: true
+
+      - name: Require exactly 40 frozen trial records
+        run: |
+          set -euo pipefail
+          count=$(find /tmp/stage1-results -maxdepth 1 -name 'stage1-*.json' | wc -l)
+          echo "STAGE1_SAVED_RESULTS=$count/40"
+          test "$count" -eq 40
+
+          mkdir -p outputs/metrics/scratch_stage1_trials
+          rm -f outputs/metrics/scratch_stage1_trials/stage1-*.json
+          cp /tmp/stage1-results/stage1-*.json outputs/metrics/scratch_stage1_trials/
+
       - name: Aggregate Stage 1 and derive Stage 2 envelope
         run: |
           python -m scripts.aggregate_scratch_stage1 \
@@ -115,11 +171,13 @@ jobs:
           python -m scripts.derive_scratch_stage2 \
             --stage1-results outputs/metrics/scratch_stage1_results.json \
             --output configs/sweeps/scratch_stage2_bayesian.json
+
       - name: Validate and freeze Stage 1 conclusion
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
+
           stage1 = json.loads(Path("outputs/metrics/scratch_stage1_results.json").read_text())
           stage2 = json.loads(Path("configs/sweeps/scratch_stage2_bayesian.json").read_text())
           assert stage1["trial_count"] == 40
@@ -133,6 +191,18 @@ jobs:
           print("top8=", stage1["top8_trial_ids"])
           print("stage2_search_space=", stage2["search_space"])
           PY
-          git add outputs/metrics/scratch_stage1_results.json configs/sweeps/scratch_stage2_bayesian.json
+
+      - name: Commit authoritative Stage 1 results
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outputs/metrics/scratch_stage1_trials \
+                  outputs/metrics/scratch_stage1_results.json \
+                  configs/sweeps/scratch_stage2_bayesian.json
+          if git diff --cached --quiet; then
+            echo "No Stage 1 changes to commit"
+            exit 0
+          fi
           git commit -m "Freeze Stage 1 aggregate and Stage 2 envelope [skip ci]"
           git push origin "HEAD:$GITHUB_REF_NAME"
