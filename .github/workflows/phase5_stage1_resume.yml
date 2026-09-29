@@ -16,6 +16,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          lfs: true
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13.5"
@@ -37,16 +38,14 @@ jobs:
           print("STAGE1_DEFINITION=PASS")
           PY
           test -f manifests/splits/SPLIT-007_original_tuning.csv
-      - name: Download authoritative archive and build exact cache
+      - name: Verify Git LFS archive and build exact cache
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --retry-delay 2 \
-            "https://drive.usercontent.google.com/download?id=1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm&export=download&confirm=t" \
-            --output /tmp/images.zip
+          test -f data/images.zip
           printf '%s  %s\n' \
             "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f" \
-            "/tmp/images.zip" | sha256sum --check
-          unzip -q /tmp/images.zip -d /tmp/monreader
+            "data/images.zip" | sha256sum --check
+          unzip -q data/images.zip -d /tmp/monreader
           mkdir -p /tmp/cache
           python -m scripts.build_scratch_cache \
             --image-root /tmp/monreader \
