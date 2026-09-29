@@ -13,9 +13,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        shard: [0, 1, 2]
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
         with:
@@ -43,7 +43,7 @@ jobs:
           frozen = json.loads(Path("configs/sweeps/scratch_stage1_random.json").read_text())
           validate_stage1_payload(frozen)
           assert regenerated == frozen, "Frozen Stage-1 values differ from deterministic regeneration"
-          assert len(frozen["trials"]) == 40
+          assert len(frozen["trials"]) == 12
           print("STAGE1_DEFINITION=PASS")
           print("trials=", len(frozen["trials"]))
           PY
@@ -76,7 +76,7 @@ jobs:
 
             echo "=== START $trial_id ==="
             set +e
-            timeout --signal=TERM --kill-after=30s 19800s \
+            timeout --signal=TERM --kill-after=30s 3600s \
               python -m scripts.run_scratch_trial_cached \
                 --cache-data /tmp/cache/stage1_uint8.npy \
                 --cache-index /tmp/cache/stage1_index.csv \
@@ -109,7 +109,7 @@ jobs:
             python -m scripts.list_scratch_stage1_shard \
               --config configs/sweeps/scratch_stage1_random.json \
               --shard "${{ matrix.shard }}" \
-              --shards 10
+              --shards 3
           )
 
       - name: Validate shard result count
@@ -155,8 +155,8 @@ jobs:
         run: |
           set -euo pipefail
           count=$(find /tmp/stage1-results -maxdepth 1 -name 'stage1-*.json' | wc -l)
-          echo "STAGE1_SAVED_RESULTS=$count/40"
-          test "$count" -eq 40
+          echo "STAGE1_SAVED_RESULTS=$count/12"
+          test "$count" -eq 12
 
           mkdir -p outputs/metrics/scratch_stage1_trials
           rm -f outputs/metrics/scratch_stage1_trials/stage1-*.json
@@ -180,8 +180,8 @@ jobs:
 
           stage1 = json.loads(Path("outputs/metrics/scratch_stage1_results.json").read_text())
           stage2 = json.loads(Path("configs/sweeps/scratch_stage2_bayesian.json").read_text())
-          assert stage1["trial_count"] == 40
-          assert len(stage1["results"]) == 40
+          assert stage1["trial_count"] == 12
+          assert len(stage1["results"]) == 12
           assert stage1["success_count"] >= 8
           assert len(stage1["top8_trial_ids"]) == 8
           assert stage2["source_stage1_top8"] == stage1["top8_trial_ids"]
