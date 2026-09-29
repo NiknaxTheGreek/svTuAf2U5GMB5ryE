@@ -28,7 +28,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p data
-          gdown --id 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm -O data/images.zip
+          gdown --id 1X1_3HPxB0acGkw9xZuIwd9mThWWvV4pp -O data/images.zip
 
       - name: Verify authoritative identity
         run: |
