@@ -1,0 +1,16 @@
+{
+  "status": "excluded_from_scientific_analysis",
+  "decided_at": "2026-09-29",
+  "scope": "outputs/metrics/scratch_source_gate/source-gate-01.json through source-gate-05.json",
+  "reason": "SPLIT-008 is source-disjoint within each retraining run but is derived entirely from the supplied Original training partition and is not pristine with respect to the earlier Original tuning process.",
+  "audit": {
+    "split_008_validation_count": 239,
+    "overlap_with_original_supplied_test": 0,
+    "overlap_with_split_007_tuning_validation": 23,
+    "overlap_with_split_007_tuning_fit": 216,
+    "overlap_between_split_008_fit_and_validation_samples": 0,
+    "overlap_between_split_008_fit_and_validation_videos": 0
+  },
+  "interpretation": "Do not use these results for model selection, test-performance claims, regime comparisons, or inferential conclusions. Retain files only as an audit trail of an excluded exploratory diagnostic.",
+  "locked_rule": "A regime test used for final comparison must be withheld from that regime's entire tuning/candidate-selection path before one-time evaluation of the frozen finalists."
+}
