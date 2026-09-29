@@ -4,9 +4,11 @@ import argparse
 import json
 from pathlib import Path
 
+from src.tuning import STAGE2_TRIAL_COUNT
+
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Aggregate the 30 sequential Stage-2 trials.")
+    parser = argparse.ArgumentParser(description="Aggregate the reduced sequential Stage-2 trials.")
     parser.add_argument("--results-root", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
@@ -18,7 +20,7 @@ def main() -> int:
         if trial_id in by_id:
             raise ValueError(f"Duplicate Stage-2 result: {trial_id}")
         by_id[trial_id] = record
-    expected = [f"stage2-{index:03d}" for index in range(1, 31)]
+    expected = [f"stage2-{index:03d}" for index in range(1, STAGE2_TRIAL_COUNT + 1)]
     if sorted(by_id) != expected:
         raise ValueError(f"Stage-2 results incomplete: found {sorted(by_id)}")
     records = [by_id[trial_id] for trial_id in expected]
@@ -30,7 +32,7 @@ def main() -> int:
     failures = [record for record in records if record.get("status") != "success"]
     payload = {
         "stage": "bayesian",
-        "trial_count": 30,
+        "trial_count": STAGE2_TRIAL_COUNT,
         "success_count": len(successes),
         "failure_count": len(failures),
         "results": records,
