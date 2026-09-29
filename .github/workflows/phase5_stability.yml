@@ -82,7 +82,9 @@ jobs:
                 --output "${result_path}" \
                 --checkpoint "/tmp/checkpoints/${trial_id}.pt" \
                 --workers 2 \
-                --stage stability
+                --stage stability \
+                --max-epochs 20 \
+                --patience 4
             exit_code=$?
             set -e
             if [ ! -f "${result_path}" ]; then
