@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
-from src.tuning import validate_stage1_payload
+from src.tuning import STAGE1_TRIAL_COUNT, validate_stage1_payload
 
 
 def main() -> int:
@@ -50,7 +50,7 @@ def main() -> int:
     )
     payload = {
         "stage": "random",
-        "trial_count": 40,
+        "trial_count": STAGE1_TRIAL_COUNT,
         "success_count": len(successes),
         "failure_count": len(failures),
         "top8_trial_ids": [record["trial_id"] for record in ranked[:8]],
