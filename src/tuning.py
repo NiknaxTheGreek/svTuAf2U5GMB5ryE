@@ -6,9 +6,10 @@ from typing import Any
 import numpy as np
 
 
-OPTIMIZERS = ("adam", "adamw", "sgd", "rmsprop")
+OPTIMIZERS = ("adam", "adamw", "rmsprop")
 STAGE1_SEED = 42
-STAGE1_TRIAL_COUNT = 40
+STAGE1_TRIAL_COUNT = 12
+STAGE2_TRIAL_COUNT = 8
 WEIGHT_DECAY_ZERO_PROBABILITY = 0.2
 
 
@@ -57,16 +58,16 @@ def generate_stage1_random_trials(
     trials: list[ScratchTrial] = []
     for index in range(1, trial_count + 1):
         optimizer = str(rng.choice(OPTIMIZERS))
-        learning_rate = float(10.0 ** rng.uniform(-5.0, -2.0))
-        batch_size = int(rng.integers(8, 257))
+        learning_rate = float(10.0 ** rng.uniform(np.log10(1e-4), np.log10(3e-3)))
+        batch_size = int(rng.integers(32, 129))
         weight_decay = (
             0.0
             if rng.random() < weight_decay_zero_probability
-            else float(10.0 ** rng.uniform(-6.0, -2.0))
+            else float(10.0 ** rng.uniform(-6.0, -3.0))
         )
-        dropout = float(rng.uniform(0.0, 0.5))
-        depth = int(rng.integers(1, 8))
-        start_filters = int(rng.integers(8, 65))
+        dropout = float(rng.uniform(0.0, 0.35))
+        depth = int(rng.integers(2, 6))
+        start_filters = int(rng.integers(8, 33))
         trials.append(
             ScratchTrial(
                 trial_id=f"stage1-{index:03d}",
@@ -95,43 +96,43 @@ def stage1_payload() -> dict[str, Any]:
             "optimizer": list(OPTIMIZERS),
             "learning_rate": {
                 "distribution": "log_uniform",
-                "min": 1e-5,
-                "max": 1e-2,
+                "min": 1e-4,
+                "max": 3e-3,
             },
             "batch_size": {
                 "distribution": "integer_uniform",
-                "min": 8,
-                "max": 256,
+                "min": 32,
+                "max": 128,
             },
             "weight_decay": {
                 "distribution": "mixture",
                 "zero_probability": WEIGHT_DECAY_ZERO_PROBABILITY,
                 "positive_distribution": "log_uniform",
                 "positive_min": 1e-6,
-                "positive_max": 1e-2,
+                "positive_max": 1e-3,
             },
             "dropout": {
                 "distribution": "uniform",
                 "min": 0.0,
-                "max": 0.5,
+                "max": 0.35,
             },
             "depth": {
                 "distribution": "integer_uniform",
-                "min": 1,
-                "max": 7,
+                "min": 2,
+                "max": 5,
             },
             "start_filters": {
                 "distribution": "integer_uniform",
                 "min": 8,
-                "max": 64,
+                "max": 32,
             },
         },
         "fixed": {
             "seed": 42,
             "augmentation": False,
             "threshold": 0.5,
-            "max_epochs": 50,
-            "early_stopping_patience": 8,
+            "max_epochs": 20,
+            "early_stopping_patience": 4,
             "scheduler": None,
             "gradient_clipping": None,
             "loss": "BCEWithLogitsLoss",
@@ -148,25 +149,25 @@ def validate_stage1_payload(payload: dict[str, Any]) -> None:
         raise ValueError("Stage 1 payload must be random search")
     trials = payload.get("trials")
     if not isinstance(trials, list) or len(trials) != STAGE1_TRIAL_COUNT:
-        raise ValueError("Stage 1 must contain exactly 40 trials")
-    expected_ids = [f"stage1-{index:03d}" for index in range(1, 41)]
+        raise ValueError(f"Stage 1 must contain exactly {STAGE1_TRIAL_COUNT} trials")
+    expected_ids = [f"stage1-{index:03d}" for index in range(1, STAGE1_TRIAL_COUNT + 1)]
     if [trial["trial_id"] for trial in trials] != expected_ids:
         raise ValueError("Stage 1 trial IDs are not frozen in canonical order")
     for trial in trials:
         if trial["optimizer"] not in OPTIMIZERS:
             raise ValueError("Invalid optimizer")
-        if not 1e-5 <= float(trial["learning_rate"]) <= 1e-2:
+        if not 1e-4 <= float(trial["learning_rate"]) <= 3e-3:
             raise ValueError("Learning rate outside search space")
-        if not 8 <= int(trial["batch_size"]) <= 256:
+        if not 32 <= int(trial["batch_size"]) <= 128:
             raise ValueError("Batch size outside search space")
         weight_decay = float(trial["weight_decay"])
-        if weight_decay != 0.0 and not 1e-6 <= weight_decay <= 1e-2:
+        if weight_decay != 0.0 and not 1e-6 <= weight_decay <= 1e-3:
             raise ValueError("Weight decay outside search space")
-        if not 0.0 <= float(trial["dropout"]) <= 0.5:
+        if not 0.0 <= float(trial["dropout"]) <= 0.35:
             raise ValueError("Dropout outside search space")
-        if not 1 <= int(trial["depth"]) <= 7:
+        if not 2 <= int(trial["depth"]) <= 5:
             raise ValueError("Depth outside search space")
-        if not 8 <= int(trial["start_filters"]) <= 64:
+        if not 8 <= int(trial["start_filters"]) <= 32:
             raise ValueError("Start filters outside search space")
         expected_parameters = scratch_parameter_count(
             int(trial["depth"]), int(trial["start_filters"])
@@ -219,16 +220,16 @@ def derive_stage2_search_space(top8_records: list[dict[str, Any]]) -> dict[str, 
         upper = min(log_original_max, max(logged) + expansion)
         return float(10.0**lower), float(10.0**upper)
 
-    learning_rate = log_bounds("learning_rate", 1e-5, 1e-2)
+    learning_rate = log_bounds("learning_rate", 1e-4, 3e-3)
     assert learning_rate is not None
     positive_weight_decay = log_bounds(
-        "weight_decay", 1e-6, 1e-2, positive_only=True
+        "weight_decay", 1e-6, 1e-3, positive_only=True
     )
     weight_decay_zero = any(float(cfg["weight_decay"]) == 0.0 for cfg in configs)
-    batch_min, batch_max = integer_bounds("batch_size", 8, 256)
-    depth_min, depth_max = integer_bounds("depth", 1, 7)
-    filters_min, filters_max = integer_bounds("start_filters", 8, 64)
-    dropout_min, dropout_max = linear_bounds("dropout", 0.0, 0.5)
+    batch_min, batch_max = integer_bounds("batch_size", 32, 128)
+    depth_min, depth_max = integer_bounds("depth", 2, 5)
+    filters_min, filters_max = integer_bounds("start_filters", 8, 32)
+    dropout_min, dropout_max = linear_bounds("dropout", 0.0, 0.35)
 
     weight_decay: dict[str, Any] = {
         "zero_retained": weight_decay_zero,
