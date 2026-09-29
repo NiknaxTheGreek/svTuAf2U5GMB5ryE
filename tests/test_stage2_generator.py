@@ -7,14 +7,14 @@ import sys
 
 def test_stage2_generator_requires_complete_stage1_top8(tmp_path) -> None:
     results = []
-    for index in range(1, 41):
+    for index in range(1, 13):
         results.append(
             {
                 "trial_id": f"stage1-{index:03d}",
                 "status": "success",
                 "best_validation_f1": 1.0 - index / 1000.0,
                 "config": {
-                    "optimizer": "adam" if index <= 4 else "sgd",
+                    "optimizer": "adam" if index <= 4 else "rmsprop",
                     "learning_rate": 1e-4,
                     "batch_size": 64,
                     "weight_decay": 1e-4,
@@ -26,7 +26,7 @@ def test_stage2_generator_requires_complete_stage1_top8(tmp_path) -> None:
         )
     payload = {
         "stage": "random",
-        "trial_count": 40,
+        "trial_count": 12,
         "top8_trial_ids": [f"stage1-{index:03d}" for index in range(1, 9)],
         "results": results,
     }
@@ -50,6 +50,6 @@ def test_stage2_generator_requires_complete_stage1_top8(tmp_path) -> None:
     assert completed.returncode == 0, completed.stderr
     generated = json.loads(output.read_text(encoding="utf-8"))
     assert generated["stage"] == "bayesian"
-    assert generated["trial_count"] == 30
+    assert generated["trial_count"] == 8
     assert len(generated["source_stage1_top8"]) == 8
-    assert generated["search_space"]["optimizer"] == ["adam", "sgd"]
+    assert generated["search_space"]["optimizer"] == ["adam", "rmsprop"]
