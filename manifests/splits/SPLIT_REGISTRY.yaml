@@ -1,0 +1,61 @@
+protocol_version: v2-train-test-only
+status: frozen_before_v2_model_training
+freeze_date: 2026-09-30
+source_dataset:
+  id: DATA-001
+  rows: 2989
+  manifest: manifests/datasets/DATA-001.csv
+  manifest_sha256: 3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b
+environment_grouping:
+  map: manifests/video_environment_map.csv
+  reviewed_canonical_videos: 117
+  source_safe_holdout: ENV-03
+temporal_rule:
+  order: ascending FrameNumber within canonical video_id
+  cut: floor(0.80 * observed_video_image_count)
+  earlier: rank < cut
+  later: rank >= cut
+  excluded_for_short_length: 0
+regimes:
+  O:
+    scientific_question: conventional supplied benchmark
+    train: 2392
+    test: 597
+    context: 0
+    excluded: 0
+    manifest: manifests/splits/O.csv
+    sha256: d48e182da1b170365b39693317e1edf6dd3395c02ccabdd6a771d7be5e226680
+    train_test_video_overlap: 115
+  S:
+    scientific_question: unseen source/environment generalization
+    train: 2219
+    test: 770
+    context: 0
+    excluded: 0
+    manifest: manifests/splits/S.csv
+    sha256: a54cce72ad1f275096f06b98bbc9ec32393e9f112cc0536abd132571e1919619
+    train_test_video_overlap: 0
+  T:
+    scientific_question: later-frame generalization within known sources
+    train: 2365
+    test: 624
+    context: 0
+    excluded: 0
+    manifest: manifests/splits/T.csv
+    sha256: 0a1f39ebb01f14989aad37b87c39fbb874307f81bdc4770d15e8df7c7b9aa625
+    train_test_video_overlap: 117
+  ST:
+    scientific_question: unseen-source plus temporal-shift generalization
+    train: 1756
+    test: 161
+    context: 1072
+    context_earlier_heldout: 609
+    context_later_known: 463
+    excluded: 0
+    manifest: manifests/splits/ST.csv
+    sha256: ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259bcf2c0e177a85
+    train_test_video_overlap: 0
+selection_status:
+  model_training_started: false
+  model_test_predictions_examined: false
+  split_membership_frozen: true
