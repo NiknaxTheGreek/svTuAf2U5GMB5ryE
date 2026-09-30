@@ -1,7 +1,7 @@
 project: Apziva Project 4 - MonReader
 reset_date: 2026-09-30
 primary_protocol: train_test_only_v2
-status: PHASE_4_O_SCRATCH_VERIFIED
+status: PHASE_5_S_SCRATCH_VERIFIED
 preservation:
   historical_state_verified: true
   historical_anchor_branch: historical/pre-v2-reset-2026-09-30
@@ -51,22 +51,39 @@ scratch:
     checkpoint_sha256: 57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49
     source_joint_test_images: 597
     source_disjoint_original_available: false
-  S: {status: PENDING}
+  S:
+    status: VERIFIED_SELECTION_BENCHMARK
+    registry: manifests/scratch/S_REGISTRY.yaml
+    champion: C18
+    f1: 0.8196248196248196
+    precision: 0.8231884057971014
+    recall: 0.8160919540229885
+    accuracy: 0.8376623376623377
+    balanced_accuracy: 0.8357710954949066
+    roc_auc: 0.900235604946342
+    pr_auc: 0.8994801279225753
+    errors: 125
+    checkpoint_sha256: 1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225
+    heldout_environment: ENV-03
+    train_test_video_overlap_count: 0
+    test_videos: 29
+    cluster_bootstrap_f1_ci95: [0.67428146, 0.91223740]
   T: {status: PENDING}
   ST: {status: PENDING}
 baseline_test_evaluation_opened: true
 scratch_model_training_started: true
 scratch_candidate_test_evaluation:
   O: true
-  S: false
+  S: true
   T: false
   ST: false
 active_workflows_on_main: false
-next_gate: train_all_20_S_candidates_on_frozen_S_train_without_S_test_then_verify_and_open_S_test_once
+next_gate: train_all_20_T_candidates_on_frozen_T_train_without_T_test_then_verify_and_open_T_test_once
 notes:
-  - O is a selection-benchmark estimate because its test chose among 20 frozen candidates.
-  - O has no unseen-source test population; all 597 O-test images come from training-seen videos.
-  - 573/597 O-test images have a same-video training frame one frame number away.
-  - Near-perfect O performance therefore requires correlation-aware interpretation.
-  - Best O must not be retrained or altered from O-test diagnostics.
+  - O is a source-joint selection-benchmark estimate and has pervasive near-frame correlation.
+  - S is a source-disjoint selection-benchmark estimate on held-out ENV-03 with zero train/test video overlap.
+  - Best S is C18 at F1 0.8196248196248196.
+  - The C14 configuration that won O ranked third when retrained under S, at F1 0.6936416184971098.
+  - S video-cluster bootstrap uncertainty is preserved and is not selection-adjusted.
+  - O and S champions must not be modified based on their test results.
   - Pre-reset results remain historical and non-authoritative.
