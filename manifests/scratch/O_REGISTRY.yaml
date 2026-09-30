@@ -1,0 +1,96 @@
+protocol_version: v2-train-test-only
+status: frozen_verified
+freeze_date: 2026-09-30
+regime: O
+
+inputs:
+  dataset_manifest:
+    path: manifests/datasets/DATA-001.csv
+    sha256: 3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b
+  split:
+    path: manifests/splits/O.csv
+    sha256: d48e182da1b170365b39693317e1edf6dd3395c02ccabdd6a771d7be5e226680
+    train_rows: 2392
+    test_rows: 597
+  candidate_bank:
+    path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
+    sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
+    candidates: 20
+
+execution:
+  successful_workflow_run_id: 36706123492
+  successful_workflow_head_sha: 210ed60551b8a2d5fe23ab6f5f749b5ee4517a38
+  all_20_training_jobs_successful: true
+  checkpoint_gate_status: PASS_ALL_20_FROZEN_BEFORE_O_TEST
+  test_evaluation_opened_only_after_checkpoint_gate: true
+  test_evaluations_per_candidate: 1
+  threshold: 0.5
+  evidence_artifact_sha256: af9f7330f9316a3acb4f8703a3b01a99311fcb655e2ff47f5338b2d73ab3dd08
+  engineering_note: "A prior run failed during synthetic preflight because the repository root was not on Python's import path. It did not train MonReader models or open O test data. The corrected run changed only module invocation/import-path handling."
+
+champion:
+  candidate_id: C14
+  depth: 5
+  start_filters: 32
+  dropout: 0.2730049005059081
+  learning_rate: 0.00013450801214866373
+  optimizer: adam
+  weight_decay: 0.000009612249663346372
+  batch_size: 41
+  parameter_count: 1570081
+  epochs: 20
+  final_train_loss: 0.01677496187151589
+  checkpoint_sha256: 57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49
+
+selection_benchmark:
+  f1: 0.998272884283247
+  precision: 1.0
+  recall: 0.996551724137931
+  accuracy: 0.998324958123953
+  balanced_accuracy: 0.9982758620689656
+  roc_auc: 0.9997865887902954
+  pr_auc: 0.9997879700926238
+  confusion_matrix: {tn: 307, fp: 0, fn: 1, tp: 289}
+  interpretation: selection-benchmark estimate
+  selection_order: [f1, balanced_accuracy, pr_auc, lower_parameter_count, candidate_id]
+
+diagnostics:
+  source_joint_test_images: 597
+  source_disjoint_original_diagnostic_available: false
+  nearest_training_frame_distance_1: 573
+  nearest_training_frame_distance_le_2: 596
+  temporal_future_subset:
+    images: 20
+    videos: 18
+    f1: 1.0
+    precision: 1.0
+    recall: 1.0
+    accuracy: 1.0
+    note: source-joint, not source-disjoint
+  sole_error:
+    sample_id: testing/flip/0041_000000010
+    kind: false_negative
+    prob_flip: 0.042028576135635376
+    nearest_same_video_training_frame: training/flip/0041_000000011
+    frame_distance: 1
+  visual_review:
+    completed: true
+    observation: "The false-negative frame and frames 11-14 from the same video are visually extremely similar: a mostly blank partially lifted page with visible hands; the target also shows motion blur near the right hand/page edge. Borderline correct cases frequently show hand/page configurations, raised edges or blur."
+    hand_shortcut_conclusion: "Not established; this observation motivates the later controlled hand/arm shortcut experiment."
+    diagnostic_artifact_sha256: cbeb2a19ff48b9057f5c540c97afa7772b4f80508e283553c765bbe44bf8def4
+
+result_files:
+  summary: {path: results/scratch/O/O_SUMMARY.json, sha256: 9c9a7611c0c37b3dcf54020d3959f5f63327357700f0418f6f6c461e953be7a1}
+  leaderboard: {path: results/scratch/O/leaderboard.csv, sha256: c8aac1f1668385f03a84e6d56222c69c13806e1e84ab90674ffda242d971543a}
+  predictions: {path: results/scratch/O/predictions.csv, sha256: eca3aa609e805ce86a5eb08225e8db5ced8651f98b1ea27040ac7a2c8c286d1b}
+  per_video: {path: results/scratch/O/best_o_per_video.csv, sha256: bdede3855ca556a14a06cd7d376016a0f15885954893458652258cd659fc97ea}
+  error_cases: {path: results/scratch/O/best_o_error_cases.csv, sha256: 10c8c4eddd4792d3eb5c75fc8ffff5b53c3d65be4e2e9292e4d286fee5209a71}
+  pretest_checkpoint_registry: {path: results/scratch/O/checkpoint_registry_before_test.json, sha256: 3b6a64a2fc4cac2e7e1cb511508036edbc9cb7b7beb59866511f5ed6b3a37c7d}
+
+scientific_status:
+  O_complete: true
+  O_test_opened: true
+  O_result_may_not_retrain_or_modify_candidates: true
+  S_test_opened: false
+  T_test_opened: false
+  ST_test_opened: false

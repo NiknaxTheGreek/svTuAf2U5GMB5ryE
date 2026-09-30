@@ -1,7 +1,7 @@
 project: Apziva Project 4 - MonReader
 reset_date: 2026-09-30
 primary_protocol: train_test_only_v2
-status: PHASE_3_BASELINES_VERIFIED
+status: PHASE_4_O_SCRATCH_VERIFIED
 preservation:
   historical_state_verified: true
   historical_anchor_branch: historical/pre-v2-reset-2026-09-30
@@ -32,22 +32,41 @@ splits:
   ST: {train: 1756, test: 161, context: 1072, excluded: 0, sha256: ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259bcf2c0e177a85}
 baselines:
   registry: manifests/baselines/BASELINE_REGISTRY.yaml
-  protocol: protocol/BASELINE_PROTOCOL_V2.md
   verified: true
-  result_hashes:
-    metrics: 62409288e254ae7ab63389d9cacb95cb0ce7328fea89805058ffc9585e11ca0d
-    predictions: 76ef28b037656ba7411138449ed2c1f914c758212925141bac46fadd769a6970
-    coefficients: e46d5121702af582e2b7fa1f520b51b8e4d9051964aa6c89eba5dc5568908894
-    scaler_parameters: b550fa690001fb481e7889a42faeaa003f3c1848f4d4ae2ddffccb7367e56fd7
   identical_complete_executions: 3
+scratch:
+  protocol: protocol/SCRATCH_CNN_PROTOCOL_V2.md
+  O:
+    status: VERIFIED_SELECTION_BENCHMARK
+    registry: manifests/scratch/O_REGISTRY.yaml
+    champion: C14
+    f1: 0.998272884283247
+    precision: 1.0
+    recall: 0.996551724137931
+    accuracy: 0.998324958123953
+    balanced_accuracy: 0.9982758620689656
+    roc_auc: 0.9997865887902954
+    pr_auc: 0.9997879700926238
+    errors: 1
+    checkpoint_sha256: 57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49
+    source_joint_test_images: 597
+    source_disjoint_original_available: false
+  S: {status: PENDING}
+  T: {status: PENDING}
+  ST: {status: PENDING}
 baseline_test_evaluation_opened: true
-scratch_candidate_test_evaluation_opened: false
-scratch_model_training_started: false
+scratch_model_training_started: true
+scratch_candidate_test_evaluation:
+  O: true
+  S: false
+  T: false
+  ST: false
 active_workflows_on_main: false
-next_gate: freeze_scratch_cnn_implementation_then_train_all_20_O_candidates_without_test_evaluation
+next_gate: train_all_20_S_candidates_on_frozen_S_train_without_S_test_then_verify_and_open_S_test_once
 notes:
-  - Baseline feature sets A, B and C were all predeclared and are all reported.
-  - Baseline results do not select or tune the scratch-CNN candidate bank.
-  - O handcrafted performance is high, while S/ST behaviour shows substantial source-shift and threshold/calibration sensitivity.
-  - The scratch-CNN O test remains unopened.
-  - Pre-reset model results remain historical and non-authoritative.
+  - O is a selection-benchmark estimate because its test chose among 20 frozen candidates.
+  - O has no unseen-source test population; all 597 O-test images come from training-seen videos.
+  - 573/597 O-test images have a same-video training frame one frame number away.
+  - Near-perfect O performance therefore requires correlation-aware interpretation.
+  - Best O must not be retrained or altered from O-test diagnostics.
+  - Pre-reset results remain historical and non-authoritative.

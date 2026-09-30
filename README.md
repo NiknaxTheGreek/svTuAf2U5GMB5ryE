@@ -4,16 +4,9 @@ MonReader is a binary computer-vision project for classifying a single frame as 
 
 ## Current verified state
 
-**Phase 3 — data, splits, frozen candidate bank and non-CNN baselines: complete. Scratch-CNN training has not started.**
+**Phase 4 — Original scratch-CNN selection benchmark: complete. Source-safe/temporal scratch regimes remain pending.**
 
-Dataset:
-- 2,989 / 2,989 images accounted for.
-- Official archive SHA-256: `033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f`.
-- 117 canonical videos.
-- zero exact decoded-pixel duplicate groups.
-- all 597 supplied-test images come from videos represented in supplied training.
-
-Frozen V2 regimes:
+Dataset and splits are frozen:
 
 | Regime | Train | Primary test | Context | Excluded |
 |---|---:|---:|---:|---:|
@@ -22,55 +15,58 @@ Frozen V2 regimes:
 | T | 2,365 | 624 | 0 | 0 |
 | ST | 1,756 | 161 | 1,072 | 0 |
 
-Temporal rule: sort each canonical video by `FrameNumber`, then use `floor(0.80 × n)` observed images as the earlier portion. Source-safe holdout: **ENV-03**.
+The canonical C01–C20 scratch bank is frozen: 20 epochs, no validation, no early stopping, final epoch-20 checkpoint, threshold 0.5.
 
-## Frozen candidate bank
+## Original benchmark — Best O
 
-The canonical 20-config scratch-CNN bank passed its formal pre-training audit:
+All 20 O candidates were trained and frozen before the O test was opened. The pre-test checkpoint gate passed for every candidate.
 
-- SHA-256: `a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12`;
-- 20 candidate IDs, C01–C20;
-- 20 unique hyperparameter configurations;
-- all values inside the frozen search space;
-- fixed 20 epochs, no validation, no early stopping, final epoch-20 checkpoint, threshold 0.5.
+**Best O = C14**
 
-Scratch-CNN candidate test results remain unopened.
+| Metric | C14 |
+|---|---:|
+| F1 | **0.9983** |
+| Precision | 1.0000 |
+| Recall | 0.9966 |
+| Accuracy | 0.9983 |
+| Balanced accuracy | 0.9983 |
+| ROC-AUC | 0.9998 |
+| PR-AUC | 0.9998 |
+| Errors | 1 / 597 |
 
-## Leakage-safe baselines
+This is a **selection-benchmark estimate** because O test F1 selected among 20 frozen candidates.
 
-The majority and handcrafted logistic-regression protocols were frozen before baseline tests were evaluated. All feature sets A/B/C are reported; no feature family was selected post-hoc.
+The high score requires careful interpretation:
 
-| Regime | Majority F1 | LogReg A F1 | LogReg B F1 | LogReg C F1 |
-|---|---:|---:|---:|---:|
-| O | 0.0000 | 0.7842 | 0.8571 | 0.9268 |
-| S | 0.0000 | 0.4568 | 0.6583 | 0.5560 |
-| T | 0.0000 | 0.7854 | 0.7450 | 0.8043 |
-| ST | 0.0000 | 0.3656 | 0.5714 | 0.1687 |
+- exact decoded-pixel duplicate groups: 0;
+- every O-test image comes from a video represented in O training;
+- 573/597 O-test frames have a same-video training frame only one frame number away;
+- no source-disjoint Original diagnostic exists.
 
-The complete baseline execution reproduced identical core result hashes three times. Training-only `StandardScaler` parameters, coefficients and per-sample predictions are retained.
+The sole C14 error was a false negative. Visual review showed it was surrounded by extremely similar same-video training frames, directly illustrating the strong temporal correlation in the supplied split.
 
-These results show that simple visual statistics contain substantial signal, especially under O, but that the same feature representations do not transfer uniformly under source shift. In S and ST, some feature sets retain high ROC/PR ranking while producing low fixed-threshold recall, which is consistent with distribution/calibration shift. The threshold remains fixed at 0.5.
+The 20-image O temporal-future subset is perfect for C14, but it remains source-joint.
 
 See:
 - `reports/data_audit/DATA_AUDIT.md`
 - `reports/splits/SPLIT_AUDIT.md`
 - `reports/baselines/BASELINE_REPORT.md`
-- `manifests/baselines/BASELINE_REGISTRY.yaml`
+- `reports/scratch/O_REPORT.md`
+- `manifests/scratch/O_REGISTRY.yaml`
 
 ## Frozen scratch-CNN rules
 
-- Python / PyTorch.
-- Same frozen 20-candidate bank in O, S, T and ST.
-- Exactly 20 epochs per candidate.
-- No validation split for primary candidate selection.
-- No validation-driven early stopping.
-- No Bayesian/adaptive search.
-- Final epoch-20 checkpoint.
-- Threshold = 0.5.
-- **All 20 candidates in a regime must be trained and frozen before that regime test is evaluated.**
-- Champion tie order: F1 → balanced accuracy → PR-AUC → lower trainable parameter count → candidate ID.
-- Because each regime test selects among frozen candidates, results are reported as **selection-benchmark estimates**.
+- same C01–C20 bank in O/S/T/ST;
+- exactly 20 epochs;
+- BCEWithLogitsLoss;
+- natural class distribution;
+- no primary augmentation;
+- no validation / early stopping;
+- final epoch-20 checkpoint;
+- threshold 0.5;
+- all candidates in a regime are frozen before that regime test opens;
+- champion order: F1 → balanced accuracy → PR-AUC → lower parameter count → candidate ID.
 
 ## Next gate
 
-Freeze the exact scratch-CNN implementation and training/evaluation machinery. Then train **all 20 O candidates without consulting the O test**, verify all final checkpoints, and only afterward open the O test for a single batch evaluation.
+Run the same frozen 20 candidates under **S — Source-Safe**, where ENV-03 is absent from training. S is the first primary test of genuinely unseen-source/environment behavior.
