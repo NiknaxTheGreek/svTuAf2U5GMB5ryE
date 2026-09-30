@@ -11,7 +11,7 @@ on:
       - '.github/workflows/v2_data_audit.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 env:
   DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
@@ -69,6 +69,28 @@ jobs:
           }
           print(json.dumps(keep,indent=2,sort_keys=True))
           PY
+      - name: Publish verified Phase-1 manifests
+        run: |
+          mkdir -p manifests/datasets manifests/audits
+          cp audit_output/master_manifest.csv manifests/datasets/DATA-001.csv
+          cp audit_output/archive_receipt.json manifests/datasets/DATA-001_archive_receipt.json
+          cp audit_output/audit_summary.json manifests/datasets/DATA-001_summary.json
+          cp audit_output/video_summary.csv manifests/datasets/DATA-001_video_summary.csv
+          cp audit_output/exact_duplicate_groups.csv manifests/datasets/DATA-001_exact_duplicate_groups.csv
+          cp audit_output/resolution_summary.csv manifests/datasets/DATA-001_resolution_summary.csv
+          cp audit_output/original_test_nearest_train_frame.csv manifests/datasets/DATA-001_original_test_proximity.csv
+          cp reference/historical_video_environment_map.csv manifests/video_environment_map.csv
+          cp audit_output/environment_review/environment_map_audit.json manifests/audits/environment_map_structural_audit.json
+          cp audit_output/environment_review/representative_frames.csv manifests/audits/environment_representative_frames.csv
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add manifests/
+          if git diff --cached --quiet; then
+            echo 'No manifest changes to publish.'
+          else
+            git commit -m 'Phase 1: publish verified V2 data-audit manifests'
+            git push origin HEAD:phase/v2-01-data
+          fi
       - name: Upload audit evidence
         uses: actions/upload-artifact@v4
         with:
