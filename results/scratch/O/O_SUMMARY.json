@@ -1,0 +1,50 @@
+{
+  "bank_sha256": "a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12",
+  "best_o": {
+    "accuracy": 0.998324958123953,
+    "balanced_accuracy": 0.9982758620689656,
+    "candidate_id": "C14",
+    "f1": 0.998272884283247,
+    "fn": 1,
+    "fp": 0,
+    "n": 597,
+    "parameter_count": 1570081,
+    "pr_auc": 0.9997879700926238,
+    "precision": 1.0,
+    "rank": 1,
+    "recall": 0.996551724137931,
+    "roc_auc": 0.9997865887902954,
+    "tn": 307,
+    "tp": 289
+  },
+  "best_o_candidate_id": "C14",
+  "best_o_source_disjoint_original_diagnostic_available": false,
+  "best_o_source_joint_test_images": 597,
+  "best_o_temporal_future_20": {
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "f1": 1.0,
+    "fn": 0,
+    "fp": 0,
+    "n": 20,
+    "pr_auc": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "roc_auc": 1.0,
+    "tn": 9,
+    "tp": 11
+  },
+  "candidate_count": 20,
+  "interpretation": "Selection-benchmark estimate: the O test selected among 20 frozen candidates.",
+  "selection_metric": "F1",
+  "split_sha256": "d48e182da1b170365b39693317e1edf6dd3395c02ccabdd6a771d7be5e226680",
+  "status": "O_SELECTION_BENCHMARK_COMPLETE",
+  "test_rows_per_candidate": 597,
+  "threshold": 0.5,
+  "tie_break_order": [
+    "balanced_accuracy",
+    "pr_auc",
+    "lower_parameter_count",
+    "candidate_id"
+  ]
+}
