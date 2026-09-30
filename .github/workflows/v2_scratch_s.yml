@@ -104,7 +104,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/candidate-result
-          python -m scripts.train_scratch_candidate_v2             --cache-data /tmp/cache/s_train.npy             --cache-index /tmp/cache/s_train_index.csv             --cache-receipt /tmp/cache/s_train_receipt.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --candidate-id "${{ matrix.candidate_id }}"             --regime S             --output-dir /tmp/candidate-result
+          python -m scripts.train_scratch_candidate_s_v2             --cache-data /tmp/cache/s_train.npy             --cache-index /tmp/cache/s_train_index.csv             --cache-receipt /tmp/cache/s_train_receipt.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --candidate-id "${{ matrix.candidate_id }}"             --regime S             --output-dir /tmp/candidate-result
       - name: Upload frozen candidate checkpoint
         uses: actions/upload-artifact@v4
         with:
@@ -137,7 +137,7 @@ jobs:
       - name: Verify all 20 are frozen and test-unseen
         run: |
           set -euo pipefail
-          python -m scripts.verify_scratch_checkpoints_v2             --checkpoint-root /tmp/checkpoints             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --output /tmp/checkpoint_registry.json
+          python -m scripts.verify_scratch_checkpoints_s_v2             --checkpoint-root /tmp/checkpoints             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --output /tmp/checkpoint_registry.json
       - name: Upload closed-test checkpoint registry
         uses: actions/upload-artifact@v4
         with:
@@ -185,7 +185,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/s-results
-          python -m scripts.evaluate_scratch_o_v2             --cache-data /tmp/test-cache/s_test.npy             --cache-index /tmp/test-cache/s_test_index.csv             --cache-receipt /tmp/test-cache/s_test_receipt.json             --checkpoint-root /tmp/checkpoints             --checkpoint-registry /tmp/registry/checkpoint_registry.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --output-dir /tmp/s-results
+          python -m scripts.evaluate_scratch_s_v2             --cache-data /tmp/test-cache/s_test.npy             --cache-index /tmp/test-cache/s_test_index.csv             --cache-receipt /tmp/test-cache/s_test_receipt.json             --checkpoint-root /tmp/checkpoints             --checkpoint-registry /tmp/registry/checkpoint_registry.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --output-dir /tmp/s-results
       - name: Preserve Best O checkpoint in evidence artifact
         run: |
           set -euo pipefail
