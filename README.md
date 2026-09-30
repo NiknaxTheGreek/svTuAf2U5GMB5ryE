@@ -1,37 +1,27 @@
-# MonReader
+# MonReader — V2 scientific rebuild
 
-MonReader is an image-classification project for predicting the supplied `flip` / `notflip` label from a single frame. The scientific objective is reliable frame-level classification with credible generalization beyond the sources and capture conditions seen during fitting.
+This repository is being rebuilt from a clean methodological baseline for Apziva Project 4 (MonReader: `flip` vs `notflip`).
 
-## Data
+Current authoritative protocol: **train/test-only V2**.
 
-The authoritative archive contains 2,989 RGB JPEG frames: 1,452 `flip` and 1,537 `notflip`. The supplied benchmark contains 2,392 training frames and 597 testing frames. Every image is 1080 × 1920 pixels (aspect ratio 0.5625), and the decoded-pixel audit found no exact duplicate groups.
+The active project must not use the historical validation/Bayesian/source-gate workflow. Pre-reset work is preserved under dated historical Git branches and is non-authoritative unless reproduced under V2.
 
-The filename structure provides a four-digit video identifier and `FrameNumber`. Because the numeric namespace is reused across class folders, the immutable manifest keeps an unambiguous class-namespaced video identity. A reviewed environment/session map is maintained separately from the raw naming metadata.
+## Frozen primary rules
 
-## Evaluation design
+- Python / PyTorch.
+- Four scratch-CNN regimes: Original (O), Source-Safe (S), Temporal (T), Source-Safe + Temporal (ST).
+- The same frozen 20-candidate bank is used in every regime.
+- Exactly 20 training epochs per candidate.
+- No validation split in primary scratch selection.
+- No validation-driven early stopping.
+- No Bayesian/adaptive search.
+- Final epoch-20 checkpoint.
+- Classification threshold = 0.5.
+- All 20 candidates for a regime must be trained and frozen before that regime test is evaluated.
+- Champion selection: F1 → balanced accuracy → PR-AUC → lower trainable parameter count → candidate ID.
+- Because the test selects among frozen candidates, results are described as **selection-benchmark estimates**.
+- Every supplied image must receive an explicit role in every experimental regime.
 
-Five public-facing regimes are frozen before modeling expands: **Original**, **Random Stratified**, **Source-Safe**, **Temporal-Ordered**, and **Source-Safe + Temporal**. A separate video-disjoint split is retained to measure the effect of the stricter reviewed environment/session grouping instead of hiding that assumption.
+No model training has been performed under V2 yet.
 
-Temporal ordering is defined by ascending `FrameNumber`. The primary Temporal-Ordered analysis uses only videos with at least 20 frames and assigns earliest 80% to training, middle 10% to validation, and latest 10% to testing. Source-Safe + Temporal uses a complete held-out environment/session for final testing and chronological fitting/validation inside the remaining eligible videos.
-
-See `notebooks/01_data_audit.ipynb` for the data audit, `notebooks/02_split_design.ipynb` for split construction and leakage checks, and `notebooks/03_baselines.ipynb` for the reproducible majority and handcrafted-logistic baseline stage.
-
-## Baseline reference
-
-Before CNN tuning, the project establishes two simple references on the supplied Original benchmark: a majority-class classifier and an L2-regularized logistic regression over nested handcrafted visual-feature sets. The saved prediction files reproduce the reported metric bundles at the fixed 0.5 threshold; detailed selection results and coefficients are kept in the baseline notebook and generated artifacts.
-
-## Workflow
-
-The project proceeds from authoritative-data validation through leakage-safe split construction, simple baselines, scratch-CNN tuning, unseen-source and temporal comparisons, pretrained ResNet18 comparison, controlled visual ablations, and a final temporal/video extension. Experiment tracking is validated with W&B only after the core methodology is stable.
-
-## Quick start
-
-Official development uses Python 3.13.5.
-
-```bash
-python -m pip install -r requirements.txt
-python run_experiment.py --config configs/base.yaml
-pytest -q
-```
-
-The current CLI command is a deterministic synthetic smoke flow; it does not train on MonReader data or report scientific model performance.
+The next execution gate is a complete raw-data identity and integrity audit.

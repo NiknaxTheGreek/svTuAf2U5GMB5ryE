@@ -1,6 +1,0 @@
-datasets:
-- dataset_id: DATA-001
-  name: original_rgb
-  parent_dataset_id: null
-  transform: none
-  manifest: manifests/datasets/DATA-001.csv

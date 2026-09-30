@@ -1,1 +1,0 @@
-"""MonReader model definitions."""
