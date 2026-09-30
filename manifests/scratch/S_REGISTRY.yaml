@@ -1,0 +1,118 @@
+protocol_version: v2-train-test-only
+status: frozen_verified
+freeze_date: 2026-09-30
+regime: S
+
+inputs:
+  dataset_manifest:
+    path: manifests/datasets/DATA-001.csv
+    sha256: 3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b
+  split:
+    path: manifests/splits/S.csv
+    sha256: a54cce72ad1f275096f06b98bbc9ec32393e9f112cc0536abd132571e1919619
+    train_rows: 2219
+    test_rows: 770
+    training_environments: [ENV-01, ENV-02, ENV-04]
+    heldout_environment: ENV-03
+    train_videos: 88
+    test_videos: 29
+    train_test_video_overlap_count: 0
+  candidate_bank:
+    path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
+    sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
+    candidates: 20
+
+execution:
+  successful_workflow_run_id: 36737122432
+  successful_workflow_head_sha: c05356ea2199d0400e1cc113a68a877ebb381202
+  all_20_training_jobs_successful: true
+  checkpoint_gate_status: PASS_ALL_20_FROZEN_BEFORE_S_TEST
+  test_evaluation_opened_only_after_checkpoint_gate: true
+  test_evaluations_per_candidate: 1
+  threshold: 0.5
+  evidence_artifact_id: 11115898702
+  evidence_artifact_sha256: e6c8160746fd3b9240b2b313a05cc93743fb9408b3f9ea21534e2f3115067f50
+  engineering_note: "An earlier Phase-5 workflow run invoked the O-specific trainer from the S workflow. Candidate jobs failed at argument parsing before S model training and before S test evaluation. The authoritative corrected run changed only the S workflow module invocations and is the only run used scientifically."
+
+champion:
+  candidate_id: C18
+  depth: 4
+  start_filters: 12
+  dropout: 0.19399367722414562
+  learning_rate: 0.00017085183196261392
+  optimizer: adam
+  weight_decay: 0.000006478977241148295
+  batch_size: 78
+  parameter_count: 55213
+  epochs: 20
+  final_train_loss: 0.16100365587616353
+  checkpoint_sha256: 1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225
+
+selection_benchmark:
+  f1: 0.8196248196248196
+  precision: 0.8231884057971014
+  recall: 0.8160919540229885
+  accuracy: 0.8376623376623377
+  balanced_accuracy: 0.8357710954949066
+  roc_auc: 0.900235604946342
+  pr_auc: 0.8994801279225753
+  confusion_matrix: {tn: 361, fp: 61, fn: 64, tp: 284}
+  interpretation: source-disjoint selection-benchmark estimate
+  selection_order: [f1, balanced_accuracy, pr_auc, lower_parameter_count, candidate_id]
+
+best_O_configuration_on_S:
+  candidate_id: C14
+  note: "This is the C14 architecture/hyperparameter configuration retrained from scratch on S training data, not the O-trained checkpoint weights."
+  rank: 3
+  f1: 0.6936416184971098
+  precision: 0.6976744186046512
+  recall: 0.6896551724137931
+  accuracy: 0.7246753246753247
+  balanced_accuracy: 0.7216048373917308
+  roc_auc: 0.7932123985400665
+  pr_auc: 0.7907967389257526
+  confusion_matrix: {tn: 318, fp: 104, fn: 108, tp: 240}
+
+uncertainty:
+  method: video_cluster_bootstrap
+  cluster_unit: video_id
+  videos: 29
+  draws: 20000
+  seed: 20260930
+  C18_f1_ci95: [0.67428146, 0.91223740]
+  C14_config_f1_ci95: [0.47909823, 0.83859014]
+  paired_f1_difference_C18_minus_C14_config: 0.12598320112770978
+  paired_f1_difference_ci95: [0.01884929, 0.26135048]
+  selection_adjusted: false
+
+diagnostics:
+  source_disjoint_test_images: 770
+  heldout_environment: ENV-03
+  test_videos: 29
+  errors: 125
+  false_positives: 61
+  false_negatives: 64
+  strongest_error_concentrations:
+    - {video_id: notflip/0036, errors: 30, kind: false_positive}
+    - {video_id: notflip/0035, errors: 12, kind: false_positive}
+    - {video_id: flip/0039, errors: 11, kind: false_negative}
+    - {video_id: notflip/0039, errors: 10, kind: false_positive}
+    - {video_id: flip/0041, errors: 10, kind: false_negative}
+    - {video_id: flip/0035, errors: 10, kind: false_negative}
+
+result_files:
+  summary: {path: results/scratch/S/S_SUMMARY.json, sha256: d5e7f82c1a7db415c8a98d829a068c28aaf5501d394d75c6e95dfa58fbd95277}
+  leaderboard: {path: results/scratch/S/leaderboard.csv, sha256: 4b031a59f83d34cc1dda562c0a248865a255265ad3a3dbe1a964248eb7463c73}
+  predictions: {path: results/scratch/S/predictions.csv, sha256: b437079fcc93a900588b3943f03fcd3e6eb41f8735cff5dc788530fdf1baf1a4}
+  per_video: {path: results/scratch/S/best_s_per_video.csv, sha256: 698441ae3173a0000c8d0458a5ef9e47b91620cbc0c81a022c4733308aa54ac0}
+  error_cases: {path: results/scratch/S/best_s_error_cases.csv, sha256: 6e2eb29f3f518e936c90408c2d93254b3411d1bcef8fed23e4b042e3df7bcc68}
+  pretest_checkpoint_registry: {path: results/scratch/S/checkpoint_registry_before_test.json, sha256: 92c1e288979e6ca740683992628f6a511d072655eeb80ac140c562f62b66d081}
+  uncertainty: {path: results/scratch/S/cluster_bootstrap_ci.json}
+
+scientific_status:
+  O_complete: true
+  S_complete: true
+  S_test_opened: true
+  S_result_may_not_retrain_or_modify_candidates: true
+  T_test_opened: false
+  ST_test_opened: false
