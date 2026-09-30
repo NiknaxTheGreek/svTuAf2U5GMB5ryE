@@ -1,0 +1,78 @@
+name: MonReader V2 raw-data audit
+
+on:
+  push:
+    branches:
+      - phase/v2-01-data
+    paths:
+      - 'scripts/audit_dataset_v2.py'
+      - '.github/workflows/v2_data_audit.yml'
+
+permissions:
+  contents: read
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  EXPECTED_SIZE: '939921132'
+  EXPECTED_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install audit dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install 'gdown==5.2.0' 'Pillow==11.0.0'
+      - name: Download official MonReader archive
+        run: |
+          gdown --id "$DATASET_FILE_ID" --output images.zip
+          stat --printf='downloaded_bytes=%s\\n' images.zip
+      - name: Verify identity and audit every image
+        run: |
+          python scripts/audit_dataset_v2.py \\
+            --archive images.zip \\
+            --output-dir audit_output \\
+            --expected-size "$EXPECTED_SIZE" \\
+            --expected-sha256 "$EXPECTED_SHA256" | tee audit_stdout.json
+      - name: Show compact audit receipt
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          s=json.loads(Path('audit_output/audit_summary.json').read_text())
+          keep={
+              'archive':s['archive'],
+              'image_count':s['image_count'],
+              'label_counts':s['label_counts'],
+              'supplied_split_counts':s['supplied_split_counts'],
+              'split_label_counts':s['split_label_counts'],
+              'video_count':s['video_count'],
+              'train_video_count':s['train_video_count'],
+              'test_video_count':s['test_video_count'],
+              'train_test_video_overlap_count':s['train_test_video_overlap_count'],
+              'video_length':s['video_length'],
+              'original_mode_counts':s['original_mode_counts'],
+              'resolution_counts':s['resolution_counts'],
+              'exact_duplicate':s['exact_duplicate'],
+              'temporal_structure':s['temporal_structure'],
+              'original_supplied_split_overlap':s['original_supplied_split_overlap'],
+              'accounting':s['accounting'],
+              'artifact_sha256':s['artifact_sha256'],
+          }
+          print(json.dumps(keep,indent=2,sort_keys=True))
+          PY
+      - name: Upload audit evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-data-audit
+          path: |
+            audit_output/
+            audit_stdout.json
+          if-no-files-found: error
+          retention-days: 90
