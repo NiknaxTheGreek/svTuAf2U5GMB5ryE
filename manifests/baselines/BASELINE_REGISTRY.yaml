@@ -1,0 +1,56 @@
+protocol_version: v2-train-test-only
+status: frozen_verified
+freeze_date: 2026-09-30
+
+candidate_bank_audit:
+  status: PASS
+  bank_path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
+  sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
+  candidate_count: 20
+  unique_candidate_ids: 20
+  unique_hyperparameter_configurations: 20
+  audit: manifests/audits/CANDIDATE_BANK_AUDIT.json
+
+baseline_protocol:
+  path: protocol/BASELINE_PROTOCOL_V2.md
+  positive_class: flip
+  logistic_threshold: 0.5
+  no_validation: true
+  no_baseline_hyperparameter_tuning: true
+  feature_sets_reported: [A, B, C]
+
+result_files:
+  metrics:
+    path: outputs/baselines/metrics.csv
+    sha256: 62409288e254ae7ab63389d9cacb95cb0ce7328fea89805058ffc9585e11ca0d
+  predictions:
+    path: outputs/baselines/predictions.csv
+    sha256: 76ef28b037656ba7411138449ed2c1f914c758212925141bac46fadd769a6970
+    rows: 8608
+  coefficients:
+    path: outputs/baselines/coefficients.csv
+    sha256: e46d5121702af582e2b7fa1f520b51b8e4d9051964aa6c89eba5dc5568908894
+  scaler_parameters:
+    path: outputs/baselines/scaler_parameters.csv
+    sha256: b550fa690001fb481e7889a42faeaa003f3c1848f4d4ae2ddffccb7367e56fd7
+  summary:
+    path: outputs/baselines/BASELINE_SUMMARY.json
+    sha256: 398a7d8e601beff4ff74c920b602a217d8c177163f89bd4151955cc6b4777d45
+
+reproducibility:
+  complete_executions_with_identical_core_result_hashes: 3
+  final_workflow_run_id: 36703045049
+  final_artifact_id: 11090129952
+  final_artifact_sha256: f09d3acee55497e37ca429c780b137973e1f3fb495eb6010a6aa4ef34e3d5ae6
+
+f1:
+  O: {majority: 0.0, A: 0.7841726618705036, B: 0.8571428571428571, C: 0.926829268292683}
+  S: {majority: 0.0, A: 0.4567627494456763, B: 0.6582597730138714, C: 0.5559701492537313}
+  T: {majority: 0.0, A: 0.7853577371048253, B: 0.7450271247739603, C: 0.8042704626334519}
+  ST: {majority: 0.0, A: 0.3655913978494624, B: 0.5714285714285714, C: 0.1686746987951807}
+
+scientific_status:
+  baseline_test_results_opened: true
+  scratch_candidate_training_started: false
+  scratch_candidate_test_results_opened: false
+  baselines_do_not_select_scratch_candidates: true

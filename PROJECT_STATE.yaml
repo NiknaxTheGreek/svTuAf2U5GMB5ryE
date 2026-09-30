@@ -1,7 +1,7 @@
 project: Apziva Project 4 - MonReader
 reset_date: 2026-09-30
 primary_protocol: train_test_only_v2
-status: PHASE_2_SPLITS_VERIFIED_AND_FROZEN
+status: PHASE_3_BASELINES_VERIFIED
 preservation:
   historical_state_verified: true
   historical_anchor_branch: historical/pre-v2-reset-2026-09-30
@@ -11,6 +11,8 @@ candidate_bank:
   candidates: 20
   sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
   frozen: true
+  formal_audit_status: PASS
+  audit: manifests/audits/CANDIDATE_BANK_AUDIT.json
 dataset:
   id: DATA-001
   verified: true
@@ -28,13 +30,24 @@ splits:
   S: {train: 2219, test: 770, context: 0, excluded: 0, sha256: a54cce72ad1f275096f06b98bbc9ec32393e9f112cc0536abd132571e1919619}
   T: {train: 2365, test: 624, context: 0, excluded: 0, sha256: 0a1f39ebb01f14989aad37b87c39fbb874307f81bdc4770d15e8df7c7b9aa625}
   ST: {train: 1756, test: 161, context: 1072, excluded: 0, sha256: ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259bcf2c0e177a85}
-v2_model_test_evaluation_opened: false
-model_training_started: false
+baselines:
+  registry: manifests/baselines/BASELINE_REGISTRY.yaml
+  protocol: protocol/BASELINE_PROTOCOL_V2.md
+  verified: true
+  result_hashes:
+    metrics: 62409288e254ae7ab63389d9cacb95cb0ce7328fea89805058ffc9585e11ca0d
+    predictions: 76ef28b037656ba7411138449ed2c1f914c758212925141bac46fadd769a6970
+    coefficients: e46d5121702af582e2b7fa1f520b51b8e4d9051964aa6c89eba5dc5568908894
+    scaler_parameters: b550fa690001fb481e7889a42faeaa003f3c1848f4d4ae2ddffccb7367e56fd7
+  identical_complete_executions: 3
+baseline_test_evaluation_opened: true
+scratch_candidate_test_evaluation_opened: false
+scratch_model_training_started: false
 active_workflows_on_main: false
-next_gate: audit_candidate_bank_and_build_leakage_safe_baselines
+next_gate: freeze_scratch_cnn_implementation_then_train_all_20_O_candidates_without_test_evaluation
 notes:
-  - O reproduces the supplied split exactly.
-  - S and ST have zero train/test canonical-video overlap.
-  - T is intentionally source-joint and chronological within all 117 videos.
-  - ST context-only images are excluded from both primary training and primary test.
+  - Baseline feature sets A, B and C were all predeclared and are all reported.
+  - Baseline results do not select or tune the scratch-CNN candidate bank.
+  - O handcrafted performance is high, while S/ST behaviour shows substantial source-shift and threshold/calibration sensitivity.
+  - The scratch-CNN O test remains unopened.
   - Pre-reset model results remain historical and non-authoritative.
