@@ -1,0 +1,91 @@
+{
+  "bank_path": "configs/MONREADER_FIXED_20_CONFIG_BANK.json",
+  "candidate_count": 20,
+  "candidate_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09",
+    "C10",
+    "C11",
+    "C12",
+    "C13",
+    "C14",
+    "C15",
+    "C16",
+    "C17",
+    "C18",
+    "C19",
+    "C20"
+  ],
+  "errors": [],
+  "expected_sha256": "a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12",
+  "fixed_training": {
+    "augmentation": false,
+    "canvas_hxw": [
+      398,
+      224
+    ],
+    "checkpoint": "final_epoch_20",
+    "class_sampling": "natural",
+    "early_stopping": false,
+    "epochs": 20,
+    "gradient_clipping": null,
+    "loss": "BCEWithLogitsLoss",
+    "model_seed": 42,
+    "scaling": "[0,1]",
+    "scheduler": null,
+    "threshold": 0.5,
+    "validation": false
+  },
+  "fixed_training_matches_v2": true,
+  "range_violations": [],
+  "search_space": {
+    "batch_size": {
+      "distribution": "integer_uniform",
+      "max": 128,
+      "min": 32
+    },
+    "depth": {
+      "distribution": "integer_uniform",
+      "max": 5,
+      "min": 2
+    },
+    "dropout": {
+      "distribution": "uniform",
+      "max": 0.35,
+      "min": 0.0
+    },
+    "learning_rate": {
+      "distribution": "log_uniform",
+      "max": 0.003,
+      "min": 0.0001
+    },
+    "optimizer": [
+      "adam",
+      "adamw",
+      "rmsprop"
+    ],
+    "start_filters": {
+      "distribution": "integer_uniform",
+      "max": 32,
+      "min": 8
+    },
+    "weight_decay": {
+      "distribution": "mixture",
+      "positive_distribution": "log_uniform",
+      "positive_max": 0.001,
+      "positive_min": 1e-06,
+      "zero_probability": 0.2
+    }
+  },
+  "sha256": "a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12",
+  "status": "PASS",
+  "unique_candidate_ids": 20,
+  "unique_hyperparameter_configurations": 20
+}
