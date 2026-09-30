@@ -6,6 +6,8 @@ on:
       - phase/v2-01-data
     paths:
       - 'scripts/audit_dataset_v2.py'
+      - 'scripts/audit_environment_map_v2.py'
+      - 'reference/historical_video_environment_map.csv'
       - '.github/workflows/v2_data_audit.yml'
 
 permissions:
@@ -38,6 +40,8 @@ jobs:
         run: |
           set -o pipefail
           python scripts/audit_dataset_v2.py --archive images.zip --output-dir audit_output --expected-size "$EXPECTED_SIZE" --expected-sha256 "$EXPECTED_SHA256" | tee audit_stdout.json
+      - name: Audit historical environment map and build fresh visual evidence
+        run: python scripts/audit_environment_map_v2.py --archive images.zip --manifest audit_output/master_manifest.csv --mapping reference/historical_video_environment_map.csv --output-dir audit_output/environment_review
       - name: Show compact audit receipt
         run: |
           python - <<'PY'
