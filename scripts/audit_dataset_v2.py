@@ -20,7 +20,7 @@ EXPECTED_ARCHIVE_SIZE = 939_921_132
 EXPECTED_ARCHIVE_SHA256 = "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
 VALID_LABELS = {"flip", "notflip"}
 VALID_SPLITS = {"training", "testing"}
-IMAGE_RE = re.compile(r"^(?P<video>\\d{4})_(?P<frame>\\d{9})\\.jpg$")
+IMAGE_RE = re.compile(r"^(?P<video>\d{4})_(?P<frame>\d{9})\.jpg$")
 
 
 @dataclass(frozen=True)
