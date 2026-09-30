@@ -1,27 +1,49 @@
 project: Apziva Project 4 - MonReader
 reset_date: 2026-09-30
 primary_protocol: train_test_only_v2
-status: PHASE_0_CLEAN_BASELINE
-historical_authority: NON_AUTHORITATIVE
-historical_anchor_branch: historical/pre-v2-reset-2026-09-30
-historical_anchor_commit: f1d2c76d04c8f5122a12bfcbd8d1b8515617e266
-pre_reset_main_sha: 098910b26d663d54464e5189eea74d9b2c9d9bca
-source_authority:
-  action_plan_sha256: c2a257cddb86ca487dfdd0e2bd9422b5fb3a8707610d7e816d9d6ead078c4d0e
-  execution_plan_sha256: 6773ac0955963f1f7f2803908af5badb34dd5b92d96dc1286b3fad6a1e94266d
-  candidate_bank_sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
-  protocol_audit_sha256: ab4040e6392b40dbe56f455f39db352a3627437fd35c78fd94d000dca8dbe490
-  fresh_chat_prompt_sha256: 37d854bb5cdcfae531d87e89d531ac83545273d44b7d9b43037108d97c8e05a2
-dataset_expected:
-  archive: images.zip
-  bytes: 939921132
-  sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+status: PHASE_1_DATA_AUDIT_VERIFIED
+preservation:
+  historical_state_verified: true
+  historical_anchor_branch: historical/pre-v2-reset-2026-09-30
+  historical_authority: NON_AUTHORITATIVE
 candidate_bank:
   path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
   candidates: 20
+  sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
   frozen: true
-v2_test_opened: false
+dataset:
+  id: DATA-001
+  verified: true
+  archive: images.zip
+  bytes: 939921132
+  sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  manifest: manifests/datasets/DATA-001.csv
+  manifest_rows: 2989
+  manifest_sha256: 3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b
+  supplied_training: 2392
+  supplied_testing: 597
+  canonical_videos: 117
+  decode_failures: 0
+  exact_decoded_pixel_duplicate_groups: 0
+source_structure:
+  original_test_seen_source_images: 597
+  original_test_total_images: 597
+  original_test_nearest_train_frame_distance_1: 573
+  original_test_nearest_train_frame_distance_le_2: 596
+  original_temporal_future_images: 20
+  original_temporal_future_videos: 18
+environment_map:
+  verified_for_split_construction: true
+  path: manifests/video_environment_map.csv
+  video_rows: 117
+  ENV-01_images: 584
+  ENV-02_images: 699
+  ENV-03_images: 770
+  ENV-04_images: 936
+v2_model_test_evaluation_opened: false
+model_training_started: false
+active_workflows_on_main: false
+next_gate: construct_and_verify_O_S_T_ST_manifests
 notes:
-  - No pre-reset result is active scientific evidence.
-  - No workflow is active on this clean baseline.
-  - Raw-data audit must pass before split construction or model training.
+  - Structural inspection of supplied test membership occurred before modeling; no model predictions or performance metrics have been produced under V2.
+  - Pre-reset model results remain historical and non-authoritative.

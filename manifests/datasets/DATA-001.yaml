@@ -1,0 +1,67 @@
+dataset_id: DATA-001
+name: MonReader original RGB frame dataset
+status: verified_v2
+verified_date: 2026-09-30
+source_archive:
+  name: images.zip
+  bytes: 939921132
+  sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  identity_verified: true
+manifest:
+  path: manifests/datasets/DATA-001.csv
+  rows: 2989
+  sha256: 3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b
+labels:
+  flip: 1452
+  notflip: 1537
+supplied_split:
+  training: 2392
+  testing: 597
+  training_flip: 1162
+  training_notflip: 1230
+  testing_flip: 290
+  testing_notflip: 307
+image_properties:
+  mode: RGB
+  channels: 3
+  resolution: 1080x1920
+  aspect_ratio: 0.5625
+  decode_failures: 0
+video_identity:
+  canonical_rule: "{label}/{raw_video_id}"
+  reason: "The four-digit numeric video ID is reused across class folders, so label is part of the canonical source key."
+  canonical_video_count: 117
+integrity:
+  unknown_or_skipped_members: 0
+  exact_decoded_pixel_duplicate_groups: 0
+  exact_cross_split_duplicate_groups: 0
+  exact_cross_label_duplicate_groups: 0
+original_split_source_structure:
+  training_videos: 117
+  testing_videos: 115
+  overlapping_videos: 115
+  test_only_videos: 0
+  test_images_from_training_seen_videos: 597
+  test_images_total: 597
+  test_images_nearest_training_frame_distance_1: 573
+  test_images_nearest_training_frame_distance_le_2: 596
+  temporal_future_test_images: 20
+  temporal_future_test_videos: 18
+environment_map:
+  path: manifests/video_environment_map.csv
+  git_blob_sha1: 249024b9ffef8c0148f6b17f524fff0acfc8eb0c
+  canonical_videos_covered: 117
+  environments:
+    ENV-01: {videos: 21, images: 584}
+    ENV-02: {videos: 32, images: 699}
+    ENV-03: {videos: 29, images: 770}
+    ENV-04: {videos: 35, images: 936}
+  review_status: fresh_v2_structural_and_visual_review_pass
+  limitation: "Visual/source grouping is supported by document identity/layout, camera/table geometry, hands/lighting context and source numbering; it is not metadata-level proof of a physical recording session."
+evidence:
+  audit_summary: manifests/datasets/DATA-001_summary.json
+  video_summary: manifests/datasets/DATA-001_video_summary.csv
+  duplicate_groups: manifests/datasets/DATA-001_exact_duplicate_groups.csv
+  original_test_proximity: manifests/datasets/DATA-001_original_test_proximity.csv
+  environment_structural_review: manifests/audits/environment_map_structural_audit.json
+  environment_representative_index: manifests/audits/environment_representative_frames.csv
