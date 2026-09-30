@@ -1,0 +1,38 @@
+{
+  "method": "cluster_bootstrap_percentile",
+  "cluster_unit": "video_id",
+  "heldout_environment": "ENV-03",
+  "videos": 29,
+  "draws": 20000,
+  "seed": 20260930,
+  "selection_adjusted": false,
+  "note": "Intervals quantify sampling uncertainty across held-out videos conditional on the observed selected candidates. They do not correct for selecting Best S from 20 candidates on the same S test.",
+  "C18": {
+    "f1_observed": 0.8196248196248196,
+    "f1_ci95": [0.67428146, 0.91223740],
+    "accuracy_observed": 0.8376623376623377,
+    "accuracy_ci95": [0.73472222, 0.91807598],
+    "balanced_accuracy_observed": 0.8357710954949066,
+    "balanced_accuracy_ci95": [0.73353552, 0.91666776],
+    "precision_observed": 0.8231884057971014,
+    "precision_ci95": [0.60996689, 0.97069597],
+    "recall_observed": 0.8160919540229885,
+    "recall_ci95": [0.69037484, 0.91618497]
+  },
+  "C14_config_retrained_on_S": {
+    "f1_observed": 0.6936416184971098,
+    "f1_ci95": [0.47909823, 0.83859014],
+    "accuracy_observed": 0.7246753246753247,
+    "accuracy_ci95": [0.57958530, 0.84956958],
+    "balanced_accuracy_observed": 0.7216048373917308,
+    "balanced_accuracy_ci95": [0.57243308, 0.84720637],
+    "precision_observed": 0.6976744186046512,
+    "precision_ci95": [0.44127852, 0.91390907],
+    "recall_observed": 0.6896551724137931,
+    "recall_ci95": [0.47033688, 0.87037277]
+  },
+  "paired_C18_minus_C14_config": {
+    "f1_difference_observed": 0.12598320112770978,
+    "f1_difference_ci95": [0.01884929, 0.26135048]
+  }
+}
