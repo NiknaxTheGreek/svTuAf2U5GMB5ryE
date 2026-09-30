@@ -1,0 +1,158 @@
+{
+  "environment_map": {
+    "heldout_environment_for_S_and_ST": "ENV-03",
+    "path": "manifests/video_environment_map.csv",
+    "rows": 117
+  },
+  "model_test_predictions_examined": false,
+  "model_training_started": false,
+  "protocol_version": "v2-train-test-only",
+  "regime_manifest_sha256": {
+    "O": "d48e182da1b170365b39693317e1edf6dd3395c02ccabdd6a771d7be5e226680",
+    "S": "a54cce72ad1f275096f06b98bbc9ec32393e9f112cc0536abd132571e1919619",
+    "ST": "ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259bcf2c0e177a85",
+    "T": "0a1f39ebb01f14989aad37b87c39fbb874307f81bdc4770d15e8df7c7b9aa625"
+  },
+  "regimes": {
+    "O": {
+      "class_counts_by_role": {
+        "test/flip": 290,
+        "test/notflip": 307,
+        "train/flip": 1162,
+        "train/notflip": 1230
+      },
+      "environment_counts_by_role": {
+        "test/ENV-01": 111,
+        "test/ENV-02": 140,
+        "test/ENV-03": 173,
+        "test/ENV-04": 173,
+        "train/ENV-01": 473,
+        "train/ENV-02": 559,
+        "train/ENV-03": 597,
+        "train/ENV-04": 763
+      },
+      "excluded": 0,
+      "role_counts": {
+        "test": 597,
+        "train": 2392
+      },
+      "role_detail_counts": {
+        "supplied_testing": 597,
+        "supplied_training": 2392
+      },
+      "test_video_count": 115,
+      "total_accounted": 2989,
+      "train_test_video_overlap_count": 115,
+      "train_video_count": 117
+    },
+    "S": {
+      "class_counts_by_role": {
+        "test/flip": 348,
+        "test/notflip": 422,
+        "train/flip": 1104,
+        "train/notflip": 1115
+      },
+      "environment_counts_by_role": {
+        "test/ENV-03": 770,
+        "train/ENV-01": 584,
+        "train/ENV-02": 699,
+        "train/ENV-04": 936
+      },
+      "excluded": 0,
+      "role_counts": {
+        "test": 770,
+        "train": 2219
+      },
+      "role_detail_counts": {
+        "heldout_environment_test": 770,
+        "known_environment_train": 2219
+      },
+      "test_video_count": 29,
+      "total_accounted": 2989,
+      "train_test_video_overlap_count": 0,
+      "train_video_count": 88
+    },
+    "ST": {
+      "class_counts_by_role": {
+        "context/flip": 510,
+        "context/notflip": 562,
+        "test/flip": 76,
+        "test/notflip": 85,
+        "train/flip": 866,
+        "train/notflip": 890
+      },
+      "environment_counts_by_role": {
+        "context/ENV-01": 121,
+        "context/ENV-02": 149,
+        "context/ENV-03": 609,
+        "context/ENV-04": 193,
+        "test/ENV-03": 161,
+        "train/ENV-01": 463,
+        "train/ENV-02": 550,
+        "train/ENV-04": 743
+      },
+      "excluded": 0,
+      "role_counts": {
+        "context": 1072,
+        "test": 161,
+        "train": 1756
+      },
+      "role_detail_counts": {
+        "heldout_environment_earlier_context": 609,
+        "heldout_environment_later_test": 161,
+        "known_environment_earlier_train": 1756,
+        "known_environment_later_context": 463
+      },
+      "test_video_count": 29,
+      "total_accounted": 2989,
+      "train_test_video_overlap_count": 0,
+      "train_video_count": 88
+    },
+    "T": {
+      "class_counts_by_role": {
+        "test/flip": 314,
+        "test/notflip": 310,
+        "train/flip": 1138,
+        "train/notflip": 1227
+      },
+      "environment_counts_by_role": {
+        "test/ENV-01": 121,
+        "test/ENV-02": 149,
+        "test/ENV-03": 161,
+        "test/ENV-04": 193,
+        "train/ENV-01": 463,
+        "train/ENV-02": 550,
+        "train/ENV-03": 609,
+        "train/ENV-04": 743
+      },
+      "excluded": 0,
+      "role_counts": {
+        "test": 624,
+        "train": 2365
+      },
+      "role_detail_counts": {
+        "earlier_80pct_train": 2365,
+        "later_20pct_test": 624
+      },
+      "test_video_count": 117,
+      "total_accounted": 2989,
+      "train_test_video_overlap_count": 117,
+      "train_video_count": 117
+    }
+  },
+  "source_manifest": {
+    "path": "manifests/datasets/DATA-001.csv",
+    "rows": 2989,
+    "sha256": "3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b"
+  },
+  "temporal_rule": {
+    "all_videos_valid": true,
+    "cut": "floor(0.80 * observed_video_image_count)",
+    "earlier": "rank < cut",
+    "later": "rank >= cut",
+    "max_video_length": 55,
+    "min_video_length": 8,
+    "ordering": "ascending FrameNumber within canonical video_id",
+    "video_count": 117
+  }
+}
