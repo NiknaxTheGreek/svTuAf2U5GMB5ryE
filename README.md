@@ -4,7 +4,7 @@ MonReader is a binary computer-vision project for classifying a single frame as 
 
 ## Current verified state
 
-**Phase 4 — Original scratch-CNN selection benchmark: complete. Source-safe/temporal scratch regimes remain pending.**
+**Phase 5 — Source-Safe scratch-CNN selection benchmark: complete. O and S are frozen; T and ST remain pending.**
 
 Dataset and splits are frozen:
 
@@ -17,42 +17,44 @@ Dataset and splits are frozen:
 
 The canonical C01–C20 scratch bank is frozen: 20 epochs, no validation, no early stopping, final epoch-20 checkpoint, threshold 0.5.
 
-## Original benchmark — Best O
+## Primary scratch results so far
 
-All 20 O candidates were trained and frozen before the O test was opened. The pre-test checkpoint gate passed for every candidate.
+| Regime | Champion | F1 | Accuracy | Balanced acc. | Interpretation |
+|---|---|---:|---:|---:|---|
+| O | C14 | **0.9983** | 0.9983 | 0.9983 | supplied source-joint benchmark |
+| S | C18 | **0.8196** | 0.8377 | 0.8358 | held-out ENV-03, zero train/test video overlap |
 
-**Best O = C14**
+Both are **selection-benchmark estimates** because each regime test selects among 20 frozen candidates.
 
-| Metric | C14 |
-|---|---:|
-| F1 | **0.9983** |
-| Precision | 1.0000 |
-| Recall | 0.9966 |
-| Accuracy | 0.9983 |
-| Balanced accuracy | 0.9983 |
-| ROC-AUC | 0.9998 |
-| PR-AUC | 0.9998 |
-| Errors | 1 / 597 |
+### Why O and S differ
 
-This is a **selection-benchmark estimate** because O test F1 selected among 20 frozen candidates.
+The O split is highly correlated:
 
-The high score requires careful interpretation:
-
-- exact decoded-pixel duplicate groups: 0;
 - every O-test image comes from a video represented in O training;
-- 573/597 O-test frames have a same-video training frame only one frame number away;
-- no source-disjoint Original diagnostic exists.
+- 573/597 O-test frames have a same-video training frame only one frame number away.
 
-The sole C14 error was a false negative. Visual review showed it was surrounded by extremely similar same-video training frames, directly illustrating the strong temporal correlation in the supplied split.
+S is source-disjoint:
 
-The 20-image O temporal-future subset is perfect for C14, but it remains source-joint.
+- S training: ENV-01, ENV-02, ENV-04;
+- S test: ENV-03 only;
+- training videos: 88;
+- test videos: 29;
+- train/test video overlap: **0**.
+
+Best S C18 achieved F1 0.8196 with 361 TN, 61 FP, 64 FN and 284 TP.
+
+The Best-O configuration C14, retrained from scratch under the S protocol, ranked third at F1 0.6936. C18 has only 55,213 parameters versus 1,570,081 for C14.
+
+A video-cluster bootstrap over the 29 held-out S videos gives a C18 F1 95% interval of approximately **0.674–0.912**. The paired C18 minus C14-configuration F1 difference is +0.126 with a clustered 95% interval of approximately +0.019 to +0.261. These intervals are not adjusted for selection among the 20 candidates.
 
 See:
 - `reports/data_audit/DATA_AUDIT.md`
 - `reports/splits/SPLIT_AUDIT.md`
 - `reports/baselines/BASELINE_REPORT.md`
 - `reports/scratch/O_REPORT.md`
+- `reports/scratch/S_REPORT.md`
 - `manifests/scratch/O_REGISTRY.yaml`
+- `manifests/scratch/S_REGISTRY.yaml`
 
 ## Frozen scratch-CNN rules
 
@@ -69,4 +71,4 @@ See:
 
 ## Next gate
 
-Run the same frozen 20 candidates under **S — Source-Safe**, where ENV-03 is absent from training. S is the first primary test of genuinely unseen-source/environment behavior.
+Run the same frozen 20-candidate bank under **T — Temporal-Safe**. All 20 T checkpoints must be frozen and verified before the 624-image T test is opened.
