@@ -1,0 +1,77 @@
+{
+  "contact_sheets": [
+    "ENV-01_contact_sheet.jpg",
+    "ENV-02_contact_sheet.jpg",
+    "ENV-03_contact_sheet.jpg",
+    "ENV-04_contact_sheet.jpg"
+  ],
+  "coverage": {
+    "duplicate_mapping_video_ids": [],
+    "exact_video_coverage": true,
+    "extra_mapped_videos": [],
+    "invalid_environment_ids": [],
+    "missing_manifest_videos": [],
+    "nonreviewed_status_values": []
+  },
+  "environment_class_video_counts": {
+    "ENV-01": {
+      "flip": 10,
+      "notflip": 11
+    },
+    "ENV-02": {
+      "flip": 23,
+      "notflip": 9
+    },
+    "ENV-03": {
+      "flip": 15,
+      "notflip": 14
+    },
+    "ENV-04": {
+      "flip": 17,
+      "notflip": 18
+    }
+  },
+  "environment_image_counts": {
+    "ENV-01": {
+      "all": 584,
+      "flip": 249,
+      "notflip": 335,
+      "testing": 111,
+      "training": 473
+    },
+    "ENV-02": {
+      "all": 699,
+      "flip": 465,
+      "notflip": 234,
+      "testing": 140,
+      "training": 559
+    },
+    "ENV-03": {
+      "all": 770,
+      "flip": 348,
+      "notflip": 422,
+      "testing": 173,
+      "training": 597
+    },
+    "ENV-04": {
+      "all": 936,
+      "flip": 390,
+      "notflip": 546,
+      "testing": 173,
+      "training": 763
+    }
+  },
+  "environment_video_counts": {
+    "ENV-01": 21,
+    "ENV-02": 32,
+    "ENV-03": 29,
+    "ENV-04": 35
+  },
+  "manifest_video_count": 117,
+  "mapping_row_count": 117,
+  "mapping_status_before_reaudit": "historical_reviewed_reference",
+  "representative_frame_count": 351,
+  "representative_policy": "earliest, middle (index n//2), latest frame after sorting by FrameNumber within each canonical video",
+  "unique_mapping_video_count": 117,
+  "visual_reaudit_status": "PENDING_FRESH_REVIEW"
+}

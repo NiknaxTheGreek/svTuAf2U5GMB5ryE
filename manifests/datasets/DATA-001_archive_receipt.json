@@ -1,0 +1,9 @@
+{
+  "archive_name": "images.zip",
+  "expected_sha256": "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f",
+  "expected_size_bytes": 939921132,
+  "sha256": "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f",
+  "sha256_match": true,
+  "size_bytes": 939921132,
+  "size_match": true
+}

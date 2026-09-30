@@ -1,0 +1,91 @@
+{
+  "accounting": {
+    "parsed_image_rows": 2989,
+    "total_accounted": 2989,
+    "unknown_or_skipped_members": 0
+  },
+  "archive": {
+    "archive_name": "images.zip",
+    "expected_sha256": "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f",
+    "expected_size_bytes": 939921132,
+    "sha256": "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f",
+    "sha256_match": true,
+    "size_bytes": 939921132,
+    "size_match": true
+  },
+  "artifact_sha256": {
+    "archive_receipt.json": "396288ffe13d72702dee4975122408cdc1d15ab7235c2bdadf53bf52537b8f11",
+    "exact_duplicate_groups.csv": "c3e69b273221480cbc2828919af61c709c9f467e98b941a5e5abe4f779225d94",
+    "master_manifest.csv": "3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b",
+    "original_test_nearest_train_frame.csv": "10c6ec49282a8b265cc569c539e7d79a5c69d4e0198153054085f452af7c230c",
+    "resolution_summary.csv": "142d31258b95b6ed543e705a053a1179368f59dd79e03d0425292fa2d3310561",
+    "video_summary.csv": "f39d5e5232f871ecc18285ff5e1627dcf8e4d0ae7ec92e3d1323dd737f61a5bd"
+  },
+  "aspect_ratio": {
+    "max": 0.5625,
+    "median": 0.5625,
+    "min": 0.5625
+  },
+  "decode_failures": 0,
+  "exact_duplicate": {
+    "cross_label_group_count": 0,
+    "cross_split_group_count": 0,
+    "cross_video_group_count": 0,
+    "group_count": 0,
+    "images_in_duplicate_groups": 0
+  },
+  "image_count": 2989,
+  "label_counts": {
+    "flip": 1452,
+    "notflip": 1537
+  },
+  "original_mode_counts": {
+    "RGB": 2989
+  },
+  "original_supplied_split_overlap": {
+    "nearest_training_frame_distance": {
+      "distance_eq_1_count": 573,
+      "distance_eq_1_fraction": 0.9597989949748744,
+      "distance_le_2_count": 596,
+      "distance_le_2_fraction": 0.998324958123953,
+      "max": 3,
+      "median": 1,
+      "min": 1
+    },
+    "seen_source_fraction": 1.0,
+    "temporally_future_test_images": 20,
+    "temporally_future_test_videos": 18,
+    "test_images": 597,
+    "test_images_from_training_seen_videos": 597,
+    "test_images_from_unseen_videos": 0
+  },
+  "resolution_counts": {
+    "1080x1920": 2989
+  },
+  "split_label_counts": {
+    "testing/flip": 290,
+    "testing/notflip": 307,
+    "training/flip": 1162,
+    "training/notflip": 1230
+  },
+  "supplied_split_counts": {
+    "testing": 597,
+    "training": 2392
+  },
+  "temporal_structure": {
+    "total_gap_segments": 3,
+    "total_missing_frame_numbers_within_observed_ranges": 30,
+    "videos_with_frame_number_gaps": 3
+  },
+  "test_only_video_count": 0,
+  "test_video_count": 115,
+  "train_only_video_count": 2,
+  "train_test_video_overlap_count": 115,
+  "train_video_count": 117,
+  "video_count": 117,
+  "video_length": {
+    "max": 55,
+    "median": 29,
+    "min": 8
+  }
+}
