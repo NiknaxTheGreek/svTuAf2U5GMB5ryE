@@ -33,8 +33,11 @@ jobs:
         run: |
           gdown --id "$DATASET_FILE_ID" --output images.zip
           stat --printf='downloaded_bytes=%s\n' images.zip
+          sha256sum images.zip
       - name: Verify identity and audit every image
-        run: python scripts/audit_dataset_v2.py --archive images.zip --output-dir audit_output --expected-size "$EXPECTED_SIZE" --expected-sha256 "$EXPECTED_SHA256" | tee audit_stdout.json
+        run: |
+          set -o pipefail
+          python scripts/audit_dataset_v2.py --archive images.zip --output-dir audit_output --expected-size "$EXPECTED_SIZE" --expected-sha256 "$EXPECTED_SHA256" | tee audit_stdout.json
       - name: Show compact audit receipt
         run: |
           python - <<'PY'
