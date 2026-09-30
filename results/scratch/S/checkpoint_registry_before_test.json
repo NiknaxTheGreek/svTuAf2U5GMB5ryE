@@ -1,0 +1,390 @@
+{
+  "bank_sha256": "a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12",
+  "candidate_count": 20,
+  "records": [
+    {
+      "candidate_config": {
+        "batch_size": 80,
+        "candidate_id": "C01",
+        "depth": 4,
+        "dropout": 0.23296546497985682,
+        "learning_rate": 0.00016487871980668914,
+        "optimizer": "adam",
+        "seed": 42,
+        "start_filters": 27,
+        "weight_decay": 0.00028337322553470995
+      },
+      "candidate_id": "C01",
+      "checkpoint_file": "C01.pt",
+      "checkpoint_sha256": "39c06ca8637de6bb3cfd01b9b9c506c396b60c32837f6592555bcd505def635d",
+      "epochs_completed": 20,
+      "final_train_loss": 0.07300824946302076,
+      "parameter_count": 277318
+    },
+    {
+      "candidate_config": {
+        "batch_size": 96,
+        "candidate_id": "C02",
+        "depth": 2,
+        "dropout": 0.10896766763684768,
+        "learning_rate": 0.0007264237826974468,
+        "optimizer": "adamw",
+        "seed": 42,
+        "start_filters": 22,
+        "weight_decay": 0.0009103086742559878
+      },
+      "candidate_id": "C02",
+      "checkpoint_file": "C02.pt",
+      "checkpoint_sha256": "94c0fd2be17e76e19aa5ecbc17f3d0c1b8cf914e8cc81ddb762dc077525420fd",
+      "epochs_completed": 20,
+      "final_train_loss": 0.2890244315354445,
+      "parameter_count": 9483
+    },
+    {
+      "candidate_config": {
+        "batch_size": 89,
+        "candidate_id": "C03",
+        "depth": 3,
+        "dropout": 0.3240276014938403,
+        "learning_rate": 0.0010724745134280001,
+        "optimizer": "adam",
+        "seed": 42,
+        "start_filters": 13,
+        "weight_decay": 2.37507757089798e-06
+      },
+      "candidate_id": "C03",
+      "checkpoint_file": "C03.pt",
+      "checkpoint_sha256": "6587b0811454d2eaf8dcd64aad0f706804739add99a3e845765284bb79e3870f",
+      "epochs_completed": 20,
+      "final_train_loss": 0.18537487580519424,
+      "parameter_count": 15796
+    },
+    {
+      "candidate_config": {
+        "batch_size": 64,
+        "candidate_id": "C04",
+        "depth": 4,
+        "dropout": 0.17245126193079857,
+        "learning_rate": 0.0001639108082381478,
+        "optimizer": "adam",
+        "seed": 42,
+        "start_filters": 12,
+        "weight_decay": 4.286094084281516e-05
+      },
+      "candidate_id": "C04",
+      "checkpoint_file": "C04.pt",
+      "checkpoint_sha256": "f7a46eb5ae462ca55d398d1086545a9dd7584d965e9db8bfde30f45bbafa596c",
+      "epochs_completed": 20,
+      "final_train_loss": 0.14843693550184214,
+      "parameter_count": 55213
+    },
+    {
+      "candidate_config": {
+        "batch_size": 90,
+        "candidate_id": "C05",
+        "depth": 4,
+        "dropout": 0.25951226654037096,
+        "learning_rate": 0.00019940974178749477,
+        "optimizer": "adamw",
+        "seed": 42,
+        "start_filters": 14,
+        "weight_decay": 5.392223703890665e-05
+      },
+      "candidate_id": "C05",
+      "checkpoint_file": "C05.pt",
+      "checkpoint_sha256": "9a3c0a5d741268e90e3bddec8cb2a996b516050a5f89161589f60bcb6889166d",
+      "epochs_completed": 20,
+      "final_train_loss": 0.14282986644610138,
+      "parameter_count": 74999
+    },
+    {
+      "candidate_config": {
+        "batch_size": 34,
+        "candidate_id": "C06",
+        "depth": 5,
+        "dropout": 0.09001727264766313,
+        "learning_rate": 0.0005903584546193112,
+        "optimizer": "rmsprop",
+        "seed": 42,
+        "start_filters": 15,
+        "weight_decay": 0.0001659818571747299
+      },
+      "candidate_id": "C06",
+      "checkpoint_file": "C06.pt",
+      "checkpoint_sha256": "218add5a2086bd43aca09fba200ef6b0abc890f50e43bd59932bf010cb3d4e38",
+      "epochs_completed": 20,
+      "final_train_loss": 0.031982704674625294,
+      "parameter_count": 345826
+    },
+    {
+      "candidate_config": {
+        "batch_size": 112,
+        "candidate_id": "C07",
+        "depth": 5,
+        "dropout": 0.24138165630093697,
+        "learning_rate": 0.0005214388772438806,
+        "optimizer": "adam",
+        "seed": 42,
+        "start_filters": 13,
+        "weight_decay": 0.0
+      },
+      "candidate_id": "C07",
+      "checkpoint_file": "C07.pt",
+      "checkpoint_sha256": "4e9b20583d6b8d5b809106c3af461d1016490a58a8c19c348d80f605581b67e0",
+      "epochs_completed": 20,
+      "final_train_loss": 0.011700705874840544,
+      "parameter_count": 259936
+    },
+    {
+      "candidate_config": {
+        "batch_size": 122,
+        "candidate_id": "C08",
+        "depth": 3,
+        "dropout": 0.03178797283988617,
+        "learning_rate": 0.0008219200453838861,
+        "optimizer": "adamw",
+        "seed": 42,
+        "start_filters": 10,
+        "weight_decay": 0.0
+      },
+      "candidate_id": "C08",
+      "checkpoint_file": "C08.pt",
+      "checkpoint_sha256": "30aee6de3ee3beb30ed32f9035f471255ba37bf83ca9c6c20bd4ecd286c8a055",
+      "epochs_completed": 20,
+      "final_train_loss": 0.21202904838143624,
+      "parameter_count": 9451
+    },
+    {
+      "candidate_config": {
+        "batch_size": 64,
+        "candidate_id": "C09",
+        "depth": 4,
+        "dropout": 0.3493748845894656,
+        "learning_rate": 0.0008721423015526117,
+        "optimizer": "adam",
+        "seed": 42,
+        "start_filters": 13,
+        "weight_decay": 0.0
+      },
+      "candidate_id": "C09",
+      "checkpoint_file": "C09.pt",
+      "checkpoint_sha256": "11c10c0e16835030d46b76645be131aa37d4ef94156d8125550c4e17c2781bbf",
+      "epochs_completed": 20,
+      "final_train_loss": 0.055673266827737815,
+      "parameter_count": 64728
+    },
+    {
+      "candidate_config": {
+        "batch_size": 112,
+        "candidate_id": "C10",
+        "depth": 5,
+        "dropout": 0.1808748698708451,
+        "learning_rate": 0.00028117177658479813,
+        "optimizer": "rmsprop",
+        "seed": 42,
+        "start_filters": 32,
+        "weight_decay": 6.813827549053581e-05
+      },
+      "candidate_id": "C10",
+      "checkpoint_file": "C10.pt",
+      "checkpoint_sha256": "3d7fd82043b5ffe88ecf26d541bfd0e405dfd46f65934721ecccc7666f856bc0",
+      "epochs_completed": 20,
+      "final_train_loss": 0.007922353854620307,
+      "parameter_count": 1570081
+    },
+    {
+      "candidate_config": {
+        "batch_size": 44,
+        "candidate_id": "C11",
+        "depth": 5,
+        "dropout": 0.3167102463551865,
+        "learning_rate": 0.0021018803938635745,
+        "optimizer": "adamw",
+        "seed": 42,
+        "start_filters": 25,
+        "weight_decay": 4.4319862349061476e-05
+      },
+      "candidate_id": "C11",
+      "checkpoint_file": "C11.pt",
+      "checkpoint_sha256": "cf6b6a5f801bbf39416006567736fb5274236f50257fbdbd8e04d6fb05a94542",
+      "epochs_completed": 20,
+      "final_train_loss": 0.010699129531909378,
+      "parameter_count": 958876
+    },
+    {
+      "candidate_config": {
+        "batch_size": 45,
+        "candidate_id": "C12",
+        "depth": 2,
+        "dropout": 0.05231433301514227,
+        "learning_rate": 0.00012283039016079494,
+        "optimizer": "rmsprop",
+        "seed": 42,
+        "start_filters": 15,
+        "weight_decay": 0.0
+      },
+      "candidate_id": "C12",
+      "checkpoint_file": "C12.pt",
+      "checkpoint_sha256": "a95df9e744a6b69acc59a33c1d76f05e5b7c85b4df7be19729f04aa112037d13",
+      "epochs_completed": 20,
+      "final_train_loss": 0.4337866892412795,
+      "parameter_count": 4576
+    },
+    {
+      "candidate_config": {
+        "batch_size": 122,
+        "candidate_id": "C13",
+        "depth": 5,
+        "dropout": 0.09242191791929608,
+        "learning_rate": 0.000417244740363709,
+        "optimizer": "adamw",
+        "seed": 42,
+        "start_filters": 12,
+        "weight_decay": 2.510965414941155e-06
+      },
+      "candidate_id": "C13",
+      "checkpoint_file": "C13.pt",
+      "checkpoint_sha256": "926706b529a2c87558b6f8fb462ad4948021a2f8aee06003464495ec5518b1b8",
+      "epochs_completed": 20,
+      "final_train_loss": 0.01368067469305152,
+      "parameter_count": 221581
+    },
+    {
+      "candidate_config": {
+        "batch_size": 41,
+        "candidate_id": "C14",
+        "depth": 5,
+        "dropout": 0.2730049005059081,
+        "learning_rate": 0.00013450801214866373,
+        "optimizer": "adam",
+        "seed": 42,
+        "start_filters": 32,
+        "weight_decay": 9.612249663346372e-06
+      },
+      "candidate_id": "C14",
+      "checkpoint_file": "C14.pt",
+      "checkpoint_sha256": "9a3f52c05dfa0224c0adabf80930a2567259d2dc5864d6297bbfac3b5c4b29a3",
+      "epochs_completed": 20,
+      "final_train_loss": 0.009268750262426975,
+      "parameter_count": 1570081
+    },
+    {
+      "candidate_config": {
+        "batch_size": 102,
+        "candidate_id": "C15",
+        "depth": 5,
+        "dropout": 0.022943242064222158,
+        "learning_rate": 0.00032602264411892685,
+        "optimizer": "adamw",
+        "seed": 42,
+        "start_filters": 12,
+        "weight_decay": 7.321193745234883e-06
+      },
+      "candidate_id": "C15",
+      "checkpoint_file": "C15.pt",
+      "checkpoint_sha256": "a38127864462db399a92811805ca8a5e1616d5046fed41beeeaa3ad16519f7cd",
+      "epochs_completed": 20,
+      "final_train_loss": 0.015145756612326606,
+      "parameter_count": 221581
+    },
+    {
+      "candidate_config": {
+        "batch_size": 63,
+        "candidate_id": "C16",
+        "depth": 3,
+        "dropout": 0.2626024408959168,
+        "learning_rate": 0.00027682413482361305,
+        "optimizer": "adamw",
+        "seed": 42,
+        "start_filters": 13,
+        "weight_decay": 1.1422825775866962e-06
+      },
+      "candidate_id": "C16",
+      "checkpoint_file": "C16.pt",
+      "checkpoint_sha256": "ee3cd037ab4672a23b991a0cf5cc960a26b72903bed0527d828f6b319e09c2c7",
+      "epochs_completed": 20,
+      "final_train_loss": 0.27536772638089274,
+      "parameter_count": 15796
+    },
+    {
+      "candidate_config": {
+        "batch_size": 84,
+        "candidate_id": "C17",
+        "depth": 4,
+        "dropout": 0.057648088605543366,
+        "learning_rate": 0.0006453375370463479,
+        "optimizer": "rmsprop",
+        "seed": 42,
+        "start_filters": 13,
+        "weight_decay": 0.0006375440799531822
+      },
+      "candidate_id": "C17",
+      "checkpoint_file": "C17.pt",
+      "checkpoint_sha256": "c4977a00413577b4de5704e7e6857c4759e81660f13fd0625e931bb8d5975d86",
+      "epochs_completed": 20,
+      "final_train_loss": 0.05350716951470646,
+      "parameter_count": 64728
+    },
+    {
+      "candidate_config": {
+        "batch_size": 78,
+        "candidate_id": "C18",
+        "depth": 4,
+        "dropout": 0.19399367722414562,
+        "learning_rate": 0.00017085183196261392,
+        "optimizer": "adam",
+        "seed": 42,
+        "start_filters": 12,
+        "weight_decay": 6.478977241148295e-06
+      },
+      "candidate_id": "C18",
+      "checkpoint_file": "C18.pt",
+      "checkpoint_sha256": "1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225",
+      "epochs_completed": 20,
+      "final_train_loss": 0.16100365587616353,
+      "parameter_count": 55213
+    },
+    {
+      "candidate_config": {
+        "batch_size": 36,
+        "candidate_id": "C19",
+        "depth": 2,
+        "dropout": 0.0773752426911536,
+        "learning_rate": 0.0015933138463789056,
+        "optimizer": "adamw",
+        "seed": 42,
+        "start_filters": 10,
+        "weight_decay": 0.0
+      },
+      "candidate_id": "C19",
+      "checkpoint_file": "C19.pt",
+      "checkpoint_sha256": "84e7dde4030de558b7c9bd62cd207228541fe42c7adf7d98412cde1815d8f9f5",
+      "epochs_completed": 20,
+      "final_train_loss": 0.2594251745238182,
+      "parameter_count": 2151
+    },
+    {
+      "candidate_config": {
+        "batch_size": 93,
+        "candidate_id": "C20",
+        "depth": 3,
+        "dropout": 0.2962714231528993,
+        "learning_rate": 0.002735118755541667,
+        "optimizer": "adam",
+        "seed": 42,
+        "start_filters": 23,
+        "weight_decay": 7.931122089187135e-05
+      },
+      "candidate_id": "C20",
+      "checkpoint_file": "C20.pt",
+      "checkpoint_sha256": "62f22ae1f5b28fabd2cef688a44212c80490f77e3022929a1b1b15f6ff7df4c7",
+      "epochs_completed": 20,
+      "final_train_loss": 0.15391414703859194,
+      "parameter_count": 48646
+    }
+  ],
+  "regime": "S",
+  "split_sha256": "a54cce72ad1f275096f06b98bbc9ec32393e9f112cc0536abd132571e1919619",
+  "status": "PASS_ALL_20_FROZEN_BEFORE_S_TEST",
+  "test_evaluation_opened": false
+}
