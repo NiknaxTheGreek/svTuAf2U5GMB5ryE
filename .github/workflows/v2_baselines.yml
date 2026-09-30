@@ -59,7 +59,7 @@ jobs:
           sha256sum outputs/baselines/*
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add manifests/audits/CANDIDATE_BANK_AUDIT.json reports/protocol/CANDIDATE_BANK_AUDIT.md outputs/baselines reports/baselines
+          git add manifests/audits/CANDIDATE_BANK_AUDIT.json reports/protocol/CANDIDATE_BANK_AUDIT.md reports/baselines\n          git add -f outputs/baselines
           git commit -m 'Phase 3: publish candidate-bank audit and frozen baselines'
           git push origin HEAD:phase/v2-03-baselines
 
