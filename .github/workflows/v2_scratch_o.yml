@@ -15,6 +15,7 @@ env:
   OMP_NUM_THREADS: "4"
   MKL_NUM_THREADS: "4"
   PYTHONUNBUFFERED: "1"
+  PYTHONPATH: "."
 
 jobs:
   preflight:
@@ -38,7 +39,7 @@ jobs:
       - name: Synthetic no-test integration preflight
         run: |
           set -euo pipefail
-          python scripts/preflight_scratch_v2.py
+          python -m scripts.preflight_scratch_v2
 
   prepare-o-train-cache:
     needs: preflight
@@ -64,7 +65,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/cache
-          python scripts/build_scratch_cache_v2.py             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/O.csv             --regime O             --role train             --output-data /tmp/cache/o_train.npy             --output-index /tmp/cache/o_train_index.csv             --output-receipt /tmp/cache/o_train_receipt.json
+          python -m scripts.build_scratch_cache_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/O.csv             --regime O             --role train             --output-data /tmp/cache/o_train.npy             --output-index /tmp/cache/o_train_index.csv             --output-receipt /tmp/cache/o_train_receipt.json
       - name: Upload exact O training cache
         uses: actions/upload-artifact@v4
         with:
@@ -102,7 +103,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/candidate-result
-          python scripts/train_scratch_candidate_v2.py             --cache-data /tmp/cache/o_train.npy             --cache-index /tmp/cache/o_train_index.csv             --cache-receipt /tmp/cache/o_train_receipt.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --candidate-id "${{ matrix.candidate_id }}"             --regime O             --output-dir /tmp/candidate-result
+          python -m scripts.train_scratch_candidate_v2             --cache-data /tmp/cache/o_train.npy             --cache-index /tmp/cache/o_train_index.csv             --cache-receipt /tmp/cache/o_train_receipt.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --candidate-id "${{ matrix.candidate_id }}"             --regime O             --output-dir /tmp/candidate-result
       - name: Upload frozen candidate checkpoint
         uses: actions/upload-artifact@v4
         with:
@@ -135,7 +136,7 @@ jobs:
       - name: Verify all 20 are frozen and test-unseen
         run: |
           set -euo pipefail
-          python scripts/verify_scratch_checkpoints_v2.py             --checkpoint-root /tmp/checkpoints             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --output /tmp/checkpoint_registry.json
+          python -m scripts.verify_scratch_checkpoints_v2             --checkpoint-root /tmp/checkpoints             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --output /tmp/checkpoint_registry.json
       - name: Upload closed-test checkpoint registry
         uses: actions/upload-artifact@v4
         with:
@@ -178,12 +179,12 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/test-cache
-          python scripts/build_scratch_cache_v2.py             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/O.csv             --regime O             --role test             --output-data /tmp/test-cache/o_test.npy             --output-index /tmp/test-cache/o_test_index.csv             --output-receipt /tmp/test-cache/o_test_receipt.json
+          python -m scripts.build_scratch_cache_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/O.csv             --regime O             --role test             --output-data /tmp/test-cache/o_test.npy             --output-index /tmp/test-cache/o_test_index.csv             --output-receipt /tmp/test-cache/o_test_receipt.json
       - name: Open O test once for the complete frozen bank
         run: |
           set -euo pipefail
           mkdir -p /tmp/o-results
-          python scripts/evaluate_scratch_o_v2.py             --cache-data /tmp/test-cache/o_test.npy             --cache-index /tmp/test-cache/o_test_index.csv             --cache-receipt /tmp/test-cache/o_test_receipt.json             --checkpoint-root /tmp/checkpoints             --checkpoint-registry /tmp/registry/checkpoint_registry.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --proximity manifests/datasets/DATA-001_original_test_proximity.csv             --output-dir /tmp/o-results
+          python -m scripts.evaluate_scratch_o_v2             --cache-data /tmp/test-cache/o_test.npy             --cache-index /tmp/test-cache/o_test_index.csv             --cache-receipt /tmp/test-cache/o_test_receipt.json             --checkpoint-root /tmp/checkpoints             --checkpoint-registry /tmp/registry/checkpoint_registry.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --proximity manifests/datasets/DATA-001_original_test_proximity.csv             --output-dir /tmp/o-results
       - name: Preserve Best O checkpoint in evidence artifact
         run: |
           set -euo pipefail
