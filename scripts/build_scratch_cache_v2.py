@@ -63,8 +63,7 @@ def main() -> int:
 
     args.output_data.parent.mkdir(parents=True, exist_ok=True)
     args.output_index.parent.mkdir(parents=True, exist_ok=True)
-    args.output_recepit = args.output_receipt
-    args.output_recepit.parent.mkdir(parents=True, exist_ok=True)
+    args.output_receipt.parent.mkdir(parents=True, exist_ok=True)
 
     cache = np.lib.format.open_memmap(
         args.output_data,
