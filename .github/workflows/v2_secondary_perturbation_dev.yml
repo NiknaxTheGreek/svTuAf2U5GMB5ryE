@@ -7,6 +7,7 @@ on:
       - ".github/workflows/v2_secondary_perturbation_dev.yml"
       - "scripts/develop_secondary_perturbations_v2.py"
       - "src/secondary_perturbations_v2.py"
+      - "src/mediapipe_hand_mask_v2.py"
 
 permissions:
   contents: write
@@ -29,19 +30,28 @@ jobs:
       - name: Install pinned preprocessing runtime
         run: |
           set -euo pipefail
-          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 mediapipe==1.0.1
           python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
 
       - name: Compile development code
         run: |
           set -euo pipefail
-          python -m compileall -q src/secondary_perturbations_v2.py scripts/develop_secondary_perturbations_v2.py
+          python -m compileall -q src/secondary_perturbations_v2.py src/mediapipe_hand_mask_v2.py scripts/develop_secondary_perturbations_v2.py
 
       - name: Download and verify authoritative archive
         run: |
           set -euo pipefail
           curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
           printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+
+      - name: Download versioned MediaPipe hand-landmarker model
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task" \
+            --output /tmp/hand_landmarker.task
+          sha256sum /tmp/hand_landmarker.task
+          stat --printf='hand_model_bytes=%s\n' /tmp/hand_landmarker.task
 
       - name: Develop perturbations on ST context only
         run: |
