@@ -1,0 +1,2210 @@
+[
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 0.9087266325950623,
+    "gray_rec709_luma_mae": 0.27196210622787476,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.606447415649677,
+        "pixels": 54066,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 86,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.31954414931801867,
+        "pixels": 28488,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 101,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1357569095477387,
+        "pixels": 12103,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 101,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.15955895549174443,
+        "pixels": 14225,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "testing/flip/0048_000000011"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 0.7548426985740662,
+    "gray_rec709_luma_mae": 0.26438939571380615,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6703719490308686,
+        "pixels": 59765,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 2,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3969849246231156,
+        "pixels": 35392,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 4,
+        "bbox_x1": 223,
+        "bbox_y0": 121,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.12044597989949749,
+        "pixels": 10738,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 4,
+        "bbox_x1": 223,
+        "bbox_y0": 107,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.15327754845656855,
+        "pixels": 13665,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0040_000000009"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 0.8493760824203491,
+    "gray_rec709_luma_mae": 0.2569476366043091,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6790313173007897,
+        "pixels": 60537,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.519102207465901,
+        "pixels": 46279,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 1,
+        "bbox_x1": 223,
+        "bbox_y0": 125,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17571114501076812,
+        "pixels": 15665,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 1,
+        "bbox_x1": 223,
+        "bbox_y0": 104,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17896401651112706,
+        "pixels": 15955,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0042_000000009"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 0.8435535430908203,
+    "gray_rec709_luma_mae": 0.2710423767566681,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6916053481694185,
+        "pixels": 61658,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 81,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4336526381909548,
+        "pixels": 38661,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 138,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17379307250538406,
+        "pixels": 15494,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 110,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.19120154343144294,
+        "pixels": 17046,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0045_000000016"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 0.8307952880859375,
+    "gray_rec709_luma_mae": 0.25554990768432617,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6645279971284996,
+        "pixels": 59244,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 80,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4115555455850682,
+        "pixels": 36691,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 120,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.16269965900933236,
+        "pixels": 14505,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 108,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18892453338119167,
+        "pixels": 16843,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0046_000000011"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 1.313401222229004,
+    "gray_rec709_luma_mae": 0.2853286564350128,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6380114860014358,
+        "pixels": 56880,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 80,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.5119683237616655,
+        "pixels": 45643,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 187,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24647792534099067,
+        "pixels": 21974,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 95,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3013505025125628,
+        "pixels": 26866,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0047_000000023"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 1.0016651153564453,
+    "gray_rec709_luma_mae": 0.2793855667114258,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.627131191672649,
+        "pixels": 55910,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 85,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.32574703876525485,
+        "pixels": 29041,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 86,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18433686288585785,
+        "pixels": 16434,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 86,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18820665829145727,
+        "pixels": 16779,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "testing/notflip/0039_000000022"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 1.2080731391906738,
+    "gray_rec709_luma_mae": 0.27067670226097107,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7111898779612348,
+        "pixels": 63404,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.42449973079684133,
+        "pixels": 37845,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 171,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2501682519741565,
+        "pixels": 22303,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 171,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2501682519741565,
+        "pixels": 22303,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "testing/notflip/0040_000000004"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 1.0769273042678833,
+    "gray_rec709_luma_mae": 0.2696828842163086,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7123788585786073,
+        "pixels": 63510,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.41948582196697776,
+        "pixels": 37398,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 174,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24189025484565685,
+        "pixels": 21565,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 174,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24189025484565685,
+        "pixels": 21565,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "testing/notflip/0040_000000016"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 1.2130206823349,
+    "gray_rec709_luma_mae": 0.2654065787792206,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6898891780330223,
+        "pixels": 61505,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 108,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.35199434673366836,
+        "pixels": 31381,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 203,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.25727970208183776,
+        "pixels": 22937,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 203,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.25727970208183776,
+        "pixels": 22937,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/notflip/0035_000000001"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 1.2272014617919922,
+    "gray_rec709_luma_mae": 0.2646508812904358,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6887450646087581,
+        "pixels": 61403,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 76,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.34703652189519024,
+        "pixels": 30939,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 200,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2549353912419239,
+        "pixels": 22728,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 200,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2549353912419239,
+        "pixels": 22728,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/notflip/0035_000000004"
+  },
+  {
+    "environment_id": "ENV-03",
+    "gray_pil_l_luma_mae": 1.4192553758621216,
+    "gray_rec709_luma_mae": 0.2886507213115692,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.5878387473079684,
+        "pixels": 52407,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 88,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.38784323402727927,
+        "pixels": 34577,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 193,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2536342426417803,
+        "pixels": 22612,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 131,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2760902727925341,
+        "pixels": 24614,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/notflip/0039_000000004"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.2575112581253052,
+    "gray_rec709_luma_mae": 0.24065515398979187,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8517924443646806,
+        "pixels": 75939,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.47261979540559945,
+        "pixels": 42135,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 19,
+        "bbox_x1": 223,
+        "bbox_y0": 166,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24609655419956927,
+        "pixels": 21940,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 19,
+        "bbox_x1": 223,
+        "bbox_y0": 166,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24609655419956927,
+        "pixels": 21940,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/flip/0008_000000029"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.2565085887908936,
+    "gray_rec709_luma_mae": 0.24447840452194214,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8087760229720029,
+        "pixels": 72104,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 26,
+        "bbox_x1": 223,
+        "bbox_y0": 80,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.41964285714285715,
+        "pixels": 37412,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 27,
+        "bbox_x1": 223,
+        "bbox_y0": 133,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.272029791816224,
+        "pixels": 24252,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 27,
+        "bbox_x1": 223,
+        "bbox_y0": 133,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.272029791816224,
+        "pixels": 24252,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0003_000000024"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.2894366979599,
+    "gray_rec709_luma_mae": 0.23696164786815643,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8442996231155779,
+        "pixels": 75271,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 74,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.40854944364680545,
+        "pixels": 36423,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 13,
+        "bbox_x1": 223,
+        "bbox_y0": 166,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24237257717157215,
+        "pixels": 21608,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 13,
+        "bbox_x1": 223,
+        "bbox_y0": 166,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24839599784637473,
+        "pixels": 22145,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0005_000000030"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.2985347509384155,
+    "gray_rec709_luma_mae": 0.23573607206344604,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8312769203158651,
+        "pixels": 74110,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 76,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.42168431442928933,
+        "pixels": 37594,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 18,
+        "bbox_x1": 223,
+        "bbox_y0": 163,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2752714465183058,
+        "pixels": 24541,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 18,
+        "bbox_x1": 223,
+        "bbox_y0": 163,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2752714465183058,
+        "pixels": 24541,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0006_000000029"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.2794370651245117,
+    "gray_rec709_luma_mae": 0.24248145520687103,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8133749102656138,
+        "pixels": 72514,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.5024116116295765,
+        "pixels": 44791,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 21,
+        "bbox_x1": 223,
+        "bbox_y0": 140,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2450982591529074,
+        "pixels": 21851,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 21,
+        "bbox_x1": 223,
+        "bbox_y0": 140,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2593772433596554,
+        "pixels": 23124,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0007_000000027"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.2511639595031738,
+    "gray_rec709_luma_mae": 0.23105488717556,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8702104271356784,
+        "pixels": 77581,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 85,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4495019741564968,
+        "pixels": 40074,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 26,
+        "bbox_x1": 223,
+        "bbox_y0": 161,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24919239052404882,
+        "pixels": 22216,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 26,
+        "bbox_x1": 223,
+        "bbox_y0": 161,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24919239052404882,
+        "pixels": 22216,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0010_000000029"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.1989879608154297,
+    "gray_rec709_luma_mae": 0.2407815009355545,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8096284996410624,
+        "pixels": 72180,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 129,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.33141152189519024,
+        "pixels": 29546,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 18,
+        "bbox_x1": 223,
+        "bbox_y0": 158,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.26348259152907394,
+        "pixels": 23490,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 18,
+        "bbox_x1": 223,
+        "bbox_y0": 158,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.26348259152907394,
+        "pixels": 23490,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0007_000000025"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.0017033815383911,
+    "gray_rec709_luma_mae": 0.24756279587745667,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7305725053840632,
+        "pixels": 65132,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 58,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3322752153625269,
+        "pixels": 29623,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 24,
+        "bbox_x1": 223,
+        "bbox_y0": 59,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17979405958363245,
+        "pixels": 16029,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 24,
+        "bbox_x1": 223,
+        "bbox_y0": 59,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17979405958363245,
+        "pixels": 16029,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0002_000000025"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.003423810005188,
+    "gray_rec709_luma_mae": 0.24829614162445068,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7300789662598708,
+        "pixels": 65088,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 56,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.33018889088298636,
+        "pixels": 29437,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 24,
+        "bbox_x1": 223,
+        "bbox_y0": 60,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17970432519741564,
+        "pixels": 16021,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 24,
+        "bbox_x1": 223,
+        "bbox_y0": 60,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17970432519741564,
+        "pixels": 16021,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0002_000000029"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 0.951172411441803,
+    "gray_rec709_luma_mae": 0.24741657078266144,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7441111809045227,
+        "pixels": 66339,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 74,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3226287688442211,
+        "pixels": 28763,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 182,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17970432519741564,
+        "pixels": 16021,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 182,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17970432519741564,
+        "pixels": 16021,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0003_000000027"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.1034693717956543,
+    "gray_rec709_luma_mae": 0.23199285566806793,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7943400035893754,
+        "pixels": 70817,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 101,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3306936468054559,
+        "pixels": 29482,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 16,
+        "bbox_x1": 223,
+        "bbox_y0": 176,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23883928571428573,
+        "pixels": 21293,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 16,
+        "bbox_x1": 223,
+        "bbox_y0": 176,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23883928571428573,
+        "pixels": 21293,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0009_000000029"
+  },
+  {
+    "environment_id": "ENV-01",
+    "gray_pil_l_luma_mae": 1.0867977142333984,
+    "gray_rec709_luma_mae": 0.23324039578437805,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7595342785355348,
+        "pixels": 67714,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 112,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3108286970567121,
+        "pixels": 27711,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 21,
+        "bbox_x1": 223,
+        "bbox_y0": 169,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23236719310839915,
+        "pixels": 20716,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 21,
+        "bbox_x1": 223,
+        "bbox_y0": 169,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23622577171572146,
+        "pixels": 21060,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0010_000000028"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 1.7694194316864014,
+    "gray_rec709_luma_mae": 0.2680428922176361,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 72,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6242484745154343,
+        "pixels": 55653,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 74,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.5708677315147165,
+        "pixels": 50894,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 75,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4473819992821249,
+        "pixels": 39885,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 75,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4473819992821249,
+        "pixels": 39885,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0017_000000019"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 1.5584847927093506,
+    "gray_rec709_luma_mae": 0.26582708954811096,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 70,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6407147343862168,
+        "pixels": 57121,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 77,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.5799421213208902,
+        "pixels": 51703,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 79,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.44984969490308685,
+        "pixels": 40105,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 79,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.44984969490308685,
+        "pixels": 40105,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0018_000000021"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 1.7745202779769897,
+    "gray_rec709_luma_mae": 0.27263811230659485,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 82,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6365533022254127,
+        "pixels": 56750,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 85,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.5896334350323044,
+        "pixels": 52567,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 85,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4840272792534099,
+        "pixels": 43152,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 85,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4840272792534099,
+        "pixels": 43152,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0021_000000028"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 1.1896287202835083,
+    "gray_rec709_luma_mae": 0.27596578001976013,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.695374192390524,
+        "pixels": 61994,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4839824120603015,
+        "pixels": 43148,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 70,
+        "bbox_x1": 223,
+        "bbox_y0": 146,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21747128499641064,
+        "pixels": 19388,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 8,
+        "bbox_x1": 223,
+        "bbox_y0": 101,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2973012383345298,
+        "pixels": 26505,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0024_000000027"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 1.311745524406433,
+    "gray_rec709_luma_mae": 0.26879170536994934,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 53,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6824636575735822,
+        "pixels": 60843,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 76,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.5454055994256999,
+        "pixels": 48624,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 117,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2709193287867911,
+        "pixels": 24153,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 5,
+        "bbox_x1": 223,
+        "bbox_y0": 78,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3569633883704236,
+        "pixels": 31824,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0026_000000022"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 1.1808754205703735,
+    "gray_rec709_luma_mae": 0.2743912637233734,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7121769562096195,
+        "pixels": 63492,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.5269876166547021,
+        "pixels": 46982,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 69,
+        "bbox_x1": 223,
+        "bbox_y0": 160,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20351758793969849,
+        "pixels": 18144,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 8,
+        "bbox_x1": 223,
+        "bbox_y0": 98,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.28886620603015073,
+        "pixels": 25753,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0033_000000026"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 0.9293989539146423,
+    "gray_rec709_luma_mae": 0.2565450072288513,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 50,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6833049174443647,
+        "pixels": 60918,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 84,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4535175879396985,
+        "pixels": 40432,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 11,
+        "bbox_x1": 223,
+        "bbox_y0": 96,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23581075017946876,
+        "pixels": 21023,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 11,
+        "bbox_x1": 223,
+        "bbox_y0": 87,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24175565326633167,
+        "pixels": 21553,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0016_000000023"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 0.9352115988731384,
+    "gray_rec709_luma_mae": 0.25578224658966064,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 53,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6837535893754487,
+        "pixels": 60958,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 83,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4579818736539842,
+        "pixels": 40830,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 10,
+        "bbox_x1": 223,
+        "bbox_y0": 95,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23777368987796124,
+        "pixels": 21198,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 10,
+        "bbox_x1": 223,
+        "bbox_y0": 86,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.24288854989231873,
+        "pixels": 21654,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0016_000000025"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 0.8479466438293457,
+    "gray_rec709_luma_mae": 0.25493669509887695,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 58,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6797716259870783,
+        "pixels": 60603,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 77,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4277750358937545,
+        "pixels": 38137,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 56,
+        "bbox_x1": 223,
+        "bbox_y0": 94,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17064115218951903,
+        "pixels": 15213,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 5,
+        "bbox_x1": 223,
+        "bbox_y0": 94,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18942928930366115,
+        "pixels": 16888,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0019_000000025"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 0.8497953414916992,
+    "gray_rec709_luma_mae": 0.25611770153045654,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 36,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6814429289303661,
+        "pixels": 60752,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 77,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.43471823402727927,
+        "pixels": 38756,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 55,
+        "bbox_x1": 223,
+        "bbox_y0": 98,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17089913854989233,
+        "pixels": 15236,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 5,
+        "bbox_x1": 223,
+        "bbox_y0": 97,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20075825556353194,
+        "pixels": 17898,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0019_000000027"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 0.9074317812919617,
+    "gray_rec709_luma_mae": 0.258876770734787,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 63,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6563285175879398,
+        "pixels": 58513,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 78,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4342471284996411,
+        "pixels": 38714,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 59,
+        "bbox_x1": 223,
+        "bbox_y0": 116,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18920495333811918,
+        "pixels": 16868,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 2,
+        "bbox_x1": 223,
+        "bbox_y0": 116,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20675924264178033,
+        "pixels": 18433,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0020_000000020"
+  },
+  {
+    "environment_id": "ENV-02",
+    "gray_pil_l_luma_mae": 0.891119658946991,
+    "gray_rec709_luma_mae": 0.2706872522830963,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.6875897343862168,
+        "pixels": 61300,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 90,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4758502333094042,
+        "pixels": 42423,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 59,
+        "bbox_x1": 223,
+        "bbox_y0": 91,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1865914393395549,
+        "pixels": 16635,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 6,
+        "bbox_x1": 223,
+        "bbox_y0": 91,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2344759511844939,
+        "pixels": 20904,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0023_000000027"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 1.1212278604507446,
+    "gray_rec709_luma_mae": 0.23180416226387024,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8585113065326633,
+        "pixels": 76538,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 116,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.4215160624551328,
+        "pixels": 37579,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 48,
+        "bbox_x1": 223,
+        "bbox_y0": 147,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21111136037329506,
+        "pixels": 18821,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 48,
+        "bbox_x1": 223,
+        "bbox_y0": 147,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21111136037329506,
+        "pixels": 18821,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/flip/0059_000000028"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 1.1071370840072632,
+    "gray_rec709_luma_mae": 0.22800950706005096,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8594423007896625,
+        "pixels": 76621,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 119,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3865420854271357,
+        "pixels": 34461,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 169,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20063487078248385,
+        "pixels": 17887,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 169,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20063487078248385,
+        "pixels": 17887,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0059_000000030"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 1.1269850730895996,
+    "gray_rec709_luma_mae": 0.2293674498796463,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8460494436468055,
+        "pixels": 75427,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 100,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.326778984206748,
+        "pixels": 29133,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 169,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21577754845656855,
+        "pixels": 19237,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 169,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21577754845656855,
+        "pixels": 19237,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0060_000000051"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 1.1148663759231567,
+    "gray_rec709_luma_mae": 0.23238997161388397,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8770414572864321,
+        "pixels": 78190,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 130,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3843435929648241,
+        "pixels": 34265,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 173,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20608623474515433,
+        "pixels": 18373,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 173,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20608623474515433,
+        "pixels": 18373,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0062_000000027"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 1.0631059408187866,
+    "gray_rec709_luma_mae": 0.22342044115066528,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.867462311557789,
+        "pixels": 77336,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 110,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3760543790380474,
+        "pixels": 33526,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 48,
+        "bbox_x1": 223,
+        "bbox_y0": 186,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.19181846733668342,
+        "pixels": 17101,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 48,
+        "bbox_x1": 223,
+        "bbox_y0": 186,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.19181846733668342,
+        "pixels": 17101,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0064_000000029"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 1.0673505067825317,
+    "gray_rec709_luma_mae": 0.22901824116706848,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.8520504307250538,
+        "pixels": 75962,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 81,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.34665515075376885,
+        "pixels": 30905,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 49,
+        "bbox_x1": 223,
+        "bbox_y0": 155,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21129082914572864,
+        "pixels": 18837,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 49,
+        "bbox_x1": 223,
+        "bbox_y0": 155,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21129082914572864,
+        "pixels": 18837,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0065_000000024"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 0.8500878214836121,
+    "gray_rec709_luma_mae": 0.23073610663414001,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7867237975592247,
+        "pixels": 70138,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 126,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.27753723977028,
+        "pixels": 24743,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 49,
+        "bbox_x1": 223,
+        "bbox_y0": 192,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.13415290739411342,
+        "pixels": 11960,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 49,
+        "bbox_x1": 223,
+        "bbox_y0": 192,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.13415290739411342,
+        "pixels": 11960,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0052_000000029"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 0.7287411689758301,
+    "gray_rec709_luma_mae": 0.21847450733184814,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7515254845656856,
+        "pixels": 67000,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 101,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.3236158470926059,
+        "pixels": 28851,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 111,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.0938509511844939,
+        "pixels": 8367,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 111,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.0938509511844939,
+        "pixels": 8367,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0042_000000029"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 0.7332342267036438,
+    "gray_rec709_luma_mae": 0.23123937845230103,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7779634781048098,
+        "pixels": 69357,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2742282842785355,
+        "pixels": 24448,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 54,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10258883704235464,
+        "pixels": 9146,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 54,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10258883704235464,
+        "pixels": 9146,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0049_000000025"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 0.7427250146865845,
+    "gray_rec709_luma_mae": 0.23488575220108032,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7664213926776741,
+        "pixels": 68328,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 51,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.29402593323761667,
+        "pixels": 26213,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 75,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10501166547020818,
+        "pixels": 9362,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 75,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10501166547020818,
+        "pixels": 9362,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0051_000000026"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 0.7438226938247681,
+    "gray_rec709_luma_mae": 0.24252961575984955,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7750695441493181,
+        "pixels": 69099,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 44,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2618561557788945,
+        "pixels": 23345,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 72,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10862347451543432,
+        "pixels": 9684,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 44,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.11157349246231156,
+        "pixels": 9947,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0053_000000027"
+  },
+  {
+    "environment_id": "ENV-04",
+    "gray_pil_l_luma_mae": 0.7387970685958862,
+    "gray_rec709_luma_mae": 0.2383536398410797,
+    "hand_candidates": {
+      "consensus_boundary": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 0,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.7686311019382628,
+        "pixels": 68525,
+        "touches_boundary": true
+      },
+      "ycbcr_core": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 46,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2824501974156497,
+        "pixels": 25181,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_boundary": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 75,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10700825556353194,
+        "pixels": 9540,
+        "touches_boundary": true
+      },
+      "ycbcr_wide_rgb_gate": {
+        "bbox_x0": 50,
+        "bbox_x1": 223,
+        "bbox_y0": 75,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10700825556353194,
+        "pixels": 9540,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0053_000000030"
+  }
+]
