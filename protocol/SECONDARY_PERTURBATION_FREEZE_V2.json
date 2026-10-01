@@ -1,0 +1,57 @@
+{
+  "schema_version": "v2-secondary-perturbation-freeze",
+  "status": "FROZEN_BEFORE_PRIMARY_TEST_ABLATION",
+  "development_population": {
+    "source": "ST context-only",
+    "images": 48,
+    "primary_test_images_used": 0,
+    "sampling": "6 per (role_detail,label,environment_id) stratum; deterministic SHA-256 ordering"
+  },
+  "grayscale": {
+    "selected": "rec709_grayscale",
+    "rationale": "Removes chroma while preserving prospectively defined Rec.709 luma with lower development-sample luma error than Pillow L reference.",
+    "mean_rec709_luma_mae": 0.25152422053118545,
+    "mean_pillow_l_luma_mae": 1.08143009369572
+  },
+  "hand_mask": {
+    "selected": "mp_full_seed_c50",
+    "detector": "MediaPipe Hand Landmarker on original full-resolution RGB frame",
+    "detector_model_sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1",
+    "mediapipe_version": "1.0.1",
+    "min_hand_detection_confidence": 0.5,
+    "min_hand_presence_confidence": 0.5,
+    "num_hands": 2,
+    "mask_recipe": "Map full-resolution hand landmarks to model canvas; convex-hull seed; hull dilation=9; extend with strict skin mask within 51-pixel seed neighborhood; final dilation=5.",
+    "development_detection": {
+      "images_with_full_resolution_detection": 44,
+      "images_without_full_resolution_detection": 4,
+      "one_hand_images": 29,
+      "two_hand_images": 15
+    },
+    "development_mask_coverage": {
+      "nonzero_fraction": 0.9166666666666666,
+      "mean": 0.15003449165470206,
+      "median": 0.13123653984206748,
+      "p90": 0.2634612796123475,
+      "max": 0.2766174623115578
+    },
+    "why_not_hull_only": "Visual review showed the hull-only mask was more conservative and often omitted visible hand/arm extent.",
+    "why_not_fallback": "The classical fallback increased nominal coverage but introduced less-specific masks on detector-miss cases; false-positive page/background masking is a worse confound for a hand-specific ablation than documented detector misses."
+  },
+  "replacement": {
+    "hand_fill": "local unmasked border-ring median colour",
+    "matched_control": "same mask mirrored horizontally with same fill method"
+  },
+  "governance": {
+    "selection_used_classifier_metrics": false,
+    "champions_unchanged": true,
+    "primary_results_affected": false,
+    "future_test_evaluations": "post-hoc/exploratory only"
+  },
+  "evidence": {
+    "development_summary_blob_sha": "367ab26daaa4962d44ab1f9ad51af573e67e9c97",
+    "hand_mask_code_blob_sha": "7fb22643f9f7613da4aee9b173020e7511e2bcd4",
+    "perturbation_code_blob_sha": "96c2937b965829c73803ad530dbada5fbbdcbd35",
+    "development_harness_blob_sha": "85913497060712548a669f8e11a371894529f72c"
+  }
+}
