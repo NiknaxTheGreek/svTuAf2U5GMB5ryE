@@ -42,9 +42,25 @@ jobs:
 
       - name: Develop perturbations on ST context only
         run: |
-          set -euo pipefail
+          set -uo pipefail
           rm -rf results/secondary/perturbation_dev
-          python -m scripts.develop_secondary_perturbations_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --output-dir results/secondary/perturbation_dev
+          set +e
+          python -m scripts.develop_secondary_perturbations_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --output-dir results/secondary/perturbation_dev             2>&1 | tee /tmp/perturbation_dev.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit "$status"
+
+      - name: Publish failure traceback for debugging
+        if: failure()
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary
+          cp /tmp/perturbation_dev.log results/secondary/perturbation_dev_failure.log
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/perturbation_dev_failure.log
+          git commit -m "Secondary: preserve perturbation dev failure traceback [skip ci]"
+          git push origin "HEAD:experiment/v2-secondary-perturbation-dev"
 
       - name: Prove no ST primary-test row entered development sample
         run: |
