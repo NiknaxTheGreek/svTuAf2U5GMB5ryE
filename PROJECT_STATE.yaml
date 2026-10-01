@@ -1,7 +1,7 @@
 project: Apziva Project 4 - MonReader
 reset_date: 2026-09-30
 primary_protocol: train_test_only_v2
-status: PHASE_7_ST_COMPLETE
+status: PHASE_9_SYNTHESIS_VERIFIED
 candidate_bank:
   path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
   candidates: 20
@@ -13,41 +13,24 @@ dataset:
   archive_bytes: 939921132
   archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
   manifest_rows: 2989
-splits:
-  frozen: true
-  O: {train: 2392, test: 597, context: 0}
-  S: {train: 2219, test: 770, context: 0}
-  T: {train: 2365, test: 624, context: 0}
-  ST: {train: 1756, test: 161, context: 1072, context_unseen_early: 609, context_known_future: 463}
 scratch:
   O: {status: VERIFIED_SELECTION_BENCHMARK, champion: C14, f1: 0.998272884283247}
   S: {status: VERIFIED_SELECTION_BENCHMARK, champion: C18, f1: 0.8196248196248196}
   T: {status: VERIFIED_SELECTION_BENCHMARK, champion: C06, f1: 0.88}
-  ST:
-    status: VERIFIED_SELECTION_BENCHMARK
-    registry: manifests/scratch/ST_REGISTRY.yaml
-    champion: C07
-    f1: 0.704
-    precision: 0.8979591836734694
-    recall: 0.5789473684210527
-    accuracy: 0.7701863354037267
-    balanced_accuracy: 0.760061919504644
-    roc_auc: 0.908204334365325
-    pr_auc: 0.9150065168482494
-    errors: 37
-    checkpoint_sha256: 9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67
-    frame_bootstrap_f1_ci95: [0.6086782608695651, 0.7899159663865546]
-    video_cluster_bootstrap_f1_ci95: [0.46511627906976744, 0.8588273001508294]
-    context_diagnostics:
-      complete: true
-      selection_bearing: false
-      unseen_early_f1: 0.705607476635514
-      known_future_f1: 0.7649122807017544
-      combined_ENV03_posthoc_f1: 0.705244122965642
-scratch_candidate_test_evaluation: {O: true, S: true, T: true, ST: true}
+  ST: {status: VERIFIED_SELECTION_BENCHMARK, champion: C07, f1: 0.704}
+synthesis:
+  status: VERIFIED
+  registry: manifests/synthesis/PHASE9_REGISTRY.yaml
+  workflow_run_id: 36876459214
+  artifact_sha256: a9fc981a03773826481ee97d8b824232266bca617cde1e711384a69677e4e880
+  frame_bootstrap_resamples: 5000
+  group_bootstrap_resamples: 5000
+  seed: 20261001
+  selection_conditioned: true
+  fixed_o_candidate: C14
 active_workflows_on_main: false
-next_gate: phase_9_cross_regime_synthesis_and_selection_conditioned_uncertainty
+next_gate: freeze_fixed_nonadaptive_resnet18_recipe_before_any_resnet_test_then_train_and_evaluate_comparator
 notes:
-  - All four primary scratch champions are frozen and cannot be changed by later diagnostics.
-  - ST context diagnostics are complete and non-selection-bearing.
-  - Phase 9 must produce the champion envelope and fixed-C14 robustness view with 5000 frame and group bootstrap resamples.
+  - No global winner is inferred across O/S/T/ST because the test populations differ.
+  - The new V2 authority requires a fixed non-adaptive ResNet18 comparator but does not specify all numeric training hyperparameters.
+  - Exact ResNet18 settings must therefore be prospectively frozen before any ResNet18 test evaluation.
