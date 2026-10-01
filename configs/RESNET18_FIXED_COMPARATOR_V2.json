@@ -1,0 +1,58 @@
+{
+  "augmentation": false,
+  "batch_size": 32,
+  "checkpoint": "final_epoch_20",
+  "class_sampling": "natural",
+  "early_stopping": false,
+  "epochs": {
+    "full_network": 15,
+    "head_only": 5,
+    "total": 20
+  },
+  "finetune_learning_rate": 0.0001,
+  "gradient_clipping": null,
+  "head": {
+    "dropout": 0.2,
+    "output_logits": 1
+  },
+  "head_learning_rate": 0.001,
+  "loss": "BCEWithLogitsLoss",
+  "model_family": "torchvision_resnet18_imagenet",
+  "optimizer": "AdamW",
+  "preprocessing": {
+    "antialias": true,
+    "center_crop": [
+      224,
+      224
+    ],
+    "interpolation": "bilinear",
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "resize_shorter_side": 256,
+    "scaling": "[0,1]"
+  },
+  "protocol_version": "v2-train-test-only",
+  "rationale": "Prospectively frozen non-adaptive comparator recipe because V2 authority requires one fixed ResNet18 comparator but does not specify all numeric optimizer hyperparameters. Values are fixed before any ResNet18 test evaluation and are not derived from scratch test results.",
+  "scheduler": null,
+  "seed": 42,
+  "selected_regimes": [
+    "O",
+    "S",
+    "T",
+    "ST"
+  ],
+  "selection_bearing": false,
+  "test_policy": "one evaluation per regime after all four final epoch-20 checkpoints are frozen",
+  "threshold": 0.5,
+  "validation": false,
+  "weight_decay": 0.0001,
+  "weights": "ResNet18_Weights.IMAGENET1K_V1"
+}
