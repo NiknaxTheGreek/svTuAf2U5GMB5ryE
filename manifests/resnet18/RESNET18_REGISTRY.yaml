@@ -1,0 +1,73 @@
+protocol_version: v2-train-test-only
+status: frozen_verified
+phase: 10
+date: 2026-10-01
+model_family: fixed_resnet18_imagenet_comparator
+
+recipe:
+  config: configs/RESNET18_FIXED_COMPARATOR_V2.json
+  config_sha256: 82af40ff6071949ee91d8934341b42bbdd7391738e0cde23d8ad9b9084338cc8
+  optimizer: AdamW
+  batch_size: 32
+  dropout: 0.2
+  head_learning_rate: 0.001
+  finetune_learning_rate: 0.0001
+  weight_decay: 0.0001
+  seed: 42
+  head_only_epochs: 5
+  full_network_epochs: 15
+  total_epochs: 20
+  validation: false
+  early_stopping: false
+  augmentation: false
+  checkpoint: final_epoch_20
+  threshold: 0.5
+
+execution:
+  authoritative_workflow_run_id: 36878058201
+  checkpoint_gate_status: PASS_ALL_4_FROZEN_BEFORE_RESNET_TESTS
+  test_evaluation_opened_only_after_all_four_checkpoints: true
+  evidence_artifact_id: 11175637281
+  evidence_artifact_sha256: 0a39ca189fcce5409d3c40d6f363e6e7fec8ebb9f0a2bbd21b20e11211cc200a
+  evidence_artifact_sha256_independently_verified: true
+  paired_analysis_run_id: 36898361281
+  paired_analysis_artifact_id: 11180506989
+  paired_analysis_artifact_sha256: 1e3f14e780f928e7f984dcffe75b66999415ffc897aefd1d95a61a26f1f1024c
+  paired_analysis_artifact_sha256_independently_verified: true
+  note: "An initial post-hoc paired-analysis workflow used the wrong results directory name and failed before analysis. Official training/evaluation evidence was unaffected."
+
+results:
+  O:
+    checkpoint_sha256: 7ae8552b7838aaba263ebd22826de237f4e2ac5000d48c5457056edf7aa32580
+    resnet18_f1: 0.9930795847750865
+    scratch_champion: C14
+    scratch_f1: 0.998272884283247
+    delta_f1: -0.005193299508160498
+    paired_video_group_ci95: [-0.013861386138613874, 0.001890697069980055]
+  S:
+    checkpoint_sha256: dc998eba0405e9d2b57d376503137a536fc552a289f9a159a5f5222cdd3cdad3
+    resnet18_f1: 0.7806524184476941
+    scratch_champion: C18
+    scratch_f1: 0.8196248196248196
+    delta_f1: -0.038972401177125526
+    paired_video_group_ci95: [-0.16906568019541443, 0.0762975168082474]
+  T:
+    checkpoint_sha256: 3de5bcb4ec59388af17b10580f6c5d7df69fa5977566fdd3c4d1f5bc58ab63ef
+    resnet18_f1: 0.8807017543859649
+    scratch_champion: C06
+    scratch_f1: 0.88
+    delta_f1: 0.00070175438596487
+    paired_video_group_ci95: [-0.03187709164709092, 0.029793487545391347]
+  ST:
+    checkpoint_sha256: ac358c4325e4dbf8c33a393beded1e81d10d9f07cb7d1384d2ed9d25b0d0cf46
+    resnet18_f1: 0.7195767195767195
+    scratch_champion: C07
+    scratch_f1: 0.704
+    delta_f1: 0.015576719576719578
+    paired_video_group_ci95: [-0.2124983691288639, 0.25909415584415574]
+
+conclusion:
+  any_video_group_ci_excludes_zero: false
+  statement: "No regime shows a supported ResNet18-vs-scratch F1 difference under paired video/group bootstrap. The fixed pretrained comparator therefore does not displace any frozen scratch champion."
+
+next_gate: controlled_secondary_analyses
