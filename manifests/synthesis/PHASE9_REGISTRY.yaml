@@ -1,0 +1,37 @@
+protocol_version: v2-train-test-only
+status: frozen_verified
+phase: 9
+date: 2026-10-01
+workflow_run_id: 36876459214
+artifact_id: 11169631906
+artifact_sha256: a9fc981a03773826481ee97d8b824232266bca617cde1e711384a69677e4e880
+artifact_sha256_independently_verified: true
+inputs:
+  source: saved frozen O/S/T/ST prediction CSVs only
+  training_performed: false
+  test_reopened: false
+bootstrap:
+  frame_resamples: 5000
+  video_group_resamples: 5000
+  seed: 20261001
+  selection_conditioned: true
+champions:
+  O: {candidate: C14, f1: 0.998272884283247, frame_ci95: [0.9946140035906643, 1.0], group_ci95: [0.9942192343134791, 1.0]}
+  S: {candidate: C18, f1: 0.8196248196248196, frame_ci95: [0.7883190210390725, 0.8497854077253219], group_ci95: [0.6741967790322726, 0.9151235868571703]}
+  T: {candidate: C06, f1: 0.88, frame_ci95: [0.8522330173931971, 0.9072512647554806], group_ci95: [0.8366230402009257, 0.9166699372056514]}
+  ST: {candidate: C07, f1: 0.704, frame_ci95: [0.6055045871559632, 0.7899159663865546], group_ci95: [0.46551724137931033, 0.8571931589537216]}
+fixed_o_configuration:
+  candidate_id: C14
+  note: "Same frozen architecture/hyperparameters retrained separately inside each regime; weights are not shared."
+  O_f1: 0.998272884283247
+  S_f1: 0.6936416184971098
+  T_f1: 0.2981029810298103
+  ST_f1: 0.46464646464646464
+outputs:
+  report: reports/synthesis/CROSS_REGIME_SYNTHESIS.md
+  champion_table: results/synthesis/champion_envelope.csv
+  fixed_o_table: results/synthesis/fixed_C14_robustness.csv
+  uncertainty: results/synthesis/bootstrap_uncertainty.json
+  champion_figure: results/synthesis/champion_f1_ci.svg
+  fixed_o_figure: results/synthesis/fixed_C14_f1.svg
+next_gate: fixed_resnet18_comparator
