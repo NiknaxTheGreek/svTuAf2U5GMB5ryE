@@ -1,0 +1,35 @@
+name: MonReader V2 Phase 11B freeze PoC sample
+
+on:
+  push:
+    branches: ["phase/v2-11b-inpainting-chroma"]
+    paths:
+      - ".github/workflows/v2_phase11b_freeze_poc_sample.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  freeze-sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Compile deterministic selector
+        run: python -m compileall -q scripts/freeze_secondary_poc_sample_v2.py
+      - name: Freeze exact 100-image ST-context sample
+        run: |
+          set -euo pipefail
+          python -m scripts.freeze_secondary_poc_sample_v2             --membership manifests/splits/ST.csv             --output-csv manifests/secondary/PHASE11B_POC_100.csv             --output-summary manifests/secondary/PHASE11B_POC_100_SUMMARY.json
+          sha256sum manifests/secondary/PHASE11B_POC_100.csv manifests/secondary/PHASE11B_POC_100_SUMMARY.json
+      - name: Publish frozen PoC sample
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifests/secondary/PHASE11B_POC_100.csv manifests/secondary/PHASE11B_POC_100_SUMMARY.json
+          git commit -m "Phase 11B: freeze 100-image context-only PoC sample [skip ci]"
+          git push origin "HEAD:phase/v2-11b-inpainting-chroma"
