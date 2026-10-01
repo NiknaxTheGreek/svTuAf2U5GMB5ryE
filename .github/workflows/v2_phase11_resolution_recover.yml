@@ -1,0 +1,37 @@
+name: MonReader V2 recover resolution evidence
+
+on:
+  push:
+    branches: ["phase/v2-11-secondary"]
+    paths:
+      - ".github/workflows/v2_phase11_resolution_recover.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact resolution artifact from completed analysis
+        uses: actions/download-artifact@v4
+        with:
+          name: monreader-v2-phase11-resolution
+          path: /tmp/resolution
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36914830617
+      - name: Verify and publish exact artifact contents
+        run: |
+          set -euo pipefail
+          sha256sum /tmp/resolution/*
+          mkdir -p results/secondary/resolution
+          cp /tmp/resolution/* results/secondary/resolution/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/resolution
+          git commit -m "Phase 11: recover Best-O resolution sensitivity [skip ci]"
+          git push origin "HEAD:phase/v2-11-secondary"
