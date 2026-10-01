@@ -172,21 +172,67 @@ class MediaPipeHandMasker:
     def __exit__(self, exc_type, exc_value, traceback) -> None:
         self.close()
 
-    def detect_seed(self, image_chw: np.ndarray) -> tuple[np.ndarray, int]:
-        rgb = _hwc_rgb(image_chw)
+    def _detect(self, rgb: np.ndarray):
+        array = np.ascontiguousarray(rgb, dtype=np.uint8)
         mp_image = self._mp.Image(
             image_format=self._mp.ImageFormat.SRGB,
-            data=rgb,
+            data=array,
         )
-        result = self._landmarker.detect(mp_image)
+        return self._landmarker.detect(mp_image)
+
+    def detect_seed(self, image_chw: np.ndarray) -> tuple[np.ndarray, int]:
+        rgb = _hwc_rgb(image_chw)
+        result = self._detect(rgb)
         height, width = rgb.shape[:2]
         seed = np.zeros((height, width), dtype=bool)
         for hand in result.hand_landmarks:
             seed |= _landmark_hull_mask(hand, height, width)
         return seed, len(result.hand_landmarks)
 
-    def candidate_masks(self, image_chw: np.ndarray) -> tuple[dict[str, np.ndarray], int]:
-        seed, detected_hands = self.detect_seed(image_chw)
+    def detect_seed_from_source_rgb(
+        self,
+        source_rgb: np.ndarray,
+        target_height: int,
+        target_width: int,
+    ) -> tuple[np.ndarray, int]:
+        """Detect on the original RGB frame, map normalized landmarks to model canvas."""
+        rgb = np.ascontiguousarray(source_rgb, dtype=np.uint8)
+        if rgb.ndim != 3 or rgb.shape[2] != 3:
+            raise ValueError(f"Expected HWC RGB source image, got {rgb.shape}")
+
+        result = self._detect(rgb)
+        source_height, source_width = rgb.shape[:2]
+        scale = min(target_width / source_width, target_height / source_height)
+        resized_width = max(1, min(target_width, round(source_width * scale)))
+        resized_height = max(1, min(target_height, round(source_height * scale)))
+        pad_left = (target_width - resized_width) // 2
+        pad_top = (target_height - resized_height) // 2
+
+        seed = np.zeros((target_height, target_width), dtype=bool)
+        for hand in result.hand_landmarks:
+            points: list[tuple[int, int]] = []
+            for lm in hand:
+                x = pad_left + int(round(float(lm.x) * (resized_width - 1)))
+                y = pad_top + int(round(float(lm.y) * (resized_height - 1)))
+                x = max(0, min(target_width - 1, x))
+                y = max(0, min(target_height - 1, y))
+                points.append((x, y))
+            hull = convex_hull(points)
+            mask_img = Image.new("L", (target_width, target_height), 0)
+            if len(hull) >= 3:
+                ImageDraw.Draw(mask_img).polygon(hull, fill=255)
+            elif len(hull) == 2:
+                ImageDraw.Draw(mask_img).line(hull, fill=255, width=3)
+            elif len(hull) == 1:
+                ImageDraw.Draw(mask_img).point(hull[0], fill=255)
+            seed |= np.asarray(mask_img, dtype=np.uint8) >= 128
+        return seed, len(result.hand_landmarks)
+
+    def _candidate_masks_from_seed(
+        self,
+        image_chw: np.ndarray,
+        seed: np.ndarray,
+    ) -> dict[str, np.ndarray]:
         strict_skin = skin_hand_mask(image_chw, _STRICT_SPATIAL)
         fallback = skin_hand_mask(image_chw, _STRICT_LOWER_SIDE)
 
@@ -201,4 +247,21 @@ class MediaPipeHandMasker:
             if cfg.fallback_classical and not np.any(seed):
                 mask |= fallback
             masks[cfg.name] = mask
-        return masks, detected_hands
+        return masks
+
+    def candidate_masks(self, image_chw: np.ndarray) -> tuple[dict[str, np.ndarray], int]:
+        seed, detected_hands = self.detect_seed(image_chw)
+        return self._candidate_masks_from_seed(image_chw, seed), detected_hands
+
+    def candidate_masks_from_source_rgb(
+        self,
+        image_chw: np.ndarray,
+        source_rgb: np.ndarray,
+    ) -> tuple[dict[str, np.ndarray], int]:
+        _, target_height, target_width = image_chw.shape
+        seed, detected_hands = self.detect_seed_from_source_rgb(
+            source_rgb,
+            target_height=target_height,
+            target_width=target_width,
+        )
+        return self._candidate_masks_from_seed(image_chw, seed), detected_hands
