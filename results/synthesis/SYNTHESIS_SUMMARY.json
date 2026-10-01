@@ -1,0 +1,21 @@
+{
+  "champion_f1": {
+    "O": 0.998272884283247,
+    "S": 0.8196248196248196,
+    "ST": 0.704,
+    "T": 0.88
+  },
+  "champions": {
+    "O": "C14",
+    "S": "C18",
+    "ST": "C07",
+    "T": "C06"
+  },
+  "fixed_o_candidate": "C14",
+  "frame_bootstrap_resamples": 5000,
+  "next_gate": "fixed_resnet18_comparator",
+  "seed": 20261001,
+  "selection_conditioned": true,
+  "status": "PHASE_9_SYNTHESIS_COMPLETE",
+  "video_group_bootstrap_resamples": 5000
+}
