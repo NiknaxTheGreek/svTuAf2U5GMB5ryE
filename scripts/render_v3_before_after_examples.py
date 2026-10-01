@@ -18,7 +18,7 @@ EXAMPLES = [
     "testing/flip/0048_000000011",
     "testing/notflip/0040_000000004",
     "testing/flip/0008_000000029",
-    "training/notflip/0016_000000023",
+    "testing/notflip/0016_000000023",
     "testing/flip/0059_000000028",
     "training/flip/0018_000000021",
 ]
