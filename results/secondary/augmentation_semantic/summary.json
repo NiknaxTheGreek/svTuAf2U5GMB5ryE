@@ -1,0 +1,20 @@
+{
+  "config_sha256": "5168b13d3ce4f286df71a1f823cb78889098fa843602154c34683ede80dce18b",
+  "development_images": 48,
+  "observed_parameters": {
+    "angle_max": 2.854283094406128,
+    "angle_min": -2.717147469520569,
+    "brightness_max": 1.093729627132416,
+    "brightness_min": 0.9009214282035828,
+    "contrast_max": 1.0973802566528321,
+    "contrast_min": 0.9224742650985718,
+    "scale_max": 1.0199612760543824,
+    "scale_min": 0.9807785940170288,
+    "translate_x_max": 6,
+    "translate_x_min": -6,
+    "translate_y_max": 11,
+    "translate_y_min": -12
+  },
+  "primary_test_images_used": 0,
+  "status": "AUGMENTATION_SEMANTIC_GATE_AWAITING_VISUAL_REVIEW"
+}
