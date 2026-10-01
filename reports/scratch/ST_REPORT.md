@@ -66,11 +66,17 @@ ST is the strictest primary benchmark in the V2 design. It combines an unseen ac
 
 Best ST is now frozen. No context diagnostic, error analysis, ablation, augmentation experiment, pretrained comparator, or later post-hoc analysis may replace C07 or alter this primary result.
 
-## Remaining ST task
+## Post-selection context diagnostics
 
-The split contains 1,072 context-only images that were intentionally excluded from primary scoring:
+Frozen C07 was evaluated without retraining on the two context-only populations required by the execution plan.
 
-- 609 earlier ENV-03 frames (`context_unseen_early`);
-- 463 later known-source frames (`context_known_future`).
+| Population | n | F1 | Precision | Recall | Accuracy | ROC-AUC | PR-AUC |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Unseen-source earlier ENV-03 | 609 | **0.705607** | 0.967949 | 0.555147 | 0.793103 | 0.929056 | 0.922894 |
+| Known-source future ENV-01/02/04 | 463 | **0.764912** | 0.656627 | 0.915966 | 0.710583 | 0.909262 | 0.942415 |
 
-The execution plan requires descriptive evaluation of frozen C07 on those two populations after primary selection. Those results are explanatory only and cannot change Best ST.
+The unseen-source earlier set retains high precision but misses many positives, while the known-source future set has high recall but many false positives. The frozen C07 primary ST result remains F1 0.704000 and is unchanged.
+
+A post-hoc combined ENV-03 view using the 609 earlier context rows plus the saved 161 later primary predictions gives F1 0.705244 over 770 frames. This view is descriptive only and does not redefine either S or ST.
+
+The context diagnostic artifact is independently verified at SHA256 `ee6d265429bbe7b683568bde1080f990550e4bc23476f1915d74e3bda119228a`.
