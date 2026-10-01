@@ -1,0 +1,85 @@
+name: MonReader V2 Phase 11B historical hand-arm inpainting resurrection
+
+on:
+  push:
+    branches: ["phase/v2-11b-inpainting-chroma"]
+    paths:
+      - ".github/workflows/v2_phase11b_historical_inpainting_48.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+
+jobs:
+  resurrect-48:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install historical runtime
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow opencv-python-headless transformers huggingface_hub mediapipe
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision
+
+      - name: Compile historical and V2 compatibility code
+        run: |
+          set -euo pipefail
+          python -m compileall -q             scripts/hand_arm_clean_dataset.py             scripts/prepare_historical_hand_arm_pilot_v2.py             scripts/build_historical_hand_arm_qa_v2.py
+
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+
+      - name: Prepare exact fixed 48-image ST-context pilot
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/historical-inpaint
+          mkdir -p /tmp/historical-inpaint/source /tmp/historical-inpaint/cleaned /tmp/historical-inpaint/reports /tmp/historical-inpaint/qa
+          python -m scripts.prepare_historical_hand_arm_pilot_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --st-membership manifests/splits/ST.csv             --sample results/secondary/perturbation_dev/development_sample.csv             --extract-root /tmp/historical-inpaint/source             --inventory /tmp/historical-inpaint/reports/pilot_inventory.csv             --receipt /tmp/historical-inpaint/reports/input_receipt.json
+
+      - name: Run exact recovered SCHP plus MediaPipe plus TELEA algorithm
+        run: |
+          set -euo pipefail
+          python scripts/hand_arm_clean_dataset.py             --inventory /tmp/historical-inpaint/reports/pilot_inventory.csv             --image-root /tmp/historical-inpaint/source             --out-root /tmp/historical-inpaint/cleaned             --report /tmp/historical-inpaint/reports/cleaning_report.csv
+
+      - name: Build before-after QA sheets
+        run: |
+          set -euo pipefail
+          python -m scripts.build_historical_hand_arm_qa_v2             --report /tmp/historical-inpaint/reports/cleaning_report.csv             --image-root /tmp/historical-inpaint/source             --clean-root /tmp/historical-inpaint/cleaned             --output-dir /tmp/historical-inpaint/qa
+          sha256sum /tmp/historical-inpaint/reports/* /tmp/historical-inpaint/qa/*
+
+      - name: Upload full 48-image resurrection evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11b-historical-inpainting-48
+          path: /tmp/historical-inpaint
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish compact QA evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/inpainting_historical_48
+          cp /tmp/historical-inpaint/reports/input_receipt.json results/secondary/inpainting_historical_48/
+          cp /tmp/historical-inpaint/reports/cleaning_report.csv results/secondary/inpainting_historical_48/
+          cp /tmp/historical-inpaint/reports/cleaning_summary.json results/secondary/inpainting_historical_48/
+          cp /tmp/historical-inpaint/qa/qa_summary.json results/secondary/inpainting_historical_48/
+          cp /tmp/historical-inpaint/qa/*.review.jpg.b64.txt results/secondary/inpainting_historical_48/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/inpainting_historical_48
+          git commit -m "Phase 11B: publish historical inpainting 48-image QA [skip ci]"
+          git push origin "HEAD:phase/v2-11b-inpainting-chroma"
