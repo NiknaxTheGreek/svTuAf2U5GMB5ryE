@@ -1,0 +1,64 @@
+protocol_version: v2-train-test-only
+phase: 11
+status: IN_PROGRESS
+date: 2026-10-01
+selection_bearing: false
+champions_frozen: true
+
+exact_duplicate_sensitivity:
+  status: STRUCTURAL_NULL
+  authoritative_source: reports/data_audit/DATA_AUDIT.md
+  decoded_pixel_duplicate_groups: 0
+  interpretation: "No exact-duplicate removal experiment exists because the exact-duplicate population is empty."
+
+best_o_shortcut_perturbation:
+  status: VERIFIED_COMPLETE
+  workflow_run_id: 36899595475
+  artifact_id: 11181935603
+  artifact_sha256: 490f79ee6f9089988b3dc21bd47209989f2422f170096d6f34add1148cfaf7df
+  artifact_sha256_independently_verified: true
+  candidate: C14
+  checkpoint_sha256: 57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49
+  original_f1: 0.998272884283247
+  grayscale_f1: 0.6847697756788665
+  hand_mask_f1: 0.9228295819935691
+  matched_control_f1: 0.9050632911392406
+  hand_mask_delta_f1: -0.07544330228967788
+  matched_control_delta_f1: -0.09320959314400645
+  hand_minus_control_video_group_delta_f1_contrast_ci95: [-0.022090536418955167, 0.0651733747884311]
+  conclusion: "No supported hand-specific shortcut effect: the matched equal-area control is at least as damaging, and the paired video/group contrast interval includes zero."
+  grayscale_conclusion: "Large post-hoc sensitivity to chroma removal/distribution shift; does not by itself identify which color cue is used."
+
+augmentation_semantic_gate:
+  status: PASS_VISUAL_REVIEW
+  workflow_run_id: 36913988491
+  artifact_id: 11188970905
+  artifact_sha256: 500f8fc5231f5234c973bd2dd62c4b130098d84ca055ac5e30c2b97cbc9c9cbd
+  artifact_sha256_independently_verified: true
+  development_images: 48
+  primary_test_images_used: 0
+  config_sha256: 5168b13d3ce4f286df71a1f823cb78889098fa843602154c34683ede80dce18b
+  visual_review: "PASS: transformations remain mild and preserve flip/notflip semantics in the fixed ST-context development sample."
+
+augmentation_ablation:
+  status: RUNNING
+  workflow_run_id: 36914403253
+  champion_configs: {O: C14, S: C18, T: C06, ST: C07}
+  no_candidate_search: true
+  epochs: 20
+  validation: false
+  early_stopping: false
+  threshold: 0.5
+
+resolution_sensitivity:
+  status: RUNNING
+  workflow_run_id: 36914830617
+  candidate: C14
+  variants:
+    half_resolution: [199, 112]
+    quarter_resolution: [100, 56]
+  retraining: false
+
+notes:
+  - "All Phase 11 results are post-hoc/exploratory and cannot modify Best O/S/T/ST."
+  - "The old perturbation development branch was not merged wholesale; only reviewed assets/code were ported."
