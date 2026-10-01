@@ -1,3 +1,4 @@
+# rerun after result-directory path fix
 name: MonReader V2 ResNet18 comparator analysis
 
 on:
