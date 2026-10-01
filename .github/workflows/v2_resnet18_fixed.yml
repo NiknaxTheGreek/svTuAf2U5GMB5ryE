@@ -1,0 +1,212 @@
+name: MonReader V2 fixed ResNet18 comparator
+
+on:
+  push:
+    branches: ["phase/v2-10-resnet18"]
+    paths:
+      - ".github/workflows/v2_resnet18_fixed.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+  OMP_NUM_THREADS: "4"
+  MKL_NUM_THREADS: "4"
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned CPU runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Compile exact committed comparator implementation
+        run: |
+          set -euo pipefail
+          python -m compileall -q             src/resnet18_v2.py             scripts/build_resnet18_cache_v2.py             scripts/train_resnet18_fixed_v2.py             scripts/preflight_resnet18_fixed_v2.py             scripts/verify_resnet18_checkpoints_v2.py             scripts/evaluate_resnet18_fixed_v2.py
+      - name: Verify frozen comparator recipe and split identities
+        run: python -m scripts.preflight_resnet18_fixed_v2
+
+  train-resnet:
+    needs: preflight
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        regime: [O, S, T, ST]
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned CPU training runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+      - name: Build exact regime training cache
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cache
+          python -m scripts.build_resnet18_cache_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership "manifests/splits/${{ matrix.regime }}.csv"             --regime "${{ matrix.regime }}"             --role train             --output-data /tmp/cache/train.npy             --output-index /tmp/cache/train_index.csv             --output-receipt /tmp/cache/train_receipt.json
+      - name: Train fixed comparator for final epoch-20 checkpoint
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/checkpoint
+          python -m scripts.train_resnet18_fixed_v2             --cache-data /tmp/cache/train.npy             --cache-index /tmp/cache/train_index.csv             --cache-receipt /tmp/cache/train_receipt.json             --config configs/RESNET18_FIXED_COMPARATOR_V2.json             --regime "${{ matrix.regime }}"             --output-dir /tmp/checkpoint
+      - name: Upload frozen comparator checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-resnet18-checkpoint-${{ matrix.regime }}
+          path: /tmp/checkpoint
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+
+  verify-all-4-before-test:
+    needs: train-resnet
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned verification runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download all four frozen comparator checkpoints
+        uses: actions/download-artifact@v4
+        with:
+          pattern: v2-resnet18-checkpoint-*
+          path: /tmp/checkpoints
+          merge-multiple: true
+      - name: Verify all four checkpoints before any test opens
+        run: |
+          set -euo pipefail
+          python -m scripts.verify_resnet18_checkpoints_v2             --checkpoint-root /tmp/checkpoints             --config configs/RESNET18_FIXED_COMPARATOR_V2.json             --output /tmp/resnet18_checkpoint_registry.json
+      - name: Upload closed-test comparator registry
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-resnet18-checkpoint-registry
+          path: /tmp/resnet18_checkpoint_registry.json
+          if-no-files-found: error
+          retention-days: 90
+
+  evaluate-resnet:
+    needs: verify-all-4-before-test
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        regime: [O, S, T, ST]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned evaluation runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download frozen regime checkpoint
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-resnet18-checkpoint-${{ matrix.regime }}
+          path: /tmp/checkpoint
+      - name: Download closed-test four-checkpoint registry
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-resnet18-checkpoint-registry
+          path: /tmp/registry
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+      - name: Build test cache only after all four checkpoints passed
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/test-cache
+          python -m scripts.build_resnet18_cache_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership "manifests/splits/${{ matrix.regime }}.csv"             --regime "${{ matrix.regime }}"             --role test             --output-data /tmp/test-cache/test.npy             --output-index /tmp/test-cache/test_index.csv             --output-receipt /tmp/test-cache/test_receipt.json
+      - name: Evaluate fixed comparator exactly once
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/eval
+          python -m scripts.evaluate_resnet18_fixed_v2             --cache-data /tmp/test-cache/test.npy             --cache-index /tmp/test-cache/test_index.csv             --cache-receipt /tmp/test-cache/test_receipt.json             --checkpoint "/tmp/checkpoint/${{ matrix.regime }}.pt"             --metadata "/tmp/checkpoint/${{ matrix.regime }}.json"             --registry /tmp/registry/resnet18_checkpoint_registry.json             --config configs/RESNET18_FIXED_COMPARATOR_V2.json             --regime "${{ matrix.regime }}"             --output-dir /tmp/eval
+          sha256sum /tmp/eval/*
+      - name: Upload regime comparator evaluation
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-resnet18-eval-${{ matrix.regime }}
+          path: /tmp/eval
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+
+  publish-all:
+    needs: evaluate-resnet
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download all comparator evaluations
+        uses: actions/download-artifact@v4
+        with:
+          pattern: v2-resnet18-eval-*
+          path: /tmp/evals
+          merge-multiple: true
+      - name: Download closed-test registry
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-resnet18-checkpoint-registry
+          path: /tmp/registry
+      - name: Build combined comparator evidence
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/evidence results/resnet18
+          cp /tmp/evals/* /tmp/evidence/
+          cp /tmp/registry/resnet18_checkpoint_registry.json /tmp/evidence/checkpoint_registry_before_test.json
+          cp /tmp/evidence/* results/resnet18/
+          sha256sum /tmp/evidence/*
+      - name: Upload combined ResNet18 comparator evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-resnet18-comparator-evidence
+          path: /tmp/evidence
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish small comparator evidence
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/resnet18
+          git commit -m "Phase 10: publish fixed ResNet18 comparator [skip ci]"
+          git push origin "HEAD:phase/v2-10-resnet18"
+      - name: Remove completed Phase-9 branch
+        run: git push origin --delete phase/v2-09-synthesis || true
