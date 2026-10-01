@@ -1,0 +1,6 @@
+usage: develop_secondary_perturbations_v2.py [-h] --archive ARCHIVE
+                                             --manifest MANIFEST
+                                             --membership MEMBERSHIP
+                                             --hand-model HAND_MODEL
+                                             --output-dir OUTPUT_DIR
+develop_secondary_perturbations_v2.py: error: the following arguments are required: --hand-model
