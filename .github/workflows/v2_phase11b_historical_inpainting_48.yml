@@ -28,7 +28,7 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip
-          python -m pip install numpy pillow opencv-python-headless transformers huggingface_hub mediapipe schp
+          python -m pip install numpy pillow opencv-python-headless transformers huggingface_hub mediapipe onnxruntime
           python -m pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision
 
       - name: Compile historical and V2 compatibility code
