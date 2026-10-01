@@ -3,56 +3,72 @@
   "freeze_date": "2026-10-01",
   "selection_bearing": false,
   "purpose": "Remove visible hand/arm pixels and reconstruct a plausible document/background counterfactual as though the human limb were absent.",
-  "poc_population": {
-    "source": "ST context-only rows",
-    "target_images": 100,
+  "historical_primary_candidate": {
+    "source_commit": "0b06f7163998c06135c6ea18d286f02fcedb9caa",
+    "script": "scripts/hand_arm_clean_dataset.py",
+    "arm_parser": "pirocheto/schp-pascal-7",
+    "arm_labels": "upper/lower arms via model labels, fallback ids 3 and 4",
+    "hand_detector": "MediaPipe Hands",
+    "max_hands": 2,
+    "min_detection_confidence": 0.35,
+    "hand_mask": "convex hull plus scale-relative dilation",
+    "mask_union": "SCHP arm mask union MediaPipe hand mask",
+    "final_mask_cleanup": "scale-relative morphological closing plus dilation",
+    "inpainting": "OpenCV TELEA",
+    "inpaint_radius": 5,
+    "inpaint_resolution_scale": 0.5,
+    "upsample": "cubic",
+    "compositing": "Gaussian-feathered alpha blend into untouched original"
+  },
+  "historical_reference_full_corpus": {
+    "workflow_run_id": 36145174745,
+    "status": "success",
+    "method": "LRASPP MobileNetV3-Large person segmentation -> threshold 0.25 -> component cleanup -> 7x7 dilation -> TELEA radius 5",
+    "processed_images": 2989,
+    "dataset_artifact_id": 10870977276,
+    "dataset_artifact_bytes": 811837610,
+    "dataset_artifact_sha256": "cec5444094c7c57f107123d58dbd59e21b84acf4dfbb2676a504a189120558f8",
+    "qa_artifact_id": 10870663479,
+    "qa_artifact_sha256": "f07fed39e57a1f561e2da6491e6e7921aeabf8d8065a3072601faeafb0c47ea4",
+    "artifacts_expire": "2026-12-24T14:05:32Z",
+    "role": "historical corroboration/reference only; not preferred because it segments generic person pixels rather than explicit arms plus hands"
+  },
+  "stage_1_resurrection": {
+    "population": "existing fixed 48-image ST context-only perturbation-development sample",
     "primary_test_images_allowed": 0,
-    "selection_seed": "monreader-inpainting-poc-v2",
-    "stratify_by": ["role_detail", "environment_id", "label"],
-    "selection_rule": "deterministic balanced allocation across non-empty strata, then stable SHA256 order within stratum"
+    "algorithm_changes_allowed": false,
+    "goal": "reproduce exact historical SCHP+MediaPipe+TELEA outputs and generate before/after QA previews"
   },
-  "mask_scope": {
-    "required": ["visible hand", "visible fingers", "visible wrist", "visible forearm_or_arm_when_present"],
-    "initial_detector": "MediaPipe full-resolution hand landmarks",
-    "extension": "deterministic skin-connected and wrist-to-boundary forearm extension",
-    "visual_qa_required": true,
-    "manual_or_algorithmic_correction_allowed_only_on_poc": true,
-    "full_scale_requires_frozen_automatic_mask_recipe": true
+  "stage_1_visual_gate": {
+    "review_all_images": true,
+    "criteria": [
+      "visible hand removal",
+      "visible wrist/forearm/arm removal",
+      "page/background plausibility in reconstructed region",
+      "preservation of document geometry",
+      "preservation of unaffected text/background",
+      "absence of major seams or flat-polygon artifacts"
+    ],
+    "classifier_predictions_used": false
   },
-  "candidate_inpainting_methods": [
-    {
-      "id": "telea",
-      "family": "classical",
-      "method": "OpenCV TELEA",
-      "radius_pixels": 5
-    },
-    {
-      "id": "navier_stokes",
-      "family": "classical",
-      "method": "OpenCV NS",
-      "radius_pixels": 5
-    },
-    {
-      "id": "lama",
-      "family": "generative",
-      "method": "LaMa pretrained inpainting",
-      "role": "preferred naturalistic candidate if reproducibly runnable"
+  "stage_2_validation_if_stage_1_passes": {
+    "population": "frozen deterministic 100-image ST context-only PoC sample",
+    "primary_test_images_allowed": 0,
+    "algorithm": "same exact frozen historical pipeline unless a specific Stage-1 defect required one documented minimal engineering correction",
+    "quality_gate": {
+      "hand_arm_removal_complete_fraction_min": 0.9,
+      "major_visible_artifact_fraction_max": 0.1,
+      "outside_mask_change": "negligible except feather/seam ring",
+      "page_geometry_preserved": true,
+      "text_or_document_structure_preserved_outside_mask": true
     }
-  ],
-  "poc_quality_gate": {
-    "hand_arm_removal_complete_fraction_min": 0.9,
-    "major_visible_artifact_fraction_max": 0.1,
-    "outside_mask_change": "must be negligible except a narrow feather/seam ring",
-    "page_geometry_preserved": true,
-    "text_or_document_structure_preserved_outside_mask": true,
-    "visual_review": "all 100 PoC images, blinded to classifier output",
-    "classifier_predictions_used_for_method_choice": false
   },
-  "full_scale_rule": "Proceed to frozen-model evaluation only if at least one inpainting method passes the PoC quality gate. Otherwise report PoC failure and stop.",
+  "improvement_rule": "Do not invent alternative V3/V4 pipelines. Only make a minimal, explicitly documented correction if Stage 1 reveals a concrete defect. Never use classifier performance to choose the correction.",
+  "full_scale_rule": "Proceed to frozen-model evaluation only after Stage 1 and Stage 2 visual/preservation gates pass. Otherwise report PoC failure and stop.",
   "evaluation_if_pass": {
     "primary_model": "Best-O C14",
     "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49",
-    "variants": ["original", "inpainted_no_hand_arm"],
+    "variants": ["original", "historical_pipeline_inpainted_no_hand_arm"],
     "retain_existing_controls": ["hand_region_masking", "matched_equal_area_occlusion"],
     "threshold": 0.5,
     "frame_bootstrap_resamples": 5000,
