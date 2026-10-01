@@ -1,6 +1,29 @@
-usage: develop_secondary_perturbations_v2.py [-h] --archive ARCHIVE
-                                             --manifest MANIFEST
-                                             --membership MEMBERSHIP
-                                             --hand-model HAND_MODEL
-                                             --output-dir OUTPUT_DIR
-develop_secondary_perturbations_v2.py: error: the following arguments are required: --hand-model
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/svTuAf2U5GMB5ryE/svTuAf2U5GMB5ryE/scripts/develop_secondary_perturbations_v2.py", line 249, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/runner/work/svTuAf2U5GMB5ryE/svTuAf2U5GMB5ryE/scripts/develop_secondary_perturbations_v2.py", line 131, in main
+    with MediaPipeHandMasker(
+         ~~~~~~~~~~~~~~~~~~~^
+        args.hand_model,
+        ^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        num_hands=2,
+        ^^^^^^^^^^^^
+    ) as masker, ZipFile(args.archive) as z:
+    ^
+  File "/home/runner/work/svTuAf2U5GMB5ryE/svTuAf2U5GMB5ryE/src/mediapipe_hand_mask_v2.py", line 164, in __init__
+    self._landmarker = mp.tasks.vision.HandLandmarker.create_from_options(options)
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.13.5/x64/lib/python3.13/site-packages/mediapipe/tasks/python/vision/hand_landmarker.py", line 404, in create_from_options
+    lib = mediapipe_c_bindings.load_shared_library(_CTYPES_SIGNATURES)
+  File "/opt/hostedtoolcache/Python/3.13.5/x64/lib/python3.13/site-packages/mediapipe/tasks/python/core/mediapipe_c_bindings.py", line 86, in load_shared_library
+    raw_lib = load_raw_library()
+  File "/opt/hostedtoolcache/Python/3.13.5/x64/lib/python3.13/site-packages/mediapipe/tasks/python/core/mediapipe_c_bindings.py", line 57, in load_raw_library
+    _shared_lib = ctypes.CDLL(absolute_lib_path)
+  File "/opt/hostedtoolcache/Python/3.13.5/x64/lib/python3.13/ctypes/__init__.py", line 390, in __init__
+    self._handle = _dlopen(self._name, mode)
+                   ~~~~~~~^^^^^^^^^^^^^^^^^^
+OSError: libEGL.so.1: cannot open shared object file: No such file or directory
