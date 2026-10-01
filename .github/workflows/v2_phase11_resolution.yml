@@ -1,0 +1,93 @@
+name: MonReader V2 Phase 11 resolution sensitivity
+
+on:
+  push:
+    branches: ["phase/v2-11-secondary"]
+    paths:
+      - ".github/workflows/v2_phase11_resolution.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Compile resolution analysis
+        run: python -m compileall -q scripts/evaluate_best_o_resolution_v2.py
+      - name: Download authoritative Best-O evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: monreader-v2-o-scratch-evidence
+          path: /tmp/o-evidence
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36706123492
+      - name: Verify Best-O checkpoint
+        run: printf '%s  %s\n' '57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49' '/tmp/o-evidence/BestO.pt' | sha256sum --check
+      - name: Download and verify authoritative image archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t" \
+            --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+      - name: Build exact O test cache
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cache
+          python -m scripts.build_scratch_cache_v2 \
+            --archive /tmp/images.zip \
+            --manifest manifests/datasets/DATA-001.csv \
+            --membership manifests/splits/O.csv \
+            --regime O \
+            --role test \
+            --output-data /tmp/cache/test.npy \
+            --output-index /tmp/cache/test_index.csv \
+            --output-receipt /tmp/cache/test_receipt.json
+      - name: Evaluate fixed resolution variants
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/resolution
+          python -m scripts.evaluate_best_o_resolution_v2 \
+            --cache-data /tmp/cache/test.npy \
+            --cache-index /tmp/cache/test_index.csv \
+            --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json \
+            --checkpoint /tmp/o-evidence/BestO.pt \
+            --saved-predictions results/scratch/O/predictions.csv \
+            --output-dir /tmp/resolution
+          sha256sum /tmp/resolution/*
+      - name: Upload resolution evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11-resolution
+          path: /tmp/resolution
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish resolution evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/resolution
+          cp /tmp/resolution/* results/secondary/resolution/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/resolution
+          git commit -m "Phase 11: publish Best-O resolution sensitivity [skip ci]"
+          git push origin "HEAD:phase/v2-11-secondary"
