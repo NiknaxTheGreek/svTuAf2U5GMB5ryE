@@ -1,0 +1,48 @@
+{
+  "augmentation_config_sha256": "5168b13d3ce4f286df71a1f823cb78889098fa843602154c34683ede80dce18b",
+  "augmented_retrain_metrics": {
+    "accuracy": 0.7868589743589743,
+    "balanced_accuracy": 0.788093281282104,
+    "f1": 0.73767258382643,
+    "fn": 127,
+    "fp": 6,
+    "n": 624,
+    "pr_auc": 0.9528916292969488,
+    "precision": 0.9689119170984456,
+    "recall": 0.5955414012738853,
+    "roc_auc": 0.9424286007807684,
+    "tn": 304,
+    "tp": 187
+  },
+  "bootstrap_resamples": 5000,
+  "bootstrap_seed": 20261001,
+  "candidate_id": "C06",
+  "checkpoint_sha256": "62793a24e2357ce12c8664ee5bbcbec9746db5ae9131642cf2124c5296ca7c33",
+  "frame_bootstrap_delta_f1_ci95": [
+    -0.17858379558930754,
+    -0.10844374312205826
+  ],
+  "interpretation": "Post-hoc fixed augmentation ablation; cannot replace the frozen champion.",
+  "observed_delta_f1_augmented_minus_original": -0.14232741617357003,
+  "original_frozen_champion_metrics": {
+    "accuracy": 0.8894230769230769,
+    "balanced_accuracy": 0.889963016231765,
+    "f1": 0.88,
+    "fn": 61,
+    "fp": 8,
+    "n": 624,
+    "pr_auc": 0.9636901675523587,
+    "precision": 0.9693486590038314,
+    "recall": 0.8057324840764332,
+    "roc_auc": 0.951756728991165,
+    "tn": 302,
+    "tp": 253
+  },
+  "regime": "T",
+  "selection_bearing": false,
+  "status": "SECONDARY_AUGMENTED_CHAMPION_EVALUATED",
+  "video_group_bootstrap_delta_f1_ci95": [
+    -0.1978199770034155,
+    -0.09375183961636853
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "records": [
+    {
+      "candidate_id": "C14",
+      "checkpoint_sha256": "c238738e5c648a13a0fa05acdb84caba56b6d9dc5d0778266dad5fa589e2ccc4",
+      "final_train_loss": 0.045383969858369747,
+      "regime": "O"
+    },
+    {
+      "candidate_id": "C18",
+      "checkpoint_sha256": "46a36f66edcba571747975766121525467a5ce5c21dfe8482beb8dfa449a5c1d",
+      "final_train_loss": 0.2702586026933613,
+      "regime": "S"
+    },
+    {
+      "candidate_id": "C06",
+      "checkpoint_sha256": "62793a24e2357ce12c8664ee5bbcbec9746db5ae9131642cf2124c5296ca7c33",
+      "final_train_loss": 0.03123312308876352,
+      "regime": "T"
+    },
+    {
+      "candidate_id": "C07",
+      "checkpoint_sha256": "c6a75896de8b041e04ffd72a7335e564f2cb4b56600a4b5f7bf42b1a673c208c",
+      "final_train_loss": 0.03200354506866264,
+      "regime": "ST"
+    }
+  ],
+  "selection_bearing": false,
+  "status": "PASS_ALL_4_AUGMENTED_CHECKPOINTS_FROZEN"
+}
