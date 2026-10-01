@@ -1,0 +1,15 @@
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+WARNING: Logging before InitGoogle() is written to STDERR
+W0000 00:00:1790884577.941794    2792 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790884577.949675    2791 inference_feedback_manager.cc:121] Feedback manager requires a model with a single signature inference. Disabling support for feedback tensors.
+W0000 00:00:1790884577.990400    2794 landmark_projection_calculator.cc:81] Using NORM_RECT without IMAGE_DIMENSIONS is only supported for the square ROI. Provide IMAGE_DIMENSIONS or use PROJECTION_MATRIX.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/runner/work/svTuAf2U5GMB5ryE/svTuAf2U5GMB5ryE/scripts/render_v3_before_after_examples.py", line 97, in <module>
+    raise SystemExit(main())
+                     ~~~~^^
+  File "/home/runner/work/svTuAf2U5GMB5ryE/svTuAf2U5GMB5ryE/scripts/render_v3_before_after_examples.py", line 53, in main
+    src=manifest[sample_id]
+        ~~~~~~~~^^^^^^^^^^^
+KeyError: 'training/flip/0008_000000029'
