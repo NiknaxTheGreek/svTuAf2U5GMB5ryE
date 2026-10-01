@@ -15,13 +15,15 @@ from PIL import Image, ImageDraw
 
 from src.scratch_v2 import preprocess_to_uint8, read_csv, sha256_file
 from src.secondary_perturbations_v2 import (
-    HAND_MASK_CANDIDATES,
     grayscale_luma_mae,
+    mask_summary,
     overlay_mask,
     pil_l_grayscale,
     rec709_grayscale,
-    skin_hand_mask,
-    mask_summary,
+)
+from src.mediapipe_hand_mask_v2 import (
+    MEDIAPIPE_MASK_CANDIDATES,
+    MediaPipeHandMasker,
 )
 
 EXPECTED_ARCHIVE_SHA256 = "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f"
@@ -84,16 +86,16 @@ def build_sheet(rows: list[tuple[str, list[tuple[str, np.ndarray]]]], path: Path
     path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(path, optimize=True)
 
-    # Text-encoded JPEG review copy so connector-based review can render
-    # the sheet without relying on binary repository fetches.
     review = canvas.resize(
         (max(1, canvas.width * 3 // 4), max(1, canvas.height * 3 // 4)),
         Image.Resampling.LANCZOS,
     )
     buffer = io.BytesIO()
     review.save(buffer, format="JPEG", quality=45, optimize=True, subsampling=2)
-    encoded = base64.b64encode(buffer.getvalue()).decode("ascii")
-    path.with_suffix(".review.jpg.b64.txt").write_text(encoded + "\n", encoding="ascii")
+    path.with_suffix(".review.jpg.b64.txt").write_text(
+        base64.b64encode(buffer.getvalue()).decode("ascii") + "\n",
+        encoding="ascii",
+    )
 
 
 def main() -> int:
@@ -101,6 +103,7 @@ def main() -> int:
     p.add_argument("--archive", required=True, type=Path)
     p.add_argument("--manifest", required=True, type=Path)
     p.add_argument("--membership", required=True, type=Path)
+    p.add_argument("--hand-model", required=True, type=Path)
     p.add_argument("--output-dir", required=True, type=Path)
     args = p.parse_args()
 
@@ -108,6 +111,10 @@ def main() -> int:
         raise ValueError("Archive hash mismatch")
     if sha256_file(args.membership) != EXPECTED_ST_SPLIT_SHA256:
         raise ValueError("ST split hash mismatch")
+    if not args.hand_model.is_file():
+        raise ValueError("Hand landmarker model missing")
+
+    import mediapipe as mp
 
     manifest = read_csv(args.manifest)
     split = read_csv(args.membership)
@@ -121,7 +128,12 @@ def main() -> int:
     metrics: list[dict] = []
     sheets: list[tuple[str, list[tuple[str, np.ndarray]]]] = []
 
-    with ZipFile(args.archive) as z:
+    with MediaPipeHandMasker(
+        args.hand_model,
+        min_hand_detection_confidence=0.5,
+        min_hand_presence_confidence=0.5,
+        num_hands=2,
+    ) as masker, ZipFile(args.archive) as z:
         for row in dev:
             source = by_id[row["sample_id"]]
             with z.open(source["archive_member"]) as fh:
@@ -130,12 +142,14 @@ def main() -> int:
 
             gray709 = rec709_grayscale(original)
             graypil = pil_l_grayscale(original)
+            candidate_masks, detected_hands = masker.candidate_masks(original)
 
             entry = {
                 "sample_id": row["sample_id"],
                 "label": row["label"],
                 "environment_id": row["environment_id"],
                 "role_detail": row["role_detail"],
+                "detected_hands": detected_hands,
                 "gray_rec709_luma_mae": grayscale_luma_mae(original, gray709),
                 "gray_pil_l_luma_mae": grayscale_luma_mae(original, graypil),
                 "hand_candidates": {},
@@ -146,8 +160,8 @@ def main() -> int:
                 ("gray_rec709", gray709),
             ]
 
-            for cfg in HAND_MASK_CANDIDATES:
-                mask = skin_hand_mask(original, cfg)
+            for cfg in MEDIAPIPE_MASK_CANDIDATES:
+                mask = candidate_masks[cfg.name]
                 entry["hand_candidates"][cfg.name] = mask_summary(mask)
                 panels.append((cfg.name, overlay_mask(original, mask)))
 
@@ -161,7 +175,7 @@ def main() -> int:
         )
 
     aggregate: dict[str, dict] = {}
-    for cfg in HAND_MASK_CANDIDATES:
+    for cfg in MEDIAPIPE_MASK_CANDIDATES:
         vals = [
             m["hand_candidates"][cfg.name]["coverage_fraction"]
             for m in metrics
@@ -177,6 +191,7 @@ def main() -> int:
             "max_coverage": float(np.max(vals)),
         }
 
+    detected_counts = [int(m["detected_hands"]) for m in metrics]
     summary = {
         "status": "SECONDARY_PERTURBATION_DEV_ONLY",
         "primary_test_images_used": 0,
@@ -191,10 +206,18 @@ def main() -> int:
                 np.mean([m["gray_pil_l_luma_mae"] for m in metrics])
             ),
             "recommended_before_visual_review": "rec709_grayscale",
-            "reason": (
-                "removes chroma while preserving the prospectively defined "
-                "Rec.709 luma exactly up to uint8 rounding"
-            ),
+        },
+        "hand_detector": {
+            "library": "mediapipe",
+            "library_version": str(mp.__version__),
+            "model_sha256": sha256_file(args.hand_model),
+            "min_hand_detection_confidence": 0.5,
+            "min_hand_presence_confidence": 0.5,
+            "num_hands": 2,
+            "images_with_detection": int(sum(x > 0 for x in detected_counts)),
+            "images_without_detection": int(sum(x == 0 for x in detected_counts)),
+            "one_hand_images": int(sum(x == 1 for x in detected_counts)),
+            "two_hand_images": int(sum(x >= 2 for x in detected_counts)),
         },
         "hand_mask_candidates": aggregate,
         "hand_mask_status": "REQUIRES_VISUAL_REVIEW_BEFORE_FREEZE",
