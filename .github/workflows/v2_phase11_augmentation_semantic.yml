@@ -1,0 +1,65 @@
+name: MonReader V2 Phase 11 augmentation semantic gate
+
+on:
+  push:
+    branches: ["phase/v2-11-secondary"]
+    paths:
+      - ".github/workflows/v2_phase11_augmentation_semantic.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+
+jobs:
+  semantic-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Compile semantic gate
+        run: |
+          set -euo pipefail
+          python -m compileall -q src/secondary_augmentation_v2.py scripts/develop_augmentation_semantics_v2.py
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+      - name: Generate augmentation semantic review set
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/aug-semantic
+          python -m scripts.develop_augmentation_semantics_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --sample results/secondary/perturbation_dev/development_sample.csv             --config configs/SECONDARY_AUGMENTATION_V2.json             --output-dir /tmp/aug-semantic
+          sha256sum /tmp/aug-semantic/*
+      - name: Upload semantic gate evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11-augmentation-semantic
+          path: /tmp/aug-semantic
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish semantic gate evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/augmentation_semantic
+          cp /tmp/aug-semantic/summary.json results/secondary/augmentation_semantic/summary.json
+          cp /tmp/aug-semantic/params.json results/secondary/augmentation_semantic/params.json
+          cp /tmp/aug-semantic/*.review.jpg.b64.txt results/secondary/augmentation_semantic/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/augmentation_semantic
+          git commit -m "Phase 11: publish augmentation semantic gate [skip ci]"
+          git push origin "HEAD:phase/v2-11-secondary"
