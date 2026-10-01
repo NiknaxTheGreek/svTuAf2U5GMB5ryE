@@ -1,0 +1,35 @@
+{
+  "status": "prospectively_frozen_secondary_resolution",
+  "freeze_date": "2026-10-01",
+  "selection_bearing": false,
+  "model": {
+    "regime": "O",
+    "candidate_id": "C14",
+    "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49"
+  },
+  "variants": [
+    {
+      "name": "half_resolution",
+      "scale": 0.5,
+      "downsample_hw": [199, 112]
+    },
+    {
+      "name": "quarter_resolution",
+      "scale": 0.25,
+      "downsample_hw": [100, 56]
+    }
+  ],
+  "transform": {
+    "downsample_interpolation": "bilinear_antialias",
+    "upsample_interpolation": "bilinear",
+    "return_hw": [398, 224]
+  },
+  "threshold": 0.5,
+  "retraining": false,
+  "bootstrap": {
+    "frame_resamples": 5000,
+    "video_group_resamples": 5000,
+    "seed": 20261001
+  },
+  "interpretation": "post-hoc exploratory sensitivity to spatial detail; cannot change Best O"
+}
