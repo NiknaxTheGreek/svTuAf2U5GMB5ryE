@@ -1,3 +1,4 @@
+# corrected ST launch after preflight source-format fix
 name: MonReader V2 ST scratch selection benchmark
 
 on:
