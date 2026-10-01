@@ -1,0 +1,41 @@
+{
+  "checkpoint_sha256": "7ae8552b7838aaba263ebd22826de237f4e2ac5000d48c5457056edf7aa32580",
+  "config_sha256": "82af40ff6071949ee91d8934341b42bbdd7391738e0cde23d8ad9b9084338cc8",
+  "f1_difference_resnet_minus_scratch_champion": -0.005193299508160498,
+  "interpretation": "Fixed pretrained-family comparator on the identical regime test population; does not replace the frozen scratch champion.",
+  "metrics": {
+    "accuracy": 0.9932998324958124,
+    "balanced_accuracy": 0.9931989217117825,
+    "f1": 0.9930795847750865,
+    "fn": 3,
+    "fp": 1,
+    "n": 597,
+    "pr_auc": 0.9995630714842537,
+    "precision": 0.9965277777777778,
+    "recall": 0.9896551724137931,
+    "roc_auc": 0.999561945411659,
+    "tn": 306,
+    "tp": 287
+  },
+  "regime": "O",
+  "scratch_champion": {
+    "accuracy": 0.998324958123953,
+    "balanced_accuracy": 0.9982758620689656,
+    "candidate_id": "C14",
+    "f1": 0.998272884283247,
+    "fn": 1,
+    "fp": 0,
+    "n": 597,
+    "parameter_count": 1570081,
+    "pr_auc": 0.9997879700926238,
+    "precision": 1.0,
+    "rank": 1,
+    "recall": 0.996551724137931,
+    "roc_auc": 0.9997865887902954,
+    "tn": 307,
+    "tp": 289
+  },
+  "selection_bearing": false,
+  "status": "FIXED_RESNET18_COMPARATOR_EVALUATED",
+  "threshold": 0.5
+}

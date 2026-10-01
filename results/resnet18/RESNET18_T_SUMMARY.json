@@ -1,0 +1,41 @@
+{
+  "checkpoint_sha256": "3de5bcb4ec59388af17b10580f6c5d7df69fa5977566fdd3c4d1f5bc58ab63ef",
+  "config_sha256": "82af40ff6071949ee91d8934341b42bbdd7391738e0cde23d8ad9b9084338cc8",
+  "f1_difference_resnet_minus_scratch_champion": 0.00070175438596487,
+  "interpretation": "Fixed pretrained-family comparator on the identical regime test population; does not replace the frozen scratch champion.",
+  "metrics": {
+    "accuracy": 0.8910256410256411,
+    "balanced_accuracy": 0.8916170125333882,
+    "f1": 0.8807017543859649,
+    "fn": 63,
+    "fp": 5,
+    "n": 624,
+    "pr_auc": 0.989512778616326,
+    "precision": 0.98046875,
+    "recall": 0.7993630573248408,
+    "roc_auc": 0.9892027943291556,
+    "tn": 305,
+    "tp": 251
+  },
+  "regime": "T",
+  "scratch_champion": {
+    "accuracy": 0.8894230769230769,
+    "balanced_accuracy": 0.889963016231765,
+    "candidate_id": "C06",
+    "f1": 0.88,
+    "fn": 61,
+    "fp": 8,
+    "n": 624,
+    "parameter_count": 345826,
+    "pr_auc": 0.9636901675523587,
+    "precision": 0.9693486590038314,
+    "rank": 1,
+    "recall": 0.8057324840764332,
+    "roc_auc": 0.951756728991165,
+    "tn": 302,
+    "tp": 253
+  },
+  "selection_bearing": false,
+  "status": "FIXED_RESNET18_COMPARATOR_EVALUATED",
+  "threshold": 0.5
+}
