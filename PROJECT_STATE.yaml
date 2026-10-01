@@ -1,92 +1,51 @@
 project: Apziva Project 4 - MonReader
 reset_date: 2026-09-30
 primary_protocol: train_test_only_v2
-status: PHASE_6_T_SCRATCH_VERIFIED
-preservation:
-  historical_state_verified: true
-  historical_anchor_branch: historical/pre-v2-reset-2026-09-30
-  historical_authority: NON_AUTHORITATIVE
+status: PHASE_7_ST_PRIMARY_VERIFIED_CONTEXT_PENDING
 candidate_bank:
   path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
   candidates: 20
   sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
   frozen: true
-  formal_audit_status: PASS
-  audit: manifests/audits/CANDIDATE_BANK_AUDIT.json
 dataset:
   id: DATA-001
   verified: true
   archive_bytes: 939921132
   archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
-  manifest: manifests/datasets/DATA-001.csv
   manifest_rows: 2989
-  manifest_sha256: 3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b
 splits:
-  registry: manifests/splits/SPLIT_REGISTRY.yaml
   frozen: true
-  source_safe_holdout: ENV-03
-  temporal_cut: floor(0.80 * observed_video_image_count)
-  O: {train: 2392, test: 597, context: 0, excluded: 0, sha256: d48e182da1b170365b39693317e1edf6dd3395c02ccabdd6a771d7be5e226680}
-  S: {train: 2219, test: 770, context: 0, excluded: 0, sha256: a54cce72ad1f275096f06b98bbc9ec32393e9f112cc0536abd132571e1919619}
-  T: {train: 2365, test: 624, context: 0, excluded: 0, sha256: 0a1f39ebb01f14989aad37b87c39fbb874307f81bdc4770d15e8df7c7b9aa625}
-  ST: {train: 1756, test: 161, context: 1072, excluded: 0, sha256: ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259bcf2c0e177a85}
-baselines:
-  registry: manifests/baselines/BASELINE_REGISTRY.yaml
-  verified: true
-  identical_complete_executions: 3
+  O: {train: 2392, test: 597, context: 0}
+  S: {train: 2219, test: 770, context: 0}
+  T: {train: 2365, test: 624, context: 0}
+  ST: {train: 1756, test: 161, context: 1072, context_unseen_early: 609, context_known_future: 463}
 scratch:
-  protocol: protocol/SCRATCH_CNN_PROTOCOL_V2.md
-  O:
-    status: VERIFIED_SELECTION_BENCHMARK
-    registry: manifests/scratch/O_REGISTRY.yaml
-    champion: C14
-    f1: 0.998272884283247
-    precision: 1.0
-    recall: 0.996551724137931
-    accuracy: 0.998324958123953
-    balanced_accuracy: 0.9982758620689656
-    roc_auc: 0.9997865887902954
-    pr_auc: 0.9997879700926238
-    errors: 1
-    checkpoint_sha256: 57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49
-  S:
-    status: VERIFIED_SELECTION_BENCHMARK
-    registry: manifests/scratch/S_REGISTRY.yaml
-    champion: C18
-    f1: 0.8196248196248196
-    accuracy: 0.8376623376623377
-    cluster_bootstrap_f1_ci95: [0.67428146, 0.91223740]
-    checkpoint_sha256: 1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225
-  T:
-    status: VERIFIED_SELECTION_BENCHMARK
-    registry: manifests/scratch/T_REGISTRY.yaml
-    champion: C06
-    f1: 0.88
-    precision: 0.9693486590038314
-    recall: 0.8057324840764332
-    accuracy: 0.8894230769230769
-    balanced_accuracy: 0.889963016231765
-    roc_auc: 0.951756728991165
-    pr_auc: 0.9636901675523587
-    errors: 69
-    checkpoint_sha256: 2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b
-    videos: 117
-    cluster_bootstrap_f1_ci95: [0.836852207293666, 0.9176090468497577]
-  ST: {status: PENDING}
-baseline_test_evaluation_opened: true
-scratch_model_training_started: true
+  O: {status: VERIFIED_SELECTION_BENCHMARK, champion: C14, f1: 0.998272884283247}
+  S: {status: VERIFIED_SELECTION_BENCHMARK, champion: C18, f1: 0.8196248196248196}
+  T: {status: VERIFIED_SELECTION_BENCHMARK, champion: C06, f1: 0.88}
+  ST:
+    status: PRIMARY_VERIFIED_CONTEXT_PENDING
+    registry: manifests/scratch/ST_REGISTRY.yaml
+    champion: C07
+    f1: 0.704
+    precision: 0.8979591836734694
+    recall: 0.5789473684210527
+    accuracy: 0.7701863354037267
+    balanced_accuracy: 0.760061919504644
+    roc_auc: 0.908204334365325
+    pr_auc: 0.9150065168482494
+    errors: 37
+    checkpoint_sha256: 9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67
+    frame_bootstrap_f1_ci95: [0.6086782608695651, 0.7899159663865546]
+    video_cluster_bootstrap_f1_ci95: [0.46511627906976744, 0.8588273001508294]
 scratch_candidate_test_evaluation:
   O: true
   S: true
   T: true
-  ST: false
+  ST: true
 active_workflows_on_main: false
-next_gate: train_all_20_ST_candidates_on_frozen_ST_train_without_ST_test_then_verify_and_open_ST_test_once
+next_gate: evaluate_frozen_C07_descriptively_on_ST_context_only_populations_without_retraining_or_champion_change
 notes:
-  - O is source-joint and has pervasive near-frame correlation.
-  - S is source-disjoint on held-out ENV-03.
-  - T is temporally separated but intentionally source-joint.
-  - Best T is C06 at F1 0.88.
-  - C14 retrained under T ranks poorly at threshold 0.5 despite high ROC-AUC/PR-AUC, indicating substantial operating-threshold/calibration shift.
-  - O, S and T champions must not be modified based on their test results.
-  - Pre-reset results remain historical and non-authoritative.
+  - All four primary scratch champions are now frozen.
+  - ST context diagnostics are descriptive and non-selection-bearing.
+  - Phase 9 synthesis begins only after ST context diagnostics are recorded.
