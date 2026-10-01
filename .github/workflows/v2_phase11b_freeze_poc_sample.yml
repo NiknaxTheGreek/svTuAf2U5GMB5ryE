@@ -5,6 +5,7 @@ on:
     branches: ["phase/v2-11b-inpainting-chroma"]
     paths:
       - ".github/workflows/v2_phase11b_freeze_poc_sample.yml"
+      - "scripts/freeze_secondary_poc_sample_v2.py"
 
 permissions:
   contents: write
