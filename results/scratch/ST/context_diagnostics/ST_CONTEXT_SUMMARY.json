@@ -1,0 +1,53 @@
+{
+  "candidate_id": "C07",
+  "checkpoint_sha256": "9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67",
+  "context_known_future": {
+    "accuracy": 0.7105831533477321,
+    "balanced_accuracy": 0.7046498599439776,
+    "f1": 0.7649122807017544,
+    "fn": 20,
+    "fp": 114,
+    "n": 463,
+    "pr_auc": 0.942414834029082,
+    "precision": 0.6566265060240963,
+    "recall": 0.9159663865546218,
+    "roc_auc": 0.9092623716153128,
+    "tn": 111,
+    "tp": 218
+  },
+  "context_unseen_early": {
+    "accuracy": 0.7931034482758621,
+    "balanced_accuracy": 0.770155131785652,
+    "f1": 0.705607476635514,
+    "fn": 121,
+    "fp": 5,
+    "n": 609,
+    "pr_auc": 0.9228939975688354,
+    "precision": 0.967948717948718,
+    "recall": 0.5551470588235294,
+    "roc_auc": 0.92905611799616,
+    "tn": 332,
+    "tp": 151
+  },
+  "post_hoc_combined_ENV03_source_safe_view": {
+    "accuracy": 0.7883116883116883,
+    "balanced_accuracy": 0.768324072560876,
+    "composition": "609 earlier ENV-03 context rows + 161 saved ST primary later ENV-03 predictions",
+    "f1": 0.705244122965642,
+    "fn": 153,
+    "fp": 10,
+    "n": 770,
+    "note": "Post-hoc descriptive view only; it does not redefine S or ST.",
+    "pr_auc": 0.9210613485788577,
+    "precision": 0.9512195121951219,
+    "recall": 0.5603448275862069,
+    "roc_auc": 0.9251103121425068,
+    "rows": 770,
+    "tn": 412,
+    "tp": 195
+  },
+  "primary_champion_changed": false,
+  "retraining_performed": false,
+  "selection_bearing": false,
+  "status": "ST_CONTEXT_DIAGNOSTICS_COMPLETE"
+}
