@@ -1,0 +1,37 @@
+{
+  "method": "cluster_bootstrap_percentile",
+  "cluster_unit": "video_id",
+  "videos": 117,
+  "draws": 20000,
+  "seed": 20261001,
+  "selection_adjusted": false,
+  "note": "Intervals quantify sampling uncertainty across videos conditional on the observed selected candidates. They do not correct for selecting Best T from 20 candidates on the same T test.",
+  "C06": {
+    "f1_observed": 0.88,
+    "f1_ci95": [0.836852207293666, 0.9176090468497577],
+    "accuracy_observed": 0.8894230769230769,
+    "accuracy_ci95": [0.8487239481779973, 0.9256965944272446],
+    "balanced_accuracy_observed": 0.889963016231765,
+    "balanced_accuracy_ci95": [0.8531905826702484, 0.9233132097033743],
+    "precision_observed": 0.9693486590038314,
+    "precision_ci95": [0.9152542372881356, 1.0],
+    "recall_observed": 0.8057324840764332,
+    "recall_ci95": [0.7458735561056106, 0.862466152679723]
+  },
+  "C14_config_retrained_on_T": {
+    "f1_observed": 0.2981029810298103,
+    "f1_ci95": [0.18620637879258567, 0.40806302369814396],
+    "accuracy_observed": 0.5849358974358975,
+    "accuracy_ci95": [0.4953125, 0.672899410904903],
+    "balanced_accuracy_observed": 0.5875796178343949,
+    "balanced_accuracy_ci95": [0.5513306410998918, 0.6281655712431028],
+    "precision_observed": 1.0,
+    "precision_ci95": [1.0, 1.0],
+    "recall_observed": 0.1751592356687898,
+    "recall_ci95": [0.10266128219978345, 0.2563311424862056]
+  },
+  "paired_C06_minus_C14_config": {
+    "f1_difference_observed": 0.5818970189701897,
+    "f1_difference_ci95": [0.47993269527074656, 0.6874013121371151]
+  }
+}
