@@ -42,6 +42,14 @@ Its preserved artifacts remain live until 24 December 2026:
 
 This is useful historical evidence that a full-corpus cleaning workflow was operational. It is not the preferred V2 hand/arm counterfactual because it segments generic person pixels rather than explicitly separating arms and hands.
 
+## CPU compatibility note
+
+The original Torch/SCHP pilot was never historically successful on GitHub Actions: the `schp` package attempted to build an obsolete CUDA InPlaceABN extension on a CPU runner.
+
+The historical project itself then introduced a CPU compatibility path using the pinned SCHP ONNX export at revision `e97480b846bf0f23a9f9b7ab673dc1c86af89467` and file `onnx/schp-pascal-7-int8-static.onnx`. That path preserved the same arm labels [3,4], MediaPipe hand-mask logic, morphology, TELEA radius 5, half-resolution inpainting and feathered compositing. Its final historical pilot failed only because Torch/Torchvision were omitted even though `AutoImageProcessor` still required them.
+
+V2 therefore uses that historical ONNX compatibility path with Torch/Torchvision restored. This is an engineering/runtime repair, not a change to the hand/arm-removal hypothesis or downstream inpainting recipe.
+
 ## Stage 1 — exact resurrection on the existing 48-image context sample
 
 Use the same fixed 48 **ST context-only** development images already used for perturbation QA.
