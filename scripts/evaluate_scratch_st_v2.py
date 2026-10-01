@@ -81,9 +81,9 @@ def main() -> int:
     if receipt["split_sha256"] != EXPECTED_SPLIT_SHA256["ST"]:
         raise ValueError("ST test cache split hash mismatch")
     if sha256_file(args.cache_data) != receipt["cache_data_sha256"]:
-        raise ValueError("T test cache data hash mismatch")
+        raise ValueError("ST test cache data hash mismatch")
     if sha256_file(args.cache_index) != receipt["cache_index_sha256"]:
-        raise ValueError("T test cache index hash mismatch")
+        raise ValueError("ST test cache index hash mismatch")
 
     dataset = MemmapDataset(args.cache_data, args.cache_index)
     loader = DataLoader(dataset, batch_size=64, shuffle=False, num_workers=0, pin_memory=False)
@@ -164,7 +164,7 @@ def main() -> int:
     # Descriptive diagnostics of the already-selected frozen Best ST model.
     y_champ = np.asarray([1 if row["label"] == "flip" else 0 for row in index_rows], dtype=np.int64)
     p_champ = candidate_probabilities[champion_id]
-    best_o_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C14")
+    best_o_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C14")\n    best_s_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C18")\n    best_t_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C06")
 
     per_video_rows = []
     by_video = defaultdict(list)
@@ -248,7 +248,7 @@ def main() -> int:
         "best_st": champion,
         "best_st_candidate_id": champion_id,
         "best_o_candidate_id": "C14",
-        "best_o_candidate_on_st": best_o_candidate_on_st,
+        "best_o_candidate_on_st": best_o_candidate_on_st,\n        "best_s_candidate_id": "C18",\n        "best_s_candidate_on_st": best_s_candidate_on_st,\n        "best_t_candidate_id": "C06",\n        "best_t_candidate_on_st": best_t_candidate_on_st,
         "source_temporal_safe_test_images": 161,
         "test_videos": 29,
         "train_test_video_overlap_count": 0,
