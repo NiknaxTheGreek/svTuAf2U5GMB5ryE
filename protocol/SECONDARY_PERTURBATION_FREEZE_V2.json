@@ -1,6 +1,6 @@
 {
   "schema_version": "v2-secondary-perturbation-freeze",
-  "status": "FROZEN_BEFORE_PRIMARY_TEST_ABLATION",
+  "status": "SUPERSEDED_BEFORE_PRIMARY_TEST_ABLATION",
   "development_population": {
     "source": "ST context-only",
     "images": 48,
@@ -53,5 +53,10 @@
     "hand_mask_code_blob_sha": "7fb22643f9f7613da4aee9b173020e7511e2bcd4",
     "perturbation_code_blob_sha": "96c2937b965829c73803ad530dbada5fbbdcbd35",
     "development_harness_blob_sha": "85913497060712548a669f8e11a371894529f72c"
+  },
+  "supersession": {
+    "reason": "User rejected algorithm quality before any primary-test perturbation evaluation. Development continues.",
+    "primary_test_images_used_before_supersession": 0,
+    "do_not_use_for_primary_ablation": true
   }
 }
