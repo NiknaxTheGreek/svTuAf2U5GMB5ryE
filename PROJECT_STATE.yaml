@@ -1,7 +1,7 @@
 project: Apziva Project 4 - MonReader
 reset_date: 2026-09-30
 primary_protocol: train_test_only_v2
-status: PHASE_7_ST_PRIMARY_VERIFIED_CONTEXT_PENDING
+status: PHASE_7_ST_COMPLETE
 candidate_bank:
   path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
   candidates: 20
@@ -24,7 +24,7 @@ scratch:
   S: {status: VERIFIED_SELECTION_BENCHMARK, champion: C18, f1: 0.8196248196248196}
   T: {status: VERIFIED_SELECTION_BENCHMARK, champion: C06, f1: 0.88}
   ST:
-    status: PRIMARY_VERIFIED_CONTEXT_PENDING
+    status: VERIFIED_SELECTION_BENCHMARK
     registry: manifests/scratch/ST_REGISTRY.yaml
     champion: C07
     f1: 0.704
@@ -38,14 +38,16 @@ scratch:
     checkpoint_sha256: 9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67
     frame_bootstrap_f1_ci95: [0.6086782608695651, 0.7899159663865546]
     video_cluster_bootstrap_f1_ci95: [0.46511627906976744, 0.8588273001508294]
-scratch_candidate_test_evaluation:
-  O: true
-  S: true
-  T: true
-  ST: true
+    context_diagnostics:
+      complete: true
+      selection_bearing: false
+      unseen_early_f1: 0.705607476635514
+      known_future_f1: 0.7649122807017544
+      combined_ENV03_posthoc_f1: 0.705244122965642
+scratch_candidate_test_evaluation: {O: true, S: true, T: true, ST: true}
 active_workflows_on_main: false
-next_gate: evaluate_frozen_C07_descriptively_on_ST_context_only_populations_without_retraining_or_champion_change
+next_gate: phase_9_cross_regime_synthesis_and_selection_conditioned_uncertainty
 notes:
-  - All four primary scratch champions are now frozen.
-  - ST context diagnostics are descriptive and non-selection-bearing.
-  - Phase 9 synthesis begins only after ST context diagnostics are recorded.
+  - All four primary scratch champions are frozen and cannot be changed by later diagnostics.
+  - ST context diagnostics are complete and non-selection-bearing.
+  - Phase 9 must produce the champion envelope and fixed-C14 robustness view with 5000 frame and group bootstrap resamples.
