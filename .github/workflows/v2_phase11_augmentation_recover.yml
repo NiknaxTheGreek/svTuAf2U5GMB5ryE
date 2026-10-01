@@ -1,0 +1,57 @@
+name: MonReader V2 recover augmentation evidence
+
+on:
+  push:
+    branches: ["phase/v2-11-secondary"]
+    paths:
+      - ".github/workflows/v2_phase11_augmentation_recover.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download exact four augmented evaluations
+        uses: actions/download-artifact@v4
+        with:
+          pattern: v2-augmented-eval-*
+          path: /tmp/evals
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36914403253
+      - name: Download exact augmented checkpoint registry
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-augmented-registry
+          path: /tmp/registry
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36914403253
+      - name: Verify exact recovered files and publish
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/augmentation
+          cp /tmp/evals/* results/secondary/augmentation/
+          cp /tmp/registry/augmented_registry.json results/secondary/augmentation/checkpoint_registry.json
+          printf '%s  %s\n' '80320c3ae2b7141355721c3fe51842b363d39770a3e26a199a1f0f6cd6927d8e' results/secondary/augmentation/O_predictions.csv | sha256sum --check
+          printf '%s  %s\n' 'b8aa47eb82afdbe310179669bf7d6bfd006b58092d2b5b0e1bf211fa17dda67f' results/secondary/augmentation/O_summary.json | sha256sum --check
+          printf '%s  %s\n' 'a803a71759eeca963dd11be4a24f69d8b307e6373620945c0b774661747c7720' results/secondary/augmentation/S_predictions.csv | sha256sum --check
+          printf '%s  %s\n' '3b4c56f041c30a58e58fac6c9505fe52f42e3ca01a9263cfe2043f9c1f873f22' results/secondary/augmentation/S_summary.json | sha256sum --check
+          printf '%s  %s\n' '4ac84d884b455fc247d559e9fe0ebc9e4fade8769b74c756cdf7f80e97b2f614' results/secondary/augmentation/T_predictions.csv | sha256sum --check
+          printf '%s  %s\n' '5d76943580f6a2140722e1b26b6de49b9a2a801b374a1a6baa49dce5b0dc2571' results/secondary/augmentation/T_summary.json | sha256sum --check
+          printf '%s  %s\n' 'e213c4384e1a6c75117889bdf0808e9277953183457214b7ff2cfa43a6d69e2c' results/secondary/augmentation/ST_predictions.csv | sha256sum --check
+          printf '%s  %s\n' '1c672e287fb878f436b76a9fa70d0944beb41f4dc0b286ecef7f038cc4720109' results/secondary/augmentation/ST_summary.json | sha256sum --check
+          printf '%s  %s\n' '2dec9c94e2a832d776e292cd23d89e5d39001c586f28b5f2286748539f701f1b' results/secondary/augmentation/checkpoint_registry.json | sha256sum --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/augmentation
+          git commit -m "Phase 11: recover fixed augmentation ablation [skip ci]"
+          git fetch origin phase/v2-11-secondary
+          git rebase origin/phase/v2-11-secondary
+          git push origin HEAD:phase/v2-11-secondary
