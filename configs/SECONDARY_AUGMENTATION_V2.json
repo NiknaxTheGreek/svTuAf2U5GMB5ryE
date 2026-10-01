@@ -1,0 +1,62 @@
+{
+  "application": "training images only; independent random parameters per image each epoch; no augmentation at test",
+  "augmentation": {
+    "affine": {
+      "fill": 0,
+      "interpolation": "bilinear",
+      "probability": 0.75,
+      "rotation_degrees_uniform": [
+        -3.0,
+        3.0
+      ],
+      "scale_uniform": [
+        0.98,
+        1.02
+      ],
+      "translation_fraction_x_uniform": [
+        -0.03,
+        0.03
+      ],
+      "translation_fraction_y_uniform": [
+        -0.03,
+        0.03
+      ]
+    },
+    "horizontal_flip": false,
+    "photometric": {
+      "brightness_factor_uniform": [
+        0.9,
+        1.1
+      ],
+      "contrast_factor_uniform": [
+        0.9,
+        1.1
+      ],
+      "probability": 0.75
+    },
+    "vertical_flip": false
+  },
+  "bootstrap": {
+    "frame_resamples": 5000,
+    "seed": 20261001,
+    "video_group_resamples": 5000
+  },
+  "champion_configs": {
+    "O": "C14",
+    "S": "C18",
+    "ST": "C07",
+    "T": "C06"
+  },
+  "comparison": "augmented retrain of each frozen champion configuration versus its original non-augmented frozen champion on identical regime test",
+  "freeze_date": "2026-10-01",
+  "interpretation": "post-hoc exploratory; cannot change Best O/S/T/ST",
+  "selection_bearing": false,
+  "status": "prospectively_frozen_secondary_augmentation",
+  "training": {
+    "early_stopping": false,
+    "epochs": 20,
+    "seed": 42,
+    "threshold": 0.5,
+    "validation": false
+  }
+}
