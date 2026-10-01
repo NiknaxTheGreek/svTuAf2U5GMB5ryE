@@ -1,0 +1,236 @@
+name: MonReader V2 Phase 11 fixed augmentation ablation
+
+on:
+  push:
+    branches: ["phase/v2-11-secondary"]
+    paths:
+      - ".github/workflows/v2_phase11_augmentation_ablation.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+  OMP_NUM_THREADS: "4"
+  MKL_NUM_THREADS: "4"
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  train-augmented:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        regime: [O, S, T, ST]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned CPU runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Compile fixed augmented trainer
+        run: |
+          set -euo pipefail
+          python -m compileall -q src/secondary_augmentation_v2.py scripts/train_augmented_champion_v2.py scripts/verify_augmented_champions_v2.py scripts/evaluate_augmented_champion_v2.py
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t" \
+            --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+      - name: Build exact frozen regime train cache
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cache
+          python -m scripts.build_scratch_cache_v2 \
+            --archive /tmp/images.zip \
+            --manifest manifests/datasets/DATA-001.csv \
+            --membership "manifests/splits/${{ matrix.regime }}.csv" \
+            --regime "${{ matrix.regime }}" \
+            --role train \
+            --output-data /tmp/cache/train.npy \
+            --output-index /tmp/cache/train_index.csv \
+            --output-receipt /tmp/cache/train_receipt.json
+      - name: Retrain frozen champion configuration with fixed mild augmentation
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/checkpoint
+          python -m scripts.train_augmented_champion_v2 \
+            --cache-data /tmp/cache/train.npy \
+            --cache-index /tmp/cache/train_index.csv \
+            --cache-receipt /tmp/cache/train_receipt.json \
+            --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json \
+            --augmentation-config configs/SECONDARY_AUGMENTATION_V2.json \
+            --regime "${{ matrix.regime }}" \
+            --output-dir /tmp/checkpoint
+      - name: Upload augmented checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-augmented-${{ matrix.regime }}
+          path: /tmp/checkpoint
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+
+  verify-all-4-augmented:
+    needs: train-augmented
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned verification runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download all four augmented checkpoints
+        uses: actions/download-artifact@v4
+        with:
+          pattern: v2-augmented-*
+          path: /tmp/checkpoints
+          merge-multiple: true
+      - name: Verify augmented checkpoint gate
+        run: |
+          set -euo pipefail
+          python -m scripts.verify_augmented_champions_v2 \
+            --root /tmp/checkpoints \
+            --output /tmp/augmented_registry.json
+      - name: Upload augmented registry
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-augmented-registry
+          path: /tmp/augmented_registry.json
+          if-no-files-found: error
+          retention-days: 90
+
+  evaluate-augmented:
+    needs: verify-all-4-augmented
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - regime: O
+            candidate: C14
+          - regime: S
+            candidate: C18
+          - regime: T
+            candidate: C06
+          - regime: ST
+            candidate: C07
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned evaluation runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download augmented checkpoint
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-augmented-${{ matrix.regime }}
+          path: /tmp/checkpoint
+      - name: Download augmented checkpoint registry
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-augmented-registry
+          path: /tmp/registry
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t" \
+            --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+      - name: Build exact unaugmented regime test cache
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/test-cache
+          python -m scripts.build_scratch_cache_v2 \
+            --archive /tmp/images.zip \
+            --manifest manifests/datasets/DATA-001.csv \
+            --membership "manifests/splits/${{ matrix.regime }}.csv" \
+            --regime "${{ matrix.regime }}" \
+            --role test \
+            --output-data /tmp/test-cache/test.npy \
+            --output-index /tmp/test-cache/test_index.csv \
+            --output-receipt /tmp/test-cache/test_receipt.json
+      - name: Evaluate augmented retrain against frozen champion
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/eval
+          python -m scripts.evaluate_augmented_champion_v2 \
+            --cache-data /tmp/test-cache/test.npy \
+            --cache-index /tmp/test-cache/test_index.csv \
+            --cache-receipt /tmp/test-cache/test_receipt.json \
+            --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json \
+            --checkpoint "/tmp/checkpoint/${{ matrix.regime }}_${{ matrix.candidate }}_aug.pt" \
+            --metadata "/tmp/checkpoint/${{ matrix.regime }}_${{ matrix.candidate }}_aug.json" \
+            --registry /tmp/registry/augmented_registry.json \
+            --regime "${{ matrix.regime }}" \
+            --saved-original-predictions "results/scratch/${{ matrix.regime }}/predictions.csv" \
+            --output-dir /tmp/eval
+          sha256sum /tmp/eval/*
+      - name: Upload augmented evaluation
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-augmented-eval-${{ matrix.regime }}
+          path: /tmp/eval
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+
+  publish:
+    needs: evaluate-augmented
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download all augmented evaluations
+        uses: actions/download-artifact@v4
+        with:
+          pattern: v2-augmented-eval-*
+          path: /tmp/evals
+          merge-multiple: true
+      - name: Download augmented registry
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-augmented-registry
+          path: /tmp/registry
+      - name: Publish secondary augmentation evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/augmentation
+          cp /tmp/evals/* results/secondary/augmentation/
+          cp /tmp/registry/augmented_registry.json results/secondary/augmentation/checkpoint_registry.json
+          sha256sum results/secondary/augmentation/*
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/augmentation
+          git commit -m "Phase 11: publish fixed augmentation ablation [skip ci]"
+          git push origin "HEAD:phase/v2-11-secondary"
+      - name: Upload combined augmentation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11-augmentation-evidence
+          path: results/secondary/augmentation
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
