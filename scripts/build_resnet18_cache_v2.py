@@ -7,6 +7,7 @@ from pathlib import Path
 from zipfile import ZipFile
 
 import numpy as np
+import torch
 from PIL import Image
 from torchvision.transforms import InterpolationMode
 from torchvision.transforms import functional as TF
@@ -70,8 +71,8 @@ def main() -> int:
                     )
                     image = TF.center_crop(image, [224, 224])
                     tensor = TF.pil_to_tensor(image)
-            if tuple(tensor.shape) != (3,224,224) or tensor.dtype.name if False else False:
-                pass
+            if tuple(tensor.shape) != (3, 224, 224) or tensor.dtype != torch.uint8:
+                raise RuntimeError(f"Unexpected ResNet18 cached tensor for {member['sample_id']}")
             cache[i] = tensor.numpy()
             index_rows.append({
                 "cache_index": i,
