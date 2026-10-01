@@ -27,13 +27,6 @@ class HandMaskConfig:
 
 HAND_MASK_CANDIDATES: tuple[HandMaskConfig, ...] = (
     HandMaskConfig(
-        name="v1_wide_rgb_boundary",
-        cb_min=65, cb_max=135, cr_min=125, cr_max=180, y_min=30,
-        rgb_gate="broad", boundary_mode="any",
-        min_component_pixels=80, max_component_fraction=0.55,
-        dilate_kernel=7, min_y_fraction=0.0,
-    ),
-    HandMaskConfig(
         name="strict_lower_side",
         cb_min=70, cb_max=130, cr_min=136, cr_max=178, y_min=30,
         rgb_gate="strict", boundary_mode="lower_sides",
@@ -41,18 +34,25 @@ HAND_MASK_CANDIDATES: tuple[HandMaskConfig, ...] = (
         dilate_kernel=5, min_y_fraction=0.15,
     ),
     HandMaskConfig(
-        name="strict_lower_side_tight",
-        cb_min=74, cb_max=126, cr_min=140, cr_max=175, y_min=35,
-        rgb_gate="strict", boundary_mode="lower_sides",
-        min_component_pixels=45, max_component_fraction=0.26,
-        dilate_kernel=5, min_y_fraction=0.15,
+        name="strict_spatial",
+        cb_min=70, cb_max=130, cr_min=136, cr_max=178, y_min=30,
+        rgb_gate="strict", boundary_mode="none",
+        min_component_pixels=45, max_component_fraction=0.30,
+        dilate_kernel=5, min_y_fraction=0.12,
     ),
     HandMaskConfig(
-        name="strict_lower_side_expand",
+        name="strict_spatial_tight",
+        cb_min=74, cb_max=126, cr_min=140, cr_max=175, y_min=35,
+        rgb_gate="strict", boundary_mode="none",
+        min_component_pixels=45, max_component_fraction=0.26,
+        dilate_kernel=5, min_y_fraction=0.12,
+    ),
+    HandMaskConfig(
+        name="strict_spatial_expand",
         cb_min=70, cb_max=130, cr_min=136, cr_max=178, y_min=30,
-        rgb_gate="strict", boundary_mode="lower_sides",
+        rgb_gate="strict", boundary_mode="none",
         min_component_pixels=45, max_component_fraction=0.30,
-        dilate_kernel=9, min_y_fraction=0.12,
+        dilate_kernel=9, min_y_fraction=0.10,
     ),
 )
 
