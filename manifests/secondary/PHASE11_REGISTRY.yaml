@@ -41,14 +41,36 @@ augmentation_semantic_gate:
   visual_review: "PASS: transformations remain mild and preserve flip/notflip semantics in the fixed ST-context development sample."
 
 augmentation_ablation:
-  status: RUNNING
+  status: VERIFIED_COMPLETE
   workflow_run_id: 36914403253
+  recovery_publish_run_id: 36939540582
   champion_configs: {O: C14, S: C18, T: C06, ST: C07}
   no_candidate_search: true
   epochs: 20
   validation: false
   early_stopping: false
   threshold: 0.5
+  O:
+    original_f1: 0.998272884283247
+    augmented_f1: 0.961730449251248
+    delta_f1: -0.036542435031999054
+    video_group_delta_ci95: [-0.06324853332207825, -0.016833591245356008]
+  S:
+    original_f1: 0.8196248196248196
+    augmented_f1: 0.5811623246492986
+    delta_f1: -0.23846249497552097
+    video_group_delta_ci95: [-0.3838726139000211, -0.09832336704003068]
+  T:
+    original_f1: 0.88
+    augmented_f1: 0.73767258382643
+    delta_f1: -0.14232741617357003
+    video_group_delta_ci95: [-0.1978199770034155, -0.09375183961636853]
+  ST:
+    original_f1: 0.704
+    augmented_f1: 0.7575757575757576
+    delta_f1: 0.05357575757575761
+    video_group_delta_ci95: [0.007081873073681683, 0.12275087716756368]
+  conclusion: "The same fixed mild augmentation significantly degraded O, S and T but significantly improved ST under paired video/group bootstrap; this heterogeneous post-hoc effect cannot alter the frozen champions."
 
 resolution_sensitivity:
   status: VERIFIED_COMPLETE
