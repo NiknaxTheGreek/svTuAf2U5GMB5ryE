@@ -24,10 +24,11 @@ jobs:
         with:
           python-version: "3.13.5"
 
-      - name: Install minimal deterministic image runtime
+      - name: Install pinned preprocessing runtime
         run: |
           set -euo pipefail
           python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
 
       - name: Compile development code
         run: |
@@ -44,6 +45,7 @@ jobs:
         run: |
           set -uo pipefail
           rm -rf results/secondary/perturbation_dev
+          rm -f results/secondary/perturbation_dev_failure.log
           set +e
           python -m scripts.develop_secondary_perturbations_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --output-dir results/secondary/perturbation_dev             2>&1 | tee /tmp/perturbation_dev.log
           status=${PIPESTATUS[0]}
@@ -58,7 +60,7 @@ jobs:
           cp /tmp/perturbation_dev.log results/secondary/perturbation_dev_failure.log
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/secondary/perturbation_dev_failure.log
+          git add -A results/secondary
           git commit -m "Secondary: preserve perturbation dev failure traceback [skip ci]"
           git push origin "HEAD:experiment/v2-secondary-perturbation-dev"
 
@@ -88,6 +90,6 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add results/secondary/perturbation_dev
+          git add -A results/secondary
           git commit -m "Secondary: publish perturbation development diagnostics [skip ci]"
           git push origin "HEAD:experiment/v2-secondary-perturbation-dev"
