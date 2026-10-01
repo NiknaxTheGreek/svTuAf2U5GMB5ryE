@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import csv
 import hashlib
+import io
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -81,6 +83,17 @@ def build_sheet(rows: list[tuple[str, list[tuple[str, np.ndarray]]]], path: Path
 
     path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(path, optimize=True)
+
+    # Text-encoded JPEG review copy so connector-based review can render
+    # the sheet without relying on binary repository fetches.
+    review = canvas.resize(
+        (max(1, canvas.width * 3 // 4), max(1, canvas.height * 3 // 4)),
+        Image.Resampling.LANCZOS,
+    )
+    buffer = io.BytesIO()
+    review.save(buffer, format="JPEG", quality=45, optimize=True, subsampling=2)
+    encoded = base64.b64encode(buffer.getvalue()).decode("ascii")
+    path.with_suffix(".review.jpg.b64.txt").write_text(encoded + "\n", encoding="ascii")
 
 
 def main() -> int:
