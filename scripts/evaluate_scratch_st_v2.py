@@ -260,8 +260,7 @@ def main() -> int:
         "train_test_video_overlap_count": 0,
         "interpretation": "Selection-benchmark estimate on the source+temporal-safe ST test; ENV-03 is absent from training and only later ENV-03 frames form the primary test; ST test selected among 20 frozen candidates.",
     }
-    (args.output_dir / "ST_SUMMARY.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "
-", encoding="utf-8")
+    (args.output_dir / "ST_SUMMARY.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0
 
