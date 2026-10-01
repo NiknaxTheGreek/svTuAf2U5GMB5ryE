@@ -1,0 +1,75 @@
+{
+  "comparison": "ResNet18 minus frozen scratch champion",
+  "regimes": {
+    "O": {
+      "frame_bootstrap_ci95": [
+        -0.013201865641109613,
+        0.0017674043392541326
+      ],
+      "group_ci_excludes_zero": false,
+      "n": 597,
+      "observed_f1_difference": -0.005193299508160498,
+      "resnet18_f1": 0.9930795847750865,
+      "scratch_champion": "C14",
+      "scratch_f1": 0.998272884283247,
+      "video_group_bootstrap_ci95": [
+        -0.013861386138613874,
+        0.001890697069980055
+      ],
+      "video_groups": 115
+    },
+    "S": {
+      "frame_bootstrap_ci95": [
+        -0.07373247918749262,
+        -0.004116041222749972
+      ],
+      "group_ci_excludes_zero": false,
+      "n": 770,
+      "observed_f1_difference": -0.038972401177125526,
+      "resnet18_f1": 0.7806524184476941,
+      "scratch_champion": "C18",
+      "scratch_f1": 0.8196248196248196,
+      "video_group_bootstrap_ci95": [
+        -0.16906568019541443,
+        0.0762975168082474
+      ],
+      "video_groups": 29
+    },
+    "ST": {
+      "frame_bootstrap_ci95": [
+        -0.09314844050254502,
+        0.12658437856535537
+      ],
+      "group_ci_excludes_zero": false,
+      "n": 161,
+      "observed_f1_difference": 0.015576719576719578,
+      "resnet18_f1": 0.7195767195767195,
+      "scratch_champion": "C07",
+      "scratch_f1": 0.704,
+      "video_group_bootstrap_ci95": [
+        -0.2124983691288639,
+        0.25909415584415574
+      ],
+      "video_groups": 29
+    },
+    "T": {
+      "frame_bootstrap_ci95": [
+        -0.02144500134454634,
+        0.023280398098310347
+      ],
+      "group_ci_excludes_zero": false,
+      "n": 624,
+      "observed_f1_difference": 0.00070175438596487,
+      "resnet18_f1": 0.8807017543859649,
+      "scratch_champion": "C06",
+      "scratch_f1": 0.88,
+      "video_group_bootstrap_ci95": [
+        -0.03187709164709092,
+        0.029793487545391347
+      ],
+      "video_groups": 117
+    }
+  },
+  "resamples": 5000,
+  "seed": 20261001
+}
