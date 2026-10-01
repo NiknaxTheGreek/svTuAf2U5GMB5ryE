@@ -1,0 +1,51 @@
+name: MonReader V2 Phase 9 synthesis
+
+on:
+  push:
+    branches: ["phase/v2-09-synthesis"]
+    paths:
+      - ".github/workflows/v2_phase9_synthesis.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  synthesize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned synthesis runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 scikit-learn==1.9.1 matplotlib==3.10.6
+      - name: Compile synthesis implementation
+        run: python -m compileall -q scripts/synthesize_cross_regime_v2.py
+      - name: Recompute cross-regime synthesis from frozen saved predictions
+        run: |
+          set -euo pipefail
+          python -m scripts.synthesize_cross_regime_v2
+          sha256sum results/synthesis/* reports/synthesis/*
+      - name: Upload synthesis evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase9-synthesis
+          path: |
+            results/synthesis
+            reports/synthesis
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish synthesis results
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/synthesis reports/synthesis
+          git commit -m "Phase 9: publish cross-regime synthesis [skip ci]"
+          git push origin "HEAD:phase/v2-09-synthesis"
+      - name: Remove completed Phase-7 branch
+        run: git push origin --delete phase/v2-07-scratch-st || true
