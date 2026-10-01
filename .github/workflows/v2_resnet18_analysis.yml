@@ -1,0 +1,45 @@
+name: MonReader V2 ResNet18 comparator analysis
+
+on:
+  push:
+    branches: ["phase/v2-10-resnet18"]
+    paths:
+      - ".github/workflows/v2_resnet18_analysis.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned analysis runtime
+        run: python -m pip install numpy==2.3.5 scikit-learn==1.9.1
+      - name: Compile and run paired bootstrap
+        run: |
+          set -euo pipefail
+          python -m compileall -q scripts/analyze_resnet18_comparator_v2.py
+          python -m scripts.analyze_resnet18_comparator_v2
+          sha256sum results/resnet18/paired_bootstrap.json reports/resnet18/RESNET18_COMPARATOR_REPORT.md
+      - name: Upload comparator analysis evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-resnet18-paired-analysis
+          path: |
+            results/resnet18/paired_bootstrap.json
+            reports/resnet18/RESNET18_COMPARATOR_REPORT.md
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish comparator analysis
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/resnet18/paired_bootstrap.json reports/resnet18/RESNET18_COMPARATOR_REPORT.md
+          git commit -m "Phase 10: publish paired ResNet18 analysis [skip ci]"
+          git push origin "HEAD:phase/v2-10-resnet18"
