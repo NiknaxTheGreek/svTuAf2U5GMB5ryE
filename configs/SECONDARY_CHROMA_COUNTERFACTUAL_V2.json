@@ -1,0 +1,55 @@
+{
+  "status": "prospectively_frozen_secondary_chroma_counterfactual",
+  "freeze_date": "2026-10-01",
+  "selection_bearing": false,
+  "primary_model": "Best-O C14",
+  "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49",
+  "variants": [
+    {
+      "id": "original_rgb",
+      "role": "reference"
+    },
+    {
+      "id": "rec709_grayscale",
+      "role": "chroma-removal_ablation",
+      "status": "already_evaluated"
+    },
+    {
+      "id": "matched_chroma_rotation",
+      "role": "matched_colour_distribution_control",
+      "definition": "preserve Y exactly in YCbCr; rotate each centered (Cb-128, Cr-128) vector by +90 degrees; preserve chroma magnitude before gamut clipping; return RGB"
+    },
+    {
+      "id": "naturalistic_palette_counterfactual",
+      "role": "naturalistic_colour_counterfactual",
+      "definition": "preserve target luminance; transfer only chroma mean/covariance from a deterministic context-only donor palette using a frozen colour-transfer transform; geometry and luminance remain target-derived"
+    }
+  ],
+  "development_population": {
+    "source": "same fixed 100-image ST-context PoC sample",
+    "primary_test_images_allowed": 0,
+    "quality_selection_uses_classifier_predictions": false
+  },
+  "naturalistic_palette_donors": {
+    "source": "ST context-only images",
+    "selection": "deterministic stable-hash donor per target from a different environment where possible and the same label",
+    "reason": "create a plausible alternate colour palette without changing target geometry/luminance"
+  },
+  "quality_gate": {
+    "matched_rotation": "verify luminance preservation and intended chroma-magnitude preservation before clipping",
+    "naturalistic_counterfactual": "visual plausibility + target luminance/geometry preservation on all PoC images",
+    "classifier_predictions_used_for_transform_choice": false
+  },
+  "evaluation_if_pass": {
+    "variants": ["original_rgb", "rec709_grayscale", "matched_chroma_rotation", "naturalistic_palette_counterfactual"],
+    "threshold": 0.5,
+    "frame_bootstrap_resamples": 5000,
+    "video_group_bootstrap_resamples": 5000,
+    "bootstrap_seed": 20261001
+  },
+  "interpretation": {
+    "grayscale_only_drop": "consistent with grayscale/distribution-shift sensitivity",
+    "grayscale_and_matched_control_drop": "consistent with broad colour-distribution sensitivity",
+    "naturalistic_counterfactual_drop": "stronger evidence that chromatic cues materially influence the frozen model"
+  }
+}
