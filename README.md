@@ -2,58 +2,46 @@
 
 MonReader is a binary computer-vision project for classifying a single frame as `flip` or `notflip`. The V2 rebuild separates conventional benchmark performance from source and temporal generalization.
 
-## Current verified state
+## Verified scratch-CNN evidence
 
-**Primary scratch-CNN execution is complete for O, S, T and ST. Phase 9 cross-regime synthesis is next.**
-
-| Regime | Champion | F1 | Accuracy | Balanced acc. | Interpretation |
+| Regime | Champion | F1 | Frame 95% CI | Video/group 95% CI | Interpretation |
 |---|---:|---:|---:|---:|---|
-| O | C14 | **0.9983** | 0.9983 | 0.9983 | supplied source-joint benchmark |
-| S | C18 | **0.8196** | 0.8377 | 0.8358 | held-out ENV-03 |
-| T | C06 | **0.8800** | 0.8894 | 0.8900 | later frames of the same videos |
-| ST | C07 | **0.7040** | 0.7702 | 0.7601 | held-out ENV-03 + later frames |
+| O | C14 | **0.9983** | 0.995–1.000 | 0.994–1.000 | supplied source-joint benchmark |
+| S | C18 | **0.8196** | 0.788–0.850 | 0.674–0.915 | held-out ENV-03 |
+| T | C06 | **0.8800** | 0.852–0.907 | 0.837–0.917 | later frames of known videos |
+| ST | C07 | **0.7040** | 0.606–0.790 | 0.466–0.857 | held-out ENV-03 + later frames |
 
-These are selection-benchmark estimates: each regime selected among the same frozen C01–C20 bank only after all 20 checkpoints were frozen.
+All intervals use 5,000 resamples with fixed seed 20261001 and are selection-conditioned.
 
-## ST post-selection context diagnostics
+## Fixed O-winning configuration
 
-Frozen C07 was evaluated without retraining on the 1,072 context-only ST rows:
+C14, retrained independently inside each regime with the same architecture/hyperparameters:
 
-- unseen-source earlier ENV-03 (609): F1 **0.7056**, precision 0.9679, recall 0.5551;
-- known-source future ENV-01/02/04 (463): F1 **0.7649**, precision 0.6566, recall 0.9160;
-- post-hoc combined ENV-03 view (770): F1 **0.7052**.
+| Regime | F1 |
+|---|---:|
+| O | 0.9983 |
+| S | 0.6936 |
+| T | 0.2981 |
+| ST | 0.4646 |
 
-These context results are descriptive and cannot alter Best ST.
+The T result retains high ROC-AUC/PR-AUC despite low fixed-threshold F1, consistent with substantial operating-threshold/calibration shift.
 
-## Interpretation guardrails
+## ST context diagnostics
 
-O is highly source-joint and near-frame-correlated, while S, T and ST answer stricter and different generalization questions. Raw F1 values across regimes are therefore not a global model ranking.
+Frozen C07, without retraining:
 
-ST is the strictest primary regime. C07 has F1 0.7040 with frame-bootstrap 95% CI approximately **0.609–0.790** and video-cluster CI approximately **0.465–0.859**.
+- unseen-source earlier ENV-03: F1 **0.7056**;
+- known-source future ENV-01/02/04: F1 **0.7649**;
+- combined ENV-03 post-hoc descriptive view: F1 **0.7052**.
 
-## Evidence
+These context results cannot alter Best ST.
 
-See:
-- `reports/scratch/O_REPORT.md`
-- `reports/scratch/S_REPORT.md`
-- `reports/scratch/T_REPORT.md`
-- `reports/scratch/ST_REPORT.md`
-- `manifests/scratch/O_REGISTRY.yaml`
-- `manifests/scratch/S_REGISTRY.yaml`
-- `manifests/scratch/T_REGISTRY.yaml`
-- `manifests/scratch/ST_REGISTRY.yaml`
+## Interpretation guardrail
 
-## Frozen scratch rules
+O, S, T and ST answer different generalization questions. Their raw F1 values are not a global model ranking.
 
-- same C01–C20 bank in O/S/T/ST;
-- exactly 20 epochs;
-- no validation or early stopping;
-- no primary augmentation;
-- final epoch-20 checkpoint;
-- threshold 0.5;
-- all candidates frozen before each regime test opened;
-- champion order: F1 → balanced accuracy → PR-AUC → lower parameter count → candidate ID.
+See `reports/synthesis/CROSS_REGIME_SYNTHESIS.md` and `manifests/synthesis/PHASE9_REGISTRY.yaml`.
 
 ## Next gate
 
-**Phase 9 — cross-regime synthesis and uncertainty:** produce the champion envelope and fixed-C14 robustness view with 5,000 frame bootstrap and 5,000 video/group bootstrap resamples using a fixed seed.
+Freeze and execute the **single fixed ImageNet ResNet18 comparator recipe**. It is separate from scratch champion selection: no sweep, no validation, no early stopping, final epoch-20 checkpoint, threshold 0.5.
