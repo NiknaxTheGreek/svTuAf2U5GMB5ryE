@@ -4,7 +4,7 @@ MonReader is a binary computer-vision project for classifying a single frame as 
 
 ## Current verified state
 
-**Phase 5 — Source-Safe scratch-CNN selection benchmark: complete. O and S are frozen; T and ST remain pending.**
+**Phase 6 — Temporal-Safe scratch-CNN selection benchmark: complete. O, S and T are frozen; ST remains pending.**
 
 Dataset and splits are frozen:
 
@@ -22,30 +22,21 @@ The canonical C01–C20 scratch bank is frozen: 20 epochs, no validation, no ear
 | Regime | Champion | F1 | Accuracy | Balanced acc. | Interpretation |
 |---|---|---:|---:|---:|---|
 | O | C14 | **0.9983** | 0.9983 | 0.9983 | supplied source-joint benchmark |
-| S | C18 | **0.8196** | 0.8377 | 0.8358 | held-out ENV-03, zero train/test video overlap |
+| S | C18 | **0.8196** | 0.8377 | 0.8358 | held-out ENV-03 |
+| T | C06 | **0.8800** | 0.8894 | 0.8900 | later frames of the same videos |
+| ST | pending | — | — | — | held-out source + temporal shift |
 
-Both are **selection-benchmark estimates** because each regime test selects among 20 frozen candidates.
+All completed scratch results are **selection-benchmark estimates** because each regime test selects among 20 candidates frozen before that test opens.
 
-### Why O and S differ
+## Key interpretation
 
-The O split is highly correlated:
+O is extremely easy relative to the stricter regimes: every O-test image comes from a training-seen video and 573/597 O-test frames have a same-video training frame only one frame number away.
 
-- every O-test image comes from a video represented in O training;
-- 573/597 O-test frames have a same-video training frame only one frame number away.
+S removes source overlap and falls to F1 0.8196.
 
-S is source-disjoint:
+T preserves source identity but forces chronological separation and reaches F1 0.8800 with C06. A video-cluster bootstrap gives C06 F1 approximately **0.837–0.918**.
 
-- S training: ENV-01, ENV-02, ENV-04;
-- S test: ENV-03 only;
-- training videos: 88;
-- test videos: 29;
-- train/test video overlap: **0**.
-
-Best S C18 achieved F1 0.8196 with 361 TN, 61 FP, 64 FN and 284 TP.
-
-The Best-O configuration C14, retrained from scratch under the S protocol, ranked third at F1 0.6936. C18 has only 55,213 parameters versus 1,570,081 for C14.
-
-A video-cluster bootstrap over the 29 held-out S videos gives a C18 F1 95% interval of approximately **0.674–0.912**. The paired C18 minus C14-configuration F1 difference is +0.126 with a clustered 95% interval of approximately +0.019 to +0.261. These intervals are not adjusted for selection among the 20 candidates.
+The O-winning C14 configuration behaves very differently under T. Retrained on T training data, it has F1 0.2981 at threshold 0.5 but ROC-AUC 0.9414 and PR-AUC 0.9567. That pattern indicates substantial operating-threshold/calibration shift rather than disappearance of discriminative ranking signal. The frozen primary protocol does not permit post-test threshold tuning.
 
 See:
 - `reports/data_audit/DATA_AUDIT.md`
@@ -53,8 +44,10 @@ See:
 - `reports/baselines/BASELINE_REPORT.md`
 - `reports/scratch/O_REPORT.md`
 - `reports/scratch/S_REPORT.md`
+- `reports/scratch/T_REPORT.md`
 - `manifests/scratch/O_REGISTRY.yaml`
 - `manifests/scratch/S_REGISTRY.yaml`
+- `manifests/scratch/T_REGISTRY.yaml`
 
 ## Frozen scratch-CNN rules
 
@@ -71,4 +64,4 @@ See:
 
 ## Next gate
 
-Run the same frozen 20-candidate bank under **T — Temporal-Safe**. All 20 T checkpoints must be frozen and verified before the 624-image T test is opened.
+Run **ST — Source + Temporal Safe** with the same frozen bank. All 20 ST checkpoints must be frozen and verified before the 161-image ST primary test is opened. The 1,072 ST context rows are not part of the primary test score.
