@@ -7,10 +7,21 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-from src.scratch_v2 import EXPECTED_SPLIT_SHA256, read_csv, sha256_file
+EXPECTED_ST_SPLIT_SHA256 = "ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259bcf2c0e177a85"
 
 SEED = "monreader-inpainting-poc-v2"
 TARGET = 100
+
+def read_csv(path: Path) -> list[dict[str, str]]:
+    with path.open("r", newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+def sha256_file(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def stable_key(sample_id: str) -> str:
@@ -24,7 +35,7 @@ def main() -> int:
     ap.add_argument("--output-summary", required=True, type=Path)
     args = ap.parse_args()
 
-    if sha256_file(args.membership) != EXPECTED_SPLIT_SHA256["ST"]:
+    if sha256_file(args.membership) != EXPECTED_ST_SPLIT_SHA256:
         raise ValueError("ST split hash mismatch")
 
     rows = read_csv(args.membership)
