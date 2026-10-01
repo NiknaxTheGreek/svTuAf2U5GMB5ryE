@@ -1,0 +1,129 @@
+{
+  "bootstrap": {
+    "grayscale": {
+      "frame_delta_f1_ci95": [
+        -0.3511035168843609,
+        -0.27706052363793604
+      ],
+      "video_group_delta_f1_ci95": [
+        -0.41115780755784154,
+        -0.2286336013571427
+      ]
+    },
+    "hand_mask": {
+      "frame_delta_f1_ci95": [
+        -0.09777729510316209,
+        -0.055016679517238105
+      ],
+      "video_group_delta_f1_ci95": [
+        -0.12766038344899325,
+        -0.03608457377159652
+      ]
+    },
+    "hand_minus_control_delta_f1_contrast": {
+      "frame_ci95": [
+        -0.003448762845191003,
+        0.03974411104137067
+      ],
+      "video_group_ci95": [
+        -0.022090536418955167,
+        0.0651733747884311
+      ]
+    },
+    "matched_control": {
+      "frame_delta_f1_ci95": [
+        -0.1180205227397945,
+        -0.0708653215223097
+      ],
+      "video_group_delta_f1_ci95": [
+        -0.15174197587545393,
+        -0.04666668723161688
+      ]
+    }
+  },
+  "candidate_id": "C14",
+  "changed_prediction_count": {
+    "grayscale": 268,
+    "hand_mask": 47,
+    "matched_control": 59
+  },
+  "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49",
+  "delta_f1_vs_original": {
+    "grayscale": -0.31350310860438046,
+    "hand_mask": -0.07544330228967788,
+    "matched_control": -0.09320959314400645
+  },
+  "hand_detector_nonzero_images": 528,
+  "hand_detector_zero_images": 69,
+  "hand_minus_control_mean_absolute_probability_change": -0.01010913351116384,
+  "interpretation_rule": "Evidence for hand-specific shortcut dependence requires hand-mask degradation materially beyond matched equal-area control, preferably with video-group bootstrap support. This detector is not validated complete human segmentation.",
+  "mean_absolute_probability_change": {
+    "grayscale": 0.418658757452339,
+    "hand_mask": 0.0993267871717747,
+    "matched_control": 0.10943592068293855
+  },
+  "metrics": {
+    "grayscale": {
+      "accuracy": 0.5527638190954773,
+      "balanced_accuracy": 0.5651465798045603,
+      "f1": 0.6847697756788665,
+      "fn": 0,
+      "fp": 267,
+      "n": 597,
+      "pr_auc": 0.9344107075782875,
+      "precision": 0.5206463195691203,
+      "recall": 1.0,
+      "roc_auc": 0.9313714478265752,
+      "tn": 40,
+      "tp": 290
+    },
+    "hand_mask": {
+      "accuracy": 0.9195979899497487,
+      "balanced_accuracy": 0.9215376839267663,
+      "f1": 0.9228295819935691,
+      "fn": 3,
+      "fp": 45,
+      "n": 597,
+      "pr_auc": 0.9964780551494973,
+      "precision": 0.8644578313253012,
+      "recall": 0.9896551724137931,
+      "roc_auc": 0.9962821520835673,
+      "tn": 262,
+      "tp": 287
+    },
+    "matched_control": {
+      "accuracy": 0.8994974874371859,
+      "balanced_accuracy": 0.9018982365494776,
+      "f1": 0.9050632911392406,
+      "fn": 4,
+      "fp": 56,
+      "n": 597,
+      "pr_auc": 0.9934397998164931,
+      "precision": 0.8362573099415205,
+      "recall": 0.9862068965517241,
+      "roc_auc": 0.9930585196001349,
+      "tn": 251,
+      "tp": 286
+    },
+    "original": {
+      "accuracy": 0.998324958123953,
+      "balanced_accuracy": 0.9982758620689656,
+      "f1": 0.998272884283247,
+      "fn": 1,
+      "fp": 0,
+      "n": 597,
+      "pr_auc": 0.9997879700926235,
+      "precision": 1.0,
+      "recall": 0.996551724137931,
+      "roc_auc": 0.9997865887902954,
+      "tn": 307,
+      "tp": 289
+    }
+  },
+  "retraining_performed": false,
+  "selection_bearing": false,
+  "status": "POSTHOC_SHORTCUT_PERTURBATION_COMPLETE",
+  "test_images": 597,
+  "threshold": 0.5,
+  "videos": 115
+}
