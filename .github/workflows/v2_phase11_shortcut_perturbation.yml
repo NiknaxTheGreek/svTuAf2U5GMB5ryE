@@ -1,0 +1,94 @@
+name: MonReader V2 Phase 11 shortcut perturbation
+
+on:
+  push:
+    branches: ["phase/v2-11-secondary"]
+    paths:
+      - ".github/workflows/v2_phase11_shortcut_perturbation.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  HAND_MODEL_SHA256: fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1
+  PYTHONPATH: "."
+  OMP_NUM_THREADS: "4"
+  MKL_NUM_THREADS: "4"
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install MediaPipe system runtime
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y libegl1 libgl1 libgles2
+      - name: Install pinned analysis runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1 mediapipe==1.0.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Compile frozen perturbation implementation
+        run: |
+          set -euo pipefail
+          python -m compileall -q             src/secondary_perturbations_v2.py             src/mediapipe_hand_mask_v2.py             scripts/evaluate_best_o_perturbations_v2.py
+      - name: Download authoritative Best-O evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: monreader-v2-o-scratch-evidence
+          path: /tmp/o-evidence
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: 36706123492
+      - name: Verify exact frozen Best-O checkpoint
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' '57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49' '/tmp/o-evidence/BestO.pt' | sha256sum --check
+      - name: Download and verify authoritative image archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+      - name: Download and verify versioned MediaPipe hand model
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"             --output /tmp/hand_landmarker.task
+          printf '%s  %s\n' "$HAND_MODEL_SHA256" "/tmp/hand_landmarker.task" | sha256sum --check
+      - name: Run frozen Best-O perturbation sensitivity
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/perturbation-results
+          python -m scripts.evaluate_best_o_perturbations_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/O.csv             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --checkpoint /tmp/o-evidence/BestO.pt             --hand-model /tmp/hand_landmarker.task             --saved-predictions results/scratch/O/predictions.csv             --output-dir /tmp/perturbation-results
+          sha256sum /tmp/perturbation-results/*
+      - name: Upload perturbation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11-best-o-perturbation
+          path: /tmp/perturbation-results
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish small perturbation evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/best_o_perturbation reports/secondary
+          cp /tmp/perturbation-results/summary.json results/secondary/best_o_perturbation/summary.json
+          cp /tmp/perturbation-results/predictions.csv results/secondary/best_o_perturbation/predictions.csv
+          cp /tmp/perturbation-results/changed_cases.csv results/secondary/best_o_perturbation/changed_cases.csv
+          cp /tmp/perturbation-results/report.md reports/secondary/BEST_O_PERTURBATION_REPORT.md
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/best_o_perturbation reports/secondary/BEST_O_PERTURBATION_REPORT.md
+          git commit -m "Phase 11: publish Best-O perturbation sensitivity [skip ci]"
+          git push origin "HEAD:phase/v2-11-secondary"
+      - name: Remove completed Phase-10 branch
+        run: git push origin --delete phase/v2-10-resnet18 || true
