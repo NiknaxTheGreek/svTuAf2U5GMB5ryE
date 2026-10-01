@@ -1,0 +1,63 @@
+{
+  "status": "prospectively_frozen_secondary_inpainting_poc",
+  "freeze_date": "2026-10-01",
+  "selection_bearing": false,
+  "purpose": "Remove visible hand/arm pixels and reconstruct a plausible document/background counterfactual as though the human limb were absent.",
+  "poc_population": {
+    "source": "ST context-only rows",
+    "target_images": 100,
+    "primary_test_images_allowed": 0,
+    "selection_seed": "monreader-inpainting-poc-v2",
+    "stratify_by": ["role_detail", "environment_id", "label"],
+    "selection_rule": "deterministic balanced allocation across non-empty strata, then stable SHA256 order within stratum"
+  },
+  "mask_scope": {
+    "required": ["visible hand", "visible fingers", "visible wrist", "visible forearm_or_arm_when_present"],
+    "initial_detector": "MediaPipe full-resolution hand landmarks",
+    "extension": "deterministic skin-connected and wrist-to-boundary forearm extension",
+    "visual_qa_required": true,
+    "manual_or_algorithmic_correction_allowed_only_on_poc": true,
+    "full_scale_requires_frozen_automatic_mask_recipe": true
+  },
+  "candidate_inpainting_methods": [
+    {
+      "id": "telea",
+      "family": "classical",
+      "method": "OpenCV TELEA",
+      "radius_pixels": 5
+    },
+    {
+      "id": "navier_stokes",
+      "family": "classical",
+      "method": "OpenCV NS",
+      "radius_pixels": 5
+    },
+    {
+      "id": "lama",
+      "family": "generative",
+      "method": "LaMa pretrained inpainting",
+      "role": "preferred naturalistic candidate if reproducibly runnable"
+    }
+  ],
+  "poc_quality_gate": {
+    "hand_arm_removal_complete_fraction_min": 0.9,
+    "major_visible_artifact_fraction_max": 0.1,
+    "outside_mask_change": "must be negligible except a narrow feather/seam ring",
+    "page_geometry_preserved": true,
+    "text_or_document_structure_preserved_outside_mask": true,
+    "visual_review": "all 100 PoC images, blinded to classifier output",
+    "classifier_predictions_used_for_method_choice": false
+  },
+  "full_scale_rule": "Proceed to frozen-model evaluation only if at least one inpainting method passes the PoC quality gate. Otherwise report PoC failure and stop.",
+  "evaluation_if_pass": {
+    "primary_model": "Best-O C14",
+    "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49",
+    "variants": ["original", "inpainted_no_hand_arm"],
+    "retain_existing_controls": ["hand_region_masking", "matched_equal_area_occlusion"],
+    "threshold": 0.5,
+    "frame_bootstrap_resamples": 5000,
+    "video_group_bootstrap_resamples": 5000,
+    "bootstrap_seed": 20261001
+  },
+  "interpretation_limit": "A performance change is evidence about sensitivity to the frozen hand/arm-removal counterfactual, not proof of causality or perfect reconstruction."
+}
