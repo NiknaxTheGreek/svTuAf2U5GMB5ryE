@@ -1,5 +1,5 @@
 protocol_version: v2-train-test-only
-status: primary_frozen_verified_context_pending
+status: frozen_verified
 freeze_date: 2026-10-01
 regime: ST
 
@@ -88,5 +88,40 @@ result_hashes:
 scientific_status:
   primary_champion_frozen: true
   primary_test_opened: true
-  context_diagnostics_pending: true
+  context_diagnostics_pending: false
+  context_diagnostics_complete: true
+  context_workflow_run_id: 36851967342
+  context_artifact_id: 11155393566
+  context_artifact_sha256: ee6d265429bbe7b683568bde1080f990550e4bc23476f1915d74e3bda119228a
+  context_artifact_sha256_independently_verified: true
   context_results_may_not_change_champion: true
+  context_results_may_not_change_champion: true
+
+context_diagnostics:
+  selection_bearing: false
+  retraining_performed: false
+  primary_champion_changed: false
+  context_unseen_early:
+    rows: 609
+    f1: 0.705607476635514
+    precision: 0.967948717948718
+    recall: 0.5551470588235294
+    accuracy: 0.7931034482758621
+    balanced_accuracy: 0.770155131785652
+    roc_auc: 0.92905611799616
+    pr_auc: 0.9228939975688354
+    confusion_matrix: {tn: 332, fp: 5, fn: 121, tp: 151}
+  context_known_future:
+    rows: 463
+    f1: 0.7649122807017544
+    precision: 0.6566265060240963
+    recall: 0.9159663865546218
+    accuracy: 0.7105831533477321
+    balanced_accuracy: 0.7046498599439776
+    roc_auc: 0.9092623716153128
+    pr_auc: 0.942414834029082
+    confusion_matrix: {tn: 111, fp: 114, fn: 20, tp: 218}
+  post_hoc_combined_ENV03:
+    rows: 770
+    f1: 0.705244122965642
+    note: "609 earlier ENV-03 context rows plus 161 saved ST-primary later ENV-03 predictions; descriptive only."
