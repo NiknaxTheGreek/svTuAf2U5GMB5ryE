@@ -164,7 +164,9 @@ def main() -> int:
     # Descriptive diagnostics of the already-selected frozen Best ST model.
     y_champ = np.asarray([1 if row["label"] == "flip" else 0 for row in index_rows], dtype=np.int64)
     p_champ = candidate_probabilities[champion_id]
-    best_o_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C14")\n    best_s_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C18")\n    best_t_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C06")
+    best_o_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C14")
+    best_s_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C18")
+    best_t_candidate_on_st = next(dict(row) for row in leaderboard if row["candidate_id"] == "C06")
 
     per_video_rows = []
     by_video = defaultdict(list)
@@ -248,13 +250,18 @@ def main() -> int:
         "best_st": champion,
         "best_st_candidate_id": champion_id,
         "best_o_candidate_id": "C14",
-        "best_o_candidate_on_st": best_o_candidate_on_st,\n        "best_s_candidate_id": "C18",\n        "best_s_candidate_on_st": best_s_candidate_on_st,\n        "best_t_candidate_id": "C06",\n        "best_t_candidate_on_st": best_t_candidate_on_st,
+        "best_o_candidate_on_st": best_o_candidate_on_st,
+        "best_s_candidate_id": "C18",
+        "best_s_candidate_on_st": best_s_candidate_on_st,
+        "best_t_candidate_id": "C06",
+        "best_t_candidate_on_st": best_t_candidate_on_st,
         "source_temporal_safe_test_images": 161,
         "test_videos": 29,
         "train_test_video_overlap_count": 0,
         "interpretation": "Selection-benchmark estimate on the source+temporal-safe ST test; ENV-03 is absent from training and only later ENV-03 frames form the primary test; ST test selected among 20 frozen candidates.",
     }
-    (args.output_dir / "ST_SUMMARY.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (args.output_dir / "ST_SUMMARY.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "
+", encoding="utf-8")
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0
 
