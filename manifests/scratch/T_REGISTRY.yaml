@@ -1,0 +1,126 @@
+protocol_version: v2-train-test-only
+status: frozen_verified
+freeze_date: 2026-10-01
+regime: T
+
+inputs:
+  dataset_manifest:
+    path: manifests/datasets/DATA-001.csv
+    sha256: 3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b
+  split:
+    path: manifests/splits/T.csv
+    sha256: 0a1f39ebb01f14989aad37b87c39fbb874307f81bdc4770d15e8df7c7b9aa625
+    train_rows: 2365
+    test_rows: 624
+    videos: 117
+    train_test_video_overlap_count: 117
+    temporal_rule: "earlier observed frames train; later observed frames test"
+  candidate_bank:
+    path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
+    sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
+    candidates: 20
+
+execution:
+  successful_workflow_run_id: 36758061980
+  all_20_training_jobs_successful: true
+  checkpoint_gate_status: PASS_ALL_20_FROZEN_BEFORE_T_TEST
+  test_evaluation_opened_only_after_checkpoint_gate: true
+  test_evaluations_per_candidate: 1
+  threshold: 0.5
+  evidence_artifact_id: 11125238952
+  evidence_artifact_sha256: 7301e4c7d28e7296684acb61930d6f7a652eeac009fb915be8ecbb648b010ea6
+  evidence_artifact_sha256_independently_verified: true
+  note: "The final evaluation job retained a copied cosmetic label evaluate-s-once, but the executed modules, cache paths, split hash, registry status and result files are all T-specific."
+
+champion:
+  candidate_id: C06
+  depth: 5
+  start_filters: 15
+  dropout: 0.09001727264766313
+  learning_rate: 0.0005903584546193112
+  optimizer: rmsprop
+  weight_decay: 0.0001659818571747299
+  batch_size: 34
+  parameter_count: 345826
+  epochs: 20
+  final_train_loss: 0.005460924723571517
+  checkpoint_sha256: 2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b
+
+selection_benchmark:
+  f1: 0.88
+  precision: 0.9693486590038314
+  recall: 0.8057324840764332
+  accuracy: 0.8894230769230769
+  balanced_accuracy: 0.889963016231765
+  roc_auc: 0.951756728991165
+  pr_auc: 0.9636901675523587
+  confusion_matrix: {tn: 302, fp: 8, fn: 61, tp: 253}
+  interpretation: temporal-safe selection-benchmark estimate
+  selection_order: [f1, balanced_accuracy, pr_auc, lower_parameter_count, candidate_id]
+
+best_O_configuration_on_T:
+  candidate_id: C14
+  note: "C14 architecture/hyperparameters retrained from scratch on T training data; O-trained weights were not reused."
+  rank: 20
+  f1: 0.2981029810298103
+  precision: 1.0
+  recall: 0.1751592356687898
+  accuracy: 0.5849358974358975
+  balanced_accuracy: 0.5875796178343949
+  roc_auc: 0.9414218204232585
+  pr_auc: 0.9567016157704819
+  confusion_matrix: {tn: 310, fp: 0, fn: 259, tp: 55}
+  interpretation_note: "High ROC-AUC/PR-AUC but low fixed-threshold F1 indicates strong ranking signal with substantial probability/threshold shift under the temporal-safe regime."
+
+best_S_configuration_on_T:
+  candidate_id: C18
+  rank: 18
+  f1: 0.5047619047619047
+  precision: 1.0
+  recall: 0.3375796178343949
+  accuracy: 0.6666666666666666
+  balanced_accuracy: 0.6687898089171974
+  roc_auc: 0.8586089993836039
+  pr_auc: 0.9020130043904746
+
+uncertainty:
+  method: video_cluster_bootstrap
+  cluster_unit: video_id
+  videos: 117
+  draws: 20000
+  seed: 20261001
+  C06_f1_ci95: [0.836852207293666, 0.9176090468497577]
+  C14_config_f1_ci95: [0.18620637879258567, 0.40806302369814396]
+  paired_f1_difference_C06_minus_C14_config: 0.5818970189701897
+  paired_f1_difference_ci95: [0.47993269527074656, 0.6874013121371151]
+  selection_adjusted: false
+
+diagnostics:
+  temporal_safe_test_images: 624
+  videos: 117
+  errors: 69
+  false_positives: 8
+  false_negatives: 61
+  prominent_error_concentrations:
+    - {video_id: notflip/0015, errors: 6, kind: false_positive}
+    - {video_id: flip/0062, errors: 5, kind: false_negative}
+    - {video_id: flip/0010, errors: 4, kind: false_negative}
+    - {video_id: flip/0060, errors: 4, kind: false_negative}
+    - {video_id: notflip/0042, errors: 2, kind: false_positive}
+
+result_files:
+  summary: {path: results/scratch/T/T_SUMMARY.json, sha256: c2e4d20a2125615a079c68acfabccfd4a2142737ab7a7ff6707dcd3e18876b82}
+  leaderboard: {path: results/scratch/T/leaderboard.csv, sha256: 8c03566cf5b52e8dc997c347779dde41d346e480972f643a628b8af953e9b905}
+  predictions: {path: results/scratch/T/predictions.csv, sha256: 5a22257e44dfd7ae99583d7d0ed2cee75014043bb8d1e582e337f425341e462e}
+  per_video: {path: results/scratch/T/best_t_per_video.csv, sha256: 64fd4696e05f4d9136e73463ea47dc61174d8f3c22dcce7a16e266b36efb3f2f}
+  error_cases: {path: results/scratch/T/best_t_error_cases.csv, sha256: c5be2abe4a5d18fa486fe4fe0bc01f334d3ec43606db6d9cbaf67a1650213c03}
+  pretest_checkpoint_registry: {path: results/scratch/T/checkpoint_registry_before_test.json, sha256: edd76e9da2b18fe40eeb9b79c0316253554f49830c67629f5e6b2e62425b639b}
+  uncertainty: {path: results/scratch/T/cluster_bootstrap_ci.json}
+
+scientific_status:
+  O_complete: true
+  S_complete: true
+  T_complete: true
+  T_test_opened: true
+  T_result_may_not_retrain_or_modify_candidates: true
+  ST_test_opened: false
