@@ -1,0 +1,67 @@
+{
+  "context_population": 1072,
+  "primary_test_overlap": 0,
+  "sample_csv_sha256": "8523dcee5800a3f17c0d9e54f45931d26fe170d6c35d86c0aa4443b34b30655f",
+  "seed": "monreader-inpainting-poc-v2",
+  "selected_images": 100,
+  "status": "FROZEN_CONTEXT_ONLY_POC_SAMPLE",
+  "strata": [
+    {
+      "available": 272,
+      "environment_id": "ENV-03",
+      "label": "flip",
+      "role_detail": "heldout_environment_earlier_context",
+      "selected": 13
+    },
+    {
+      "available": 337,
+      "environment_id": "ENV-03",
+      "label": "notflip",
+      "role_detail": "heldout_environment_earlier_context",
+      "selected": 13
+    },
+    {
+      "available": 54,
+      "environment_id": "ENV-01",
+      "label": "flip",
+      "role_detail": "known_environment_later_context",
+      "selected": 13
+    },
+    {
+      "available": 67,
+      "environment_id": "ENV-01",
+      "label": "notflip",
+      "role_detail": "known_environment_later_context",
+      "selected": 13
+    },
+    {
+      "available": 101,
+      "environment_id": "ENV-02",
+      "label": "flip",
+      "role_detail": "known_environment_later_context",
+      "selected": 12
+    },
+    {
+      "available": 48,
+      "environment_id": "ENV-02",
+      "label": "notflip",
+      "role_detail": "known_environment_later_context",
+      "selected": 12
+    },
+    {
+      "available": 83,
+      "environment_id": "ENV-04",
+      "label": "flip",
+      "role_detail": "known_environment_later_context",
+      "selected": 12
+    },
+    {
+      "available": 110,
+      "environment_id": "ENV-04",
+      "label": "notflip",
+      "role_detail": "known_environment_later_context",
+      "selected": 12
+    }
+  ],
+  "target_images": 100
+}
