@@ -1,0 +1,82 @@
+{
+  "bootstrap": {
+    "half_resolution": {
+      "frame_delta_f1_ci95": [
+        -0.1080634751657417,
+        -0.062347049617041295
+      ],
+      "video_group_delta_f1_ci95": [
+        -0.14015921571761655,
+        -0.04161332907440876
+      ]
+    },
+    "quarter_resolution": {
+      "frame_delta_f1_ci95": [
+        -0.1578323619585015,
+        -0.09972882224533874
+      ],
+      "video_group_delta_f1_ci95": [
+        -0.18546535349021592,
+        -0.08108316607933755
+      ]
+    }
+  },
+  "candidate_id": "C14",
+  "changed_prediction_count": {
+    "half_resolution": 51,
+    "quarter_resolution": 72
+  },
+  "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49",
+  "delta_f1_vs_original": {
+    "half_resolution": -0.08408146514133286,
+    "quarter_resolution": -0.12747642410625581
+  },
+  "interpretation": "Post-hoc sensitivity to loss of spatial detail; cannot alter Best O.",
+  "metrics": {
+    "half_resolution": {
+      "accuracy": 0.9128978224455612,
+      "balanced_accuracy": 0.9140682915871055,
+      "f1": 0.9141914191419142,
+      "fn": 13,
+      "fp": 39,
+      "n": 597,
+      "pr_auc": 0.9882060462582858,
+      "precision": 0.8765822784810127,
+      "recall": 0.9551724137931035,
+      "roc_auc": 0.9867235763225879,
+      "tn": 268,
+      "tp": 277
+    },
+    "original": {
+      "accuracy": 0.998324958123953,
+      "balanced_accuracy": 0.9982758620689656,
+      "f1": 0.998272884283247,
+      "fn": 1,
+      "fp": 0,
+      "n": 597,
+      "pr_auc": 0.9997879700926238,
+      "precision": 1.0,
+      "recall": 0.996551724137931,
+      "roc_auc": 0.9997865887902954,
+      "tn": 307,
+      "tp": 289
+    },
+    "quarter_resolution": {
+      "accuracy": 0.8777219430485762,
+      "balanced_accuracy": 0.8769066606761766,
+      "f1": 0.8707964601769912,
+      "fn": 44,
+      "fp": 29,
+      "n": 597,
+      "pr_auc": 0.9584851443617994,
+      "precision": 0.8945454545454545,
+      "recall": 0.8482758620689655,
+      "roc_auc": 0.9543412332921487,
+      "tn": 278,
+      "tp": 246
+    }
+  },
+  "retraining_performed": false,
+  "selection_bearing": false,
+  "status": "POSTHOC_RESOLUTION_SENSITIVITY_COMPLETE"
+}
