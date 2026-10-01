@@ -1,36 +1,40 @@
 project: Apziva Project 4 - MonReader
 reset_date: 2026-09-30
 primary_protocol: train_test_only_v2
-status: PHASE_9_SYNTHESIS_VERIFIED
+status: PHASE_10_RESNET18_VERIFIED
 candidate_bank:
-  path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
   candidates: 20
   sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
   frozen: true
 dataset:
   id: DATA-001
   verified: true
-  archive_bytes: 939921132
   archive_sha256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
   manifest_rows: 2989
 scratch:
-  O: {status: VERIFIED_SELECTION_BENCHMARK, champion: C14, f1: 0.998272884283247}
-  S: {status: VERIFIED_SELECTION_BENCHMARK, champion: C18, f1: 0.8196248196248196}
-  T: {status: VERIFIED_SELECTION_BENCHMARK, champion: C06, f1: 0.88}
-  ST: {status: VERIFIED_SELECTION_BENCHMARK, champion: C07, f1: 0.704}
+  O: {champion: C14, f1: 0.998272884283247}
+  S: {champion: C18, f1: 0.8196248196248196}
+  T: {champion: C06, f1: 0.88}
+  ST: {champion: C07, f1: 0.704}
 synthesis:
   status: VERIFIED
   registry: manifests/synthesis/PHASE9_REGISTRY.yaml
-  workflow_run_id: 36876459214
-  artifact_sha256: a9fc981a03773826481ee97d8b824232266bca617cde1e711384a69677e4e880
-  frame_bootstrap_resamples: 5000
-  group_bootstrap_resamples: 5000
-  seed: 20261001
-  selection_conditioned: true
-  fixed_o_candidate: C14
+resnet18:
+  status: VERIFIED_FIXED_COMPARATOR
+  registry: manifests/resnet18/RESNET18_REGISTRY.yaml
+  config_sha256: 82af40ff6071949ee91d8934341b42bbdd7391738e0cde23d8ad9b9084338cc8
+  workflow_run_id: 36878058201
+  evidence_artifact_sha256: 0a39ca189fcce5409d3c40d6f363e6e7fec8ebb9f0a2bbd21b20e11211cc200a
+  paired_bootstrap_resamples: 5000
+  paired_bootstrap_seed: 20261001
+  O: {f1: 0.9930795847750865, delta_vs_scratch: -0.005193299508160498}
+  S: {f1: 0.7806524184476941, delta_vs_scratch: -0.038972401177125526}
+  T: {f1: 0.8807017543859649, delta_vs_scratch: 0.00070175438596487}
+  ST: {f1: 0.7195767195767195, delta_vs_scratch: 0.015576719576719578}
+  any_video_group_delta_ci_excludes_zero: false
 active_workflows_on_main: false
-next_gate: freeze_fixed_nonadaptive_resnet18_recipe_before_any_resnet_test_then_train_and_evaluate_comparator
+next_gate: phase_11_controlled_secondary_analyses
 notes:
-  - No global winner is inferred across O/S/T/ST because the test populations differ.
-  - The new V2 authority requires a fixed non-adaptive ResNet18 comparator but does not specify all numeric training hyperparameters.
-  - Exact ResNet18 settings must therefore be prospectively frozen before any ResNet18 test evaluation.
+  - ResNet18 is a fixed non-selection-bearing pretrained comparator.
+  - No paired video/group F1 difference versus the frozen scratch champion excludes zero in O, S, T or ST.
+  - Frozen scratch champions remain unchanged.
