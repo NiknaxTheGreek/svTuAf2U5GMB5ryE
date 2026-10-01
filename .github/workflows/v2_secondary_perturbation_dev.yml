@@ -59,7 +59,7 @@ jobs:
           rm -rf results/secondary/perturbation_dev
           rm -f results/secondary/perturbation_dev_failure.log
           set +e
-          python -m scripts.develop_secondary_perturbations_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --output-dir results/secondary/perturbation_dev             2>&1 | tee /tmp/perturbation_dev.log
+          python -m scripts.develop_secondary_perturbations_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --hand-model /tmp/hand_landmarker.task             --output-dir results/secondary/perturbation_dev             2>&1 | tee /tmp/perturbation_dev.log
           status=${PIPESTATUS[0]}
           set -e
           exit "$status"
