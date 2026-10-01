@@ -7,7 +7,6 @@ import hashlib
 import io
 import json
 from collections import defaultdict
-from contextlib import ExitStack
 from pathlib import Path
 from zipfile import ZipFile
 
@@ -29,8 +28,12 @@ EXPECTED_ST_SPLIT_SHA256 = "ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259b
 DEV_SEED = "monreader-secondary-dev-v2"
 PER_STRATUM = 6
 THUMB_W, THUMB_H = 112, 199
-CONFIDENCES = (0.35, 0.40, 0.50)
-CANDIDATE_NAMES = ("mp_seed_c35", "mp_seed_c40", "mp_seed_c50", "mp_seed_c35_fallback")
+CANDIDATE_NAMES = (
+    "mp_pre_seed_c50",
+    "mp_full_hull_d15",
+    "mp_full_seed_c50",
+    "mp_full_seed_fallback",
+)
 
 
 def stable_key(sample_id: str) -> str:
@@ -40,17 +43,14 @@ def stable_key(sample_id: str) -> str:
 def select_dev_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
     strata: dict[tuple[str, str, str], list[dict[str, str]]] = defaultdict(list)
     for row in rows:
-        if row["role"] != "context":
-            continue
-        strata[(row["role_detail"], row["label"], row["environment_id"])].append(row)
-
+        if row["role"] == "context":
+            strata[(row["role_detail"], row["label"], row["environment_id"])].append(row)
     chosen: list[dict[str, str]] = []
     for key in sorted(strata):
         bucket = sorted(strata[key], key=lambda r: stable_key(r["sample_id"]))
         if len(bucket) < PER_STRATUM:
             raise ValueError(f"Stratum {key} has only {len(bucket)} rows")
         chosen.extend(bucket[:PER_STRATUM])
-
     return sorted(
         chosen,
         key=lambda r: (r["role_detail"], r["environment_id"], r["label"], r["sample_id"]),
@@ -66,13 +66,10 @@ def thumb(chw: np.ndarray) -> Image.Image:
 
 
 def build_sheet(rows: list[tuple[str, list[tuple[str, np.ndarray]]]], path: Path) -> None:
-    if not rows:
-        return
     cols = max(len(panels) for _, panels in rows)
     row_h = THUMB_H + 42
     canvas = Image.new("RGB", (cols * THUMB_W, len(rows) * row_h), "white")
     draw = ImageDraw.Draw(canvas)
-
     for r, (sample_id, panels) in enumerate(rows):
         y0 = r * row_h
         draw.text((3, y0 + 2), sample_id[-30:], fill="black")
@@ -80,10 +77,8 @@ def build_sheet(rows: list[tuple[str, list[tuple[str, np.ndarray]]]], path: Path
             x0 = c * THUMB_W
             draw.text((x0 + 2, y0 + 18), title[:19], fill="black")
             canvas.paste(thumb(chw), (x0, y0 + 40))
-
     path.parent.mkdir(parents=True, exist_ok=True)
     canvas.save(path, optimize=True)
-
     review = canvas.resize(
         (max(1, canvas.width * 3 // 4), max(1, canvas.height * 3 // 4)),
         Image.Resampling.LANCZOS,
@@ -125,38 +120,32 @@ def main() -> int:
     metrics: list[dict] = []
     sheets: list[tuple[str, list[tuple[str, np.ndarray]]]] = []
 
-    with ExitStack() as stack:
-        maskers = {
-            conf: stack.enter_context(
-                MediaPipeHandMasker(
-                    args.hand_model,
-                    min_hand_detection_confidence=conf,
-                    min_hand_presence_confidence=conf,
-                    num_hands=2,
-                )
-            )
-            for conf in CONFIDENCES
-        }
-        z = stack.enter_context(ZipFile(args.archive))
-
+    with MediaPipeHandMasker(
+        args.hand_model,
+        min_hand_detection_confidence=0.5,
+        min_hand_presence_confidence=0.5,
+        num_hands=2,
+    ) as masker, ZipFile(args.archive) as z:
         for row in dev:
             source = by_id[row["sample_id"]]
             with z.open(source["archive_member"]) as fh:
                 with Image.open(fh) as image:
+                    source_rgb = np.asarray(image.convert("RGB"), dtype=np.uint8)
                     original = preprocess_to_uint8(image)
 
             gray709 = rec709_grayscale(original)
             graypil = pil_l_grayscale(original)
 
-            per_conf: dict[float, tuple[dict[str, np.ndarray], int]] = {}
-            for conf, masker in maskers.items():
-                per_conf[conf] = masker.candidate_masks(original)
-
+            pre_masks, pre_count = masker.candidate_masks(original)
+            full_masks, full_count = masker.candidate_masks_from_source_rgb(
+                original,
+                source_rgb,
+            )
             masks = {
-                "mp_seed_c35": per_conf[0.35][0]["mp_seed_skin"],
-                "mp_seed_c40": per_conf[0.40][0]["mp_seed_skin"],
-                "mp_seed_c50": per_conf[0.50][0]["mp_seed_skin"],
-                "mp_seed_c35_fallback": per_conf[0.35][0]["mp_seed_skin_fallback"],
+                "mp_pre_seed_c50": pre_masks["mp_seed_skin"],
+                "mp_full_hull_d15": full_masks["mp_hull_d15"],
+                "mp_full_seed_c50": full_masks["mp_seed_skin"],
+                "mp_full_seed_fallback": full_masks["mp_seed_skin_fallback"],
             }
 
             entry = {
@@ -164,10 +153,8 @@ def main() -> int:
                 "label": row["label"],
                 "environment_id": row["environment_id"],
                 "role_detail": row["role_detail"],
-                "detected_hands": {
-                    f"{conf:.2f}": int(per_conf[conf][1])
-                    for conf in CONFIDENCES
-                },
+                "detected_hands_preprocessed": int(pre_count),
+                "detected_hands_full_resolution": int(full_count),
                 "gray_rec709_luma_mae": grayscale_luma_mae(original, gray709),
                 "gray_pil_l_luma_mae": grayscale_luma_mae(original, graypil),
                 "hand_candidates": {
@@ -175,7 +162,6 @@ def main() -> int:
                     for name, mask in masks.items()
                 },
             }
-
             panels = [("original", original), ("gray_rec709", gray709)]
             panels.extend((name, overlay_mask(original, masks[name])) for name in CANDIDATE_NAMES)
             metrics.append(entry)
@@ -201,11 +187,9 @@ def main() -> int:
             "max_coverage": float(np.max(vals)),
         }
 
-    detector_stats: dict[str, dict] = {}
-    for conf in CONFIDENCES:
-        key = f"{conf:.2f}"
-        counts = [int(m["detected_hands"][key]) for m in metrics]
-        detector_stats[key] = {
+    def detection_summary(field: str) -> dict:
+        counts = [int(m[field]) for m in metrics]
+        return {
             "images_with_detection": int(sum(x > 0 for x in counts)),
             "images_without_detection": int(sum(x == 0 for x in counts)),
             "one_hand_images": int(sum(x == 1 for x in counts)),
@@ -232,7 +216,10 @@ def main() -> int:
             "library_version": str(mp.__version__),
             "model_sha256": sha256_file(args.hand_model),
             "num_hands": 2,
-            "confidence_comparison": detector_stats,
+            "min_hand_detection_confidence": 0.5,
+            "min_hand_presence_confidence": 0.5,
+            "preprocessed_detection": detection_summary("detected_hands_preprocessed"),
+            "full_resolution_detection": detection_summary("detected_hands_full_resolution"),
         },
         "hand_mask_candidates": aggregate,
         "hand_mask_status": "REQUIRES_VISUAL_REVIEW_BEFORE_FREEZE",
@@ -247,7 +234,6 @@ def main() -> int:
         json.dumps(metrics, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
     )
-
     fields = ["sample_id", "role_detail", "environment_id", "label"]
     with (args.output_dir / "development_sample.csv").open("w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fields)
