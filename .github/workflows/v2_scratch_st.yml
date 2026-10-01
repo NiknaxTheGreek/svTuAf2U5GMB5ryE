@@ -1,0 +1,227 @@
+name: MonReader V2 ST scratch selection benchmark
+
+on:
+  push:
+    branches: ["phase/v2-07-scratch-st"]
+    paths:
+      - ".github/workflows/v2_scratch_st.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  OMP_NUM_THREADS: "4"
+  MKL_NUM_THREADS: "4"
+  PYTHONUNBUFFERED: "1"
+  PYTHONPATH: "."
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned CPU runtime
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Compile exact committed implementation
+        run: |
+          set -euo pipefail
+          python -m compileall -q src/scratch_v2.py scripts/build_scratch_cache_v2.py scripts/train_scratch_candidate_st_v2.py scripts/verify_scratch_checkpoints_st_v2.py scripts/evaluate_scratch_st_v2.py scripts/preflight_scratch_v2.py
+      - name: Synthetic and ST split preflight
+        run: |
+          set -euo pipefail
+          python -m scripts.preflight_scratch_v2
+          python -m scripts.preflight_scratch_st_v2
+
+  prepare-st-train-cache:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned preprocessing runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+          stat --printf='archive_bytes=%s\n' /tmp/images.zip
+      - name: Build exact ST training cache only
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cache
+          python -m scripts.build_scratch_cache_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --regime ST             --role train             --output-data /tmp/cache/st_train.npy             --output-index /tmp/cache/st_train_index.csv             --output-receipt /tmp/cache/st_train_receipt.json
+      - name: Upload exact ST training cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-st-train-cache
+          path: /tmp/cache
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 2
+
+  train-candidate:
+    needs: prepare-st-train-cache
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        candidate_id: [C01, C02, C03, C04, C05, C06, C07, C08, C09, C10, C11, C12, C13, C14, C15, C16, C17, C18, C19, C20]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned CPU training runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download verified ST training cache
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-st-train-cache
+          path: /tmp/cache
+      - name: Train one frozen candidate for exactly 20 epochs
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/candidate-result
+          python -m scripts.train_scratch_candidate_st_v2             --cache-data /tmp/cache/st_train.npy             --cache-index /tmp/cache/st_train_index.csv             --cache-receipt /tmp/cache/st_train_receipt.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --candidate-id "${{ matrix.candidate_id }}"             --regime ST             --output-dir /tmp/candidate-result
+      - name: Upload frozen candidate checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-st-${{ matrix.candidate_id }}
+          path: /tmp/candidate-result
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+
+  verify-all-20-before-test:
+    needs: train-candidate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned checkpoint verification runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download all frozen candidate checkpoints
+        uses: actions/download-artifact@v4
+        with:
+          pattern: v2-st-C*
+          path: /tmp/checkpoints
+          merge-multiple: true
+      - name: Verify all 20 are frozen and test-unseen
+        run: |
+          set -euo pipefail
+          python -m scripts.verify_scratch_checkpoints_st_v2             --checkpoint-root /tmp/checkpoints             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --output /tmp/checkpoint_registry.json
+      - name: Upload closed-test checkpoint registry
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-st-checkpoint-registry
+          path: /tmp/checkpoint_registry.json
+          if-no-files-found: error
+          retention-days: 90
+
+  evaluate-st-once:
+    needs: verify-all-20-before-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install pinned evaluation runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download all verified frozen checkpoints
+        uses: actions/download-artifact@v4
+        with:
+          pattern: v2-st-C*
+          path: /tmp/checkpoints
+          merge-multiple: true
+      - name: Download closed-test checkpoint registry
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-st-checkpoint-registry
+          path: /tmp/registry
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+      - name: Build ST test cache only after all 20 checkpoints passed
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/test-cache
+          python -m scripts.build_scratch_cache_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --regime ST             --role test             --output-data /tmp/test-cache/st_test.npy             --output-index /tmp/test-cache/st_test_index.csv             --output-receipt /tmp/test-cache/st_test_receipt.json
+      - name: Open ST test once for the complete frozen bank
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/st-results
+          python -m scripts.evaluate_scratch_st_v2             --cache-data /tmp/test-cache/st_test.npy             --cache-index /tmp/test-cache/st_test_index.csv             --cache-receipt /tmp/test-cache/st_test_receipt.json             --checkpoint-root /tmp/checkpoints             --checkpoint-registry /tmp/registry/checkpoint_registry.json             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --output-dir /tmp/st-results
+      - name: Preserve Best ST checkpoint in evidence artifact
+        run: |
+          set -euo pipefail
+          champion=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          print(json.loads(Path('/tmp/st-results/ST_SUMMARY.json').read_text())['best_st_candidate_id'])
+          PY
+          )
+          cp "/tmp/checkpoints/${champion}.pt" /tmp/st-results/BestST.pt
+          cp "/tmp/checkpoints/${champion}.json" /tmp/st-results/BestST_training_metadata.json
+          cp /tmp/registry/checkpoint_registry.json /tmp/st-results/checkpoint_registry_before_test.json
+          sha256sum /tmp/st-results/*
+      - name: Upload ST selection-benchmark evidence before repository publication
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-st-scratch-evidence
+          path: /tmp/st-results
+          compression-level: 1
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish small ST result evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/scratch/ST/training_metadata
+          cp /tmp/st-results/ST_SUMMARY.json results/scratch/ST/ST_SUMMARY.json
+          cp /tmp/st-results/leaderboard.csv results/scratch/ST/leaderboard.csv
+          cp /tmp/st-results/predictions.csv results/scratch/ST/predictions.csv
+          cp /tmp/st-results/best_st_per_video.csv results/scratch/ST/best_st_per_video.csv
+          cp /tmp/st-results/best_st_error_cases.csv results/scratch/ST/best_st_error_cases.csv
+          cp /tmp/st-results/checkpoint_registry_before_test.json results/scratch/ST/checkpoint_registry_before_test.json
+          cp /tmp/checkpoints/C*.json results/scratch/ST/training_metadata/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/scratch/ST
+          git commit -m "Phase 7: publish ST scratch selection benchmark [skip ci]"
+          git push origin "HEAD:phase/v2-07-scratch-st"
+      - name: Remove completed Phase-6 branch
+        run: git push origin --delete phase/v2-06-scratch-t || true
