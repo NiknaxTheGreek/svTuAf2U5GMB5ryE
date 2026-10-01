@@ -1,0 +1,77 @@
+name: MonReader V2 secondary perturbation development
+
+on:
+  push:
+    branches: ["experiment/v2-secondary-perturbation-dev"]
+    paths:
+      - ".github/workflows/v2_secondary_perturbation_dev.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+
+jobs:
+  develop-perturbations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install minimal deterministic image runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+
+      - name: Compile development code
+        run: |
+          set -euo pipefail
+          python -m compileall -q src/secondary_perturbations_v2.py scripts/develop_secondary_perturbations_v2.py
+
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+
+      - name: Develop perturbations on ST context only
+        run: |
+          set -euo pipefail
+          rm -rf results/secondary/perturbation_dev
+          python -m scripts.develop_secondary_perturbations_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership manifests/splits/ST.csv             --output-dir results/secondary/perturbation_dev
+
+      - name: Prove no ST primary-test row entered development sample
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import csv
+          dev = {
+              r['sample_id']
+              for r in csv.DictReader(
+                  open('results/secondary/perturbation_dev/development_sample.csv')
+              )
+          }
+          test = {
+              r['sample_id']
+              for r in csv.DictReader(open('manifests/splits/ST.csv'))
+              if r['role'] == 'test'
+          }
+          overlap = dev & test
+          assert not overlap, sorted(overlap)[:5]
+          print(f'dev_rows={len(dev)} st_test_overlap=0')
+          PY
+
+      - name: Publish development diagnostics only
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/perturbation_dev
+          git commit -m "Secondary: publish perturbation development diagnostics [skip ci]"
+          git push origin "HEAD:experiment/v2-secondary-perturbation-dev"
