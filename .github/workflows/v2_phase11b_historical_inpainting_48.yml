@@ -34,7 +34,7 @@ jobs:
       - name: Compile historical and V2 compatibility code
         run: |
           set -euo pipefail
-          python -m compileall -q             scripts/hand_arm_clean_dataset.py             scripts/prepare_historical_hand_arm_pilot_v2.py             scripts/build_historical_hand_arm_qa_v2.py
+          python -m compileall -q             scripts/hand_arm_clean_dataset_onnx_v2.py             scripts/prepare_historical_hand_arm_pilot_v2.py             scripts/build_historical_hand_arm_qa_v2.py
 
       - name: Download and verify authoritative archive
         run: |
@@ -49,10 +49,10 @@ jobs:
           mkdir -p /tmp/historical-inpaint/source /tmp/historical-inpaint/cleaned /tmp/historical-inpaint/reports /tmp/historical-inpaint/qa
           python -m scripts.prepare_historical_hand_arm_pilot_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --st-membership manifests/splits/ST.csv             --sample results/secondary/perturbation_dev/development_sample.csv             --extract-root /tmp/historical-inpaint/source             --inventory /tmp/historical-inpaint/reports/pilot_inventory.csv             --receipt /tmp/historical-inpaint/reports/input_receipt.json
 
-      - name: Run exact recovered SCHP plus MediaPipe plus TELEA algorithm
+      - name: Run recovered SCHP ONNX plus MediaPipe plus TELEA algorithm
         run: |
           set -euo pipefail
-          python scripts/hand_arm_clean_dataset.py             --inventory /tmp/historical-inpaint/reports/pilot_inventory.csv             --image-root /tmp/historical-inpaint/source             --out-root /tmp/historical-inpaint/cleaned             --report /tmp/historical-inpaint/reports/cleaning_report.csv
+          python scripts/hand_arm_clean_dataset_onnx_v2.py             --inventory /tmp/historical-inpaint/reports/pilot_inventory.csv             --image-root /tmp/historical-inpaint/source             --out-root /tmp/historical-inpaint/cleaned             --report /tmp/historical-inpaint/reports/cleaning_report.csv
 
       - name: Build before-after QA sheets
         run: |
