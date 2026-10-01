@@ -28,6 +28,13 @@ PANEL_W, PANEL_H = 224, 398
 def chw_to_pil(chw: np.ndarray) -> Image.Image:
     return Image.fromarray(np.transpose(chw, (1,2,0)), mode="RGB")
 
+def save_individual(chw: np.ndarray, path: Path) -> None:
+    image = chw_to_pil(chw)
+    image.save(path, optimize=True)
+    path.with_suffix(path.suffix + '.b64.txt').write_text(
+        base64.b64encode(path.read_bytes()).decode('ascii') + '\n', encoding='ascii'
+    )
+
 def diff_map(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     x = np.transpose(a, (1,2,0)).astype(np.int16)
     y = np.transpose(b, (1,2,0)).astype(np.int16)
@@ -62,6 +69,12 @@ def main() -> int:
             removed=apply_hand_mask(original,mask,fill="local_border_median")
             overlay=overlay_mask(original,mask)
             diff=diff_map(original,removed)
+            stem = sample_id.replace('/', '__')
+            individual_dir = args.output.parent / 'individual'
+            individual_dir.mkdir(parents=True, exist_ok=True)
+            save_individual(original, individual_dir / f'{stem}__original.png')
+            save_individual(gray, individual_dir / f'{stem}__grayscale.png')
+            save_individual(removed, individual_dir / f'{stem}__hand_removed.png')
             rows.append((sample_id,[
                 ("ORIGINAL", original),
                 ("GRAYSCALE", gray),
