@@ -17,9 +17,9 @@ from src.hand_mask_v3 import GEOMETRY_CANDIDATES, MultiViewMediaPipeHandMasker, 
 EXAMPLES = [
     "testing/flip/0048_000000011",
     "testing/notflip/0040_000000004",
-    "training/flip/0008_000000029",
+    "testing/flip/0008_000000029",
     "training/notflip/0016_000000023",
-    "training/flip/0059_000000028",
+    "testing/flip/0059_000000028",
     "training/flip/0018_000000021",
 ]
 
