@@ -1,0 +1,64 @@
+name: MonReader V2 LaMa inpainting previews
+
+on:
+  push:
+    branches: ["experiment/v2-secondary-perturbation-dev"]
+    paths:
+      - ".github/workflows/v2_secondary_lama_previews.yml"
+      - "scripts/render_lama_inpainting_examples_v1.py"
+      - "src/lama_inpainting_v1.py"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  LAMA_SHA256: 1faef5301d78db7dda502fe59966957ec4b79dd64e16f03ed96913c7a4eb68d6
+  PYTHONPATH: "."
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install runtime
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y libegl1 libgl1 libgles2
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 mediapipe==1.0.1 onnxruntime==1.23.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+
+      - name: Download authoritative dataset
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+
+      - name: Download pinned hand and LaMa models
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"             --output /tmp/hand_landmarker.task
+          curl --fail --location --retry 3 --retry-delay 2             "https://huggingface.co/sapienkit/LaMa-ONNX/resolve/main/lama_fp32.onnx"             --output /tmp/lama_fp32.onnx
+          printf '%s  %s\n' "$LAMA_SHA256" "/tmp/lama_fp32.onnx" | sha256sum --check
+
+      - name: Render actual inpainting previews
+        run: |
+          set -euo pipefail
+          rm -rf results/secondary/lama_previews_v1
+          python -m scripts.render_lama_inpainting_examples_v1             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --hand-model /tmp/hand_landmarker.task             --lama-model /tmp/lama_fp32.onnx             --output-dir results/secondary/lama_previews_v1
+
+      - name: Publish previews
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+NiknaxTheGreek@users.noreply.github.com"
+          git add results/secondary/lama_previews_v1
+          git commit -m "Secondary: publish LaMa inpainting previews [skip ci]"
+          git push origin "HEAD:experiment/v2-secondary-perturbation-dev"
