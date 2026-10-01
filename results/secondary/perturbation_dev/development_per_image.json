@@ -4,40 +4,40 @@
     "gray_pil_l_luma_mae": 0.9087266325950623,
     "gray_rec709_luma_mae": 0.27196210622787476,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 102,
         "bbox_y1": 397,
-        "coverage_fraction": 0.606447415649677,
-        "pixels": 54066,
+        "coverage_fraction": 0.12267812275664035,
+        "pixels": 10937,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 86,
+        "bbox_y0": 100,
         "bbox_y1": 397,
-        "coverage_fraction": 0.31954414931801867,
-        "pixels": 28488,
+        "coverage_fraction": 0.1403557968413496,
+        "pixels": 12513,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 102,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1089375448671931,
+        "pixels": 9712,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 101,
         "bbox_y1": 397,
         "coverage_fraction": 0.1357569095477387,
         "pixels": 12103,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 101,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.15955895549174443,
-        "pixels": 14225,
         "touches_boundary": true
       }
     },
@@ -50,40 +50,40 @@
     "gray_pil_l_luma_mae": 0.7548426985740662,
     "gray_rec709_luma_mae": 0.26438939571380615,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 5,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 122,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6703719490308686,
-        "pixels": 59765,
+        "coverage_fraction": 0.11023869346733668,
+        "pixels": 9828,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 2,
+      "strict_lower_side_expand": {
+        "bbox_x0": 3,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 120,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3969849246231156,
-        "pixels": 35392,
+        "coverage_fraction": 0.12833138908829864,
+        "pixels": 11441,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 33,
+        "bbox_x1": 223,
+        "bbox_y0": 131,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09067659727207465,
+        "pixels": 8084,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 4,
         "bbox_x1": 223,
         "bbox_y0": 121,
         "bbox_y1": 397,
         "coverage_fraction": 0.12044597989949749,
         "pixels": 10738,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 4,
-        "bbox_x1": 223,
-        "bbox_y0": 107,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.15327754845656855,
-        "pixels": 13665,
         "touches_boundary": true
       }
     },
@@ -96,40 +96,40 @@
     "gray_pil_l_luma_mae": 0.8493760824203491,
     "gray_rec709_luma_mae": 0.2569476366043091,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 2,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 126,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6790313173007897,
-        "pixels": 60537,
+        "coverage_fraction": 0.16326049892318736,
+        "pixels": 14555,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 124,
         "bbox_y1": 397,
-        "coverage_fraction": 0.519102207465901,
-        "pixels": 46279,
+        "coverage_fraction": 0.18641197056712133,
+        "pixels": 16619,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 2,
+        "bbox_x1": 223,
+        "bbox_y0": 126,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.12723214285714285,
+        "pixels": 11343,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 1,
         "bbox_x1": 223,
         "bbox_y0": 125,
         "bbox_y1": 397,
         "coverage_fraction": 0.17571114501076812,
         "pixels": 15665,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 1,
-        "bbox_x1": 223,
-        "bbox_y0": 104,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.17896401651112706,
-        "pixels": 15955,
         "touches_boundary": true
       }
     },
@@ -142,40 +142,40 @@
     "gray_pil_l_luma_mae": 0.8435535430908203,
     "gray_rec709_luma_mae": 0.2710423767566681,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 139,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6916053481694185,
-        "pixels": 61658,
+        "coverage_fraction": 0.15899811557788945,
+        "pixels": 14175,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 81,
+        "bbox_y0": 137,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4336526381909548,
-        "pixels": 38661,
+        "coverage_fraction": 0.18610911701363964,
+        "pixels": 16592,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 139,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.12374371859296482,
+        "pixels": 11032,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 138,
         "bbox_y1": 397,
         "coverage_fraction": 0.17379307250538406,
         "pixels": 15494,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 110,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.19120154343144294,
-        "pixels": 17046,
         "touches_boundary": true
       }
     },
@@ -188,40 +188,40 @@
     "gray_pil_l_luma_mae": 0.8307952880859375,
     "gray_rec709_luma_mae": 0.25554990768432617,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 121,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6645279971284996,
-        "pixels": 59244,
+        "coverage_fraction": 0.14922828427853554,
+        "pixels": 13304,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 80,
+        "bbox_y0": 119,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4115555455850682,
-        "pixels": 36691,
+        "coverage_fraction": 0.17346778535534818,
+        "pixels": 15465,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 149,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.11343548097631012,
+        "pixels": 10113,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 120,
         "bbox_y1": 397,
         "coverage_fraction": 0.16269965900933236,
         "pixels": 14505,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 108,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.18892453338119167,
-        "pixels": 16843,
         "touches_boundary": true
       }
     },
@@ -234,40 +234,40 @@
     "gray_pil_l_luma_mae": 1.313401222229004,
     "gray_rec709_luma_mae": 0.2853286564350128,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 188,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6380114860014358,
-        "pixels": 56880,
+        "coverage_fraction": 0.23167175161521894,
+        "pixels": 20654,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 80,
+        "bbox_y0": 186,
         "bbox_y1": 397,
-        "coverage_fraction": 0.5119683237616655,
-        "pixels": 45643,
+        "coverage_fraction": 0.25729091888011485,
+        "pixels": 22938,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 1,
+        "bbox_x1": 223,
+        "bbox_y0": 188,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20644517229002154,
+        "pixels": 18405,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 187,
         "bbox_y1": 397,
         "coverage_fraction": 0.24647792534099067,
         "pixels": 21974,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 95,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.3013505025125628,
-        "pixels": 26866,
         "touches_boundary": true
       }
     },
@@ -280,40 +280,40 @@
     "gray_pil_l_luma_mae": 1.0016651153564453,
     "gray_rec709_luma_mae": 0.2793855667114258,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 87,
         "bbox_y1": 397,
-        "coverage_fraction": 0.627131191672649,
-        "pixels": 55910,
+        "coverage_fraction": 0.1664124192390524,
+        "pixels": 14836,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 85,
         "bbox_y1": 397,
-        "coverage_fraction": 0.32574703876525485,
-        "pixels": 29041,
+        "coverage_fraction": 0.19162778176597273,
+        "pixels": 17084,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 87,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.15033874730796842,
+        "pixels": 13403,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 86,
         "bbox_y1": 397,
         "coverage_fraction": 0.18433686288585785,
         "pixels": 16434,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 86,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.18820665829145727,
-        "pixels": 16779,
         "touches_boundary": true
       }
     },
@@ -326,34 +326,34 @@
     "gray_pil_l_luma_mae": 1.2080731391906738,
     "gray_rec709_luma_mae": 0.27067670226097107,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 1,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 172,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7111898779612348,
-        "pixels": 63404,
+        "coverage_fraction": 0.23565371500358936,
+        "pixels": 21009,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 170,
         "bbox_y1": 397,
-        "coverage_fraction": 0.42449973079684133,
-        "pixels": 37845,
+        "coverage_fraction": 0.26190102297200285,
+        "pixels": 23349,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side_tight": {
+        "bbox_x0": 1,
         "bbox_x1": 223,
-        "bbox_y0": 171,
+        "bbox_y0": 178,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2501682519741565,
-        "pixels": 22303,
+        "coverage_fraction": 0.2136239231873654,
+        "pixels": 19045,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 171,
@@ -372,34 +372,34 @@
     "gray_pil_l_luma_mae": 1.0769273042678833,
     "gray_rec709_luma_mae": 0.2696828842163086,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 1,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 175,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7123788585786073,
-        "pixels": 63510,
+        "coverage_fraction": 0.22779073941134242,
+        "pixels": 20308,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 173,
         "bbox_y1": 397,
-        "coverage_fraction": 0.41948582196697776,
-        "pixels": 37398,
+        "coverage_fraction": 0.2556532663316583,
+        "pixels": 22792,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side_tight": {
+        "bbox_x0": 1,
         "bbox_x1": 223,
-        "bbox_y0": 174,
+        "bbox_y0": 183,
         "bbox_y1": 397,
-        "coverage_fraction": 0.24189025484565685,
-        "pixels": 21565,
+        "coverage_fraction": 0.18143171213208903,
+        "pixels": 16175,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 174,
@@ -418,34 +418,34 @@
     "gray_pil_l_luma_mae": 1.2130206823349,
     "gray_rec709_luma_mae": 0.2654065787792206,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 204,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6898891780330223,
-        "pixels": 61505,
+        "coverage_fraction": 0.24012921751615218,
+        "pixels": 21408,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 108,
+        "bbox_y0": 202,
         "bbox_y1": 397,
-        "coverage_fraction": 0.35199434673366836,
-        "pixels": 31381,
+        "coverage_fraction": 0.2700668521177315,
+        "pixels": 24077,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 203,
+        "bbox_y0": 221,
         "bbox_y1": 397,
-        "coverage_fraction": 0.25727970208183776,
-        "pixels": 22937,
+        "coverage_fraction": 0.22044373653984206,
+        "pixels": 19653,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 203,
@@ -464,34 +464,34 @@
     "gray_pil_l_luma_mae": 1.2272014617919922,
     "gray_rec709_luma_mae": 0.2646508812904358,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 201,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6887450646087581,
-        "pixels": 61403,
+        "coverage_fraction": 0.23896267049533382,
+        "pixels": 21304,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 76,
+        "bbox_y0": 199,
         "bbox_y1": 397,
-        "coverage_fraction": 0.34703652189519024,
-        "pixels": 30939,
+        "coverage_fraction": 0.2661521895190237,
+        "pixels": 23728,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 200,
+        "bbox_y0": 214,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2549353912419239,
-        "pixels": 22728,
+        "coverage_fraction": 0.22070172290021536,
+        "pixels": 19676,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 200,
@@ -510,40 +510,40 @@
     "gray_pil_l_luma_mae": 1.4192553758621216,
     "gray_rec709_luma_mae": 0.2886507213115692,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 194,
         "bbox_y1": 397,
-        "coverage_fraction": 0.5878387473079684,
-        "pixels": 52407,
+        "coverage_fraction": 0.24065640703517588,
+        "pixels": 21455,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 88,
+        "bbox_y0": 192,
         "bbox_y1": 397,
-        "coverage_fraction": 0.38784323402727927,
-        "pixels": 34577,
+        "coverage_fraction": 0.2632021715721464,
+        "pixels": 23465,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 199,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22816089375448673,
+        "pixels": 20341,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 193,
         "bbox_y1": 397,
         "coverage_fraction": 0.2536342426417803,
         "pixels": 22612,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 131,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.2760902727925341,
-        "pixels": 24614,
         "touches_boundary": true
       }
     },
@@ -556,34 +556,34 @@
     "gray_pil_l_luma_mae": 1.2575112581253052,
     "gray_rec709_luma_mae": 0.24065515398979187,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 22,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 181,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8517924443646806,
-        "pixels": 75939,
+        "coverage_fraction": 0.22242910983488873,
+        "pixels": 19830,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 20,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 179,
         "bbox_y1": 397,
-        "coverage_fraction": 0.47261979540559945,
-        "pixels": 42135,
+        "coverage_fraction": 0.250897343862168,
+        "pixels": 22368,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 19,
+      "strict_lower_side_tight": {
+        "bbox_x0": 22,
         "bbox_x1": 223,
-        "bbox_y0": 166,
+        "bbox_y0": 191,
         "bbox_y1": 397,
-        "coverage_fraction": 0.24609655419956927,
-        "pixels": 21940,
+        "coverage_fraction": 0.19716888011486,
+        "pixels": 17578,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 19,
         "bbox_x1": 223,
         "bbox_y0": 166,
@@ -602,34 +602,34 @@
     "gray_pil_l_luma_mae": 1.2565085887908936,
     "gray_rec709_luma_mae": 0.24447840452194214,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 29,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 134,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8087760229720029,
-        "pixels": 72104,
+        "coverage_fraction": 0.23252422828427854,
+        "pixels": 20730,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 26,
-        "bbox_x1": 223,
-        "bbox_y0": 80,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.41964285714285715,
-        "pixels": 37412,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_expand": {
         "bbox_x0": 27,
         "bbox_x1": 223,
-        "bbox_y0": 133,
+        "bbox_y0": 132,
         "bbox_y1": 397,
-        "coverage_fraction": 0.272029791816224,
-        "pixels": 24252,
+        "coverage_fraction": 0.2664550430725054,
+        "pixels": 23755,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 149,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.19541905958363245,
+        "pixels": 17422,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 27,
         "bbox_x1": 223,
         "bbox_y0": 133,
@@ -648,40 +648,40 @@
     "gray_pil_l_luma_mae": 1.2894366979599,
     "gray_rec709_luma_mae": 0.23696164786815643,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 16,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 167,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8442996231155779,
-        "pixels": 75271,
+        "coverage_fraction": 0.22283291457286433,
+        "pixels": 19866,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 14,
         "bbox_x1": 223,
-        "bbox_y0": 74,
+        "bbox_y0": 165,
         "bbox_y1": 397,
-        "coverage_fraction": 0.40854944364680545,
-        "pixels": 36423,
+        "coverage_fraction": 0.2509309942569993,
+        "pixels": 22371,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 17,
+        "bbox_x1": 223,
+        "bbox_y0": 177,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.208183776022972,
+        "pixels": 18560,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 13,
         "bbox_x1": 223,
         "bbox_y0": 166,
         "bbox_y1": 397,
         "coverage_fraction": 0.24237257717157215,
         "pixels": 21608,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 13,
-        "bbox_x1": 223,
-        "bbox_y0": 166,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.24839599784637473,
-        "pixels": 22145,
         "touches_boundary": true
       }
     },
@@ -694,34 +694,34 @@
     "gray_pil_l_luma_mae": 1.2985347509384155,
     "gray_rec709_luma_mae": 0.23573607206344604,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 21,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 166,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8312769203158651,
-        "pixels": 74110,
+        "coverage_fraction": 0.2502019023689878,
+        "pixels": 22306,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 19,
         "bbox_x1": 223,
-        "bbox_y0": 76,
+        "bbox_y0": 164,
         "bbox_y1": 397,
-        "coverage_fraction": 0.42168431442928933,
-        "pixels": 37594,
+        "coverage_fraction": 0.27472182340272794,
+        "pixels": 24492,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 18,
+      "strict_lower_side_tight": {
+        "bbox_x0": 21,
         "bbox_x1": 223,
-        "bbox_y0": 163,
+        "bbox_y0": 171,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2752714465183058,
-        "pixels": 24541,
+        "coverage_fraction": 0.23074075735821967,
+        "pixels": 20571,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 18,
         "bbox_x1": 223,
         "bbox_y0": 163,
@@ -740,40 +740,40 @@
     "gray_pil_l_luma_mae": 1.2794370651245117,
     "gray_rec709_luma_mae": 0.24248145520687103,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 25,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 141,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8133749102656138,
-        "pixels": 72514,
+        "coverage_fraction": 0.21956882627422827,
+        "pixels": 19575,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 23,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 139,
         "bbox_y1": 397,
-        "coverage_fraction": 0.5024116116295765,
-        "pixels": 44791,
+        "coverage_fraction": 0.2509646446518306,
+        "pixels": 22374,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 25,
+        "bbox_x1": 223,
+        "bbox_y0": 153,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2032035175879397,
+        "pixels": 18116,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 21,
         "bbox_x1": 223,
         "bbox_y0": 140,
         "bbox_y1": 397,
         "coverage_fraction": 0.2450982591529074,
         "pixels": 21851,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 21,
-        "bbox_x1": 223,
-        "bbox_y0": 140,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.2593772433596554,
-        "pixels": 23124,
         "touches_boundary": true
       }
     },
@@ -786,34 +786,34 @@
     "gray_pil_l_luma_mae": 1.2511639595031738,
     "gray_rec709_luma_mae": 0.23105488717556,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 31,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 162,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8702104271356784,
-        "pixels": 77581,
+        "coverage_fraction": 0.23272613065326633,
+        "pixels": 20748,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 29,
         "bbox_x1": 223,
-        "bbox_y0": 85,
+        "bbox_y0": 160,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4495019741564968,
-        "pixels": 40074,
+        "coverage_fraction": 0.2590407394113424,
+        "pixels": 23094,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 26,
+      "strict_lower_side_tight": {
+        "bbox_x0": 31,
         "bbox_x1": 223,
-        "bbox_y0": 161,
+        "bbox_y0": 178,
         "bbox_y1": 397,
-        "coverage_fraction": 0.24919239052404882,
-        "pixels": 22216,
+        "coverage_fraction": 0.2188733847810481,
+        "pixels": 19513,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 26,
         "bbox_x1": 223,
         "bbox_y0": 161,
@@ -832,34 +832,34 @@
     "gray_pil_l_luma_mae": 1.1989879608154297,
     "gray_rec709_luma_mae": 0.2407815009355545,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 20,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 159,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8096284996410624,
-        "pixels": 72180,
+        "coverage_fraction": 0.24267543072505385,
+        "pixels": 21635,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 129,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.33141152189519024,
-        "pixels": 29546,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_expand": {
         "bbox_x0": 18,
         "bbox_x1": 223,
-        "bbox_y0": 158,
+        "bbox_y0": 157,
         "bbox_y1": 397,
-        "coverage_fraction": 0.26348259152907394,
-        "pixels": 23490,
+        "coverage_fraction": 0.2697752153625269,
+        "pixels": 24051,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 20,
+        "bbox_x1": 223,
+        "bbox_y0": 161,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21509332376166548,
+        "pixels": 19176,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 18,
         "bbox_x1": 223,
         "bbox_y0": 158,
@@ -878,34 +878,34 @@
     "gray_pil_l_luma_mae": 1.0017033815383911,
     "gray_rec709_luma_mae": 0.24756279587745667,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 28,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 60,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7305725053840632,
-        "pixels": 65132,
+        "coverage_fraction": 0.1625538406317301,
+        "pixels": 14492,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 26,
         "bbox_x1": 223,
         "bbox_y0": 58,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3322752153625269,
-        "pixels": 29623,
+        "coverage_fraction": 0.18629980258435033,
+        "pixels": 16609,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 24,
+      "strict_lower_side_tight": {
+        "bbox_x0": 28,
         "bbox_x1": 223,
-        "bbox_y0": 59,
+        "bbox_y0": 61,
         "bbox_y1": 397,
-        "coverage_fraction": 0.17979405958363245,
-        "pixels": 16029,
+        "coverage_fraction": 0.14806173725771715,
+        "pixels": 13200,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 24,
         "bbox_x1": 223,
         "bbox_y0": 59,
@@ -924,34 +924,34 @@
     "gray_pil_l_luma_mae": 1.003423810005188,
     "gray_rec709_luma_mae": 0.24829614162445068,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 28,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 61,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7300789662598708,
-        "pixels": 65088,
+        "coverage_fraction": 0.16260992462311558,
+        "pixels": 14497,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 26,
         "bbox_x1": 223,
-        "bbox_y0": 56,
+        "bbox_y0": 59,
         "bbox_y1": 397,
-        "coverage_fraction": 0.33018889088298636,
-        "pixels": 29437,
+        "coverage_fraction": 0.1873093144292893,
+        "pixels": 16699,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 24,
+      "strict_lower_side_tight": {
+        "bbox_x0": 28,
         "bbox_x1": 223,
-        "bbox_y0": 60,
+        "bbox_y0": 62,
         "bbox_y1": 397,
-        "coverage_fraction": 0.17970432519741564,
-        "pixels": 16021,
+        "coverage_fraction": 0.1460651471643934,
+        "pixels": 13022,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 24,
         "bbox_x1": 223,
         "bbox_y0": 60,
@@ -970,34 +970,34 @@
     "gray_pil_l_luma_mae": 0.951172411441803,
     "gray_rec709_luma_mae": 0.24741657078266144,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 33,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 183,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7441111809045227,
-        "pixels": 66339,
+        "coverage_fraction": 0.16477476669059585,
+        "pixels": 14690,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 31,
         "bbox_x1": 223,
-        "bbox_y0": 74,
+        "bbox_y0": 181,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3226287688442211,
-        "pixels": 28763,
+        "coverage_fraction": 0.18615398420674803,
+        "pixels": 16596,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 30,
+      "strict_lower_side_tight": {
+        "bbox_x0": 33,
         "bbox_x1": 223,
-        "bbox_y0": 182,
+        "bbox_y0": 193,
         "bbox_y1": 397,
-        "coverage_fraction": 0.17970432519741564,
-        "pixels": 16021,
+        "coverage_fraction": 0.14296931083991385,
+        "pixels": 12746,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 30,
         "bbox_x1": 223,
         "bbox_y0": 182,
@@ -1016,34 +1016,34 @@
     "gray_pil_l_luma_mae": 1.1034693717956543,
     "gray_rec709_luma_mae": 0.23199285566806793,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 19,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 177,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7943400035893754,
-        "pixels": 70817,
+        "coverage_fraction": 0.21621500358937545,
+        "pixels": 19276,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 17,
         "bbox_x1": 223,
-        "bbox_y0": 101,
+        "bbox_y0": 175,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3306936468054559,
-        "pixels": 29482,
+        "coverage_fraction": 0.24213702440775306,
+        "pixels": 21587,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 16,
+      "strict_lower_side_tight": {
+        "bbox_x0": 19,
         "bbox_x1": 223,
-        "bbox_y0": 176,
+        "bbox_y0": 182,
         "bbox_y1": 397,
-        "coverage_fraction": 0.23883928571428573,
-        "pixels": 21293,
+        "coverage_fraction": 0.188060839913855,
+        "pixels": 16766,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 16,
         "bbox_x1": 223,
         "bbox_y0": 176,
@@ -1062,40 +1062,40 @@
     "gray_pil_l_luma_mae": 1.0867977142333984,
     "gray_rec709_luma_mae": 0.23324039578437805,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 24,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 170,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7595342785355348,
-        "pixels": 67714,
+        "coverage_fraction": 0.20854271356783918,
+        "pixels": 18592,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 22,
         "bbox_x1": 223,
-        "bbox_y0": 112,
+        "bbox_y0": 168,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3108286970567121,
-        "pixels": 27711,
+        "coverage_fraction": 0.23627063890882985,
+        "pixels": 21064,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 24,
+        "bbox_x1": 223,
+        "bbox_y0": 178,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1823066223977028,
+        "pixels": 16253,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 21,
         "bbox_x1": 223,
         "bbox_y0": 169,
         "bbox_y1": 397,
         "coverage_fraction": 0.23236719310839915,
         "pixels": 20716,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 21,
-        "bbox_x1": 223,
-        "bbox_y0": 169,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.23622577171572146,
-        "pixels": 21060,
         "touches_boundary": true
       }
     },
@@ -1108,34 +1108,34 @@
     "gray_pil_l_luma_mae": 1.7694194316864014,
     "gray_rec709_luma_mae": 0.2680428922176361,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 72,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.6242484745154343,
-        "pixels": 55653,
+        "bbox_x1": 22,
+        "bbox_y0": 255,
+        "bbox_y1": 270,
+        "coverage_fraction": 0.00311826992103374,
+        "pixels": 278,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 74,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.5708677315147165,
-        "pixels": 50894,
+        "bbox_x1": 24,
+        "bbox_y0": 253,
+        "bbox_y1": 272,
+        "coverage_fraction": 0.004733488872936109,
+        "pixels": 422,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 75,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.4473819992821249,
-        "pixels": 39885,
-        "touches_boundary": true
+      "strict_lower_side_tight": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 75,
@@ -1154,34 +1154,34 @@
     "gray_pil_l_luma_mae": 1.5584847927093506,
     "gray_rec709_luma_mae": 0.26582708954811096,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "strict_lower_side_expand": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "strict_lower_side_tight": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 70,
+        "bbox_y0": 80,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6407147343862168,
-        "pixels": 57121,
+        "coverage_fraction": 0.3383771536252692,
+        "pixels": 30167,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 77,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.5799421213208902,
-        "pixels": 51703,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 79,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.44984969490308685,
-        "pixels": 40105,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 79,
@@ -1200,34 +1200,34 @@
     "gray_pil_l_luma_mae": 1.7745202779769897,
     "gray_rec709_luma_mae": 0.27263811230659485,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 82,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.6365533022254127,
-        "pixels": 56750,
-        "touches_boundary": true
+      "strict_lower_side": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 85,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.5896334350323044,
-        "pixels": 52567,
-        "touches_boundary": true
+      "strict_lower_side_expand": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 85,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.4840272792534099,
-        "pixels": 43152,
-        "touches_boundary": true
+      "strict_lower_side_tight": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 85,
@@ -1246,40 +1246,40 @@
     "gray_pil_l_luma_mae": 1.1896287202835083,
     "gray_rec709_luma_mae": 0.27596578001976013,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 71,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 147,
         "bbox_y1": 397,
-        "coverage_fraction": 0.695374192390524,
-        "pixels": 61994,
+        "coverage_fraction": 0.20185750179468773,
+        "pixels": 17996,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 69,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 145,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4839824120603015,
-        "pixels": 43148,
+        "coverage_fraction": 0.22823941134242642,
+        "pixels": 20348,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 71,
+        "bbox_x1": 223,
+        "bbox_y0": 200,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17654118808327351,
+        "pixels": 15739,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 70,
         "bbox_x1": 223,
         "bbox_y0": 146,
         "bbox_y1": 397,
         "coverage_fraction": 0.21747128499641064,
         "pixels": 19388,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 8,
-        "bbox_x1": 223,
-        "bbox_y0": 101,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.2973012383345298,
-        "pixels": 26505,
         "touches_boundary": true
       }
     },
@@ -1292,40 +1292,40 @@
     "gray_pil_l_luma_mae": 1.311745524406433,
     "gray_rec709_luma_mae": 0.26879170536994934,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 51,
         "bbox_x1": 223,
-        "bbox_y0": 53,
+        "bbox_y0": 118,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6824636575735822,
-        "pixels": 60843,
+        "coverage_fraction": 0.25288271715721466,
+        "pixels": 22545,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 49,
         "bbox_x1": 223,
-        "bbox_y0": 76,
+        "bbox_y0": 116,
         "bbox_y1": 397,
-        "coverage_fraction": 0.5454055994256999,
-        "pixels": 48624,
+        "coverage_fraction": 0.2823828966259871,
+        "pixels": 25175,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 71,
+        "bbox_x1": 223,
+        "bbox_y0": 147,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20171168341708542,
+        "pixels": 17983,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 50,
         "bbox_x1": 223,
         "bbox_y0": 117,
         "bbox_y1": 397,
         "coverage_fraction": 0.2709193287867911,
         "pixels": 24153,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 5,
-        "bbox_x1": 223,
-        "bbox_y0": 78,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.3569633883704236,
-        "pixels": 31824,
         "touches_boundary": true
       }
     },
@@ -1338,40 +1338,40 @@
     "gray_pil_l_luma_mae": 1.1808754205703735,
     "gray_rec709_luma_mae": 0.2743912637233734,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 70,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 161,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7121769562096195,
-        "pixels": 63492,
+        "coverage_fraction": 0.18873384781048097,
+        "pixels": 16826,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 68,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 159,
         "bbox_y1": 397,
-        "coverage_fraction": 0.5269876166547021,
-        "pixels": 46982,
+        "coverage_fraction": 0.21502602297200288,
+        "pixels": 19170,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 70,
+        "bbox_x1": 223,
+        "bbox_y0": 196,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1718413496051687,
+        "pixels": 15320,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 69,
         "bbox_x1": 223,
         "bbox_y0": 160,
         "bbox_y1": 397,
         "coverage_fraction": 0.20351758793969849,
         "pixels": 18144,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 8,
-        "bbox_x1": 223,
-        "bbox_y0": 98,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.28886620603015073,
-        "pixels": 25753,
         "touches_boundary": true
       }
     },
@@ -1384,40 +1384,40 @@
     "gray_pil_l_luma_mae": 0.9293989539146423,
     "gray_rec709_luma_mae": 0.2565450072288513,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 12,
         "bbox_x1": 223,
-        "bbox_y0": 50,
+        "bbox_y0": 97,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6833049174443647,
-        "pixels": 60918,
+        "coverage_fraction": 0.21318646805455851,
+        "pixels": 19006,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 10,
         "bbox_x1": 223,
-        "bbox_y0": 84,
+        "bbox_y0": 95,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4535175879396985,
-        "pixels": 40432,
+        "coverage_fraction": 0.24733040201005024,
+        "pixels": 22050,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 34,
+        "bbox_x1": 223,
+        "bbox_y0": 97,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.13763011486001436,
+        "pixels": 12270,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 11,
         "bbox_x1": 223,
         "bbox_y0": 96,
         "bbox_y1": 397,
         "coverage_fraction": 0.23581075017946876,
         "pixels": 21023,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 11,
-        "bbox_x1": 223,
-        "bbox_y0": 87,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.24175565326633167,
-        "pixels": 21553,
         "touches_boundary": true
       }
     },
@@ -1430,40 +1430,40 @@
     "gray_pil_l_luma_mae": 0.9352115988731384,
     "gray_rec709_luma_mae": 0.25578224658966064,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 11,
         "bbox_x1": 223,
-        "bbox_y0": 53,
+        "bbox_y0": 96,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6837535893754487,
-        "pixels": 60958,
+        "coverage_fraction": 0.21539617731514715,
+        "pixels": 19203,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 9,
         "bbox_x1": 223,
-        "bbox_y0": 83,
+        "bbox_y0": 94,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4579818736539842,
-        "pixels": 40830,
+        "coverage_fraction": 0.2493942928930366,
+        "pixels": 22234,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 34,
+        "bbox_x1": 223,
+        "bbox_y0": 97,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.13804513639626706,
+        "pixels": 12307,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 10,
         "bbox_x1": 223,
         "bbox_y0": 95,
         "bbox_y1": 397,
         "coverage_fraction": 0.23777368987796124,
         "pixels": 21198,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 10,
-        "bbox_x1": 223,
-        "bbox_y0": 86,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.24288854989231873,
-        "pixels": 21654,
         "touches_boundary": true
       }
     },
@@ -1476,40 +1476,40 @@
     "gray_pil_l_luma_mae": 0.8479466438293457,
     "gray_rec709_luma_mae": 0.25493669509887695,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 57,
         "bbox_x1": 223,
-        "bbox_y0": 58,
+        "bbox_y0": 95,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6797716259870783,
-        "pixels": 60603,
+        "coverage_fraction": 0.1564631191672649,
+        "pixels": 13949,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 55,
         "bbox_x1": 223,
-        "bbox_y0": 77,
+        "bbox_y0": 93,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4277750358937545,
-        "pixels": 38137,
+        "coverage_fraction": 0.18117372577171573,
+        "pixels": 16152,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 57,
+        "bbox_x1": 223,
+        "bbox_y0": 96,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.12333991385498923,
+        "pixels": 10996,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 56,
         "bbox_x1": 223,
         "bbox_y0": 94,
         "bbox_y1": 397,
         "coverage_fraction": 0.17064115218951903,
         "pixels": 15213,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 5,
-        "bbox_x1": 223,
-        "bbox_y0": 94,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.18942928930366115,
-        "pixels": 16888,
         "touches_boundary": true
       }
     },
@@ -1522,40 +1522,40 @@
     "gray_pil_l_luma_mae": 0.8497953414916992,
     "gray_rec709_luma_mae": 0.25611770153045654,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 56,
         "bbox_x1": 223,
-        "bbox_y0": 36,
+        "bbox_y0": 99,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6814429289303661,
-        "pixels": 60752,
+        "coverage_fraction": 0.156923007896626,
+        "pixels": 13990,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 54,
         "bbox_x1": 223,
-        "bbox_y0": 77,
+        "bbox_y0": 97,
         "bbox_y1": 397,
-        "coverage_fraction": 0.43471823402727927,
-        "pixels": 38756,
+        "coverage_fraction": 0.18139806173725773,
+        "pixels": 16172,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 57,
+        "bbox_x1": 223,
+        "bbox_y0": 99,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.124887832017229,
+        "pixels": 11134,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 55,
         "bbox_x1": 223,
         "bbox_y0": 98,
         "bbox_y1": 397,
         "coverage_fraction": 0.17089913854989233,
         "pixels": 15236,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 5,
-        "bbox_x1": 223,
-        "bbox_y0": 97,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.20075825556353194,
-        "pixels": 17898,
         "touches_boundary": true
       }
     },
@@ -1568,40 +1568,40 @@
     "gray_pil_l_luma_mae": 0.9074317812919617,
     "gray_rec709_luma_mae": 0.258876770734787,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 60,
         "bbox_x1": 223,
-        "bbox_y0": 63,
+        "bbox_y0": 117,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6563285175879398,
-        "pixels": 58513,
+        "coverage_fraction": 0.17334440057430006,
+        "pixels": 15454,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 58,
         "bbox_x1": 223,
-        "bbox_y0": 78,
+        "bbox_y0": 115,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4342471284996411,
-        "pixels": 38714,
+        "coverage_fraction": 0.19932250538406318,
+        "pixels": 17770,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 61,
+        "bbox_x1": 223,
+        "bbox_y0": 177,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.13241430366116297,
+        "pixels": 11805,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 59,
         "bbox_x1": 223,
         "bbox_y0": 116,
         "bbox_y1": 397,
         "coverage_fraction": 0.18920495333811918,
         "pixels": 16868,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 2,
-        "bbox_x1": 223,
-        "bbox_y0": 116,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.20675924264178033,
-        "pixels": 18433,
         "touches_boundary": true
       }
     },
@@ -1614,40 +1614,40 @@
     "gray_pil_l_luma_mae": 0.891119658946991,
     "gray_rec709_luma_mae": 0.2706872522830963,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 60,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 92,
         "bbox_y1": 397,
-        "coverage_fraction": 0.6875897343862168,
-        "pixels": 61300,
+        "coverage_fraction": 0.1722451543431443,
+        "pixels": 15356,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 58,
         "bbox_x1": 223,
         "bbox_y0": 90,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4758502333094042,
-        "pixels": 42423,
+        "coverage_fraction": 0.19864949748743718,
+        "pixels": 17710,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 61,
+        "bbox_x1": 223,
+        "bbox_y0": 92,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.14318243000717876,
+        "pixels": 12765,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 59,
         "bbox_x1": 223,
         "bbox_y0": 91,
         "bbox_y1": 397,
         "coverage_fraction": 0.1865914393395549,
         "pixels": 16635,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 6,
-        "bbox_x1": 223,
-        "bbox_y0": 91,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.2344759511844939,
-        "pixels": 20904,
         "touches_boundary": true
       }
     },
@@ -1660,34 +1660,34 @@
     "gray_pil_l_luma_mae": 1.1212278604507446,
     "gray_rec709_luma_mae": 0.23180416226387024,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 168,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8585113065326633,
-        "pixels": 76538,
+        "coverage_fraction": 0.188060839913855,
+        "pixels": 16766,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 116,
+        "bbox_y0": 166,
         "bbox_y1": 397,
-        "coverage_fraction": 0.4215160624551328,
-        "pixels": 37579,
+        "coverage_fraction": 0.21702261306532664,
+        "pixels": 19348,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 48,
+      "strict_lower_side_tight": {
+        "bbox_x0": 53,
         "bbox_x1": 223,
-        "bbox_y0": 147,
+        "bbox_y0": 177,
         "bbox_y1": 397,
-        "coverage_fraction": 0.21111136037329506,
-        "pixels": 18821,
+        "coverage_fraction": 0.15294104450825557,
+        "pixels": 13635,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 48,
         "bbox_x1": 223,
         "bbox_y0": 147,
@@ -1706,34 +1706,34 @@
     "gray_pil_l_luma_mae": 1.1071370840072632,
     "gray_rec709_luma_mae": 0.22800950706005096,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 170,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8594423007896625,
-        "pixels": 76621,
+        "coverage_fraction": 0.1771917623833453,
+        "pixels": 15797,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 119,
+        "bbox_y0": 168,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3865420854271357,
-        "pixels": 34461,
+        "coverage_fraction": 0.2031923007896626,
+        "pixels": 18115,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 50,
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 169,
+        "bbox_y0": 181,
         "bbox_y1": 397,
-        "coverage_fraction": 0.20063487078248385,
-        "pixels": 17887,
+        "coverage_fraction": 0.15554334170854273,
+        "pixels": 13867,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 50,
         "bbox_x1": 223,
         "bbox_y0": 169,
@@ -1752,34 +1752,34 @@
     "gray_pil_l_luma_mae": 1.1269850730895996,
     "gray_rec709_luma_mae": 0.2293674498796463,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 170,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8460494436468055,
-        "pixels": 75427,
+        "coverage_fraction": 0.1887450646087581,
+        "pixels": 16827,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 100,
+        "bbox_y0": 168,
         "bbox_y1": 397,
-        "coverage_fraction": 0.326778984206748,
-        "pixels": 29133,
+        "coverage_fraction": 0.21585606604450824,
+        "pixels": 19244,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 169,
+        "bbox_y0": 172,
         "bbox_y1": 397,
-        "coverage_fraction": 0.21577754845656855,
-        "pixels": 19237,
+        "coverage_fraction": 0.16876794687724336,
+        "pixels": 15046,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 169,
@@ -1798,34 +1798,34 @@
     "gray_pil_l_luma_mae": 1.1148663759231567,
     "gray_rec709_luma_mae": 0.23238997161388397,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 180,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8770414572864321,
-        "pixels": 78190,
+        "coverage_fraction": 0.18841977745872218,
+        "pixels": 16798,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 130,
+        "bbox_y0": 178,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3843435929648241,
-        "pixels": 34265,
+        "coverage_fraction": 0.21222182340272794,
+        "pixels": 18920,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 173,
+        "bbox_y0": 193,
         "bbox_y1": 397,
-        "coverage_fraction": 0.20608623474515433,
-        "pixels": 18373,
+        "coverage_fraction": 0.1715721464465183,
+        "pixels": 15296,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 173,
@@ -1844,34 +1844,34 @@
     "gray_pil_l_luma_mae": 1.0631059408187866,
     "gray_rec709_luma_mae": 0.22342044115066528,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 49,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 194,
         "bbox_y1": 397,
-        "coverage_fraction": 0.867462311557789,
-        "pixels": 77336,
+        "coverage_fraction": 0.1674667982770998,
+        "pixels": 14930,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 47,
         "bbox_x1": 223,
-        "bbox_y0": 110,
+        "bbox_y0": 192,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3760543790380474,
-        "pixels": 33526,
+        "coverage_fraction": 0.1968211593682699,
+        "pixels": 17547,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 48,
+      "strict_lower_side_tight": {
+        "bbox_x0": 51,
         "bbox_x1": 223,
-        "bbox_y0": 186,
+        "bbox_y0": 201,
         "bbox_y1": 397,
-        "coverage_fraction": 0.19181846733668342,
-        "pixels": 17101,
+        "coverage_fraction": 0.15349066762383345,
+        "pixels": 13684,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 48,
         "bbox_x1": 223,
         "bbox_y0": 186,
@@ -1890,34 +1890,34 @@
     "gray_pil_l_luma_mae": 1.0673505067825317,
     "gray_rec709_luma_mae": 0.22901824116706848,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 156,
         "bbox_y1": 397,
-        "coverage_fraction": 0.8520504307250538,
-        "pixels": 75962,
+        "coverage_fraction": 0.18369750538406318,
+        "pixels": 16377,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 81,
+        "bbox_y0": 154,
         "bbox_y1": 397,
-        "coverage_fraction": 0.34665515075376885,
-        "pixels": 30905,
+        "coverage_fraction": 0.21606918521177315,
+        "pixels": 19263,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 49,
+      "strict_lower_side_tight": {
+        "bbox_x0": 52,
         "bbox_x1": 223,
-        "bbox_y0": 155,
+        "bbox_y0": 173,
         "bbox_y1": 397,
-        "coverage_fraction": 0.21129082914572864,
-        "pixels": 18837,
+        "coverage_fraction": 0.14768036611629576,
+        "pixels": 13166,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 49,
         "bbox_x1": 223,
         "bbox_y0": 155,
@@ -1936,34 +1936,34 @@
     "gray_pil_l_luma_mae": 0.8500878214836121,
     "gray_rec709_luma_mae": 0.23073610663414001,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 193,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7867237975592247,
-        "pixels": 70138,
+        "coverage_fraction": 0.12416995692749462,
+        "pixels": 11070,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 126,
+        "bbox_y0": 191,
         "bbox_y1": 397,
-        "coverage_fraction": 0.27753723977028,
-        "pixels": 24743,
+        "coverage_fraction": 0.14425924264178033,
+        "pixels": 12861,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 49,
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 192,
+        "bbox_y0": 196,
         "bbox_y1": 397,
-        "coverage_fraction": 0.13415290739411342,
-        "pixels": 11960,
+        "coverage_fraction": 0.11563397343862168,
+        "pixels": 10309,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 49,
         "bbox_x1": 223,
         "bbox_y0": 192,
@@ -1982,34 +1982,34 @@
     "gray_pil_l_luma_mae": 0.7287411689758301,
     "gray_rec709_luma_mae": 0.21847450733184814,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 51,
+        "bbox_x1": 139,
+        "bbox_y0": 261,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7515254845656856,
-        "pixels": 67000,
+        "coverage_fraction": 0.08049174443646806,
+        "pixels": 7176,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 101,
+      "strict_lower_side_expand": {
+        "bbox_x0": 49,
+        "bbox_x1": 141,
+        "bbox_y0": 259,
         "bbox_y1": 397,
-        "coverage_fraction": 0.3236158470926059,
-        "pixels": 28851,
+        "coverage_fraction": 0.0938285175879397,
+        "pixels": 8365,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 50,
-        "bbox_x1": 223,
-        "bbox_y0": 111,
+      "strict_lower_side_tight": {
+        "bbox_x0": 52,
+        "bbox_x1": 137,
+        "bbox_y0": 263,
         "bbox_y1": 397,
-        "coverage_fraction": 0.0938509511844939,
-        "pixels": 8367,
+        "coverage_fraction": 0.07260633524766691,
+        "pixels": 6473,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 50,
         "bbox_x1": 223,
         "bbox_y0": 111,
@@ -2028,34 +2028,34 @@
     "gray_pil_l_luma_mae": 0.7332342267036438,
     "gray_rec709_luma_mae": 0.23123937845230103,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
+        "bbox_x0": 55,
+        "bbox_x1": 223,
+        "bbox_y0": 86,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09082241564967695,
+        "pixels": 8097,
+        "touches_boundary": true
+      },
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 84,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7779634781048098,
-        "pixels": 69357,
+        "coverage_fraction": 0.10795046661880833,
+        "pixels": 9624,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_tight": {
+        "bbox_x0": 57,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 104,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2742282842785355,
-        "pixels": 24448,
+        "coverage_fraction": 0.07882044149318018,
+        "pixels": 7027,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 54,
-        "bbox_x1": 223,
-        "bbox_y0": 0,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.10258883704235464,
-        "pixels": 9146,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 54,
         "bbox_x1": 223,
         "bbox_y0": 0,
@@ -2074,34 +2074,34 @@
     "gray_pil_l_luma_mae": 0.7427250146865845,
     "gray_rec709_luma_mae": 0.23488575220108032,
     "hand_candidates": {
-      "consensus_boundary": {
-        "bbox_x0": 0,
+      "strict_lower_side": {
+        "bbox_x0": 51,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 76,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7664213926776741,
-        "pixels": 68328,
+        "coverage_fraction": 0.09624012921751615,
+        "pixels": 8580,
         "touches_boundary": true
       },
-      "ycbcr_core": {
-        "bbox_x0": 0,
+      "strict_lower_side_expand": {
+        "bbox_x0": 49,
         "bbox_x1": 223,
-        "bbox_y0": 51,
+        "bbox_y0": 74,
         "bbox_y1": 397,
-        "coverage_fraction": 0.29402593323761667,
-        "pixels": 26213,
+        "coverage_fraction": 0.11069858219669777,
+        "pixels": 9869,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 50,
+      "strict_lower_side_tight": {
+        "bbox_x0": 53,
         "bbox_x1": 223,
-        "bbox_y0": 75,
+        "bbox_y0": 76,
         "bbox_y1": 397,
-        "coverage_fraction": 0.10501166547020818,
-        "pixels": 9362,
+        "coverage_fraction": 0.08623474515434315,
+        "pixels": 7688,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 50,
         "bbox_x1": 223,
         "bbox_y0": 75,
@@ -2120,40 +2120,40 @@
     "gray_pil_l_luma_mae": 0.7438226938247681,
     "gray_rec709_luma_mae": 0.24252961575984955,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 73,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7750695441493181,
-        "pixels": 69099,
+        "coverage_fraction": 0.10102970208183776,
+        "pixels": 9007,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 44,
+        "bbox_y0": 71,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2618561557788945,
-        "pixels": 23345,
+        "coverage_fraction": 0.11742866116295765,
+        "pixels": 10469,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 74,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08996993898061738,
+        "pixels": 8021,
+        "touches_boundary": true
+      },
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 50,
         "bbox_x1": 223,
         "bbox_y0": 72,
         "bbox_y1": 397,
         "coverage_fraction": 0.10862347451543432,
         "pixels": 9684,
-        "touches_boundary": true
-      },
-      "ycbcr_wide_rgb_gate": {
-        "bbox_x0": 50,
-        "bbox_x1": 223,
-        "bbox_y0": 44,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.11157349246231156,
-        "pixels": 9947,
         "touches_boundary": true
       }
     },
@@ -2166,34 +2166,34 @@
     "gray_pil_l_luma_mae": 0.7387970685958862,
     "gray_rec709_luma_mae": 0.2383536398410797,
     "hand_candidates": {
-      "consensus_boundary": {
+      "strict_lower_side": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 0,
+        "bbox_y0": 76,
         "bbox_y1": 397,
-        "coverage_fraction": 0.7686311019382628,
-        "pixels": 68525,
+        "coverage_fraction": 0.09910041277817659,
+        "pixels": 8835,
         "touches_boundary": true
       },
-      "ycbcr_core": {
+      "strict_lower_side_expand": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 46,
+        "bbox_y0": 74,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2824501974156497,
-        "pixels": 25181,
+        "coverage_fraction": 0.11538720387652548,
+        "pixels": 10287,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_boundary": {
-        "bbox_x0": 50,
+      "strict_lower_side_tight": {
+        "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 75,
+        "bbox_y0": 77,
         "bbox_y1": 397,
-        "coverage_fraction": 0.10700825556353194,
-        "pixels": 9540,
+        "coverage_fraction": 0.08661611629576453,
+        "pixels": 7722,
         "touches_boundary": true
       },
-      "ycbcr_wide_rgb_gate": {
+      "v1_wide_rgb_boundary": {
         "bbox_x0": 50,
         "bbox_x1": 223,
         "bbox_y0": 75,

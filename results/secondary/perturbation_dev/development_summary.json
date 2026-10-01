@@ -58,25 +58,34 @@
     "recommended_before_visual_review": "rec709_grayscale"
   },
   "hand_mask_candidates": {
-    "consensus_boundary": {
+    "strict_lower_side": {
       "images": 48,
-      "max_coverage": 0.8770414572864321,
-      "mean_coverage": 0.7376203936348409,
-      "median_coverage": 0.721228912419239,
-      "nonzero_fraction": 1.0,
-      "nonzero_masks": 48,
-      "p90_coverage": 0.8539886934673366
+      "max_coverage": 0.25288271715721466,
+      "mean_coverage": 0.17172754583931563,
+      "median_coverage": 0.18044463388370424,
+      "nonzero_fraction": 0.9583333333333334,
+      "nonzero_masks": 46,
+      "p90_coverage": 0.23931263460157934
     },
-    "ycbcr_core": {
+    "strict_lower_side_expand": {
       "images": 48,
-      "max_coverage": 0.5896334350323044,
-      "mean_coverage": 0.40454925296123473,
-      "median_coverage": 0.41005249461593685,
-      "nonzero_fraction": 1.0,
-      "nonzero_masks": 48,
-      "p90_coverage": 0.5214678302225413
+      "max_coverage": 0.2823828966259871,
+      "mean_coverage": 0.19541485328427854,
+      "median_coverage": 0.20770706209619527,
+      "nonzero_fraction": 0.9583333333333334,
+      "nonzero_masks": 46,
+      "p90_coverage": 0.2662430455850682
     },
-    "ycbcr_wide_rgb_boundary": {
+    "strict_lower_side_tight": {
+      "images": 48,
+      "max_coverage": 0.3383771536252692,
+      "mean_coverage": 0.15477428997666906,
+      "median_coverage": 0.151639895908112,
+      "nonzero_fraction": 0.9583333333333334,
+      "nonzero_masks": 46,
+      "p90_coverage": 0.2193444903086863
+    },
+    "v1_wide_rgb_boundary": {
       "images": 48,
       "max_coverage": 0.4840272792534099,
       "mean_coverage": 0.21694012286133046,
@@ -84,15 +93,6 @@
       "nonzero_fraction": 1.0,
       "nonzero_masks": 48,
       "p90_coverage": 0.27125246769562095
-    },
-    "ycbcr_wide_rgb_gate": {
-      "images": 48,
-      "max_coverage": 0.4840272792534099,
-      "mean_coverage": 0.22919424129576452,
-      "median_coverage": 0.2251267498205312,
-      "nonzero_fraction": 1.0,
-      "nonzero_masks": 48,
-      "p90_coverage": 0.2985160175879397
     }
   },
   "hand_mask_status": "REQUIRES_VISUAL_REVIEW_BEFORE_FREEZE",
