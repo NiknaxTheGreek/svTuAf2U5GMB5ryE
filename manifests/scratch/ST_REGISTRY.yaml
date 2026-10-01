@@ -1,0 +1,92 @@
+protocol_version: v2-train-test-only
+status: primary_frozen_verified_context_pending
+freeze_date: 2026-10-01
+regime: ST
+
+inputs:
+  dataset_manifest:
+    path: manifests/datasets/DATA-001.csv
+    sha256: 3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b
+  split:
+    path: manifests/splits/ST.csv
+    sha256: ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259bcf2c0e177a85
+    train_rows: 1756
+    primary_test_rows: 161
+    context_rows: 1072
+    context_unseen_early_rows: 609
+    context_known_future_rows: 463
+    training_environments: [ENV-01, ENV-02, ENV-04]
+    primary_test_environment: ENV-03
+    train_videos: 88
+    primary_test_videos: 29
+    train_test_video_overlap_count: 0
+  candidate_bank:
+    path: configs/MONREADER_FIXED_20_CONFIG_BANK.json
+    sha256: a4bebfc6c21df01e9294dacccb26ba84602cb3800b20414ad1d51f6f343c3b12
+    candidates: 20
+
+execution:
+  authoritative_workflow_run_id: 36815939762
+  all_20_training_jobs_successful: true
+  checkpoint_gate_status: PASS_ALL_20_FROZEN_BEFORE_ST_TEST
+  test_evaluation_opened_only_after_checkpoint_gate: true
+  test_evaluations_per_candidate: 1
+  threshold: 0.5
+  evidence_artifact_id: 11145188773
+  evidence_artifact_sha256: f2a80a6be8c66127f7f17f730da32cd792529fdca4185dafebc6cf92136485c5
+  evidence_artifact_sha256_independently_verified: true
+  engineering_note: "An earlier ST workflow failed during Python compilation before cache construction, training or ST test access. It is not scientifically authoritative."
+
+champion:
+  candidate_id: C07
+  depth: 5
+  start_filters: 13
+  dropout: 0.24138165630093697
+  learning_rate: 0.0005214388772438806
+  optimizer: adam
+  weight_decay: 0.0
+  batch_size: 112
+  parameter_count: 259936
+  epochs: 20
+  final_train_loss: 0.007719907484278253
+  checkpoint_sha256: 9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67
+
+primary_selection_benchmark:
+  f1: 0.704
+  precision: 0.8979591836734694
+  recall: 0.5789473684210527
+  accuracy: 0.7701863354037267
+  balanced_accuracy: 0.760061919504644
+  roc_auc: 0.908204334365325
+  pr_auc: 0.9150065168482494
+  confusion_matrix: {tn: 80, fp: 5, fn: 32, tp: 44}
+  interpretation: source-plus-temporal-safe selection-benchmark estimate
+
+cross_regime_configurations_on_ST:
+  C14_best_O_config: {rank: 12, f1: 0.46464646464646464, roc_auc: 0.8888544891640866, pr_auc: 0.902371703613411}
+  C18_best_S_config: {rank: 17, f1: 0.19047619047619047, roc_auc: 0.79984520123839, pr_auc: 0.8403497316629501}
+  C06_best_T_config: {rank: 5, f1: 0.6055045871559633, roc_auc: 0.9301857585139318, pr_auc: 0.9414754464885481}
+
+uncertainty:
+  path: results/scratch/ST/cluster_bootstrap_ci.json
+  frame_resamples: 5000
+  video_cluster_resamples: 5000
+  seed: 20261001
+  C07_frame_f1_ci95: [0.6086782608695651, 0.7899159663865546]
+  C07_video_cluster_f1_ci95: [0.46511627906976744, 0.8588273001508294]
+  selection_adjusted: false
+
+result_hashes:
+  BestST_checkpoint: 9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67
+  ST_SUMMARY_json: 1bc701053a9254cb25184ce4fbcea90b8b9a05ac7d3067bad1f704937d82737d
+  leaderboard_csv: e75a2cf16c1f146e4ebd4e406069a210b7515f2b1803d56f5de017b28e723807
+  predictions_csv: a914dab2d98cc89a36dcf9c28943aae93a78dbd0cce3492eceb2ba0e01449f47
+  per_video_csv: 17782638caf9d20d63ecff02941bf6514ce3aa1e2df33037f38cce11fb5b176d
+  error_cases_csv: d96917b6b71774b741b3a1d056d467aa989b71e936672cd1aa76b39c7e32b772
+  pretest_checkpoint_registry_json: 88206fba3d815702cf259f9301fc2374f92f7b90cd73de8c8877b88c24513536
+
+scientific_status:
+  primary_champion_frozen: true
+  primary_test_opened: true
+  context_diagnostics_pending: true
+  context_results_may_not_change_champion: true
