@@ -72,7 +72,12 @@ def main() -> int:
                 lr=float(cfg["finetune_learning_rate"]),
                 weight_decay=float(cfg["weight_decay"]),
             )
-        model.train()
+        if epoch <= 5:
+            # Freeze both parameters and BatchNorm running statistics in the backbone.
+            model.eval()
+            model.fc.train()
+        else:
+            model.train()
         total_loss = 0.0
         total_n = 0
         for batch in loader:
