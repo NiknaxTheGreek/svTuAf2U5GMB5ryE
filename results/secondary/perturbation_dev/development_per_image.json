@@ -1,42 +1,39 @@
 [
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 0.9087266325950623,
     "gray_rec709_luma_mae": 0.27196210622787476,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 1,
+        "bbox_x1": 124,
+        "bbox_y0": 274,
+        "bbox_y1": 391,
+        "coverage_fraction": 0.10028939339554918,
+        "pixels": 8941,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 137,
         "bbox_y0": 265,
         "bbox_y1": 397,
-        "coverage_fraction": 0.1302606783919598,
-        "pixels": 11613,
+        "coverage_fraction": 0.12860059224694903,
+        "pixels": 11465,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 137,
         "bbox_y0": 265,
         "bbox_y1": 397,
-        "coverage_fraction": 0.1302606783919598,
-        "pixels": 11613,
+        "coverage_fraction": 0.12860059224694903,
+        "pixels": 11465,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 0,
-        "bbox_x1": 137,
-        "bbox_y0": 265,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.13003634242641782,
-        "pixels": 11593,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 137,
         "bbox_y0": 265,
@@ -51,43 +48,40 @@
     "sample_id": "testing/flip/0048_000000011"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 0.7548426985740662,
     "gray_rec709_luma_mae": 0.26438939571380615,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 8,
+        "bbox_x1": 127,
+        "bbox_y0": 280,
+        "bbox_y1": 393,
+        "coverage_fraction": 0.09357053122756641,
+        "pixels": 8342,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 4,
         "bbox_x1": 139,
         "bbox_y0": 273,
         "bbox_y1": 397,
-        "coverage_fraction": 0.12125358937544867,
-        "pixels": 10810,
+        "coverage_fraction": 0.12161252692031586,
+        "pixels": 10842,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 4,
         "bbox_x1": 139,
         "bbox_y0": 273,
         "bbox_y1": 397,
-        "coverage_fraction": 0.12125358937544867,
-        "pixels": 10810,
+        "coverage_fraction": 0.12161252692031586,
+        "pixels": 10842,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 4,
-        "bbox_x1": 139,
-        "bbox_y0": 273,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.12125358937544867,
-        "pixels": 10810,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 4,
         "bbox_x1": 139,
         "bbox_y0": 273,
@@ -102,43 +96,40 @@
     "sample_id": "training/flip/0040_000000009"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 0.8493760824203491,
     "gray_rec709_luma_mae": 0.2569476366043091,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 2,
+        "bbox_x1": 96,
+        "bbox_y0": 274,
+        "bbox_y1": 388,
+        "coverage_fraction": 0.0831613424264178,
+        "pixels": 7414,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 1,
         "bbox_x1": 111,
         "bbox_y0": 261,
         "bbox_y1": 397,
-        "coverage_fraction": 0.12159009332376167,
-        "pixels": 10840,
+        "coverage_fraction": 0.1201319095477387,
+        "pixels": 10710,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 1,
         "bbox_x1": 111,
         "bbox_y0": 261,
         "bbox_y1": 397,
-        "coverage_fraction": 0.12159009332376167,
-        "pixels": 10840,
+        "coverage_fraction": 0.1201319095477387,
+        "pixels": 10710,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 1,
-        "bbox_x1": 111,
-        "bbox_y0": 261,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.12159009332376167,
-        "pixels": 10840,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 1,
         "bbox_x1": 111,
         "bbox_y0": 261,
@@ -153,43 +144,40 @@
     "sample_id": "training/flip/0042_000000009"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 0.8435535430908203,
     "gray_rec709_luma_mae": 0.2710423767566681,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 0,
+        "bbox_x1": 122,
+        "bbox_y0": 277,
+        "bbox_y1": 394,
+        "coverage_fraction": 0.0996388190954774,
+        "pixels": 8883,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 137,
         "bbox_y0": 269,
         "bbox_y1": 397,
-        "coverage_fraction": 0.1290380473797559,
-        "pixels": 11504,
+        "coverage_fraction": 0.129946608040201,
+        "pixels": 11585,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 137,
         "bbox_y0": 269,
         "bbox_y1": 397,
-        "coverage_fraction": 0.1290380473797559,
-        "pixels": 11504,
+        "coverage_fraction": 0.129946608040201,
+        "pixels": 11585,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 0,
-        "bbox_x1": 137,
-        "bbox_y0": 269,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.1290380473797559,
-        "pixels": 11504,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 137,
         "bbox_y0": 269,
@@ -204,43 +192,40 @@
     "sample_id": "training/flip/0045_000000016"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 0.8307952880859375,
     "gray_rec709_luma_mae": 0.25554990768432617,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 0,
+        "bbox_x1": 125,
+        "bbox_y0": 278,
+        "bbox_y1": 391,
+        "coverage_fraction": 0.09785534816941852,
+        "pixels": 8724,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 135,
         "bbox_y0": 270,
         "bbox_y1": 397,
-        "coverage_fraction": 0.1251458183776023,
-        "pixels": 11157,
+        "coverage_fraction": 0.1251346015793252,
+        "pixels": 11156,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 135,
         "bbox_y0": 270,
         "bbox_y1": 397,
-        "coverage_fraction": 0.1251458183776023,
-        "pixels": 11157,
+        "coverage_fraction": 0.1251346015793252,
+        "pixels": 11156,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 0,
-        "bbox_x1": 135,
-        "bbox_y0": 270,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.1251458183776023,
-        "pixels": 11157,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 135,
         "bbox_y0": 270,
@@ -255,43 +240,40 @@
     "sample_id": "training/flip/0046_000000011"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 1.313401222229004,
     "gray_rec709_luma_mae": 0.2853286564350128,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 0,
-        "bbox_x1": 141,
-        "bbox_y0": 273,
+      "mp_full_hull_d15": {
+        "bbox_x0": 7,
+        "bbox_x1": 123,
+        "bbox_y0": 290,
         "bbox_y1": 397,
-        "coverage_fraction": 0.12607681263460158,
-        "pixels": 11240,
+        "coverage_fraction": 0.09442300789662599,
+        "pixels": 8418,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 141,
-        "bbox_y0": 273,
+        "bbox_y0": 270,
         "bbox_y1": 397,
-        "coverage_fraction": 0.12607681263460158,
-        "pixels": 11240,
+        "coverage_fraction": 0.12773689877961233,
+        "pixels": 11388,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 141,
-        "bbox_y0": 272,
+        "bbox_y0": 270,
         "bbox_y1": 397,
-        "coverage_fraction": 0.12627871500358936,
-        "pixels": 11258,
+        "coverage_fraction": 0.12773689877961233,
+        "pixels": 11388,
         "touches_boundary": true
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 141,
         "bbox_y0": 272,
@@ -306,43 +288,40 @@
     "sample_id": "training/flip/0047_000000023"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 1.0016651153564453,
     "gray_rec709_luma_mae": 0.2793855667114258,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 0,
+        "bbox_x1": 125,
+        "bbox_y0": 271,
+        "bbox_y1": 390,
+        "coverage_fraction": 0.1042601399856425,
+        "pixels": 9295,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 135,
         "bbox_y0": 264,
         "bbox_y1": 397,
-        "coverage_fraction": 0.13056353194544149,
-        "pixels": 11640,
+        "coverage_fraction": 0.1309224694903087,
+        "pixels": 11672,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 135,
         "bbox_y0": 264,
         "bbox_y1": 397,
-        "coverage_fraction": 0.13056353194544149,
-        "pixels": 11640,
+        "coverage_fraction": 0.1309224694903087,
+        "pixels": 11672,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 0,
-        "bbox_x1": 135,
-        "bbox_y0": 264,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.13056353194544149,
-        "pixels": 11640,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 135,
         "bbox_y0": 264,
@@ -357,43 +336,40 @@
     "sample_id": "testing/notflip/0039_000000022"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 1.2080731391906738,
     "gray_rec709_luma_mae": 0.27067670226097107,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 3,
+        "bbox_x1": 223,
+        "bbox_y0": 192,
+        "bbox_y1": 396,
+        "coverage_fraction": 0.21208722182340273,
+        "pixels": 18908,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 172,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2739254307250538,
-        "pixels": 24421,
+        "coverage_fraction": 0.27349919239052406,
+        "pixels": 24383,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 172,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2739254307250538,
-        "pixels": 24421,
+        "coverage_fraction": 0.27349919239052406,
+        "pixels": 24383,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 0,
-        "bbox_x1": 223,
-        "bbox_y0": 172,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.27395908111988515,
-        "pixels": 24424,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 173,
@@ -408,43 +384,40 @@
     "sample_id": "testing/notflip/0040_000000004"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 1.0769273042678833,
     "gray_rec709_luma_mae": 0.2696828842163086,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 2,
+        "bbox_x1": 126,
+        "bbox_y0": 278,
+        "bbox_y1": 395,
+        "coverage_fraction": 0.09990802225412779,
+        "pixels": 8907,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 143,
         "bbox_y0": 269,
         "bbox_y1": 397,
-        "coverage_fraction": 0.13156182699210336,
-        "pixels": 11729,
+        "coverage_fraction": 0.13155061019382627,
+        "pixels": 11728,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 143,
         "bbox_y0": 269,
         "bbox_y1": 397,
-        "coverage_fraction": 0.13156182699210336,
-        "pixels": 11729,
+        "coverage_fraction": 0.13155061019382627,
+        "pixels": 11728,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 0,
-        "bbox_x1": 143,
-        "bbox_y0": 269,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.1312253230437904,
-        "pixels": 11699,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 143,
         "bbox_y0": 269,
@@ -459,43 +432,40 @@
     "sample_id": "testing/notflip/0040_000000016"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 1.2130206823349,
     "gray_rec709_luma_mae": 0.2654065787792206,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 0,
+      "mp_full_hull_d15": {
+        "bbox_x0": 2,
         "bbox_x1": 223,
-        "bbox_y0": 214,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.27646042713567837,
-        "pixels": 24647,
+        "bbox_y0": 235,
+        "bbox_y1": 391,
+        "coverage_fraction": 0.2300340990667624,
+        "pixels": 20508,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 214,
+        "bbox_y0": 216,
         "bbox_y1": 397,
-        "coverage_fraction": 0.27646042713567837,
-        "pixels": 24647,
+        "coverage_fraction": 0.2742395010768126,
+        "pixels": 24449,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 214,
+        "bbox_y0": 216,
         "bbox_y1": 397,
-        "coverage_fraction": 0.27630339195979897,
-        "pixels": 24633,
+        "coverage_fraction": 0.2742395010768126,
+        "pixels": 24449,
         "touches_boundary": true
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 214,
@@ -510,43 +480,40 @@
     "sample_id": "training/notflip/0035_000000001"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 1.2272014617919922,
     "gray_rec709_luma_mae": 0.2646508812904358,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 211,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.2758659368269921,
-        "pixels": 24594,
+        "bbox_y0": 233,
+        "bbox_y1": 389,
+        "coverage_fraction": 0.22578293251974157,
+        "pixels": 20129,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 211,
+        "bbox_y0": 213,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2758659368269921,
-        "pixels": 24594,
+        "coverage_fraction": 0.2756191672648959,
+        "pixels": 24572,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 0,
         "bbox_x1": 223,
-        "bbox_y0": 211,
+        "bbox_y0": 213,
         "bbox_y1": 397,
-        "coverage_fraction": 0.2758659368269921,
-        "pixels": 24594,
+        "coverage_fraction": 0.2756191672648959,
+        "pixels": 24572,
         "touches_boundary": true
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 211,
@@ -561,43 +528,40 @@
     "sample_id": "training/notflip/0035_000000004"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-03",
     "gray_pil_l_luma_mae": 1.4192553758621216,
     "gray_rec709_luma_mae": 0.2886507213115692,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 0,
+      "mp_full_hull_d15": {
+        "bbox_x0": 89,
         "bbox_x1": 223,
-        "bbox_y0": 193,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.2750358937544867,
-        "pixels": 24520,
+        "bbox_y0": 206,
+        "bbox_y1": 334,
+        "coverage_fraction": 0.13905464824120603,
+        "pixels": 12397,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 0,
+      "mp_full_seed_c50": {
+        "bbox_x0": 70,
         "bbox_x1": 223,
         "bbox_y0": 193,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.2750358937544867,
-        "pixels": 24520,
+        "bbox_y1": 345,
+        "coverage_fraction": 0.17743853194544149,
+        "pixels": 15819,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 0,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 70,
         "bbox_x1": 223,
         "bbox_y0": 193,
-        "bbox_y1": 397,
-        "coverage_fraction": 0.2748900753768844,
-        "pixels": 24507,
+        "bbox_y1": 345,
+        "coverage_fraction": 0.17743853194544149,
+        "pixels": 15819,
         "touches_boundary": true
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 0,
         "bbox_x1": 223,
         "bbox_y0": 193,
@@ -612,43 +576,40 @@
     "sample_id": "training/notflip/0039_000000004"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.2575112581253052,
     "gray_rec709_luma_mae": 0.24065515398979187,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 24,
+        "bbox_x1": 221,
+        "bbox_y0": 182,
+        "bbox_y1": 358,
+        "coverage_fraction": 0.19898600143575018,
+        "pixels": 17740,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 21,
         "bbox_x1": 223,
         "bbox_y0": 166,
         "bbox_y1": 378,
-        "coverage_fraction": 0.24820531227566403,
-        "pixels": 22128,
+        "coverage_fraction": 0.24788002512562815,
+        "pixels": 22099,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 21,
         "bbox_x1": 223,
         "bbox_y0": 166,
         "bbox_y1": 378,
-        "coverage_fraction": 0.24820531227566403,
-        "pixels": 22128,
+        "coverage_fraction": 0.24788002512562815,
+        "pixels": 22099,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 21,
-        "bbox_x1": 223,
-        "bbox_y0": 166,
-        "bbox_y1": 378,
-        "coverage_fraction": 0.24822774587221824,
-        "pixels": 22130,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 21,
         "bbox_x1": 223,
         "bbox_y0": 166,
@@ -663,43 +624,40 @@
     "sample_id": "testing/flip/0008_000000029"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.2565085887908936,
     "gray_rec709_luma_mae": 0.24447840452194214,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 29,
+        "bbox_x1": 223,
+        "bbox_y0": 149,
+        "bbox_y1": 356,
+        "coverage_fraction": 0.19528445800430724,
+        "pixels": 17410,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 28,
         "bbox_x1": 223,
         "bbox_y0": 133,
-        "bbox_y1": 373,
-        "coverage_fraction": 0.2658829863603733,
-        "pixels": 23704,
+        "bbox_y1": 376,
+        "coverage_fraction": 0.26453697056712133,
+        "pixels": 23584,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 28,
         "bbox_x1": 223,
         "bbox_y0": 133,
-        "bbox_y1": 373,
-        "coverage_fraction": 0.2658829863603733,
-        "pixels": 23704,
+        "bbox_y1": 376,
+        "coverage_fraction": 0.26453697056712133,
+        "pixels": 23584,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 28,
-        "bbox_x1": 223,
-        "bbox_y0": 133,
-        "bbox_y1": 373,
-        "coverage_fraction": 0.2666008614501077,
-        "pixels": 23768,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 28,
         "bbox_x1": 223,
         "bbox_y0": 133,
@@ -714,43 +672,40 @@
     "sample_id": "training/flip/0003_000000024"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.2894366979599,
     "gray_rec709_luma_mae": 0.23696164786815643,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 16,
+        "bbox_x1": 223,
+        "bbox_y0": 179,
+        "bbox_y1": 355,
+        "coverage_fraction": 0.219086503948313,
+        "pixels": 19532,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 15,
         "bbox_x1": 223,
         "bbox_y0": 166,
-        "bbox_y1": 376,
-        "coverage_fraction": 0.2663877422828428,
-        "pixels": 23749,
+        "bbox_y1": 375,
+        "coverage_fraction": 0.26300026920315867,
+        "pixels": 23447,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 15,
         "bbox_x1": 223,
         "bbox_y0": 166,
-        "bbox_y1": 376,
-        "coverage_fraction": 0.2663877422828428,
-        "pixels": 23749,
+        "bbox_y1": 375,
+        "coverage_fraction": 0.26300026920315867,
+        "pixels": 23447,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 15,
-        "bbox_x1": 223,
-        "bbox_y0": 166,
-        "bbox_y1": 376,
-        "coverage_fraction": 0.2663653086862886,
-        "pixels": 23747,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 15,
         "bbox_x1": 223,
         "bbox_y0": 166,
@@ -765,43 +720,40 @@
     "sample_id": "training/flip/0005_000000030"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.2985347509384155,
     "gray_rec709_luma_mae": 0.23573607206344604,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 20,
+        "bbox_x1": 223,
+        "bbox_y0": 172,
+        "bbox_y1": 355,
+        "coverage_fraction": 0.2027772792534099,
+        "pixels": 18078,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 20,
         "bbox_x1": 223,
         "bbox_y0": 165,
         "bbox_y1": 375,
-        "coverage_fraction": 0.2609924623115578,
-        "pixels": 23268,
+        "coverage_fraction": 0.2619458901651113,
+        "pixels": 23353,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 20,
         "bbox_x1": 223,
         "bbox_y0": 165,
         "bbox_y1": 375,
-        "coverage_fraction": 0.2609924623115578,
-        "pixels": 23268,
+        "coverage_fraction": 0.2619458901651113,
+        "pixels": 23353,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 20,
-        "bbox_x1": 223,
-        "bbox_y0": 165,
-        "bbox_y1": 375,
-        "coverage_fraction": 0.2609924623115578,
-        "pixels": 23268,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 20,
         "bbox_x1": 223,
         "bbox_y0": 165,
@@ -816,43 +768,40 @@
     "sample_id": "training/flip/0006_000000029"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.2794370651245117,
     "gray_rec709_luma_mae": 0.24248145520687103,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 23,
+      "mp_full_hull_d15": {
+        "bbox_x0": 21,
         "bbox_x1": 223,
-        "bbox_y0": 140,
-        "bbox_y1": 375,
-        "coverage_fraction": 0.2762248743718593,
-        "pixels": 24626,
+        "bbox_y0": 148,
+        "bbox_y1": 355,
+        "coverage_fraction": 0.2251323582196698,
+        "pixels": 20071,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 23,
-        "bbox_x1": 223,
-        "bbox_y0": 140,
-        "bbox_y1": 375,
-        "coverage_fraction": 0.2762248743718593,
-        "pixels": 24626,
-        "touches_boundary": true
-      },
-      "mp_seed_c40": {
+      "mp_full_seed_c50": {
         "bbox_x0": 22,
         "bbox_x1": 223,
         "bbox_y0": 140,
         "bbox_y1": 375,
-        "coverage_fraction": 0.2765838119167265,
-        "pixels": 24658,
+        "coverage_fraction": 0.2766174623115578,
+        "pixels": 24661,
         "touches_boundary": true
       },
-      "mp_seed_c50": {
+      "mp_full_seed_fallback": {
+        "bbox_x0": 22,
+        "bbox_x1": 223,
+        "bbox_y0": 140,
+        "bbox_y1": 375,
+        "coverage_fraction": 0.2766174623115578,
+        "pixels": 24661,
+        "touches_boundary": true
+      },
+      "mp_pre_seed_c50": {
         "bbox_x0": 23,
         "bbox_x1": 223,
         "bbox_y0": 140,
@@ -867,43 +816,40 @@
     "sample_id": "training/flip/0007_000000027"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.2511639595031738,
     "gray_rec709_luma_mae": 0.23105488717556,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 177,
+        "bbox_y1": 370,
+        "coverage_fraction": 0.219310839913855,
+        "pixels": 19552,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 30,
         "bbox_x1": 223,
         "bbox_y0": 161,
-        "bbox_y1": 389,
-        "coverage_fraction": 0.2560458542713568,
-        "pixels": 22827,
+        "bbox_y1": 390,
+        "coverage_fraction": 0.2551036432160804,
+        "pixels": 22743,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 30,
         "bbox_x1": 223,
         "bbox_y0": 161,
-        "bbox_y1": 389,
-        "coverage_fraction": 0.2560458542713568,
-        "pixels": 22827,
+        "bbox_y1": 390,
+        "coverage_fraction": 0.2551036432160804,
+        "pixels": 22743,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 30,
-        "bbox_x1": 223,
-        "bbox_y0": 161,
-        "bbox_y1": 389,
-        "coverage_fraction": 0.2560458542713568,
-        "pixels": 22827,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 30,
         "bbox_x1": 223,
         "bbox_y0": 161,
@@ -918,43 +864,40 @@
     "sample_id": "training/flip/0010_000000029"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.1989879608154297,
     "gray_rec709_luma_mae": 0.2407815009355545,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 18,
+        "bbox_x1": 223,
+        "bbox_y0": 158,
+        "bbox_y1": 358,
+        "coverage_fraction": 0.21264806173725773,
+        "pixels": 18958,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 19,
         "bbox_x1": 223,
         "bbox_y0": 158,
-        "bbox_y1": 377,
-        "coverage_fraction": 0.2593660265613783,
-        "pixels": 23123,
+        "bbox_y1": 378,
+        "coverage_fraction": 0.25879396984924624,
+        "pixels": 23072,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 19,
         "bbox_x1": 223,
         "bbox_y0": 158,
-        "bbox_y1": 377,
-        "coverage_fraction": 0.2593660265613783,
-        "pixels": 23123,
+        "bbox_y1": 378,
+        "coverage_fraction": 0.25879396984924624,
+        "pixels": 23072,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 19,
-        "bbox_x1": 223,
-        "bbox_y0": 158,
-        "bbox_y1": 377,
-        "coverage_fraction": 0.2594557609475951,
-        "pixels": 23131,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 19,
         "bbox_x1": 139,
         "bbox_y0": 198,
@@ -969,43 +912,40 @@
     "sample_id": "testing/notflip/0007_000000025"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.0017033815383911,
     "gray_rec709_luma_mae": 0.24756279587745667,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 26,
-        "bbox_x1": 134,
-        "bbox_y0": 224,
-        "bbox_y1": 385,
-        "coverage_fraction": 0.13892004666188082,
-        "pixels": 12385,
-        "touches_boundary": false
-      },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 26,
-        "bbox_x1": 134,
-        "bbox_y0": 224,
-        "bbox_y1": 385,
-        "coverage_fraction": 0.13892004666188082,
-        "pixels": 12385,
-        "touches_boundary": false
-      },
-      "mp_seed_c40": {
+      "mp_full_hull_d15": {
         "bbox_x0": 25,
+        "bbox_x1": 129,
+        "bbox_y0": 224,
+        "bbox_y1": 366,
+        "coverage_fraction": 0.11855034099066762,
+        "pixels": 10569,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
+        "bbox_x0": 26,
         "bbox_x1": 134,
         "bbox_y0": 224,
         "bbox_y1": 386,
-        "coverage_fraction": 0.1396379217516152,
-        "pixels": 12449,
+        "coverage_fraction": 0.13942480258435033,
+        "pixels": 12430,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_full_seed_fallback": {
+        "bbox_x0": 26,
+        "bbox_x1": 134,
+        "bbox_y0": 224,
+        "bbox_y1": 386,
+        "coverage_fraction": 0.13942480258435033,
+        "pixels": 12430,
+        "touches_boundary": false
+      },
+      "mp_pre_seed_c50": {
         "bbox_x0": 25,
         "bbox_x1": 134,
         "bbox_y0": 224,
@@ -1020,43 +960,40 @@
     "sample_id": "training/notflip/0002_000000025"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.003423810005188,
     "gray_rec709_luma_mae": 0.24829614162445068,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": 26,
-        "bbox_x1": 135,
-        "bbox_y0": 225,
-        "bbox_y1": 386,
-        "coverage_fraction": 0.13850502512562815,
-        "pixels": 12348,
+        "bbox_x1": 129,
+        "bbox_y0": 226,
+        "bbox_y1": 367,
+        "coverage_fraction": 0.11805680186647523,
+        "pixels": 10525,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 26,
+      "mp_full_seed_c50": {
+        "bbox_x0": 27,
         "bbox_x1": 135,
         "bbox_y0": 225,
-        "bbox_y1": 386,
-        "coverage_fraction": 0.13850502512562815,
-        "pixels": 12348,
+        "bbox_y1": 387,
+        "coverage_fraction": 0.13883031227566403,
+        "pixels": 12377,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 26,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 27,
         "bbox_x1": 135,
         "bbox_y0": 225,
-        "bbox_y1": 386,
-        "coverage_fraction": 0.13852745872218233,
-        "pixels": 12350,
+        "bbox_y1": 387,
+        "coverage_fraction": 0.13883031227566403,
+        "pixels": 12377,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 26,
         "bbox_x1": 135,
         "bbox_y0": 225,
@@ -1071,43 +1008,40 @@
     "sample_id": "training/notflip/0002_000000029"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 0.951172411441803,
     "gray_rec709_luma_mae": 0.24741657078266144,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 32,
-        "bbox_x1": 152,
-        "bbox_y0": 224,
-        "bbox_y1": 391,
-        "coverage_fraction": 0.15442166188083273,
-        "pixels": 13767,
+      "mp_full_hull_d15": {
+        "bbox_x0": 30,
+        "bbox_x1": 135,
+        "bbox_y0": 226,
+        "bbox_y1": 372,
+        "coverage_fraction": 0.12146670854271356,
+        "pixels": 10829,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 32,
+      "mp_full_seed_c50": {
+        "bbox_x0": 31,
         "bbox_x1": 152,
         "bbox_y0": 224,
-        "bbox_y1": 391,
-        "coverage_fraction": 0.15442166188083273,
-        "pixels": 13767,
+        "bbox_y1": 392,
+        "coverage_fraction": 0.15512832017229003,
+        "pixels": 13830,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 32,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 31,
         "bbox_x1": 152,
         "bbox_y0": 224,
-        "bbox_y1": 391,
-        "coverage_fraction": 0.15442166188083273,
-        "pixels": 13767,
+        "bbox_y1": 392,
+        "coverage_fraction": 0.15512832017229003,
+        "pixels": 13830,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 32,
         "bbox_x1": 152,
         "bbox_y0": 224,
@@ -1122,43 +1056,40 @@
     "sample_id": "training/notflip/0003_000000027"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.1034693717956543,
     "gray_rec709_luma_mae": 0.23199285566806793,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 18,
-        "bbox_x1": 142,
-        "bbox_y0": 212,
-        "bbox_y1": 377,
-        "coverage_fraction": 0.16031048097631012,
-        "pixels": 14292,
+      "mp_full_hull_d15": {
+        "bbox_x0": 17,
+        "bbox_x1": 123,
+        "bbox_y0": 213,
+        "bbox_y1": 358,
+        "coverage_fraction": 0.12227431801866476,
+        "pixels": 10901,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 18,
-        "bbox_x1": 142,
+        "bbox_x1": 143,
         "bbox_y0": 212,
-        "bbox_y1": 377,
-        "coverage_fraction": 0.16031048097631012,
-        "pixels": 14292,
+        "bbox_y1": 378,
+        "coverage_fraction": 0.1614321608040201,
+        "pixels": 14392,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 18,
-        "bbox_x1": 142,
+        "bbox_x1": 143,
         "bbox_y0": 212,
-        "bbox_y1": 377,
-        "coverage_fraction": 0.16082645369705673,
-        "pixels": 14338,
+        "bbox_y1": 378,
+        "coverage_fraction": 0.1614321608040201,
+        "pixels": 14392,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 18,
         "bbox_x1": 142,
         "bbox_y0": 212,
@@ -1173,43 +1104,40 @@
     "sample_id": "training/notflip/0009_000000029"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-01",
     "gray_pil_l_luma_mae": 1.0867977142333984,
     "gray_rec709_luma_mae": 0.23324039578437805,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 22,
+        "bbox_x1": 124,
+        "bbox_y0": 214,
+        "bbox_y1": 356,
+        "coverage_fraction": 0.11521895190236899,
+        "pixels": 10272,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 23,
         "bbox_x1": 144,
         "bbox_y0": 209,
         "bbox_y1": 376,
-        "coverage_fraction": 0.15309807968413497,
-        "pixels": 13649,
+        "coverage_fraction": 0.15308686288585785,
+        "pixels": 13648,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 23,
         "bbox_x1": 144,
         "bbox_y0": 209,
         "bbox_y1": 376,
-        "coverage_fraction": 0.15309807968413497,
-        "pixels": 13649,
+        "coverage_fraction": 0.15308686288585785,
+        "pixels": 13648,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 23,
-        "bbox_x1": 144,
-        "bbox_y0": 209,
-        "bbox_y1": 376,
-        "coverage_fraction": 0.15292982770997846,
-        "pixels": 13634,
-        "touches_boundary": false
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 23,
         "bbox_x1": 144,
         "bbox_y0": 209,
@@ -1224,43 +1152,40 @@
     "sample_id": "training/notflip/0010_000000028"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 0,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 1.7694194316864014,
     "gray_rec709_luma_mae": 0.2680428922176361,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 85,
-        "bbox_x1": 223,
-        "bbox_y0": 160,
-        "bbox_y1": 291,
-        "coverage_fraction": 0.15834754127781767,
-        "pixels": 14117,
+      "mp_full_hull_d15": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "mp_full_seed_fallback": {
+        "bbox_x0": 0,
+        "bbox_x1": 22,
+        "bbox_y0": 255,
+        "bbox_y1": 270,
+        "coverage_fraction": 0.00311826992103374,
+        "pixels": 278,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 85,
-        "bbox_x1": 223,
-        "bbox_y0": 160,
-        "bbox_y1": 291,
-        "coverage_fraction": 0.15834754127781767,
-        "pixels": 14117,
-        "touches_boundary": true
-      },
-      "mp_seed_c40": {
-        "bbox_x0": 86,
-        "bbox_x1": 223,
-        "bbox_y0": 159,
-        "bbox_y1": 292,
-        "coverage_fraction": 0.15783156855707106,
-        "pixels": 14071,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 86,
         "bbox_x1": 223,
         "bbox_y0": 159,
@@ -1275,16 +1200,13 @@
     "sample_id": "training/flip/0017_000000019"
   },
   {
-    "detected_hands": {
-      "0.35": 0,
-      "0.40": 0,
-      "0.50": 0
-    },
+    "detected_hands_full_resolution": 0,
+    "detected_hands_preprocessed": 0,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 1.5584847927093506,
     "gray_rec709_luma_mae": 0.26582708954811096,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": -1,
         "bbox_x1": -1,
         "bbox_y0": -1,
@@ -1293,7 +1215,7 @@
         "pixels": 0,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": -1,
         "bbox_x1": -1,
         "bbox_y0": -1,
@@ -1302,7 +1224,7 @@
         "pixels": 0,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": -1,
         "bbox_x1": -1,
         "bbox_y0": -1,
@@ -1311,7 +1233,7 @@
         "pixels": 0,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": -1,
         "bbox_x1": -1,
         "bbox_y0": -1,
@@ -1326,43 +1248,40 @@
     "sample_id": "training/flip/0018_000000021"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 1.7745202779769897,
     "gray_rec709_luma_mae": 0.27263811230659485,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 78,
+      "mp_full_hull_d15": {
+        "bbox_x0": 76,
         "bbox_x1": 223,
         "bbox_y0": 173,
-        "bbox_y1": 315,
-        "coverage_fraction": 0.18922738693467336,
-        "pixels": 16870,
+        "bbox_y1": 318,
+        "coverage_fraction": 0.19820082555635318,
+        "pixels": 17670,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 78,
-        "bbox_x1": 223,
-        "bbox_y0": 173,
-        "bbox_y1": 315,
-        "coverage_fraction": 0.18922738693467336,
-        "pixels": 16870,
-        "touches_boundary": true
-      },
-      "mp_seed_c40": {
+      "mp_full_seed_c50": {
         "bbox_x0": 77,
         "bbox_x1": 223,
         "bbox_y0": 174,
-        "bbox_y1": 315,
-        "coverage_fraction": 0.18963119167264897,
-        "pixels": 16906,
+        "bbox_y1": 317,
+        "coverage_fraction": 0.19223348887293612,
+        "pixels": 17138,
         "touches_boundary": true
       },
-      "mp_seed_c50": {
+      "mp_full_seed_fallback": {
+        "bbox_x0": 77,
+        "bbox_x1": 223,
+        "bbox_y0": 174,
+        "bbox_y1": 317,
+        "coverage_fraction": 0.19223348887293612,
+        "pixels": 17138,
+        "touches_boundary": true
+      },
+      "mp_pre_seed_c50": {
         "bbox_x0": 77,
         "bbox_x1": 223,
         "bbox_y0": 174,
@@ -1377,43 +1296,40 @@
     "sample_id": "training/flip/0021_000000028"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 1.1896287202835083,
     "gray_rec709_luma_mae": 0.27596578001976013,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 107,
+        "bbox_x1": 223,
+        "bbox_y0": 222,
+        "bbox_y1": 349,
+        "coverage_fraction": 0.13106828786791097,
+        "pixels": 11685,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 87,
         "bbox_x1": 223,
         "bbox_y0": 202,
-        "bbox_y1": 363,
-        "coverage_fraction": 0.17057385139985642,
-        "pixels": 15207,
+        "bbox_y1": 364,
+        "coverage_fraction": 0.1718637832017229,
+        "pixels": 15322,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 87,
         "bbox_x1": 223,
         "bbox_y0": 202,
-        "bbox_y1": 363,
-        "coverage_fraction": 0.17057385139985642,
-        "pixels": 15207,
+        "bbox_y1": 364,
+        "coverage_fraction": 0.1718637832017229,
+        "pixels": 15322,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 87,
-        "bbox_x1": 223,
-        "bbox_y0": 202,
-        "bbox_y1": 363,
-        "coverage_fraction": 0.17057385139985642,
-        "pixels": 15207,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 87,
         "bbox_x1": 223,
         "bbox_y0": 202,
@@ -1428,16 +1344,13 @@
     "sample_id": "training/flip/0024_000000027"
   },
   {
-    "detected_hands": {
-      "0.35": 0,
-      "0.40": 0,
-      "0.50": 0
-    },
+    "detected_hands_full_resolution": 0,
+    "detected_hands_preprocessed": 0,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 1.311745524406433,
     "gray_rec709_luma_mae": 0.26879170536994934,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": -1,
         "bbox_x1": -1,
         "bbox_y0": -1,
@@ -1446,7 +1359,16 @@
         "pixels": 0,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "mp_full_seed_fallback": {
         "bbox_x0": 51,
         "bbox_x1": 223,
         "bbox_y0": 118,
@@ -1455,16 +1377,7 @@
         "pixels": 22545,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": -1,
-        "bbox_x1": -1,
-        "bbox_y0": -1,
-        "bbox_y1": -1,
-        "coverage_fraction": 0.0,
-        "pixels": 0,
-        "touches_boundary": false
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": -1,
         "bbox_x1": -1,
         "bbox_y0": -1,
@@ -1479,16 +1392,13 @@
     "sample_id": "training/flip/0026_000000022"
   },
   {
-    "detected_hands": {
-      "0.35": 0,
-      "0.40": 0,
-      "0.50": 0
-    },
+    "detected_hands_full_resolution": 0,
+    "detected_hands_preprocessed": 0,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 1.1808754205703735,
     "gray_rec709_luma_mae": 0.2743912637233734,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": -1,
         "bbox_x1": -1,
         "bbox_y0": -1,
@@ -1497,7 +1407,16 @@
         "pixels": 0,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "mp_full_seed_fallback": {
         "bbox_x0": 70,
         "bbox_x1": 223,
         "bbox_y0": 161,
@@ -1506,16 +1425,7 @@
         "pixels": 16826,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": -1,
-        "bbox_x1": -1,
-        "bbox_y0": -1,
-        "bbox_y1": -1,
-        "coverage_fraction": 0.0,
-        "pixels": 0,
-        "touches_boundary": false
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": -1,
         "bbox_x1": -1,
         "bbox_y0": -1,
@@ -1530,43 +1440,40 @@
     "sample_id": "training/flip/0033_000000026"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 0.9293989539146423,
     "gray_rec709_luma_mae": 0.2565450072288513,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 27,
-        "bbox_x1": 155,
-        "bbox_y0": 228,
-        "bbox_y1": 376,
-        "coverage_fraction": 0.11359251615218952,
-        "pixels": 10127,
+      "mp_full_hull_d15": {
+        "bbox_x0": 50,
+        "bbox_x1": 150,
+        "bbox_y0": 250,
+        "bbox_y1": 362,
+        "coverage_fraction": 0.06997038765254845,
+        "pixels": 6238,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 27,
+      "mp_full_seed_c50": {
+        "bbox_x0": 30,
         "bbox_x1": 155,
-        "bbox_y0": 228,
-        "bbox_y1": 376,
-        "coverage_fraction": 0.11359251615218952,
-        "pixels": 10127,
+        "bbox_y0": 230,
+        "bbox_y1": 382,
+        "coverage_fraction": 0.11436647523330941,
+        "pixels": 10196,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 25,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 30,
         "bbox_x1": 155,
-        "bbox_y0": 229,
-        "bbox_y1": 374,
-        "coverage_fraction": 0.11175296123474515,
-        "pixels": 9963,
+        "bbox_y0": 230,
+        "bbox_y1": 382,
+        "coverage_fraction": 0.11436647523330941,
+        "pixels": 10196,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 26,
         "bbox_x1": 155,
         "bbox_y0": 228,
@@ -1581,43 +1488,40 @@
     "sample_id": "testing/notflip/0016_000000023"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 0.9352115988731384,
     "gray_rec709_luma_mae": 0.25578224658966064,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 25,
-        "bbox_x1": 156,
-        "bbox_y0": 228,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.10883659368269921,
-        "pixels": 9703,
-        "touches_boundary": false
-      },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 25,
-        "bbox_x1": 156,
-        "bbox_y0": 228,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.10883659368269921,
-        "pixels": 9703,
-        "touches_boundary": false
-      },
-      "mp_seed_c40": {
-        "bbox_x0": 27,
+      "mp_full_hull_d15": {
+        "bbox_x0": 48,
         "bbox_x1": 153,
-        "bbox_y0": 229,
-        "bbox_y1": 363,
-        "coverage_fraction": 0.099033111988514,
-        "pixels": 8829,
+        "bbox_y0": 247,
+        "bbox_y1": 361,
+        "coverage_fraction": 0.08089554917444365,
+        "pixels": 7212,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_full_seed_c50": {
+        "bbox_x0": 28,
+        "bbox_x1": 156,
+        "bbox_y0": 227,
+        "bbox_y1": 381,
+        "coverage_fraction": 0.12093951902368988,
+        "pixels": 10782,
+        "touches_boundary": false
+      },
+      "mp_full_seed_fallback": {
+        "bbox_x0": 28,
+        "bbox_x1": 156,
+        "bbox_y0": 227,
+        "bbox_y1": 381,
+        "coverage_fraction": 0.12093951902368988,
+        "pixels": 10782,
+        "touches_boundary": false
+      },
+      "mp_pre_seed_c50": {
         "bbox_x0": 27,
         "bbox_x1": 154,
         "bbox_y0": 229,
@@ -1632,43 +1536,40 @@
     "sample_id": "testing/notflip/0016_000000025"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 0.8479466438293457,
     "gray_rec709_luma_mae": 0.25493669509887695,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 56,
-        "bbox_x1": 165,
-        "bbox_y0": 233,
-        "bbox_y1": 380,
-        "coverage_fraction": 0.1150955671213209,
-        "pixels": 10261,
+      "mp_full_hull_d15": {
+        "bbox_x0": 63,
+        "bbox_x1": 134,
+        "bbox_y0": 245,
+        "bbox_y1": 376,
+        "coverage_fraction": 0.0629935391241924,
+        "pixels": 5616,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 56,
-        "bbox_x1": 165,
-        "bbox_y0": 233,
-        "bbox_y1": 380,
-        "coverage_fraction": 0.1150955671213209,
-        "pixels": 10261,
-        "touches_boundary": false
-      },
-      "mp_seed_c40": {
-        "bbox_x0": 56,
-        "bbox_x1": 165,
+        "bbox_x1": 149,
         "bbox_y0": 235,
-        "bbox_y1": 379,
-        "coverage_fraction": 0.11358129935391242,
-        "pixels": 10126,
+        "bbox_y1": 396,
+        "coverage_fraction": 0.11074344938980617,
+        "pixels": 9873,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_full_seed_fallback": {
+        "bbox_x0": 56,
+        "bbox_x1": 149,
+        "bbox_y0": 235,
+        "bbox_y1": 396,
+        "coverage_fraction": 0.11074344938980617,
+        "pixels": 9873,
+        "touches_boundary": false
+      },
+      "mp_pre_seed_c50": {
         "bbox_x0": 56,
         "bbox_x1": 165,
         "bbox_y0": 235,
@@ -1683,43 +1584,40 @@
     "sample_id": "testing/notflip/0019_000000025"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 0.8497953414916992,
     "gray_rec709_luma_mae": 0.25611770153045654,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 55,
-        "bbox_x1": 161,
-        "bbox_y0": 232,
-        "bbox_y1": 380,
-        "coverage_fraction": 0.11573492462311558,
-        "pixels": 10318,
+      "mp_full_hull_d15": {
+        "bbox_x0": 63,
+        "bbox_x1": 140,
+        "bbox_y0": 244,
+        "bbox_y1": 356,
+        "coverage_fraction": 0.0521805455850682,
+        "pixels": 4652,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 55,
-        "bbox_x1": 161,
-        "bbox_y0": 232,
-        "bbox_y1": 380,
-        "coverage_fraction": 0.11573492462311558,
-        "pixels": 10318,
+        "bbox_x1": 151,
+        "bbox_y0": 236,
+        "bbox_y1": 376,
+        "coverage_fraction": 0.10226354989231874,
+        "pixels": 9117,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 55,
-        "bbox_x1": 161,
-        "bbox_y0": 233,
-        "bbox_y1": 380,
-        "coverage_fraction": 0.11539842067480259,
-        "pixels": 10288,
+        "bbox_x1": 151,
+        "bbox_y0": 236,
+        "bbox_y1": 376,
+        "coverage_fraction": 0.10226354989231874,
+        "pixels": 9117,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 55,
         "bbox_x1": 161,
         "bbox_y0": 234,
@@ -1734,43 +1632,40 @@
     "sample_id": "testing/notflip/0019_000000027"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 0.9074317812919617,
     "gray_rec709_luma_mae": 0.258876770734787,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 59,
-        "bbox_x1": 168,
-        "bbox_y0": 234,
-        "bbox_y1": 379,
-        "coverage_fraction": 0.12145549174443647,
-        "pixels": 10828,
+      "mp_full_hull_d15": {
+        "bbox_x0": 65,
+        "bbox_x1": 146,
+        "bbox_y0": 242,
+        "bbox_y1": 359,
+        "coverage_fraction": 0.07077799712849964,
+        "pixels": 6310,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 59,
-        "bbox_x1": 168,
+        "bbox_x1": 166,
         "bbox_y0": 234,
         "bbox_y1": 379,
-        "coverage_fraction": 0.12145549174443647,
-        "pixels": 10828,
+        "coverage_fraction": 0.12078248384781048,
+        "pixels": 10768,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 59,
-        "bbox_x1": 168,
+        "bbox_x1": 166,
         "bbox_y0": 234,
         "bbox_y1": 379,
-        "coverage_fraction": 0.12145549174443647,
-        "pixels": 10828,
+        "coverage_fraction": 0.12078248384781048,
+        "pixels": 10768,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 59,
         "bbox_x1": 168,
         "bbox_y0": 234,
@@ -1785,43 +1680,40 @@
     "sample_id": "training/notflip/0020_000000020"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-02",
     "gray_pil_l_luma_mae": 0.891119658946991,
     "gray_rec709_luma_mae": 0.2706872522830963,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 65,
+        "bbox_x1": 146,
+        "bbox_y0": 258,
+        "bbox_y1": 366,
+        "coverage_fraction": 0.05470432519741565,
+        "pixels": 4877,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 59,
-        "bbox_x1": 147,
+        "bbox_x1": 158,
         "bbox_y0": 247,
         "bbox_y1": 386,
-        "coverage_fraction": 0.09183192749461594,
-        "pixels": 8187,
+        "coverage_fraction": 0.10023330940416368,
+        "pixels": 8936,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 59,
-        "bbox_x1": 147,
+        "bbox_x1": 158,
         "bbox_y0": 247,
         "bbox_y1": 386,
-        "coverage_fraction": 0.09183192749461594,
-        "pixels": 8187,
+        "coverage_fraction": 0.10023330940416368,
+        "pixels": 8936,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 59,
-        "bbox_x1": 147,
-        "bbox_y0": 247,
-        "bbox_y1": 394,
-        "coverage_fraction": 0.09598214285714286,
-        "pixels": 8557,
-        "touches_boundary": false
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 59,
         "bbox_x1": 147,
         "bbox_y0": 247,
@@ -1836,43 +1728,40 @@
     "sample_id": "training/notflip/0023_000000027"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 1.1212278604507446,
     "gray_rec709_luma_mae": 0.23180416226387024,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 50,
-        "bbox_x1": 219,
-        "bbox_y0": 169,
-        "bbox_y1": 372,
-        "coverage_fraction": 0.20397747666905958,
-        "pixels": 18185,
+      "mp_full_hull_d15": {
+        "bbox_x0": 51,
+        "bbox_x1": 201,
+        "bbox_y0": 180,
+        "bbox_y1": 352,
+        "coverage_fraction": 0.1617686647523331,
+        "pixels": 14422,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 50,
-        "bbox_x1": 219,
+        "bbox_x1": 221,
         "bbox_y0": 169,
         "bbox_y1": 372,
-        "coverage_fraction": 0.20397747666905958,
-        "pixels": 18185,
+        "coverage_fraction": 0.20476265254845658,
+        "pixels": 18255,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 50,
-        "bbox_x1": 219,
+        "bbox_x1": 221,
         "bbox_y0": 169,
         "bbox_y1": 372,
-        "coverage_fraction": 0.20419059583632448,
-        "pixels": 18204,
+        "coverage_fraction": 0.20476265254845658,
+        "pixels": 18255,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 50,
         "bbox_x1": 219,
         "bbox_y0": 169,
@@ -1887,43 +1776,40 @@
     "sample_id": "testing/flip/0059_000000028"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 1.1071370840072632,
     "gray_rec709_luma_mae": 0.22800950706005096,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": 50,
-        "bbox_x1": 218,
-        "bbox_y0": 172,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.1982120423546303,
-        "pixels": 17671,
+        "bbox_x1": 198,
+        "bbox_y0": 182,
+        "bbox_y1": 351,
+        "coverage_fraction": 0.1603216977745872,
+        "pixels": 14293,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 50,
         "bbox_x1": 218,
-        "bbox_y0": 172,
+        "bbox_y0": 171,
         "bbox_y1": 371,
-        "coverage_fraction": 0.1982120423546303,
-        "pixels": 17671,
+        "coverage_fraction": 0.1974941672648959,
+        "pixels": 17607,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 50,
         "bbox_x1": 218,
-        "bbox_y0": 172,
+        "bbox_y0": 171,
         "bbox_y1": 371,
-        "coverage_fraction": 0.1982120423546303,
-        "pixels": 17671,
+        "coverage_fraction": 0.1974941672648959,
+        "pixels": 17607,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 50,
         "bbox_x1": 219,
         "bbox_y0": 172,
@@ -1938,43 +1824,40 @@
     "sample_id": "training/flip/0059_000000030"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 1.1269850730895996,
     "gray_rec709_luma_mae": 0.2293674498796463,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 54,
+        "bbox_x1": 140,
+        "bbox_y0": 259,
+        "bbox_y1": 366,
+        "coverage_fraction": 0.07592650753768844,
+        "pixels": 6769,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 50,
-        "bbox_x1": 158,
+        "bbox_x1": 159,
         "bbox_y0": 258,
         "bbox_y1": 386,
-        "coverage_fraction": 0.09375,
-        "pixels": 8358,
+        "coverage_fraction": 0.09362661521895191,
+        "pixels": 8347,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 50,
-        "bbox_x1": 158,
+        "bbox_x1": 159,
         "bbox_y0": 258,
         "bbox_y1": 386,
-        "coverage_fraction": 0.09375,
-        "pixels": 8358,
+        "coverage_fraction": 0.09362661521895191,
+        "pixels": 8347,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 50,
-        "bbox_x1": 158,
-        "bbox_y0": 258,
-        "bbox_y1": 385,
-        "coverage_fraction": 0.09293117372577171,
-        "pixels": 8285,
-        "touches_boundary": false
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 50,
         "bbox_x1": 158,
         "bbox_y0": 258,
@@ -1989,43 +1872,40 @@
     "sample_id": "training/flip/0060_000000051"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 1.1148663759231567,
     "gray_rec709_luma_mae": 0.23238997161388397,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 54,
+        "bbox_x1": 223,
+        "bbox_y0": 196,
+        "bbox_y1": 361,
+        "coverage_fraction": 0.1827552943287868,
+        "pixels": 16293,
+        "touches_boundary": true
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 54,
         "bbox_x1": 223,
         "bbox_y0": 179,
-        "bbox_y1": 382,
-        "coverage_fraction": 0.20198088657573582,
-        "pixels": 18007,
+        "bbox_y1": 381,
+        "coverage_fraction": 0.20044418521177315,
+        "pixels": 17870,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 54,
         "bbox_x1": 223,
         "bbox_y0": 179,
-        "bbox_y1": 382,
-        "coverage_fraction": 0.20198088657573582,
-        "pixels": 18007,
+        "bbox_y1": 381,
+        "coverage_fraction": 0.20044418521177315,
+        "pixels": 17870,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 54,
-        "bbox_x1": 223,
-        "bbox_y0": 179,
-        "bbox_y1": 382,
-        "coverage_fraction": 0.2019135857860732,
-        "pixels": 18001,
-        "touches_boundary": true
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 54,
         "bbox_x1": 223,
         "bbox_y0": 179,
@@ -2040,43 +1920,40 @@
     "sample_id": "training/flip/0062_000000027"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 1.0631059408187866,
     "gray_rec709_luma_mae": 0.22342044115066528,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": 46,
         "bbox_x1": 223,
-        "bbox_y0": 193,
-        "bbox_y1": 384,
-        "coverage_fraction": 0.19594624910265615,
-        "pixels": 17469,
+        "bbox_y0": 207,
+        "bbox_y1": 363,
+        "coverage_fraction": 0.1727499102656138,
+        "pixels": 15401,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 46,
+      "mp_full_seed_c50": {
+        "bbox_x0": 47,
         "bbox_x1": 223,
         "bbox_y0": 193,
-        "bbox_y1": 384,
-        "coverage_fraction": 0.19594624910265615,
-        "pixels": 17469,
+        "bbox_y1": 383,
+        "coverage_fraction": 0.19471240129217515,
+        "pixels": 17359,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
-        "bbox_x0": 45,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 47,
         "bbox_x1": 223,
         "bbox_y0": 193,
-        "bbox_y1": 384,
-        "coverage_fraction": 0.19629396984924624,
-        "pixels": 17500,
+        "bbox_y1": 383,
+        "coverage_fraction": 0.19471240129217515,
+        "pixels": 17359,
         "touches_boundary": true
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 45,
         "bbox_x1": 223,
         "bbox_y0": 193,
@@ -2091,43 +1968,40 @@
     "sample_id": "training/flip/0064_000000029"
   },
   {
-    "detected_hands": {
-      "0.35": 2,
-      "0.40": 2,
-      "0.50": 2
-    },
+    "detected_hands_full_resolution": 2,
+    "detected_hands_preprocessed": 2,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 1.0673505067825317,
     "gray_rec709_luma_mae": 0.22901824116706848,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 49,
+      "mp_full_hull_d15": {
+        "bbox_x0": 51,
         "bbox_x1": 223,
-        "bbox_y0": 155,
-        "bbox_y1": 382,
-        "coverage_fraction": 0.21587849964106245,
-        "pixels": 19246,
+        "bbox_y0": 176,
+        "bbox_y1": 362,
+        "coverage_fraction": 0.172211503948313,
+        "pixels": 15353,
         "touches_boundary": true
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 49,
         "bbox_x1": 223,
-        "bbox_y0": 155,
+        "bbox_y0": 156,
         "bbox_y1": 382,
-        "coverage_fraction": 0.21587849964106245,
-        "pixels": 19246,
+        "coverage_fraction": 0.21645055635319455,
+        "pixels": 19297,
         "touches_boundary": true
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 49,
         "bbox_x1": 223,
-        "bbox_y0": 155,
+        "bbox_y0": 156,
         "bbox_y1": 382,
-        "coverage_fraction": 0.21627108758076094,
-        "pixels": 19281,
+        "coverage_fraction": 0.21645055635319455,
+        "pixels": 19297,
         "touches_boundary": true
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 49,
         "bbox_x1": 223,
         "bbox_y0": 155,
@@ -2142,43 +2016,40 @@
     "sample_id": "training/flip/0065_000000024"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 0.8500878214836121,
     "gray_rec709_luma_mae": 0.23073610663414001,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": 48,
-        "bbox_x1": 130,
-        "bbox_y0": 257,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.07394113424264179,
-        "pixels": 6592,
+        "bbox_x1": 132,
+        "bbox_y0": 258,
+        "bbox_y1": 352,
+        "coverage_fraction": 0.06640344580043073,
+        "pixels": 5920,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 48,
-        "bbox_x1": 130,
+      "mp_full_seed_c50": {
+        "bbox_x0": 49,
+        "bbox_x1": 131,
         "bbox_y0": 257,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.07394113424264179,
-        "pixels": 6592,
+        "bbox_y1": 372,
+        "coverage_fraction": 0.07424398779612347,
+        "pixels": 6619,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 48,
-        "bbox_x1": 130,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 49,
+        "bbox_x1": 131,
         "bbox_y0": 257,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.07398600143575018,
-        "pixels": 6596,
+        "bbox_y1": 372,
+        "coverage_fraction": 0.07424398779612347,
+        "pixels": 6619,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 48,
         "bbox_x1": 130,
         "bbox_y0": 257,
@@ -2193,43 +2064,40 @@
     "sample_id": "testing/notflip/0052_000000029"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 0.7287411689758301,
     "gray_rec709_luma_mae": 0.21847450733184814,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
+        "bbox_x0": 50,
+        "bbox_x1": 139,
+        "bbox_y0": 265,
+        "bbox_y1": 368,
+        "coverage_fraction": 0.08000942211055276,
+        "pixels": 7133,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
         "bbox_x0": 50,
         "bbox_x1": 140,
         "bbox_y0": 260,
-        "bbox_y1": 389,
-        "coverage_fraction": 0.09022792534099067,
-        "pixels": 8044,
+        "bbox_y1": 388,
+        "coverage_fraction": 0.08999237257717158,
+        "pixels": 8023,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 50,
         "bbox_x1": 140,
         "bbox_y0": 260,
-        "bbox_y1": 389,
-        "coverage_fraction": 0.09022792534099067,
-        "pixels": 8044,
+        "bbox_y1": 388,
+        "coverage_fraction": 0.08999237257717158,
+        "pixels": 8023,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 50,
-        "bbox_x1": 140,
-        "bbox_y0": 260,
-        "bbox_y1": 389,
-        "coverage_fraction": 0.09022792534099067,
-        "pixels": 8044,
-        "touches_boundary": false
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 50,
         "bbox_x1": 140,
         "bbox_y0": 260,
@@ -2244,43 +2112,40 @@
     "sample_id": "training/notflip/0042_000000029"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 0.7332342267036438,
     "gray_rec709_luma_mae": 0.23123937845230103,
     "hand_candidates": {
-      "mp_seed_c35": {
-        "bbox_x0": 54,
-        "bbox_x1": 136,
-        "bbox_y0": 258,
-        "bbox_y1": 390,
-        "coverage_fraction": 0.08381191672648959,
-        "pixels": 7472,
+      "mp_full_hull_d15": {
+        "bbox_x0": 56,
+        "bbox_x1": 138,
+        "bbox_y0": 264,
+        "bbox_y1": 371,
+        "coverage_fraction": 0.07464779253409906,
+        "pixels": 6655,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
+      "mp_full_seed_c50": {
         "bbox_x0": 54,
-        "bbox_x1": 136,
+        "bbox_x1": 137,
         "bbox_y0": 258,
-        "bbox_y1": 390,
-        "coverage_fraction": 0.08381191672648959,
-        "pixels": 7472,
+        "bbox_y1": 391,
+        "coverage_fraction": 0.08460830940416368,
+        "pixels": 7543,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
+      "mp_full_seed_fallback": {
         "bbox_x0": 54,
-        "bbox_x1": 136,
+        "bbox_x1": 137,
         "bbox_y0": 258,
-        "bbox_y1": 390,
-        "coverage_fraction": 0.08347541277817659,
-        "pixels": 7442,
+        "bbox_y1": 391,
+        "coverage_fraction": 0.08460830940416368,
+        "pixels": 7543,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 54,
         "bbox_x1": 136,
         "bbox_y0": 258,
@@ -2295,43 +2160,40 @@
     "sample_id": "training/notflip/0049_000000025"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 0.7427250146865845,
     "gray_rec709_luma_mae": 0.23488575220108032,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": 49,
-        "bbox_x1": 130,
-        "bbox_y0": 256,
-        "bbox_y1": 373,
-        "coverage_fraction": 0.0727633704235463,
-        "pixels": 6487,
+        "bbox_x1": 132,
+        "bbox_y0": 260,
+        "bbox_y1": 353,
+        "coverage_fraction": 0.06515838119167265,
+        "pixels": 5809,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 49,
-        "bbox_x1": 130,
+      "mp_full_seed_c50": {
+        "bbox_x0": 50,
+        "bbox_x1": 131,
         "bbox_y0": 256,
         "bbox_y1": 373,
-        "coverage_fraction": 0.0727633704235463,
-        "pixels": 6487,
+        "coverage_fraction": 0.0727970208183776,
+        "pixels": 6490,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 49,
-        "bbox_x1": 130,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 50,
+        "bbox_x1": 131,
         "bbox_y0": 256,
         "bbox_y1": 373,
-        "coverage_fraction": 0.0727633704235463,
-        "pixels": 6487,
+        "coverage_fraction": 0.0727970208183776,
+        "pixels": 6490,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 49,
         "bbox_x1": 130,
         "bbox_y0": 256,
@@ -2346,43 +2208,40 @@
     "sample_id": "training/notflip/0051_000000026"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 0.7438226938247681,
     "gray_rec709_luma_mae": 0.24252961575984955,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": 49,
-        "bbox_x1": 130,
-        "bbox_y0": 257,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.0728531048097631,
-        "pixels": 6495,
+        "bbox_x1": 132,
+        "bbox_y0": 260,
+        "bbox_y1": 353,
+        "coverage_fraction": 0.06645952979181623,
+        "pixels": 5925,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 49,
-        "bbox_x1": 130,
+      "mp_full_seed_c50": {
+        "bbox_x0": 50,
+        "bbox_x1": 131,
         "bbox_y0": 257,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.0728531048097631,
-        "pixels": 6495,
+        "bbox_y1": 373,
+        "coverage_fraction": 0.07390748384781048,
+        "pixels": 6589,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 49,
-        "bbox_x1": 130,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 50,
+        "bbox_x1": 131,
         "bbox_y0": 257,
-        "bbox_y1": 371,
-        "coverage_fraction": 0.0728531048097631,
-        "pixels": 6495,
+        "bbox_y1": 373,
+        "coverage_fraction": 0.07390748384781048,
+        "pixels": 6589,
         "touches_boundary": false
       },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 49,
         "bbox_x1": 130,
         "bbox_y0": 257,
@@ -2397,43 +2256,40 @@
     "sample_id": "training/notflip/0053_000000027"
   },
   {
-    "detected_hands": {
-      "0.35": 1,
-      "0.40": 1,
-      "0.50": 1
-    },
+    "detected_hands_full_resolution": 1,
+    "detected_hands_preprocessed": 1,
     "environment_id": "ENV-04",
     "gray_pil_l_luma_mae": 0.7387970685958862,
     "gray_rec709_luma_mae": 0.2383536398410797,
     "hand_candidates": {
-      "mp_seed_c35": {
+      "mp_full_hull_d15": {
         "bbox_x0": 49,
+        "bbox_x1": 131,
+        "bbox_y0": 261,
+        "bbox_y1": 352,
+        "coverage_fraction": 0.06487796123474515,
+        "pixels": 5784,
+        "touches_boundary": false
+      },
+      "mp_full_seed_c50": {
+        "bbox_x0": 50,
         "bbox_x1": 130,
         "bbox_y0": 257,
         "bbox_y1": 372,
-        "coverage_fraction": 0.07341394472361809,
-        "pixels": 6545,
+        "coverage_fraction": 0.0729764895908112,
+        "pixels": 6506,
         "touches_boundary": false
       },
-      "mp_seed_c35_fallback": {
-        "bbox_x0": 49,
+      "mp_full_seed_fallback": {
+        "bbox_x0": 50,
         "bbox_x1": 130,
         "bbox_y0": 257,
         "bbox_y1": 372,
-        "coverage_fraction": 0.07341394472361809,
-        "pixels": 6545,
+        "coverage_fraction": 0.0729764895908112,
+        "pixels": 6506,
         "touches_boundary": false
       },
-      "mp_seed_c40": {
-        "bbox_x0": 49,
-        "bbox_x1": 130,
-        "bbox_y0": 257,
-        "bbox_y1": 372,
-        "coverage_fraction": 0.07341394472361809,
-        "pixels": 6545,
-        "touches_boundary": false
-      },
-      "mp_seed_c50": {
+      "mp_pre_seed_c50": {
         "bbox_x0": 49,
         "bbox_x1": 130,
         "bbox_y0": 257,
