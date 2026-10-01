@@ -1,0 +1,3266 @@
+[
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03013123887869712,
+      "mean_abs": 0.0026742543784199603,
+      "median_abs": 0.001887791299375663,
+      "p99_abs": 0.019335861413498266
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 0,
+        "bbox_x1": 137,
+        "bbox_y0": 271,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1041591888011486,
+        "pixels": 9286,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 0,
+        "bbox_x1": 141,
+        "bbox_y0": 270,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10507896625987079,
+        "pixels": 9368,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 0,
+        "bbox_x1": 125,
+        "bbox_y0": 270,
+        "bbox_y1": 384,
+        "coverage_fraction": 0.0988424264178033,
+        "pixels": 8812,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0038250519048967924,
+      "mean_abs": 0.0012811994267145136,
+      "median_abs": 0.001022936161930374,
+      "p99_abs": 0.003202030634132713
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "testing/flip/0048_000000011",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.025872308695724072,
+      "mean_abs": 0.002103087885911412,
+      "median_abs": 0.001487381985550873,
+      "p99_abs": 0.017797494944913034
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 49,
+        "bbox_x1": 136,
+        "bbox_y0": 279,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.07536566762383345,
+        "pixels": 6719,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 49,
+        "bbox_x1": 136,
+        "bbox_y0": 279,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.07552270279971285,
+        "pixels": 6733,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 49,
+        "bbox_x1": 130,
+        "bbox_y0": 279,
+        "bbox_y1": 393,
+        "coverage_fraction": 0.0731223079684135,
+        "pixels": 6519,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004169074837625297,
+      "mean_abs": 0.0012945556940741221,
+      "median_abs": 0.001125401491996303,
+      "p99_abs": 0.003002127564079027
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0040_000000009",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03034132814074815,
+      "mean_abs": 0.002243992932942805,
+      "median_abs": 0.0015415991232537452,
+      "p99_abs": 0.017191428826735133
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 8,
+        "bbox_x1": 107,
+        "bbox_y0": 273,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08550565326633165,
+        "pixels": 7623,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 8,
+        "bbox_x1": 105,
+        "bbox_y0": 273,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08522523330940417,
+        "pixels": 7598,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 8,
+        "bbox_x1": 99,
+        "bbox_y0": 273,
+        "bbox_y1": 390,
+        "coverage_fraction": 0.08163585786073223,
+        "pixels": 7278,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037840622119396095,
+      "mean_abs": 0.0012057281804760038,
+      "median_abs": 0.0010474017954803516,
+      "p99_abs": 0.003243733275331141
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0042_000000009",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.022690820907080828,
+      "mean_abs": 0.00220116968592566,
+      "median_abs": 0.0015682957062942982,
+      "p99_abs": 0.015857454941680227
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 0,
+        "bbox_x1": 122,
+        "bbox_y0": 278,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09778804737975592,
+        "pixels": 8718,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 0,
+        "bbox_x1": 122,
+        "bbox_y0": 278,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09796751615218952,
+        "pixels": 8734,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 0,
+        "bbox_x1": 122,
+        "bbox_y0": 278,
+        "bbox_y1": 396,
+        "coverage_fraction": 0.09726085786073223,
+        "pixels": 8671,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003735270338699137,
+      "mean_abs": 0.001270806242920708,
+      "median_abs": 0.001113989632961554,
+      "p99_abs": 0.002807305351036793
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0045_000000016",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03195866109972775,
+      "mean_abs": 0.002212629787520638,
+      "median_abs": 0.0014565411284532485,
+      "p99_abs": 0.01821863667884646
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 1,
+        "bbox_x1": 133,
+        "bbox_y0": 275,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10641376525484565,
+        "pixels": 9487,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 2,
+        "bbox_x1": 134,
+        "bbox_y0": 275,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10636889806173726,
+        "pixels": 9483,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 2,
+        "bbox_x1": 127,
+        "bbox_y0": 275,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10515748384781048,
+        "pixels": 9375,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003927969511679508,
+      "mean_abs": 0.001222716449753459,
+      "median_abs": 0.0010076592814863283,
+      "p99_abs": 0.002973043159592681
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0046_000000011",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.034955442579326465,
+      "mean_abs": 0.003420894391318713,
+      "median_abs": 0.0020740997464550187,
+      "p99_abs": 0.022180910751631838
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 6,
+        "bbox_x1": 123,
+        "bbox_y0": 291,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08903894472361809,
+        "pixels": 7938,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 7,
+        "bbox_x1": 122,
+        "bbox_y0": 291,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08761441134242642,
+        "pixels": 7811,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 7,
+        "bbox_x1": 122,
+        "bbox_y0": 291,
+        "bbox_y1": 395,
+        "coverage_fraction": 0.08658246590093324,
+        "pixels": 7719,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037026358230505263,
+      "mean_abs": 0.0012891223923048466,
+      "median_abs": 0.0011070757441489776,
+      "p99_abs": 0.0028909896270223334
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/flip/0047_000000023",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.030007784153118444,
+      "mean_abs": 0.002848987111526526,
+      "median_abs": 0.001978677886835589,
+      "p99_abs": 0.019207338636650476
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 0,
+        "bbox_x1": 134,
+        "bbox_y0": 271,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1037105168700646,
+        "pixels": 9246,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 0,
+        "bbox_x1": 135,
+        "bbox_y0": 271,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10282438980617373,
+        "pixels": 9167,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 0,
+        "bbox_x1": 122,
+        "bbox_y0": 271,
+        "bbox_y1": 386,
+        "coverage_fraction": 0.09778804737975592,
+        "pixels": 8718,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003682762946727536,
+      "mean_abs": 0.0013217919605608883,
+      "median_abs": 0.0010523793386673086,
+      "p99_abs": 0.002973043159592681
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "testing/notflip/0039_000000022",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.030889899543678268,
+      "mean_abs": 0.0032202639294982337,
+      "median_abs": 0.00203240284586631,
+      "p99_abs": 0.02209889918216411
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 4,
+        "bbox_x1": 223,
+        "bbox_y0": 194,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.20985507896625988,
+        "pixels": 18709,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 4,
+        "bbox_x1": 223,
+        "bbox_y0": 194,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21089824120603015,
+        "pixels": 18802,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 4,
+        "bbox_x1": 223,
+        "bbox_y0": 194,
+        "bbox_y1": 396,
+        "coverage_fraction": 0.21013549892318736,
+        "pixels": 18734,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037045892957681126,
+      "mean_abs": 0.0013218724477325572,
+      "median_abs": 0.0012527943351508808,
+      "p99_abs": 0.002942331022490585
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "testing/notflip/0040_000000004",
+    "views_35": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.026494506811110013,
+      "mean_abs": 0.0028262191418392895,
+      "median_abs": 0.001985949863627906,
+      "p99_abs": 0.020012452104857803
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 3,
+        "bbox_x1": 223,
+        "bbox_y0": 184,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18668117372577173,
+        "pixels": 16643,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 3,
+        "bbox_x1": 223,
+        "bbox_y0": 182,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18881236539842067,
+        "pixels": 16833,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 3,
+        "bbox_x1": 223,
+        "bbox_y0": 182,
+        "bbox_y1": 395,
+        "coverage_fraction": 0.18778041995692749,
+        "pixels": 16741,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037833763069018422,
+      "mean_abs": 0.001337169214082461,
+      "median_abs": 0.0012925303179681658,
+      "p99_abs": 0.002942331022490585
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "testing/notflip/0040_000000016",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.029066501667848466,
+      "mean_abs": 0.0031163539037979524,
+      "median_abs": 0.0018005862563149067,
+      "p99_abs": 0.019354146720942204
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 2,
+        "bbox_x1": 223,
+        "bbox_y0": 235,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2244032663316583,
+        "pixels": 20006,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 3,
+        "bbox_x1": 223,
+        "bbox_y0": 235,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2240106783919598,
+        "pixels": 19971,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 3,
+        "bbox_x1": 223,
+        "bbox_y0": 235,
+        "bbox_y1": 390,
+        "coverage_fraction": 0.21903041995692749,
+        "pixels": 19527,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.00366207558291598,
+      "mean_abs": 0.0012537307289019772,
+      "median_abs": 0.0010076592814863283,
+      "p99_abs": 0.0028909896270223334
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/notflip/0035_000000001",
+    "views_35": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.030915799413147857,
+      "mean_abs": 0.003163995137117406,
+      "median_abs": 0.0017770966044301506,
+      "p99_abs": 0.019740928343086495
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 232,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22111674443646806,
+        "pixels": 19713,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 232,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22131864680545585,
+        "pixels": 19731,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 0,
+        "bbox_x1": 223,
+        "bbox_y0": 232,
+        "bbox_y1": 388,
+        "coverage_fraction": 0.21704504666188082,
+        "pixels": 19350,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003641843228582964,
+      "mean_abs": 0.0012485264049589683,
+      "median_abs": 0.0010165604661189764,
+      "p99_abs": 0.0028909896270223334
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/notflip/0035_000000004",
+    "views_35": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 3,
+    "detections_50": 2,
+    "environment_id": "ENV-03",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03204479698946179,
+      "mean_abs": 0.0037791726006393463,
+      "median_abs": 0.0025694591940018663,
+      "p99_abs": 0.021109235526759616
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 10,
+        "bbox_x1": 223,
+        "bbox_y0": 211,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23803167623833452,
+        "pixels": 21221,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 7,
+        "bbox_x1": 223,
+        "bbox_y0": 210,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2304154702081838,
+        "pixels": 20542,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 7,
+        "bbox_x1": 223,
+        "bbox_y0": 210,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22998923187365397,
+        "pixels": 20504,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037229635599470567,
+      "mean_abs": 0.0013174126815632121,
+      "median_abs": 0.0010254831391541819,
+      "p99_abs": 0.002952468326630875
+    },
+    "role_detail": "heldout_environment_earlier_context",
+    "sample_id": "training/notflip/0039_000000004",
+    "views_35": {
+      "bottom78": 2,
+      "full": 1,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 1,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04148089619386769,
+      "mean_abs": 0.0029882475299907734,
+      "median_abs": 0.0011035346850548078,
+      "p99_abs": 0.02307023385288931
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 25,
+        "bbox_x1": 223,
+        "bbox_y0": 184,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21086459081119885,
+        "pixels": 18799,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 25,
+        "bbox_x1": 223,
+        "bbox_y0": 184,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21040470208183776,
+        "pixels": 18758,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 25,
+        "bbox_x1": 218,
+        "bbox_y0": 184,
+        "bbox_y1": 357,
+        "coverage_fraction": 0.18376480617372576,
+        "pixels": 16383,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037400065039283614,
+      "mean_abs": 0.0008749150760903095,
+      "median_abs": 0.0006692904782435172,
+      "p99_abs": 0.003565269014133343
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/flip/0008_000000029",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03551624028704854,
+      "mean_abs": 0.003013323676750303,
+      "median_abs": 0.001185932334579809,
+      "p99_abs": 0.02250049377087475
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 151,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21097675879396985,
+        "pixels": 18809,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 151,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21184045226130654,
+        "pixels": 18886,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 151,
+        "bbox_y1": 351,
+        "coverage_fraction": 0.1873429648241206,
+        "pixels": 16702,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037400065039283614,
+      "mean_abs": 0.0009738167504704757,
+      "median_abs": 0.0007827832317622782,
+      "p99_abs": 0.003543595504863606
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0003_000000024",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04222710510094499,
+      "mean_abs": 0.0031381453570659694,
+      "median_abs": 0.0010283734131691898,
+      "p99_abs": 0.023183641212766417
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 16,
+        "bbox_x1": 223,
+        "bbox_y0": 180,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23584440057430006,
+        "pixels": 21026,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 16,
+        "bbox_x1": 223,
+        "bbox_y0": 180,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23670809404163676,
+        "pixels": 21103,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 16,
+        "bbox_x1": 223,
+        "bbox_y0": 180,
+        "bbox_y1": 357,
+        "coverage_fraction": 0.2132537688442211,
+        "pixels": 19012,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003714847683944811,
+      "mean_abs": 0.0008296636564081561,
+      "median_abs": 0.000565922246313133,
+      "p99_abs": 0.00350036201195858
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0005_000000030",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 2,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04496448271586459,
+      "mean_abs": 0.0032365144247339813,
+      "median_abs": 0.0013296824559502485,
+      "p99_abs": 0.023121892251667303
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 20,
+        "bbox_x1": 223,
+        "bbox_y0": 173,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22642229002153624,
+        "pixels": 20186,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 20,
+        "bbox_x1": 223,
+        "bbox_y0": 173,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22663540918880115,
+        "pixels": 20205,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 20,
+        "bbox_x1": 223,
+        "bbox_y0": 173,
+        "bbox_y1": 357,
+        "coverage_fraction": 0.2030913496051687,
+        "pixels": 18106,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004013979720482119,
+      "mean_abs": 0.0009903626323885632,
+      "median_abs": 0.000777479605807263,
+      "p99_abs": 0.003696098575139528
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0006_000000029",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 2,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.036840318993703214,
+      "mean_abs": 0.003066260505040877,
+      "median_abs": 0.0011497659087060241,
+      "p99_abs": 0.02275057117348914
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 25,
+        "bbox_x1": 223,
+        "bbox_y0": 147,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2405218054558507,
+        "pixels": 21443,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 23,
+        "bbox_x1": 223,
+        "bbox_y0": 147,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.23881685211773152,
+        "pixels": 21291,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 23,
+        "bbox_x1": 223,
+        "bbox_y0": 147,
+        "bbox_y1": 354,
+        "coverage_fraction": 0.21566538047379755,
+        "pixels": 19227,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0038277114204209317,
+      "mean_abs": 0.0008948276991772707,
+      "median_abs": 0.0006777289649266792,
+      "p99_abs": 0.0034788022277603137
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0007_000000027",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03361562564144771,
+      "mean_abs": 0.0030957637407807667,
+      "median_abs": 0.0011614377908860107,
+      "p99_abs": 0.020754973615066185
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 180,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22765613783201724,
+        "pixels": 20296,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 30,
+        "bbox_x1": 223,
+        "bbox_y0": 180,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22728598348887294,
+        "pixels": 20263,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 30,
+        "bbox_x1": 222,
+        "bbox_y0": 180,
+        "bbox_y1": 369,
+        "coverage_fraction": 0.21088702440775306,
+        "pixels": 18801,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037368147969363275,
+      "mean_abs": 0.0008779769432872091,
+      "median_abs": 0.0006710407909150153,
+      "p99_abs": 0.003543595504863606
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0010_000000029",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 2,
+      "lower_left": 2,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 2,
+      "lower_left": 2,
+      "lower_right": 2,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04124532556958857,
+      "mean_abs": 0.003099381959359845,
+      "median_abs": 0.0013121260342724983,
+      "p99_abs": 0.0256407870661557
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 19,
+        "bbox_x1": 223,
+        "bbox_y0": 161,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22666905958363245,
+        "pixels": 20208,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 19,
+        "bbox_x1": 223,
+        "bbox_y0": 160,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.22719624910265615,
+        "pixels": 20255,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 19,
+        "bbox_x1": 223,
+        "bbox_y0": 160,
+        "bbox_y1": 354,
+        "coverage_fraction": 0.20337176956209618,
+        "pixels": 18131,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004013979720482119,
+      "mean_abs": 0.0010532270298641581,
+      "median_abs": 0.0007832219581910271,
+      "p99_abs": 0.0037400065039283614
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0007_000000025",
+    "views_35": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03976220974103245,
+      "mean_abs": 0.002692916034139053,
+      "median_abs": 0.0013703578669465588,
+      "p99_abs": 0.02364316764067209
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 26,
+        "bbox_x1": 131,
+        "bbox_y0": 226,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1297110552763819,
+        "pixels": 11564,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 26,
+        "bbox_x1": 132,
+        "bbox_y0": 226,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1295203697056712,
+        "pixels": 11547,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 26,
+        "bbox_x1": 128,
+        "bbox_y0": 226,
+        "bbox_y1": 364,
+        "coverage_fraction": 0.11096778535534817,
+        "pixels": 9893,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004369910465743088,
+      "mean_abs": 0.0011583215499418285,
+      "median_abs": 0.000945146434687516,
+      "p99_abs": 0.003696098575139528
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0002_000000025",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03820263398866443,
+      "mean_abs": 0.0026876590968445495,
+      "median_abs": 0.001378936581114501,
+      "p99_abs": 0.023536924214500075
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 26,
+        "bbox_x1": 132,
+        "bbox_y0": 226,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1303279791816224,
+        "pixels": 11619,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 26,
+        "bbox_x1": 132,
+        "bbox_y0": 227,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1303504127781766,
+        "pixels": 11621,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 26,
+        "bbox_x1": 129,
+        "bbox_y0": 227,
+        "bbox_y1": 366,
+        "coverage_fraction": 0.11288585786073223,
+        "pixels": 10064,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004361194398193602,
+      "mean_abs": 0.0011640047415490923,
+      "median_abs": 0.0009499686339404026,
+      "p99_abs": 0.003696098575139528
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0002_000000029",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03875672874709228,
+      "mean_abs": 0.0025771450165615827,
+      "median_abs": 0.0012533505882883489,
+      "p99_abs": 0.0241168726841623
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 31,
+        "bbox_x1": 134,
+        "bbox_y0": 227,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.12921751615218952,
+        "pixels": 11520,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 31,
+        "bbox_x1": 136,
+        "bbox_y0": 229,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1299914752333094,
+        "pixels": 11589,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 31,
+        "bbox_x1": 134,
+        "bbox_y0": 229,
+        "bbox_y1": 369,
+        "coverage_fraction": 0.11411970567121321,
+        "pixels": 10174,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004052462404355972,
+      "mean_abs": 0.0011243510513173735,
+      "median_abs": 0.000956538088849268,
+      "p99_abs": 0.00363051541111592
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0003_000000027",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04008559653707883,
+      "mean_abs": 0.0029200483404515556,
+      "median_abs": 0.0013166161778012109,
+      "p99_abs": 0.026810677562902608
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 18,
+        "bbox_x1": 223,
+        "bbox_y0": 187,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.19650708901651112,
+        "pixels": 17519,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 18,
+        "bbox_x1": 223,
+        "bbox_y0": 187,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.19698941134242642,
+        "pixels": 17562,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 18,
+        "bbox_x1": 223,
+        "bbox_y0": 187,
+        "bbox_y1": 356,
+        "coverage_fraction": 0.1729293790380474,
+        "pixels": 15417,
+        "touches_boundary": true
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004141664914494303,
+      "mean_abs": 0.0010831272443163136,
+      "median_abs": 0.0008796335581616188,
+      "p99_abs": 0.003696098575139528
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0009_000000029",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-01",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.037854648891736994,
+      "mean_abs": 0.002844115417522155,
+      "median_abs": 0.0012463268425854448,
+      "p99_abs": 0.026476854292609542
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 25,
+        "bbox_x1": 135,
+        "bbox_y0": 215,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.13399587221823403,
+        "pixels": 11946,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 25,
+        "bbox_x1": 135,
+        "bbox_y0": 215,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.13399587221823403,
+        "pixels": 11946,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 25,
+        "bbox_x1": 124,
+        "bbox_y0": 215,
+        "bbox_y1": 352,
+        "coverage_fraction": 0.10781586503948314,
+        "pixels": 9612,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004278384063874596,
+      "mean_abs": 0.0010620438293325084,
+      "median_abs": 0.0008258438268076151,
+      "p99_abs": 0.00371803402050197
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0010_000000028",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.035394393004584246,
+      "mean_abs": 0.004851833807796051,
+      "median_abs": 0.0020646360617301296,
+      "p99_abs": 0.025635844939950362
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 89,
+        "bbox_x1": 223,
+        "bbox_y0": 159,
+        "bbox_y1": 290,
+        "coverage_fraction": 0.15720342785355348,
+        "pixels": 14015,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 88,
+        "bbox_x1": 223,
+        "bbox_y0": 156,
+        "bbox_y1": 291,
+        "coverage_fraction": 0.1569678750897344,
+        "pixels": 13994,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 88,
+        "bbox_x1": 223,
+        "bbox_y0": 156,
+        "bbox_y1": 291,
+        "coverage_fraction": 0.1569678750897344,
+        "pixels": 13994,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003739246663680529,
+      "mean_abs": 0.001167735521544817,
+      "median_abs": 0.0010185143356207516,
+      "p99_abs": 0.0028909896270223334
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0017_000000019",
+    "views_35": {
+      "bottom78": 0,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 0,
+      "full": 0,
+      "full_mirror": 1,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 0,
+    "detections_50": 0,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03569092122222267,
+      "mean_abs": 0.00416434326651408,
+      "median_abs": 0.0020074123292046497,
+      "p99_abs": 0.02438900688874607
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "mv50_handarm": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "mv50_hull": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0035729875996712845,
+      "mean_abs": 0.0011498888322044123,
+      "median_abs": 0.0010592315317420886,
+      "p99_abs": 0.0028424554871513408
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0018_000000021",
+    "views_35": {
+      "bottom78": 0,
+      "full": 0,
+      "full_mirror": 0,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 0,
+      "right72": 0
+    },
+    "views_50": {
+      "bottom78": 0,
+      "full": 0,
+      "full_mirror": 0,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 0,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 1,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.0328065110649558,
+      "mean_abs": 0.004777329264040917,
+      "median_abs": 0.0020763759330496567,
+      "p99_abs": 0.02392643526861831
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 26,
+        "bbox_x1": 223,
+        "bbox_y0": 174,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.28817076453697055,
+        "pixels": 25691,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 77,
+        "bbox_x1": 223,
+        "bbox_y0": 174,
+        "bbox_y1": 317,
+        "coverage_fraction": 0.1937701902368988,
+        "pixels": 17275,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 77,
+        "bbox_x1": 223,
+        "bbox_y0": 174,
+        "bbox_y1": 317,
+        "coverage_fraction": 0.1937701902368988,
+        "pixels": 17275,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0036733304909193354,
+      "mean_abs": 0.0011736978202694375,
+      "median_abs": 0.0010853046569127556,
+      "p99_abs": 0.002807729813966281
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0021_000000028",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 0,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.030761840572828145,
+      "mean_abs": 0.0030216442351802862,
+      "median_abs": 0.0019308539408779413,
+      "p99_abs": 0.019457575810663114
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 93,
+        "bbox_x1": 223,
+        "bbox_y0": 224,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17041681622397703,
+        "pixels": 15193,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 73,
+        "bbox_x1": 223,
+        "bbox_y0": 223,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18988917803302224,
+        "pixels": 16929,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 73,
+        "bbox_x1": 223,
+        "bbox_y0": 223,
+        "bbox_y1": 364,
+        "coverage_fraction": 0.17507178750897343,
+        "pixels": 15608,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003487996901114787,
+      "mean_abs": 0.0012271173722960447,
+      "median_abs": 0.0011582009383507286,
+      "p99_abs": 0.0026800082685694004
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0024_000000027",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 2,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 2,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 0,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.028345204154461262,
+      "mean_abs": 0.0032304141866584253,
+      "median_abs": 0.001887791299375663,
+      "p99_abs": 0.021655964846721016
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 106,
+        "bbox_x1": 223,
+        "bbox_y0": 184,
+        "bbox_y1": 298,
+        "coverage_fraction": 0.11659861809045226,
+        "pixels": 10395,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      },
+      "mv50_hull": {
+        "bbox_x0": -1,
+        "bbox_x1": -1,
+        "bbox_y0": -1,
+        "bbox_y1": -1,
+        "coverage_fraction": 0.0,
+        "pixels": 0,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003561234008563563,
+      "mean_abs": 0.0011587194809796067,
+      "median_abs": 0.0010708316780883298,
+      "p99_abs": 0.002702860460015666
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0026_000000022",
+    "views_35": {
+      "bottom78": 0,
+      "full": 0,
+      "full_mirror": 0,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 0,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 0,
+      "full": 0,
+      "full_mirror": 0,
+      "left72": 0,
+      "lower_left": 0,
+      "lower_right": 0,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 3,
+    "detections_50": 3,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.02995099932308641,
+      "mean_abs": 0.0029598725389856054,
+      "median_abs": 0.0019683573149744116,
+      "p99_abs": 0.018958009270060982
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 67,
+        "bbox_x1": 223,
+        "bbox_y0": 224,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.2135117552045944,
+        "pixels": 19035,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 67,
+        "bbox_x1": 223,
+        "bbox_y0": 227,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.21053930366116297,
+        "pixels": 18770,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 67,
+        "bbox_x1": 223,
+        "bbox_y0": 227,
+        "bbox_y1": 365,
+        "coverage_fraction": 0.1878813711414214,
+        "pixels": 16750,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0034451282995852095,
+      "mean_abs": 0.0012212281091589401,
+      "median_abs": 0.001153702139281898,
+      "p99_abs": 0.0026919700835195404
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0033_000000026",
+    "views_35": {
+      "bottom78": 1,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 0,
+      "full": 0,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 1,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.029356864661529328,
+      "mean_abs": 0.002542891714029988,
+      "median_abs": 0.0015942944866060293,
+      "p99_abs": 0.02056329811658612
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 46,
+        "bbox_x1": 159,
+        "bbox_y0": 245,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09216843144292892,
+        "pixels": 8217,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 49,
+        "bbox_x1": 144,
+        "bbox_y0": 250,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09727207465900933,
+        "pixels": 8672,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 49,
+        "bbox_x1": 137,
+        "bbox_y0": 250,
+        "bbox_y1": 351,
+        "coverage_fraction": 0.06597720746590094,
+        "pixels": 5882,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003652339175436392,
+      "mean_abs": 0.0011908196097073131,
+      "median_abs": 0.0011109453971921424,
+      "p99_abs": 0.002855837279074014
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0016_000000023",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.029035794029820816,
+      "mean_abs": 0.0025438012696093817,
+      "median_abs": 0.001594269370278234,
+      "p99_abs": 0.020712313528099352
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 49,
+        "bbox_x1": 145,
+        "bbox_y0": 247,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1097563711414214,
+        "pixels": 9785,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 51,
+        "bbox_x1": 140,
+        "bbox_y0": 247,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.10353104809763101,
+        "pixels": 9230,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 51,
+        "bbox_x1": 139,
+        "bbox_y0": 247,
+        "bbox_y1": 351,
+        "coverage_fraction": 0.07099111629576453,
+        "pixels": 6329,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003652339175436392,
+      "mean_abs": 0.0011900202929385482,
+      "median_abs": 0.0011113554855745056,
+      "p99_abs": 0.002874093426112778
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0016_000000025",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 0,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03688142998822658,
+      "mean_abs": 0.0023446088184748463,
+      "median_abs": 0.0014817736602799614,
+      "p99_abs": 0.020159315688904247
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 65,
+        "bbox_x1": 150,
+        "bbox_y0": 243,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09648689877961235,
+        "pixels": 8602,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 64,
+        "bbox_x1": 147,
+        "bbox_y0": 243,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09560077171572147,
+        "pixels": 8523,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 64,
+        "bbox_x1": 147,
+        "bbox_y0": 243,
+        "bbox_y1": 357,
+        "coverage_fraction": 0.07204549533381192,
+        "pixels": 6423,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003574186320786432,
+      "mean_abs": 0.001185894951956419,
+      "median_abs": 0.001096285468452765,
+      "p99_abs": 0.002695122461327814
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0019_000000025",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.036635648823666045,
+      "mean_abs": 0.0023411907587010997,
+      "median_abs": 0.0014940620815498407,
+      "p99_abs": 0.020083689528807805
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 66,
+        "bbox_x1": 152,
+        "bbox_y0": 243,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09604944364680545,
+        "pixels": 8563,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 66,
+        "bbox_x1": 149,
+        "bbox_y0": 243,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.0939631191672649,
+        "pixels": 8377,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 66,
+        "bbox_x1": 149,
+        "bbox_y0": 243,
+        "bbox_y1": 358,
+        "coverage_fraction": 0.07255025125628141,
+        "pixels": 6468,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.00359582731403274,
+      "mean_abs": 0.001188892893794906,
+      "median_abs": 0.0011053520855855703,
+      "p99_abs": 0.0027073911052234094
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0019_000000027",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03637955572802705,
+      "mean_abs": 0.002443160930103179,
+      "median_abs": 0.0016467878393623403,
+      "p99_abs": 0.020438076198137176
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 66,
+        "bbox_x1": 132,
+        "bbox_y0": 246,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.0628028535534817,
+        "pixels": 5599,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 66,
+        "bbox_x1": 145,
+        "bbox_y0": 243,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08903894472361809,
+        "pixels": 7938,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 66,
+        "bbox_x1": 145,
+        "bbox_y0": 243,
+        "bbox_y1": 358,
+        "coverage_fraction": 0.06633614501076812,
+        "pixels": 5914,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.003585965723825635,
+      "mean_abs": 0.0012386484981408519,
+      "median_abs": 0.001176674762187857,
+      "p99_abs": 0.0027217793089140407
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0020_000000020",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    },
+    "views_50": {
+      "bottom78": 0,
+      "full": 1,
+      "full_mirror": 0,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 0,
+      "right72": 0
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-02",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03542821051727828,
+      "mean_abs": 0.0023960493431575904,
+      "median_abs": 0.0017014850500717271,
+      "p99_abs": 0.019823750078385355
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 66,
+        "bbox_x1": 147,
+        "bbox_y0": 255,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.07543296841349605,
+        "pixels": 6725,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 65,
+        "bbox_x1": 148,
+        "bbox_y0": 255,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.05308910624551328,
+        "pixels": 4733,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 65,
+        "bbox_x1": 121,
+        "bbox_y0": 255,
+        "bbox_y1": 365,
+        "coverage_fraction": 0.03895594041636755,
+        "pixels": 3473,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0035211225874420826,
+      "mean_abs": 0.0012810142501887166,
+      "median_abs": 0.0012266729072345495,
+      "p99_abs": 0.0027948122378324003
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0023_000000027",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03541484532823422,
+      "mean_abs": 0.002523132454299069,
+      "median_abs": 0.001202040942829663,
+      "p99_abs": 0.02348597683437144
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 51,
+        "bbox_x1": 223,
+        "bbox_y0": 182,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18389940775305097,
+        "pixels": 16395,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 51,
+        "bbox_x1": 223,
+        "bbox_y0": 180,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18889088298636036,
+        "pixels": 16840,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 51,
+        "bbox_x1": 201,
+        "bbox_y0": 180,
+        "bbox_y1": 348,
+        "coverage_fraction": 0.1510117552045944,
+        "pixels": 13463,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037803988774030017,
+      "mean_abs": 0.0008562396212241976,
+      "median_abs": 0.0007329993831880627,
+      "p99_abs": 0.002436682212395569
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/flip/0059_000000028",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04401825390497209,
+      "mean_abs": 0.0025653321118734277,
+      "median_abs": 0.0012377272179590337,
+      "p99_abs": 0.02356272119847946
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 51,
+        "bbox_x1": 223,
+        "bbox_y0": 184,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.187948671931084,
+        "pixels": 16756,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 52,
+        "bbox_x1": 223,
+        "bbox_y0": 184,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18862167982770997,
+        "pixels": 16816,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 52,
+        "bbox_x1": 194,
+        "bbox_y0": 184,
+        "bbox_y1": 346,
+        "coverage_fraction": 0.1449659009332376,
+        "pixels": 12924,
+        "touches_boundary": false
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037161997670848157,
+      "mean_abs": 0.000882230264831956,
+      "median_abs": 0.0007868631213291954,
+      "p99_abs": 0.002534791067892228
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0059_000000030",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03633027202238259,
+      "mean_abs": 0.0028271946876709465,
+      "median_abs": 0.0012376205151383157,
+      "p99_abs": 0.023712382898909094
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 56,
+        "bbox_x1": 223,
+        "bbox_y0": 173,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18942928930366115,
+        "pixels": 16888,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 56,
+        "bbox_x1": 223,
+        "bbox_y0": 174,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1882515254845657,
+        "pixels": 16783,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 56,
+        "bbox_x1": 223,
+        "bbox_y0": 174,
+        "bbox_y1": 363,
+        "coverage_fraction": 0.17298546302943288,
+        "pixels": 15422,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037840622119396095,
+      "mean_abs": 0.000961678932707782,
+      "median_abs": 0.0008235103487337081,
+      "p99_abs": 0.0031182016757161923
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0060_000000051",
+    "views_35": {
+      "bottom78": 2,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03910017632236948,
+      "mean_abs": 0.0026880820617433535,
+      "median_abs": 0.0012947399101633228,
+      "p99_abs": 0.02280795117227505
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 57,
+        "bbox_x1": 223,
+        "bbox_y0": 198,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.19291771356783918,
+        "pixels": 17199,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 57,
+        "bbox_x1": 223,
+        "bbox_y0": 199,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.1916165649676956,
+        "pixels": 17083,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 57,
+        "bbox_x1": 223,
+        "bbox_y0": 199,
+        "bbox_y1": 362,
+        "coverage_fraction": 0.17509422110552764,
+        "pixels": 15610,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0037368147969363275,
+      "mean_abs": 0.0009590465061384171,
+      "median_abs": 0.0008470132276106601,
+      "p99_abs": 0.0026728095290290965
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0062_000000027",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 2,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 2,
+    "detections_50": 2,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.0398733270429277,
+      "mean_abs": 0.002418461741217122,
+      "median_abs": 0.0011576692765548624,
+      "p99_abs": 0.02148169651057724
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 46,
+        "bbox_x1": 223,
+        "bbox_y0": 209,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18479675161521894,
+        "pixels": 16475,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 46,
+        "bbox_x1": 223,
+        "bbox_y0": 209,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18503230437903806,
+        "pixels": 16496,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 46,
+        "bbox_x1": 223,
+        "bbox_y0": 209,
+        "bbox_y1": 364,
+        "coverage_fraction": 0.16541412419239052,
+        "pixels": 14747,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0036077505417282385,
+      "mean_abs": 0.0008531465737479668,
+      "median_abs": 0.0007152742160461689,
+      "p99_abs": 0.0025691017220207946
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0064_000000029",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 2,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 3,
+    "detections_50": 2,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03706107716880552,
+      "mean_abs": 0.0023297239253342915,
+      "median_abs": 0.001191974612038682,
+      "p99_abs": 0.019576500841659142
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 62,
+        "bbox_x1": 223,
+        "bbox_y0": 178,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.18117372577171573,
+        "pixels": 16152,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 62,
+        "bbox_x1": 223,
+        "bbox_y0": 178,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.17953607322325915,
+        "pixels": 16006,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 62,
+        "bbox_x1": 223,
+        "bbox_y0": 178,
+        "bbox_y1": 360,
+        "coverage_fraction": 0.15801103732950467,
+        "pixels": 14087,
+        "touches_boundary": true
+      }
+    },
+    "label": "flip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.0036978212087490636,
+      "mean_abs": 0.000869504964130797,
+      "median_abs": 0.000718393695585906,
+      "p99_abs": 0.0028869752821912287
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/flip/0065_000000024",
+    "views_35": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 2,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    },
+    "views_50": {
+      "bottom78": 2,
+      "full": 2,
+      "full_mirror": 2,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 2,
+      "right72": 2
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04462632947202158,
+      "mean_abs": 0.0020904269644483587,
+      "median_abs": 0.0011853960502358207,
+      "p99_abs": 0.020561140115375787
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 48,
+        "bbox_x1": 151,
+        "bbox_y0": 260,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08153490667623833,
+        "pixels": 7269,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 48,
+        "bbox_x1": 151,
+        "bbox_y0": 260,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08088433237616655,
+        "pixels": 7211,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 48,
+        "bbox_x1": 130,
+        "bbox_y0": 260,
+        "bbox_y1": 350,
+        "coverage_fraction": 0.06041367552045944,
+        "pixels": 5386,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004346936706689286,
+      "mean_abs": 0.0010161845456012374,
+      "median_abs": 0.0008802383240028022,
+      "p99_abs": 0.003193502805337811
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "testing/notflip/0052_000000029",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.038383522133592224,
+      "mean_abs": 0.0018143412930027012,
+      "median_abs": 0.001028661338280841,
+      "p99_abs": 0.021868494993924403
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 50,
+        "bbox_x1": 139,
+        "bbox_y0": 266,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09156272433596555,
+        "pixels": 8163,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 52,
+        "bbox_x1": 140,
+        "bbox_y0": 266,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.09011575735821967,
+        "pixels": 8034,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 52,
+        "bbox_x1": 137,
+        "bbox_y0": 266,
+        "bbox_y1": 369,
+        "coverage_fraction": 0.07587042354630294,
+        "pixels": 6764,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004010484560623362,
+      "mean_abs": 0.0009606721259514036,
+      "median_abs": 0.000806368574393701,
+      "p99_abs": 0.0031810138834547086
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0042_000000029",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03814783872169503,
+      "mean_abs": 0.0018380141934599544,
+      "median_abs": 0.0011101802544631612,
+      "p99_abs": 0.020762751877243812
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 56,
+        "bbox_x1": 139,
+        "bbox_y0": 265,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.0840138190954774,
+        "pixels": 7490,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 59,
+        "bbox_x1": 138,
+        "bbox_y0": 265,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.083632447954056,
+        "pixels": 7456,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 59,
+        "bbox_x1": 137,
+        "bbox_y0": 265,
+        "bbox_y1": 372,
+        "coverage_fraction": 0.07089016511127064,
+        "pixels": 6320,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004170812570661431,
+      "mean_abs": 0.0010083887849158322,
+      "median_abs": 0.000851958897765237,
+      "p99_abs": 0.0031182016757161923
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0049_000000025",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04292937647793557,
+      "mean_abs": 0.001804347431621298,
+      "median_abs": 0.0011290882208801756,
+      "p99_abs": 0.018707104426095945
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 51,
+        "bbox_x1": 148,
+        "bbox_y0": 261,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08086189877961235,
+        "pixels": 7209,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 53,
+        "bbox_x1": 148,
+        "bbox_y0": 260,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08063756281407035,
+        "pixels": 7189,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 53,
+        "bbox_x1": 131,
+        "bbox_y0": 260,
+        "bbox_y1": 354,
+        "coverage_fraction": 0.06109790021536253,
+        "pixels": 5447,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004346936706689286,
+      "mean_abs": 0.001000681813906949,
+      "median_abs": 0.0008342707289026863,
+      "p99_abs": 0.0031810138834547086
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0051_000000026",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.04038181703669683,
+      "mean_abs": 0.001898718645141183,
+      "median_abs": 0.0012231476837636368,
+      "p99_abs": 0.02030617033803005
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 43,
+        "bbox_x1": 151,
+        "bbox_y0": 261,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08543835247666906,
+        "pixels": 7617,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 43,
+        "bbox_x1": 151,
+        "bbox_y0": 261,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08543835247666906,
+        "pixels": 7617,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 43,
+        "bbox_x1": 132,
+        "bbox_y0": 261,
+        "bbox_y1": 354,
+        "coverage_fraction": 0.06650439698492462,
+        "pixels": 5929,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004369910465743088,
+      "mean_abs": 0.0010345116701483662,
+      "median_abs": 0.0008747216018317461,
+      "p99_abs": 0.003328956524144
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0053_000000027",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  },
+  {
+    "detections_35": 1,
+    "detections_50": 1,
+    "environment_id": "ENV-04",
+    "gamma_gray_linear_luminance_error": {
+      "max_abs": 0.03807323663934632,
+      "mean_abs": 0.0018581838060204743,
+      "median_abs": 0.0011625091503146261,
+      "p99_abs": 0.019628439037038713
+    },
+    "hand_candidates": {
+      "mv35_handarm": {
+        "bbox_x0": 46,
+        "bbox_x1": 153,
+        "bbox_y0": 261,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08420450466618808,
+        "pixels": 7507,
+        "touches_boundary": true
+      },
+      "mv50_handarm": {
+        "bbox_x0": 46,
+        "bbox_x1": 153,
+        "bbox_y0": 261,
+        "bbox_y1": 397,
+        "coverage_fraction": 0.08420450466618808,
+        "pixels": 7507,
+        "touches_boundary": true
+      },
+      "mv50_hull": {
+        "bbox_x0": 46,
+        "bbox_x1": 130,
+        "bbox_y0": 261,
+        "bbox_y1": 354,
+        "coverage_fraction": 0.06455267408470926,
+        "pixels": 5755,
+        "touches_boundary": false
+      }
+    },
+    "label": "notflip",
+    "linear_gray_chroma_residual_max": 0,
+    "linear_gray_luminance_error": {
+      "max_abs": 0.004369910465743088,
+      "mean_abs": 0.0010177366417917664,
+      "median_abs": 0.0008353158726637777,
+      "p99_abs": 0.003265317367962317
+    },
+    "role_detail": "known_environment_later_context",
+    "sample_id": "training/notflip/0053_000000030",
+    "views_35": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    },
+    "views_50": {
+      "bottom78": 1,
+      "full": 1,
+      "full_mirror": 1,
+      "left72": 1,
+      "lower_left": 1,
+      "lower_right": 1,
+      "right72": 1
+    }
+  }
+]
