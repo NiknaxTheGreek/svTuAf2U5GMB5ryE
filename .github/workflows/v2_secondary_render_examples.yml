@@ -1,0 +1,52 @@
+name: MonReader V2 secondary render examples
+
+on:
+  push:
+    branches: ["experiment/v2-secondary-perturbation-dev"]
+    paths:
+      - ".github/workflows/v2_secondary_render_examples.yml"
+      - "scripts/render_v3_before_after_examples.py"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Install runtime
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y libegl1 libgl1 libgles2
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 mediapipe==1.0.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+      - name: Download dataset and hand model
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+          curl --fail --location --retry 3 --retry-delay 2             "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"             --output /tmp/hand_landmarker.task
+      - name: Render examples
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/visual_examples
+          python -m scripts.render_v3_before_after_examples             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --hand-model /tmp/hand_landmarker.task             --output results/secondary/visual_examples/v3_before_after.png
+      - name: Publish examples
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+NiknaxTheGreek@users.noreply.github.com"
+          git add results/secondary/visual_examples
+          git commit -m "Secondary V3: publish true before-after examples [skip ci]"
+          git push origin "HEAD:experiment/v2-secondary-perturbation-dev"
