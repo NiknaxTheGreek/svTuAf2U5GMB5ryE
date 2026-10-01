@@ -51,13 +51,25 @@ augmentation_ablation:
   threshold: 0.5
 
 resolution_sensitivity:
-  status: RUNNING
+  status: VERIFIED_COMPLETE
   workflow_run_id: 36914830617
+  recovery_publish_run_id: 36915424160
+  artifact_id: 11188598651
+  artifact_sha256: fb3e0436aedcecbecc33ce4d6a5cd3c48583efd12b033e785f38ec430632b153
+  artifact_sha256_independently_verified: true
   candidate: C14
   variants:
     half_resolution: [199, 112]
     quarter_resolution: [100, 56]
   retraining: false
+  original_f1: 0.998272884283247
+  half_resolution_f1: 0.9141914191419142
+  half_resolution_delta_f1: -0.08408146514133286
+  half_resolution_video_group_delta_ci95: [-0.14015921571761655, -0.04161332907440876]
+  quarter_resolution_f1: 0.8707964601769912
+  quarter_resolution_delta_f1: -0.12747642410625581
+  quarter_resolution_video_group_delta_ci95: [-0.18546535349021592, -0.08108316607933755]
+  conclusion: "Best-O C14 is materially sensitive to spatial-detail loss at both fixed degradation levels; both video/group delta-F1 intervals exclude zero."
 
 notes:
   - "All Phase 11 results are post-hoc/exploratory and cannot modify Best O/S/T/ST."
