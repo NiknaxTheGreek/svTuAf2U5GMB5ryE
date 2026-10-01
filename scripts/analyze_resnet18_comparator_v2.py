@@ -22,7 +22,7 @@ def read_scratch(regime: str):
 
 
 def read_resnet(regime: str):
-    with Path(f"results/resnet/RESNET18_{regime}_predictions.csv").open(newline="",encoding="utf-8") as f:
+    with Path(f"results/resnet18/RESNET18_{regime}_predictions.csv").open(newline="",encoding="utf-8") as f:
         rows=list(csv.DictReader(f))
     return {r["sample_id"]:r for r in rows}
 
