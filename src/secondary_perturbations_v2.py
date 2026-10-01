@@ -15,41 +15,51 @@ class HandMaskConfig:
     cr_min: int
     cr_max: int
     y_min: int
-    require_rgb_gate: bool
-    boundary_only: bool
-    min_component_pixels: int = 80
+    rgb_gate: str
+    boundary_mode: str
+    min_component_pixels: int = 60
+    max_component_fraction: float = 0.35
     open_kernel: int = 3
     close_kernel: int = 5
-    dilate_kernel: int = 7
+    dilate_kernel: int = 5
+    min_y_fraction: float = 0.12
 
 
 HAND_MASK_CANDIDATES: tuple[HandMaskConfig, ...] = (
     HandMaskConfig(
-        name="ycbcr_core",
-        cb_min=77, cb_max=127, cr_min=133, cr_max=173, y_min=40,
-        require_rgb_gate=False, boundary_only=False,
-    ),
-    HandMaskConfig(
-        name="ycbcr_wide_rgb_gate",
+        name="v1_wide_rgb_boundary",
         cb_min=65, cb_max=135, cr_min=125, cr_max=180, y_min=30,
-        require_rgb_gate=True, boundary_only=False,
+        rgb_gate="broad", boundary_mode="any",
+        min_component_pixels=80, max_component_fraction=0.55,
+        dilate_kernel=7, min_y_fraction=0.0,
     ),
     HandMaskConfig(
-        name="ycbcr_wide_rgb_boundary",
-        cb_min=65, cb_max=135, cr_min=125, cr_max=180, y_min=30,
-        require_rgb_gate=True, boundary_only=True,
+        name="strict_lower_side",
+        cb_min=70, cb_max=130, cr_min=136, cr_max=178, y_min=30,
+        rgb_gate="strict", boundary_mode="lower_sides",
+        min_component_pixels=50, max_component_fraction=0.30,
+        dilate_kernel=5, min_y_fraction=0.15,
     ),
     HandMaskConfig(
-        name="consensus_boundary",
-        cb_min=70, cb_max=132, cr_min=128, cr_max=178, y_min=32,
-        require_rgb_gate=False, boundary_only=True,
+        name="strict_lower_side_tight",
+        cb_min=74, cb_max=126, cr_min=140, cr_max=175, y_min=35,
+        rgb_gate="strict", boundary_mode="lower_sides",
+        min_component_pixels=45, max_component_fraction=0.26,
+        dilate_kernel=5, min_y_fraction=0.15,
+    ),
+    HandMaskConfig(
+        name="strict_lower_side_expand",
+        cb_min=70, cb_max=130, cr_min=136, cr_max=178, y_min=30,
+        rgb_gate="strict", boundary_mode="lower_sides",
+        min_component_pixels=45, max_component_fraction=0.30,
+        dilate_kernel=9, min_y_fraction=0.12,
     ),
 )
 
 
 def _hwc_rgb(image_chw: np.ndarray) -> np.ndarray:
     array = np.asarray(image_chw)
-    if array.shape[0] != 3 or array.ndim != 3:
+    if array.ndim != 3 or array.shape[0] != 3:
         raise ValueError(f"Expected CHW RGB image, got {array.shape}")
     if array.dtype != np.uint8:
         raise ValueError(f"Expected uint8 image, got {array.dtype}")
@@ -65,12 +75,10 @@ def rec709_grayscale(image_chw: np.ndarray) -> np.ndarray:
     rgb = _hwc_rgb(image_chw).astype(np.float32)
     y = np.rint(0.2126 * rgb[..., 0] + 0.7152 * rgb[..., 1] + 0.0722 * rgb[..., 2])
     y = np.clip(y, 0, 255).astype(np.uint8)
-    out = np.repeat(y[..., None], 3, axis=2)
-    return _chw_rgb(out)
+    return _chw_rgb(np.repeat(y[..., None], 3, axis=2))
 
 
 def pil_l_grayscale(image_chw: np.ndarray) -> np.ndarray:
-    """Comparator only: Pillow's standard L conversion, replicated to three channels."""
     rgb = _hwc_rgb(image_chw)
     gray = np.asarray(Image.fromarray(rgb, mode="RGB").convert("L"), dtype=np.uint8)
     return _chw_rgb(np.repeat(gray[..., None], 3, axis=2))
@@ -94,21 +102,31 @@ def _rgb_to_ycbcr(rgb: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     return y, cb, cr
 
 
-def _normalized_rgb_skin_gate(rgb: np.ndarray) -> np.ndarray:
+def _rgb_skin_gate(rgb: np.ndarray, mode: str) -> np.ndarray:
+    if mode == "none":
+        return np.ones(rgb.shape[:2], dtype=bool)
+
     x = rgb.astype(np.int16)
     r, g, b = x[..., 0], x[..., 1], x[..., 2]
     mx = np.max(x, axis=2)
     mn = np.min(x, axis=2)
+    spread = mx - mn
+    sat = spread.astype(np.float32) / np.maximum(mx, 1)
+
     daylight = (
         (r > 95) & (g > 40) & (b > 20) &
-        ((mx - mn) > 15) & (np.abs(r - g) > 15) &
+        (spread > 15) & (np.abs(r - g) > 15) &
         (r > g) & (r > b)
     )
     bright = (
         (r > 200) & (g > 180) & (b > 160) &
         (np.abs(r - g) <= 30) & (r > b) & (g > b)
     )
-    return daylight | bright
+    if mode == "broad":
+        return daylight | bright
+    if mode == "strict":
+        return daylight & (sat >= 0.09) & ((r - g) >= 16) & ((r - b) >= 18)
+    raise ValueError(f"Unknown rgb_gate: {mode}")
 
 
 def _morph(mask: np.ndarray, config: HandMaskConfig) -> np.ndarray:
@@ -145,32 +163,45 @@ def _connected_components(mask: np.ndarray) -> list[np.ndarray]:
     return components
 
 
-def _component_touches_boundary(coords: np.ndarray, h: int, w: int, margin: int = 4) -> bool:
+def _component_matches_boundary(coords: np.ndarray, h: int, w: int, mode: str, margin: int = 4) -> bool:
+    if mode == "none":
+        return True
     ys, xs = coords[:, 0], coords[:, 1]
-    return bool(
-        np.any(ys <= margin) or np.any(ys >= h - 1 - margin) or
-        np.any(xs <= margin) or np.any(xs >= w - 1 - margin)
-    )
+    top = np.any(ys <= margin)
+    bottom = np.any(ys >= h - 1 - margin)
+    left = np.any(xs <= margin)
+    right = np.any(xs >= w - 1 - margin)
+    if mode == "any":
+        return bool(top or bottom or left or right)
+    if mode == "lower_sides":
+        lower_extension = np.max(ys) >= int(0.35 * h)
+        return bool(bottom or ((left or right) and lower_extension))
+    raise ValueError(f"Unknown boundary_mode: {mode}")
 
 
 def skin_hand_mask(image_chw: np.ndarray, config: HandMaskConfig) -> np.ndarray:
     rgb = _hwc_rgb(image_chw)
     y, cb, cr = _rgb_to_ycbcr(rgb)
+    h, w = y.shape
+    yy = np.arange(h)[:, None]
+    spatial = yy >= int(config.min_y_fraction * h)
     mask = (
         (y >= config.y_min) &
         (cb >= config.cb_min) & (cb <= config.cb_max) &
-        (cr >= config.cr_min) & (cr <= config.cr_max)
+        (cr >= config.cr_min) & (cr <= config.cr_max) &
+        _rgb_skin_gate(rgb, config.rgb_gate) & spatial
     )
-    if config.require_rgb_gate:
-        mask &= _normalized_rgb_skin_gate(rgb)
     mask = _morph(mask, config)
 
     cleaned = np.zeros_like(mask, dtype=bool)
-    h, w = mask.shape
+    image_pixels = h * w
     for coords in _connected_components(mask):
+        frac = len(coords) / image_pixels
         if len(coords) < config.min_component_pixels:
             continue
-        if config.boundary_only and not _component_touches_boundary(coords, h, w):
+        if frac > config.max_component_fraction:
+            continue
+        if not _component_matches_boundary(coords, h, w, config.boundary_mode):
             continue
         cleaned[coords[:, 0], coords[:, 1]] = True
 
@@ -181,11 +212,7 @@ def skin_hand_mask(image_chw: np.ndarray, config: HandMaskConfig) -> np.ndarray:
     return cleaned
 
 
-def apply_hand_mask(
-    image_chw: np.ndarray,
-    mask: np.ndarray,
-    fill: str = "local_border_median",
-) -> np.ndarray:
+def apply_hand_mask(image_chw: np.ndarray, mask: np.ndarray, fill: str = "local_border_median") -> np.ndarray:
     rgb = _hwc_rgb(image_chw).copy()
     if mask.shape != rgb.shape[:2]:
         raise ValueError("Mask/image shape mismatch")
@@ -213,10 +240,8 @@ def apply_hand_mask(
 
 
 def apply_matched_control_mask(image_chw: np.ndarray, mask: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """Translate the same mask to the opposite horizontal side; preserve area exactly when possible."""
     mirrored = np.fliplr(mask)
-    transformed = apply_hand_mask(image_chw, mirrored, fill="local_border_median")
-    return transformed, mirrored
+    return apply_hand_mask(image_chw, mirrored, fill="local_border_median"), mirrored
 
 
 def overlay_mask(image_chw: np.ndarray, mask: np.ndarray, alpha: float = 0.45) -> np.ndarray:
@@ -230,17 +255,14 @@ def overlay_mask(image_chw: np.ndarray, mask: np.ndarray, alpha: float = 0.45) -
 def mask_summary(mask: np.ndarray) -> dict[str, float | int | bool]:
     h, w = mask.shape
     ys, xs = np.where(mask)
-    coverage = float(mask.mean())
     if len(xs) == 0:
         return {
-            "pixels": 0,
-            "coverage_fraction": 0.0,
-            "touches_boundary": False,
+            "pixels": 0, "coverage_fraction": 0.0, "touches_boundary": False,
             "bbox_x0": -1, "bbox_y0": -1, "bbox_x1": -1, "bbox_y1": -1,
         }
     return {
         "pixels": int(len(xs)),
-        "coverage_fraction": coverage,
+        "coverage_fraction": float(mask.mean()),
         "touches_boundary": bool(np.any(ys == 0) or np.any(ys == h - 1) or np.any(xs == 0) or np.any(xs == w - 1)),
         "bbox_x0": int(xs.min()), "bbox_y0": int(ys.min()),
         "bbox_x1": int(xs.max()), "bbox_y1": int(ys.max()),
