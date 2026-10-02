@@ -1,12 +1,24 @@
 {
-  "status": "prospectively_frozen_secondary_chroma_counterfactual",
+  "status": "QA_PASS_READY_FOR_FROZEN_MODEL_EVALUATION",
   "freeze_date": "2026-10-02",
   "selection_bearing": false,
   "primary_models": {
-    "O": {"candidate_id": "C14", "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49"},
-    "S": {"candidate_id": "C18", "checkpoint_sha256": "1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225"},
-    "T": {"candidate_id": "C06", "checkpoint_sha256": "2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b"},
-    "ST": {"candidate_id": "C07", "checkpoint_sha256": "9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67"}
+    "O": {
+      "candidate_id": "C14",
+      "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49"
+    },
+    "S": {
+      "candidate_id": "C18",
+      "checkpoint_sha256": "1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225"
+    },
+    "T": {
+      "candidate_id": "C06",
+      "checkpoint_sha256": "2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b"
+    },
+    "ST": {
+      "candidate_id": "C07",
+      "checkpoint_sha256": "9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67"
+    }
   },
   "variants": [
     {
@@ -42,25 +54,35 @@
   },
   "quality_gate": {
     "matched_rotation": {
-      "mean_absolute_luminance_error_max": 1.0,
-      "p95_absolute_luminance_error_max": 3.0,
-      "rgb_gamut_clip_fraction_max": 0.20,
+      "mean_absolute_luminance_error_max": 1,
+      "p95_absolute_luminance_error_max": 3,
+      "rgb_gamut_clip_fraction_max": 0.2,
       "visual_review_all_100": true
     },
     "naturalistic_counterfactual": {
-      "mean_absolute_luminance_error_max": 1.0,
-      "p95_absolute_luminance_error_max": 3.0,
+      "mean_absolute_luminance_error_max": 1,
+      "p95_absolute_luminance_error_max": 3,
       "rgb_gamut_clip_fraction_max": 0.15,
-      "visual_plausibility_fraction_min": 0.90,
+      "visual_plausibility_fraction_min": 0.9,
       "visual_review_all_100": true
     },
     "geometry": "no spatial resampling or geometry change is permitted",
     "classifier_predictions_used_for_transform_choice": false
   },
   "evaluation_if_pass": {
-    "regimes": ["O", "S", "T", "ST"],
+    "regimes": [
+      "O",
+      "S",
+      "T",
+      "ST"
+    ],
     "each_model_uses_its_own_frozen_test_membership": true,
-    "variants": ["original_rgb", "rec709_grayscale", "matched_chroma_rotation", "naturalistic_palette_counterfactual"],
+    "variants": [
+      "original_rgb",
+      "rec709_grayscale",
+      "matched_chroma_rotation",
+      "naturalistic_palette_counterfactual"
+    ],
     "threshold": 0.5,
     "frame_bootstrap_resamples": 5000,
     "video_group_bootstrap_resamples": 5000,
@@ -76,5 +98,16 @@
     "grayscale_only_drop": "consistent with grayscale/distribution-shift sensitivity",
     "grayscale_and_matched_control_drop": "consistent with broad colour-distribution sensitivity",
     "naturalistic_counterfactual_drop": "stronger evidence that chromatic cues materially influence the frozen model"
+  },
+  "qa_result": {
+    "run_id": 37019025030,
+    "artifact_id": 11232542221,
+    "artifact_sha256": "e836287cbd29e70424d7a5701f6f1e67e63d2f273bab17785e93e3b37e76aadb",
+    "matched_quantitative_gate": "PASS",
+    "naturalistic_quantitative_gate": "PASS",
+    "naturalistic_visual_gate": "PASS",
+    "reviewed_images": 100,
+    "primary_test_images_used": 0,
+    "classifier_predictions_used": 0
   }
 }
