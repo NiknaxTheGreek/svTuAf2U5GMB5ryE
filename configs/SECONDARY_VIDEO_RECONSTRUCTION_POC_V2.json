@@ -1,0 +1,43 @@
+{
+  "status": "prospectively_frozen_video_assisted_reconstruction_poc",
+  "freeze_date": "2026-10-02",
+  "selection_bearing": false,
+  "target_population": "same fixed 48 ST context-only development images",
+  "source_population": "ST context-only rows only",
+  "primary_test_images_allowed": 0,
+  "mask_recipe": "frozen SCHP Pascal-7 ONNX arms + verified MediaPipe Tasks hand hulls + historical union morphology",
+  "source_selection": {
+    "same_canonical_video_only": true,
+    "label_not_used": true,
+    "max_nearest_neighbors": 8,
+    "sort": "absolute frame-number distance, then sample_id",
+    "exclude_target": true
+  },
+  "alignment": {
+    "downscale": 0.5,
+    "orb_nfeatures": 4000,
+    "lowe_ratio": 0.75,
+    "ransac_reproj_threshold": 4.0,
+    "min_good_matches": 20,
+    "min_inliers": 15,
+    "min_inlier_ratio": 0.35,
+    "min_unmasked_overlap_fraction": 0.40,
+    "max_unmasked_median_gray_abs_error": 35.0
+  },
+  "reconstruction": {
+    "real_pixel_transfer": "weighted mean of accepted aligned, source-unmasked neighbor pixels",
+    "weight": "alignment quality divided by 1 + 0.05 * absolute frame distance",
+    "residual_fill": "OpenCV TELEA radius 3 only after real-pixel transfer",
+    "edge_composite": "Gaussian feather around final target mask",
+    "classifier_predictions_used": false
+  },
+  "quality_gate": {
+    "real_pixel_fill_fraction_per_image_min": 0.80,
+    "fraction_images_meeting_real_pixel_fill_min": 0.90,
+    "residual_fraction_per_image_max": 0.20,
+    "major_visual_artifact_fraction_max": 0.10,
+    "page_geometry_preserved": true,
+    "outside_mask_preserved": true
+  },
+  "full_scale_rule": "Do not touch primary test images or construct regime train/test cleaned datasets unless this context-only PoC passes visual and quantitative QA."
+}
