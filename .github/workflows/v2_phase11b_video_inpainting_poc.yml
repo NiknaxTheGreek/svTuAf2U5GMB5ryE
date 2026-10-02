@@ -5,6 +5,8 @@ on:
     branches: ["phase/v2-11b-inpainting-chroma"]
     paths:
       - ".github/workflows/v2_phase11b_video_inpainting_poc.yml"
+      - "scripts/develop_video_assisted_inpainting_v2.py"
+      - "configs/SECONDARY_VIDEO_RECONSTRUCTION_POC_V2.json"
 
 permissions:
   contents: write
