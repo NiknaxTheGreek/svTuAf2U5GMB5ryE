@@ -1,9 +1,13 @@
 {
-  "status": "prospectively_frozen_secondary_chroma_counterfactual",
-  "freeze_date": "2026-10-01",
+  "status": "prospectively_frozen_secondary_chroma_counterfactual_v2",
+  "freeze_date": "2026-10-03",
   "selection_bearing": false,
-  "primary_model": "Best-O C14",
-  "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49",
+  "champions": {
+    "O": {"candidate_id": "C14", "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49"},
+    "S": {"candidate_id": "C18", "checkpoint_sha256": "1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225"},
+    "T": {"candidate_id": "C06", "checkpoint_sha256": "2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b"},
+    "ST": {"candidate_id": "C07", "checkpoint_sha256": "9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67"}
+  },
   "variants": [
     {
       "id": "original_rgb",
@@ -12,40 +16,57 @@
     {
       "id": "rec709_grayscale",
       "role": "chroma-removal_ablation",
-      "status": "already_evaluated"
+      "definition": "replicate round(0.2126 R + 0.7152 G + 0.0722 B) into all RGB channels"
     },
     {
       "id": "matched_chroma_rotation",
       "role": "matched_colour_distribution_control",
-      "definition": "preserve Y exactly in YCbCr; rotate each centered (Cb-128, Cr-128) vector by +90 degrees; preserve chroma magnitude before gamut clipping; return RGB"
+      "definition": "use Rec.709 Y with YCbCr-style chroma coordinates; rotate centered chroma vector by +90 degrees; preserve Y exactly; use radial gamut compression toward neutral instead of RGB clipping"
     },
     {
       "id": "naturalistic_palette_counterfactual",
       "role": "naturalistic_colour_counterfactual",
-      "definition": "preserve target luminance; transfer only chroma mean/covariance from a deterministic context-only donor palette using a frozen colour-transfer transform; geometry and luminance remain target-derived"
+      "definition": "preserve target Rec.709 Y and geometry; apply a 2D chroma mean/covariance transfer toward a deterministic label-independent donor palette at fixed strength 0.75; use radial gamut compression toward neutral"
     }
   ],
   "development_population": {
-    "source": "same fixed 100-image ST-context PoC sample",
+    "source": "frozen deterministic 100-image ST-context PoC sample",
     "primary_test_images_allowed": 0,
-    "quality_selection_uses_classifier_predictions": false
+    "classifier_predictions_allowed": 0
   },
-  "naturalistic_palette_donors": {
-    "source": "ST context-only images",
-    "selection": "deterministic stable-hash donor per target from a different environment where possible and the same label",
-    "reason": "create a plausible alternate colour palette without changing target geometry/luminance"
+  "universal_palette_donor_pool": {
+    "definition": "sample IDs whose role is not test in O, S, T, and ST simultaneously",
+    "target_label_used": false,
+    "classifier_prediction_used": false,
+    "selection": "for each target, stable SHA256 ordering of eligible donors using target sample_id and donor sample_id; first donor from a different environment_id and different canonical video if available, otherwise first different-video donor",
+    "donor_image_pixels_used_only_for_global_chroma_statistics": true
+  },
+  "naturalistic_transfer": {
+    "space": "Rec.709 Y + two YCbCr-style chroma coordinates",
+    "transform": "regularized 2D whitening/coloring transform from target chroma covariance to donor chroma covariance",
+    "covariance_epsilon": 0.0001,
+    "strength": 0.75,
+    "luminance": "target Y retained exactly before uint8 rounding",
+    "gamut_handling": "per-pixel radial chroma compression toward neutral by deterministic binary search until RGB is in gamut"
   },
   "quality_gate": {
-    "matched_rotation": "verify luminance preservation and intended chroma-magnitude preservation before clipping",
-    "naturalistic_counterfactual": "visual plausibility + target luminance/geometry preservation on all PoC images",
+    "review_all_100": true,
+    "matched_rotation_mean_rec709_luma_mae_max": 0.5,
+    "naturalistic_mean_rec709_luma_mae_max": 0.5,
+    "naturalistic_p95_per_image_luma_mae_max": 1.0,
+    "naturalistic_median_chroma_displacement_min": 3.0,
+    "naturalistic_major_visual_artifact_fraction_max": 0.10,
+    "geometry_or_text_structure_changes_allowed": false,
     "classifier_predictions_used_for_transform_choice": false
   },
   "evaluation_if_pass": {
+    "regimes": ["O", "S", "T", "ST"],
     "variants": ["original_rgb", "rec709_grayscale", "matched_chroma_rotation", "naturalistic_palette_counterfactual"],
     "threshold": 0.5,
     "frame_bootstrap_resamples": 5000,
     "video_group_bootstrap_resamples": 5000,
-    "bootstrap_seed": 20261001
+    "bootstrap_seed": 20261003,
+    "no_retraining": true
   },
   "interpretation": {
     "grayscale_only_drop": "consistent with grayscale/distribution-shift sensitivity",
