@@ -1,9 +1,13 @@
 {
   "status": "prospectively_frozen_secondary_chroma_counterfactual",
-  "freeze_date": "2026-10-01",
+  "freeze_date": "2026-10-02",
   "selection_bearing": false,
-  "primary_model": "Best-O C14",
-  "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49",
+  "primary_models": {
+    "O": {"candidate_id": "C14", "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49"},
+    "S": {"candidate_id": "C18", "checkpoint_sha256": "1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225"},
+    "T": {"candidate_id": "C06", "checkpoint_sha256": "2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b"},
+    "ST": {"candidate_id": "C07", "checkpoint_sha256": "9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67"}
+  },
   "variants": [
     {
       "id": "original_rgb",
@@ -12,40 +16,61 @@
     {
       "id": "rec709_grayscale",
       "role": "chroma-removal_ablation",
-      "status": "already_evaluated"
+      "status": "already_evaluated_on_O"
     },
     {
       "id": "matched_chroma_rotation",
       "role": "matched_colour_distribution_control",
-      "definition": "preserve Y exactly in YCbCr; rotate each centered (Cb-128, Cr-128) vector by +90 degrees; preserve chroma magnitude before gamut clipping; return RGB"
+      "definition": "Convert RGB to full-range BT.709 YCbCr; preserve target Y; rotate centered (Cb,Cr) by +90 degrees; preserve chroma-vector magnitude before RGB gamut clipping; reconstruct RGB with iterative luminance correction after clipping."
     },
     {
       "id": "naturalistic_palette_counterfactual",
       "role": "naturalistic_colour_counterfactual",
-      "definition": "preserve target luminance; transfer only chroma mean/covariance from a deterministic context-only donor palette using a frozen colour-transfer transform; geometry and luminance remain target-derived"
+      "definition": "Preserve target BT.709 Y and spatial structure; transfer only CbCr mean/covariance from a deterministic context-only donor using a frozen whitening-colouring transform; reconstruct RGB with iterative luminance correction after clipping."
     }
   ],
   "development_population": {
-    "source": "same fixed 100-image ST-context PoC sample",
+    "source": "frozen deterministic 100-image ST-context PoC sample",
     "primary_test_images_allowed": 0,
     "quality_selection_uses_classifier_predictions": false
   },
   "naturalistic_palette_donors": {
     "source": "ST context-only images",
-    "selection": "deterministic stable-hash donor per target from a different environment where possible and the same label",
-    "reason": "create a plausible alternate colour palette without changing target geometry/luminance"
+    "selection": "deterministic stable-hash donor per target from a different environment where possible; target label is never consulted",
+    "label_independent": true,
+    "classifier_independent": true
   },
   "quality_gate": {
-    "matched_rotation": "verify luminance preservation and intended chroma-magnitude preservation before clipping",
-    "naturalistic_counterfactual": "visual plausibility + target luminance/geometry preservation on all PoC images",
+    "matched_rotation": {
+      "mean_absolute_luminance_error_max": 1.0,
+      "p95_absolute_luminance_error_max": 3.0,
+      "rgb_gamut_clip_fraction_max": 0.20,
+      "visual_review_all_100": true
+    },
+    "naturalistic_counterfactual": {
+      "mean_absolute_luminance_error_max": 1.0,
+      "p95_absolute_luminance_error_max": 3.0,
+      "rgb_gamut_clip_fraction_max": 0.15,
+      "visual_plausibility_fraction_min": 0.90,
+      "visual_review_all_100": true
+    },
+    "geometry": "no spatial resampling or geometry change is permitted",
     "classifier_predictions_used_for_transform_choice": false
   },
   "evaluation_if_pass": {
+    "regimes": ["O", "S", "T", "ST"],
+    "each_model_uses_its_own_frozen_test_membership": true,
     "variants": ["original_rgb", "rec709_grayscale", "matched_chroma_rotation", "naturalistic_palette_counterfactual"],
     "threshold": 0.5,
     "frame_bootstrap_resamples": 5000,
     "video_group_bootstrap_resamples": 5000,
-    "bootstrap_seed": 20261001
+    "bootstrap_seed": 20261001,
+    "no_retraining_for_sensitivity_stage": true
+  },
+  "transformed_domain_extension_if_naturalistic_passes": {
+    "fixed_config_retrain": "same frozen champion hyperparameters per O/S/T/ST on naturalistic-counterfactual train, then naturalistic-counterfactual test",
+    "hpo": "optional cleaned/transformed-domain HPO using transformed training population only; transformed test remains sealed until configuration freeze",
+    "cannot_replace_primary_champion": true
   },
   "interpretation": {
     "grayscale_only_drop": "consistent with grayscale/distribution-shift sensitivity",
