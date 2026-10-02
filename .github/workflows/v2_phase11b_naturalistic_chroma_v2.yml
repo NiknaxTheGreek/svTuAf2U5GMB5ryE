@@ -1,0 +1,72 @@
+name: MonReader V2 Phase 11B naturalistic chroma v2 validation
+
+on:
+  push:
+    branches: ["phase/v2-11b-inpainting-chroma"]
+    paths:
+      - ".github/workflows/v2_phase11b_naturalistic_chroma_v2.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+
+jobs:
+  validate-100:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install pinned lightweight runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0
+
+      - name: Compile frozen validation implementation
+        run: |
+          set -euo pipefail
+          python -m compileall -q             src/chroma_counterfactual_v2.py             scripts/validate_naturalistic_chroma_v2.py
+
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+
+      - name: Run independent naturalistic chroma v2 validation
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/chroma-v2-validation
+          python -m scripts.validate_naturalistic_chroma_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --split-o manifests/splits/O.csv             --split-s manifests/splits/S.csv             --split-t manifests/splits/T.csv             --split-st manifests/splits/ST.csv             --sample manifests/secondary/PHASE11B_CHROMA_VALIDATION_100.csv             --development-sample manifests/secondary/PHASE11B_POC_100.csv             --output-dir /tmp/chroma-v2-validation
+          sha256sum             /tmp/chroma-v2-validation/summary.json             /tmp/chroma-v2-validation/records.json             /tmp/chroma-v2-validation/qa/*
+
+      - name: Upload full naturalistic v2 validation
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11b-naturalistic-chroma-v2-validation
+          path: /tmp/chroma-v2-validation
+          compression-level: 1
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Publish compact validation evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/naturalistic_chroma_v2_validation
+          cp /tmp/chroma-v2-validation/summary.json results/secondary/naturalistic_chroma_v2_validation/
+          cp /tmp/chroma-v2-validation/records.json results/secondary/naturalistic_chroma_v2_validation/
+          cp /tmp/chroma-v2-validation/qa/*.review.jpg.b64.txt results/secondary/naturalistic_chroma_v2_validation/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/naturalistic_chroma_v2_validation
+          git commit -m "Phase 11B: publish naturalistic chroma v2 validation [skip ci]"
+          git fetch origin phase/v2-11b-inpainting-chroma
+          git rebase origin/phase/v2-11b-inpainting-chroma
+          git push origin HEAD:phase/v2-11b-inpainting-chroma
