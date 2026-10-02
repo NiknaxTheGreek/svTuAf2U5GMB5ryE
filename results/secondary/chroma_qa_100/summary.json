@@ -1,0 +1,22 @@
+{
+  "all_geometry_unchanged_by_definition": true,
+  "classifier_predictions_used": false,
+  "different_environment_donors": 100,
+  "donor_selection_uses_target_label": false,
+  "images": 100,
+  "matched_chroma_rotation": {
+    "mean_absolute_luminance_error": 0.1704172763589893,
+    "p95_absolute_luminance_error": 0.3582000000000085,
+    "rgb_gamut_clip_fraction": 0.010351539994855967
+  },
+  "matched_quantitative_gate_pass": true,
+  "naturalistic_palette_counterfactual": {
+    "mean_absolute_luminance_error": 0.17994664065393512,
+    "p95_absolute_luminance_error": 0.36219999999999986,
+    "rgb_gamut_clip_fraction": 0.005775364904835391
+  },
+  "naturalistic_quantitative_gate_pass": true,
+  "naturalistic_visual_gate": "PENDING",
+  "primary_test_images_used": 0,
+  "status": "CHROMA_100_READY_FOR_VISUAL_REVIEW"
+}

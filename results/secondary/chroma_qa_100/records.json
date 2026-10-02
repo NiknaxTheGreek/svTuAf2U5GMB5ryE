@@ -1,0 +1,6702 @@
+[
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0003_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.47722853790927e-18,
+      "clip_fraction": 0.007391814557613168,
+      "luma_abs_error_mean": 0.19734831838348896,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00040621784979423867,
+      "donor_cbcr_cov": [
+        [
+          0.0006636241312378228,
+          -0.0007123727673312815
+        ],
+        [
+          -0.0007123727673312815,
+          0.001595345814743413
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48058912265569714,
+        0.5230932528468522
+      ],
+      "luma_abs_error_mean": 0.1724291329089514,
+      "luma_abs_error_p95": 0.36100000000000687,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0006631547600857224,
+          -0.0007212770999638618
+        ],
+        [
+          -0.0007212770999638618,
+          0.0016108283055937974
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48091701428091993,
+        0.5230608431542131
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00032199142832603565,
+          -0.0005302666126433723
+        ],
+        [
+          -0.0005302666126433723,
+          0.001510126235846215
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48460563595207534,
+        0.52310134834317
+      ]
+    },
+    "sample_id": "testing/flip/0047_000000015",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0009_000000030",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 8.463500586560641e-18,
+      "clip_fraction": 0.004578832304526749,
+      "luma_abs_error_mean": 0.18664095688657434,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0004975244341563785,
+      "donor_cbcr_cov": [
+        [
+          0.0006105943250968761,
+          -0.000790159926497329
+        ],
+        [
+          -0.000790159926497329,
+          0.0019340822830878276
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4789566806892966,
+        0.5267274014128509
+      ],
+      "luma_abs_error_mean": 0.1668028983410485,
+      "luma_abs_error_p95": 0.34900000000000986,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0006072470606277719,
+          -0.0007853413440137417
+        ],
+        [
+          -0.0007853413440137417,
+          0.0019388595039843417
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4786731478231493,
+        0.5265572216789419
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00033991407767979014,
+          -0.00048402236567933997
+        ],
+        [
+          -0.00048402236567933997,
+          0.0013204334985646804
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48505161601098096,
+        0.5204687395857882
+      ]
+    },
+    "sample_id": "testing/flip/0046_000000012",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0029_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 7.594211073598832e-18,
+      "clip_fraction": 0.00358715920781893,
+      "luma_abs_error_mean": 0.18915610310570985,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0007196823559670782,
+      "donor_cbcr_cov": [
+        [
+          0.0004776306237548544,
+          -0.0006481060299459621
+        ],
+        [
+          -0.0006481060299459621,
+          0.001804326767217477
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4791815618118535,
+        0.529255378551542
+      ],
+      "luma_abs_error_mean": 0.20841008651620305,
+      "luma_abs_error_p95": 0.3622000000000264,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00048004608073276534,
+          -0.0006530275866657211
+        ],
+        [
+          -0.0006530275866657211,
+          0.0018085895870999175
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4793890370317742,
+        0.529248694212914
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0002645432273391801,
+          -0.0003731617557551433
+        ],
+        [
+          -0.0003731617557551433,
+          0.0010309359762133833
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4862981759141071,
+        0.5176873533901272
+      ]
+    },
+    "sample_id": "training/flip/0040_000000006",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0015_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 7.886526365181399e-18,
+      "clip_fraction": 0.0031515239197530865,
+      "luma_abs_error_mean": 0.18181489544753118,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0005496077674897119,
+      "donor_cbcr_cov": [
+        [
+          0.0007161464225865102,
+          -0.0013172304766949558
+        ],
+        [
+          -0.0013172304766949558,
+          0.0031886685715917583
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4764118454854283,
+        0.5383286697400408
+      ],
+      "luma_abs_error_mean": 0.18394593470293055,
+      "luma_abs_error_p95": 0.37139999999999673,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007165663790958067,
+          -0.0013218976661242862
+        ],
+        [
+          -0.0013218976661242862,
+          0.003206641763129164
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47640198441017045,
+        0.5381592523569876
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000389841881794095,
+          -0.0005184481611882973
+        ],
+        [
+          -0.0005184481611882973,
+          0.0012697513201236175
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.484585999536796,
+        0.5202410866728535
+      ]
+    },
+    "sample_id": "training/flip/0044_000000018",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0053_000000028",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 8.56873765970975e-18,
+      "clip_fraction": 0.003896926440329218,
+      "luma_abs_error_mean": 0.1792734224537041,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.006045042438271605,
+      "donor_cbcr_cov": [
+        [
+          0.0004086088840900316,
+          -0.0006400747444415911
+        ],
+        [
+          -0.0006400747444415911,
+          0.00182103242751528
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47657561582494773,
+        0.5289914815613661
+      ],
+      "luma_abs_error_mean": 0.19773875694444387,
+      "luma_abs_error_p95": 0.34900000000003817,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004035956447026999,
+          -0.0006386303568964869
+        ],
+        [
+          -0.0006386303568964869,
+          0.0018305276602205915
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4764161301232992,
+        0.5289434699106291
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00034379192314923975,
+          -0.00046227771267918816
+        ],
+        [
+          -0.00046227771267918816,
+          0.0011729309616161747
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48582203289898,
+        0.5182496362380954
+      ]
+    },
+    "sample_id": "training/flip/0044_000000016",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0021_000000029",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.0002455035336927e-17,
+      "clip_fraction": 0.0086474408436214,
+      "luma_abs_error_mean": 0.19407829523533973,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0006243569958847737,
+      "donor_cbcr_cov": [
+        [
+          0.0007773139081142737,
+          -0.0012691151508695572
+        ],
+        [
+          -0.0012691151508695572,
+          0.003268765500651291
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4721576732143494,
+        0.5447631292315392
+      ],
+      "luma_abs_error_mean": 0.18502079851465958,
+      "luma_abs_error_p95": 0.3843999999999982,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007602732816447047,
+          -0.00126106415550794
+        ],
+        [
+          -0.00126106415550794,
+          0.0032876701210490973
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47192622157244024,
+        0.5446061848813766
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003578988537213118,
+          -0.0005835431738006659
+        ],
+        [
+          -0.0005835431738006659,
+          0.0017362269931512977
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4820157455519257,
+        0.5284509974817683
+      ]
+    },
+    "sample_id": "testing/flip/0046_000000019",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0009_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.281516945399381e-18,
+      "clip_fraction": 0.009538001543209877,
+      "luma_abs_error_mean": 0.19691803587963,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.003911394032921811,
+      "donor_cbcr_cov": [
+        [
+          0.0005389310460906013,
+          -0.0007022428970880032
+        ],
+        [
+          -0.0007022428970880032,
+          0.0018341021005293476
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47076933940625276,
+        0.5332719525643302
+      ],
+      "luma_abs_error_mean": 0.1700883016010799,
+      "luma_abs_error_p95": 0.34900000000000986,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0005380597637483013,
+          -0.0007097080085454937
+        ],
+        [
+          -0.0007097080085454937,
+          0.0018610402171645435
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.470522469137449,
+        0.5329392620808732
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00036278473184671073,
+          -0.0006128345141002397
+        ],
+        [
+          -0.0006128345141002397,
+          0.0017343561589590925
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48254230702244344,
+        0.5264763165436495
+      ]
+    },
+    "sample_id": "training/flip/0038_000000038",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0026_000000020",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.126437583457207e-18,
+      "clip_fraction": 0.00835133744855967,
+      "luma_abs_error_mean": 0.1982001702353407,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0007679076646090535,
+      "donor_cbcr_cov": [
+        [
+          0.000450701916488085,
+          -0.00067113707131548
+        ],
+        [
+          -0.00067113707131548,
+          0.001912174046590871
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.478592168593033,
+        0.5314083937567192
+      ],
+      "luma_abs_error_mean": 0.2501463016010785,
+      "luma_abs_error_p95": 0.36619999999995934,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00043759197821856445,
+          -0.0006549472434478951
+        ],
+        [
+          -0.0006549472434478951,
+          0.001920222565429917
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4780022609729301,
+        0.5312052042469092
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003590145159094301,
+          -0.000583919382450451
+        ],
+        [
+          -0.000583919382450451,
+          0.001639398982640289
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4835055302162148,
+        0.5252308006942186
+      ]
+    },
+    "sample_id": "training/flip/0047_000000016",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0008_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 8.837160468193864e-18,
+      "clip_fraction": 0.0038689557613168723,
+      "luma_abs_error_mean": 0.1799875853587964,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0008105066872427984,
+      "donor_cbcr_cov": [
+        [
+          0.0007129927632023155,
+          -0.0008788327372843829
+        ],
+        [
+          -0.0008788327372843829,
+          0.001984018023740596
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4809364707873591,
+        0.5277332766888413
+      ],
+      "luma_abs_error_mean": 0.20274313329475294,
+      "luma_abs_error_p95": 0.356999999999989,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007030651602267837,
+          -0.0008814204540130049
+        ],
+        [
+          -0.0008814204540130049,
+          0.001996626811058006
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.480982617580161,
+        0.5276935751726644
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003222531911752103,
+          -0.0004558722181821682
+        ],
+        [
+          -0.0004558722181821682,
+          0.0011997610189379594
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4861920996022405,
+        0.5182322756252503
+      ]
+    },
+    "sample_id": "training/flip/0044_000000014",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0002_000000019",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.789560469505403e-18,
+      "clip_fraction": 0.005070569701646091,
+      "luma_abs_error_mean": 0.18580844560185242,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.002345357510288066,
+      "donor_cbcr_cov": [
+        [
+          0.0005002315088517951,
+          -0.0006328223599079244
+        ],
+        [
+          -0.0006328223599079244,
+          0.0016985640035467302
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47583448220743607,
+        0.5320552864436973
+      ],
+      "luma_abs_error_mean": 0.18949732224151425,
+      "luma_abs_error_p95": 0.36619999999998765,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004992419741538336,
+          -0.0006335468533761564
+        ],
+        [
+          -0.0006335468533761564,
+          0.0016902744698068968
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4759257241919116,
+        0.5323118073909504
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00029928299457365103,
+          -0.00044771414598941917
+        ],
+        [
+          -0.00044771414598941917,
+          0.001201657198872308
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4850707047743681,
+        0.5197374022046215
+      ]
+    },
+    "sample_id": "training/flip/0037_000000007",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0009_000000029",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 9.711763387799754e-18,
+      "clip_fraction": 0.003490547839506173,
+      "luma_abs_error_mean": 0.1834940599922839,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0004862718621399177,
+      "donor_cbcr_cov": [
+        [
+          0.0006164996391321249,
+          -0.0007964414795944683
+        ],
+        [
+          -0.0007964414795944683,
+          0.0019397613721097709
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4788608848021535,
+        0.5268858428685229
+      ],
+      "luma_abs_error_mean": 0.1983483318865738,
+      "luma_abs_error_p95": 0.3702000000000055,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000600863631863202,
+          -0.0007890032265433335
+        ],
+        [
+          -0.0007890032265433335,
+          0.001945100079899202
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4785710519210326,
+        0.5269054851736771
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00028581523489077786,
+          -0.00039215319740305675
+        ],
+        [
+          -0.00039215319740305675,
+          0.0010446537982437016
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4849498973048987,
+        0.5170800431547743
+      ]
+    },
+    "sample_id": "training/flip/0043_000000016",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0008_000000030",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 6.236035609160761e-18,
+      "clip_fraction": 0.009449749228395062,
+      "luma_abs_error_mean": 0.19433885522762415,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0003158757716049383,
+      "donor_cbcr_cov": [
+        [
+          0.000716537880250662,
+          -0.0008850567243778025
+        ],
+        [
+          -0.0008850567243778025,
+          0.001985153289308694
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.480846760194611,
+        0.527469490937729
+      ],
+      "luma_abs_error_mean": 0.08075260127314772,
+      "luma_abs_error_p95": 0.22059999999998803,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007106648063553863,
+          -0.0008849358486255008
+        ],
+        [
+          -0.0008849358486255008,
+          0.0019754892698381405
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48101473579571713,
+        0.5277448008462452
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00034662396461753765,
+          -0.0006157945581581877
+        ],
+        [
+          -0.0006157945581581877,
+          0.0018110953450411612
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4818177959120456,
+        0.5279822394658683
+      ]
+    },
+    "sample_id": "training/flip/0037_000000015",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0002_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 7.907130952143322e-18,
+      "clip_fraction": 0.005009002057613169,
+      "luma_abs_error_mean": 0.17703079513888917,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.004482863940329218,
+      "donor_cbcr_cov": [
+        [
+          0.0006804298695361384,
+          -0.0007608610449143092
+        ],
+        [
+          -0.0007608610449143092,
+          0.0016847717980413084
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48172310013969616,
+        0.5237481701802691
+      ],
+      "luma_abs_error_mean": 0.20339613647762328,
+      "luma_abs_error_p95": 0.4211999999999999,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0006796016601625046,
+          -0.0007580393308386116
+        ],
+        [
+          -0.0007580393308386116,
+          0.001694154638420589
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48149906535918413,
+        0.5235187982655856
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006889595173664295,
+          -0.0009245303147240496
+        ],
+        [
+          -0.0009245303147240496,
+          0.0019235753703424649
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48795552543272647,
+        0.5186266181184721
+      ]
+    },
+    "sample_id": "training/flip/0048_000000022",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0054_000000027",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 7.854852586569837e-18,
+      "clip_fraction": 0.006772762345679012,
+      "luma_abs_error_mean": 0.198337673128858,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00048273533950617283,
+      "donor_cbcr_cov": [
+        [
+          0.000418858265358215,
+          -0.0005729841206953606
+        ],
+        [
+          -0.0005729841206953606,
+          0.0015931261543220081
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4809324394293263,
+        0.5210884743119935
+      ],
+      "luma_abs_error_mean": 0.23164683863811592,
+      "luma_abs_error_p95": 0.3582000000000085,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00042532847038237676,
+          -0.0005741499546158685
+        ],
+        [
+          -0.0005741499546158685,
+          0.0015921107739302071
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4809923432183305,
+        0.521160998912098
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00028185410124111494,
+          -0.0005743598025044285
+        ],
+        [
+          -0.0005743598025044285,
+          0.0017817459520495077
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4855185496515879,
+        0.5247378850366858
+      ]
+    },
+    "sample_id": "training/notflip/0031_000000021",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0016_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 4.5871980212776586e-18,
+      "clip_fraction": 0.00743505658436214,
+      "luma_abs_error_mean": 0.16954258352623539,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0006815843621399177,
+      "donor_cbcr_cov": [
+        [
+          0.0009205004972420087,
+          -0.001433531715340989
+        ],
+        [
+          -0.001433531715340989,
+          0.0035153092027798236
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47116468058689304,
+        0.5472575401948165
+      ],
+      "luma_abs_error_mean": 0.16281944376928972,
+      "luma_abs_error_p95": 0.375399999999958,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000913329783644685,
+          -0.0014230772901302163
+        ],
+        [
+          -0.0014230772901302163,
+          0.003497865520713736
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47113614292315376,
+        0.5475932878502212
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00024212934390407164,
+          -0.0005093956695768826
+        ],
+        [
+          -0.0005093956695768826,
+          0.0017147520843746233
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48237157467464054,
+        0.5263209437850691
+      ]
+    },
+    "sample_id": "testing/notflip/0040_000000018",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0045_000000030",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.114705508883103e-18,
+      "clip_fraction": 0.005491415895061728,
+      "luma_abs_error_mean": 0.16830925067515504,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.004397022890946502,
+      "donor_cbcr_cov": [
+        [
+          0.000393815768342061,
+          -0.0004388259741325963
+        ],
+        [
+          -0.0004388259741325963,
+          0.0011045857561138121
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48385448704178796,
+        0.5174065917511174
+      ],
+      "luma_abs_error_mean": 0.20318015248842752,
+      "luma_abs_error_p95": 0.4079999999999834,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0003911203639812475,
+          -0.00043217672941759527
+        ],
+        [
+          -0.00043217672941759527,
+          0.0011015807477996885
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48365953172907394,
+        0.5175347470099244
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0002997399860594651,
+          -0.0005662965035509259
+        ],
+        [
+          -0.0005662965035509259,
+          0.0016176044057890871
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48045937077507306,
+        0.5280515268131971
+      ]
+    },
+    "sample_id": "training/notflip/0027_000000007",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0026_000000020",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.513083184322432e-18,
+      "clip_fraction": 0.011389853395061728,
+      "luma_abs_error_mean": 0.1729628763503086,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00040364583333333333,
+      "donor_cbcr_cov": [
+        [
+          0.000450701916488085,
+          -0.00067113707131548
+        ],
+        [
+          -0.00067113707131548,
+          0.001912174046590871
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.478592168593033,
+        0.5314083937567192
+      ],
+      "luma_abs_error_mean": 0.15837666502700537,
+      "luma_abs_error_p95": 0.3569999999999961,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00044294445191401415,
+          -0.0006673449956807354
+        ],
+        [
+          -0.0006673449956807354,
+          0.001912975999333634
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4784424132897404,
+        0.5314544999472747
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00026477986855659934,
+          -0.0006216235724912721
+        ],
+        [
+          -0.0006216235724912721,
+          0.002157169962358215
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48171044962636334,
+        0.5309827104921558
+      ]
+    },
+    "sample_id": "training/notflip/0028_000000007",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0016_000000024",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 8.107718677954286e-18,
+      "clip_fraction": 0.007178819444444444,
+      "luma_abs_error_mean": 0.19416936458333348,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.000367798353909465,
+      "donor_cbcr_cov": [
+        [
+          0.00040168217334872746,
+          -0.0005896625670344031
+        ],
+        [
+          -0.0005896625670344031,
+          0.0016237008218740986
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48201778383243143,
+        0.5234990639767542
+      ],
+      "luma_abs_error_mean": 0.18373369666280773,
+      "luma_abs_error_p95": 0.3582000000000085,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004034713928668157,
+          -0.000585455233407879
+        ],
+        [
+          -0.000585455233407879,
+          0.0016147553546124827
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48199064682200854,
+        0.5235979222351296
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003187155933686827,
+          -0.0007051703219246595
+        ],
+        [
+          -0.0007051703219246595,
+          0.0021503079329503595
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4825460455681875,
+        0.5285303555600955
+      ]
+    },
+    "sample_id": "training/notflip/0035_000000006",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0058_000000027",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 6.7806516916931155e-18,
+      "clip_fraction": 0.0095947466563786,
+      "luma_abs_error_mean": 0.1948917657214506,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.004175668724279835,
+      "donor_cbcr_cov": [
+        [
+          0.00041221548254623215,
+          -0.0004776396690128148
+        ],
+        [
+          -0.0004776396690128148,
+          0.001152048863561376
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4829777770615007,
+        0.5171824364683022
+      ],
+      "luma_abs_error_mean": 0.20982795244984617,
+      "luma_abs_error_p95": 0.37260000000001625,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004190147013807954,
+          -0.00047997386228963696
+        ],
+        [
+          -0.00047997386228963696,
+          0.0011459633419114768
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4832034434033204,
+        0.5173966083303222
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00030125355522923913,
+          -0.0006602728222689016
+        ],
+        [
+          -0.0006602728222689016,
+          0.0021230762417851702
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4832720796779334,
+        0.5300664737521258
+      ]
+    },
+    "sample_id": "training/notflip/0036_000000002",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0055_000000030",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 8.841558370033348e-18,
+      "clip_fraction": 0.00828125,
+      "luma_abs_error_mean": 0.20346964361496894,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.002992058899176955,
+      "donor_cbcr_cov": [
+        [
+          0.0004052654508272794,
+          -0.0006281063085429537
+        ],
+        [
+          -0.0006281063085429537,
+          0.0017679423853975218
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4770954495371884,
+        0.5291288814658569
+      ],
+      "luma_abs_error_mean": 0.16679016628086485,
+      "luma_abs_error_p95": 0.3529999999999994,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0003960365255871001,
+          -0.0006201044988224494
+        ],
+        [
+          -0.0006201044988224494,
+          0.0017659579579170372
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47691135789494965,
+        0.5292719630786974
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00030998843248477984,
+          -0.0006730633881640776
+        ],
+        [
+          -0.0006730633881640776,
+          0.0020662195357161253
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4845567721633331,
+        0.527604354726713
+      ]
+    },
+    "sample_id": "training/notflip/0031_000000009",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0010_000000027",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 8.93077732730017e-18,
+      "clip_fraction": 0.009756140689300412,
+      "luma_abs_error_mean": 0.20359565779320973,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0006266075102880659,
+      "donor_cbcr_cov": [
+        [
+          0.0006984597091278896,
+          -0.000803484443723963
+        ],
+        [
+          -0.000803484443723963,
+          0.0018759760741440515
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47929792039345004,
+        0.5260769027018943
+      ],
+      "luma_abs_error_mean": 0.15718822202932026,
+      "luma_abs_error_p95": 0.35420000000004725,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007036091696144808,
+          -0.0008039205327266012
+        ],
+        [
+          -0.0008039205327266012,
+          0.0018760123624274867
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47935675850819603,
+        0.5260947960865261
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00034889995435508016,
+          -0.0007816758074939179
+        ],
+        [
+          -0.0007816758074939179,
+          0.002359732080937429
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4835539469516077,
+        0.5300809111418748
+      ]
+    },
+    "sample_id": "training/notflip/0031_000000005",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0011_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 4.629396970446167e-18,
+      "clip_fraction": 0.004208783436213992,
+      "luma_abs_error_mean": 0.19542372183642093,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00020367155349794238,
+      "donor_cbcr_cov": [
+        [
+          0.0007048291026243222,
+          -0.0008489733334998764
+        ],
+        [
+          -0.0008489733334998764,
+          0.001950883470646523
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4812365940228828,
+        0.5267085528103291
+      ],
+      "luma_abs_error_mean": 0.12159355893132912,
+      "luma_abs_error_p95": 0.29680000000002427,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0006983141689617742,
+          -0.0008475081524863457
+        ],
+        [
+          -0.0008475081524863457,
+          0.001951878681694868
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4810177585033313,
+        0.5267138182479079
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0002573886061990788,
+          -0.00046819822171886437
+        ],
+        [
+          -0.00046819822171886437,
+          0.0013467973351203534
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48480228709952633,
+        0.5230463606610406
+      ]
+    },
+    "sample_id": "training/notflip/0037_000000017",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0005_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.08844167227169e-18,
+      "clip_fraction": 0.0074487204218107,
+      "luma_abs_error_mean": 0.1714905196759266,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0005623070987654321,
+      "donor_cbcr_cov": [
+        [
+          0.0006691303781780695,
+          -0.0008592728903367777
+        ],
+        [
+          -0.0008592728903367777,
+          0.0020144077887249015
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4795908041717168,
+        0.5272298267141061
+      ],
+      "luma_abs_error_mean": 0.10016330256558587,
+      "luma_abs_error_p95": 0.28079999999998106,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000668172304319847,
+          -0.0008634321567619161
+        ],
+        [
+          -0.0008634321567619161,
+          0.0020019008079240523
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47959266898259667,
+        0.5272793625952914
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00024215413363211434,
+          -0.0005089832662528356
+        ],
+        [
+          -0.0005089832662528356,
+          0.0017140502010112696
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48239885088041157,
+        0.5260954121247857
+      ]
+    },
+    "sample_id": "training/notflip/0040_000000023",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0008_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 4.824550701448745e-18,
+      "clip_fraction": 0.009150752314814815,
+      "luma_abs_error_mean": 0.16995589448302556,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.000261059670781893,
+      "donor_cbcr_cov": [
+        [
+          0.0007144276732100213,
+          -0.0008808572775587619
+        ],
+        [
+          -0.0008808572775587619,
+          0.001996805292448357
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4809559444049804,
+        0.5280282316867674
+      ],
+      "luma_abs_error_mean": 0.13298341290509283,
+      "luma_abs_error_p95": 0.2887999999999885,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007113360745806882,
+          -0.0008873508160639252
+        ],
+        [
+          -0.0008873508160639252,
+          0.0020031556113985615
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4808006557725292,
+        0.5277859770156494
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0002742577809042576,
+          -0.0005699978726111757
+        ],
+        [
+          -0.0005699978726111757,
+          0.001818465524860423
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4820934067050847,
+        0.5263946814324869
+      ]
+    },
+    "sample_id": "training/notflip/0040_000000008",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0009_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.469099027008638e-18,
+      "clip_fraction": 0.0023776684670781894,
+      "luma_abs_error_mean": 0.1754191026234575,
+      "luma_abs_error_p95": 0.3582000000000006
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00019418724279835392,
+      "donor_cbcr_cov": [
+        [
+          0.0006237568555951077,
+          -0.0008040033730836818
+        ],
+        [
+          -0.0008040033730836818,
+          0.0019411480691016725
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47848046654080173,
+        0.5271171705949514
+      ],
+      "luma_abs_error_mean": 0.11261826697531052,
+      "luma_abs_error_p95": 0.30200000000000504,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0006266533534692887,
+          -0.0008019286848395145
+        ],
+        [
+          -0.0008019286848395145,
+          0.0019427968427375493
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4782955562264366,
+        0.5269870575223037
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0002834122576932505,
+          -0.00044780415472187154
+        ],
+        [
+          -0.00044780415472187154,
+          0.0012904078617651284
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4818751559204441,
+        0.5226786691519446
+      ]
+    },
+    "sample_id": "training/notflip/0033_000000017",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0005_000000027",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 8.149010903229246e-18,
+      "clip_fraction": 0.009729777520576131,
+      "luma_abs_error_mean": 0.1915273796296297,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0004213284465020576,
+      "donor_cbcr_cov": [
+        [
+          0.0006697831540329278,
+          -0.00085892492502137
+        ],
+        [
+          -0.00085892492502137,
+          0.0020078990829023656
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4795360547404408,
+        0.5272470979795011
+      ],
+      "luma_abs_error_mean": 0.2019056569251539,
+      "luma_abs_error_p95": 0.36100000000000687,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0006718034229586293,
+          -0.0008598955957892434
+        ],
+        [
+          -0.0008598955957892434,
+          0.0019951714750202723
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47968642781508863,
+        0.527490895745085
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00031168460038208216,
+          -0.0006911497793501661
+        ],
+        [
+          -0.0006911497793501661,
+          0.0021297818255509348
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.482214818609374,
+        0.5283496143545824
+      ]
+    },
+    "sample_id": "training/notflip/0035_000000002",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-03",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0048_000000009",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.4739086677333432e-18,
+      "clip_fraction": 0.017381365740740742,
+      "luma_abs_error_mean": 0.1649736493055557,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.03352928883744856,
+      "donor_cbcr_cov": [
+        [
+          0.0009046504534215964,
+          -0.0010539088779025069
+        ],
+        [
+          -0.0010539088779025069,
+          0.0018377851081979287
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4904416837259633,
+        0.51445375102286
+      ],
+      "luma_abs_error_mean": 0.21123941859567902,
+      "luma_abs_error_p95": 0.40279999999998845,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0008735849608957285,
+          -0.0009742284690257054
+        ],
+        [
+          -0.0009742284690257054,
+          0.0017167541596607907
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.49014977754412453,
+        0.5164157894464374
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0005181204178755654,
+          -0.0006660489068337883
+        ],
+        [
+          -0.0006660489068337883,
+          0.001918973581679394
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4688607586122081,
+        0.536550847071843
+      ]
+    },
+    "sample_id": "training/flip/0004_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0053_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.3288736886356294e-18,
+      "clip_fraction": 0.013687467849794238,
+      "luma_abs_error_mean": 0.1629274079861113,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00041988168724279836,
+      "donor_cbcr_cov": [
+        [
+          0.00038941063391806233,
+          -0.000594417626437474
+        ],
+        [
+          -0.000594417626437474,
+          0.001712652754576619
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4771007838833028,
+        0.5284830611809367
+      ],
+      "luma_abs_error_mean": 0.15723883912037045,
+      "luma_abs_error_p95": 0.3489999999999957,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004003359397397858,
+          -0.000601474709245014
+        ],
+        [
+          -0.000601474709245014,
+          0.0016989127002428098
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4773331278216841,
+        0.5285698647570393
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000551714839580694,
+          -0.0007495331347775382
+        ],
+        [
+          -0.0007495331347775382,
+          0.0019439813966012388
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4707106847811305,
+        0.5333356608617476
+      ]
+    },
+    "sample_id": "training/flip/0009_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0040_000000009",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.7904514503421004e-18,
+      "clip_fraction": 0.012840631430041152,
+      "luma_abs_error_mean": 0.16237804938271705,
+      "luma_abs_error_p95": 0.3582000000000006
+    },
+    "naturalistic": {
+      "clip_fraction": 0.012189268261316872,
+      "donor_cbcr_cov": [
+        [
+          0.00028223540934981455,
+          -0.00039138230597106415
+        ],
+        [
+          -0.00039138230597106415,
+          0.0010544553538993672
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4863176202848421,
+        0.51786583156686
+      ],
+      "luma_abs_error_mean": 0.2047000001929011,
+      "luma_abs_error_p95": 0.4343999999999996,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00027830985444619297,
+          -0.0003895530215245452
+        ],
+        [
+          -0.0003895530215245452,
+          0.0010468478303930504
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4863375342277414,
+        0.5179792658952996
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006298444243133143,
+          -0.0007396804571069935
+        ],
+        [
+          -0.0007396804571069935,
+          0.0018546073252640241
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4730885063888356,
+        0.5321304478909077
+      ]
+    },
+    "sample_id": "training/flip/0009_000000024",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0011_000000030",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.0457062541390398e-18,
+      "clip_fraction": 0.012057934670781893,
+      "luma_abs_error_mean": 0.16682572096836373,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0005254951131687242,
+      "donor_cbcr_cov": [
+        [
+          0.0007621956039344101,
+          -0.001325069900703262
+        ],
+        [
+          -0.001325069900703262,
+          0.0034261884775709907
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4722661362664057,
+        0.5438031276378903
+      ],
+      "luma_abs_error_mean": 0.18340099594907383,
+      "luma_abs_error_p95": 0.3621999999999981,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007648486928888138,
+          -0.0013286938973139746
+        ],
+        [
+          -0.0013286938973139746,
+          0.0034252566477009786
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47232017934566767,
+        0.5438274232934868
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006341310203548245,
+          -0.0007638558976723795
+        ],
+        [
+          -0.0007638558976723795,
+          0.0019623597956155217
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47409272635744754,
+        0.5334022031027239
+      ]
+    },
+    "sample_id": "training/flip/0008_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0030_000000038",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.794201808756057e-18,
+      "clip_fraction": 0.014771894290123457,
+      "luma_abs_error_mean": 0.1690660160108032,
+      "luma_abs_error_p95": 0.3581999999999802
+    },
+    "naturalistic": {
+      "clip_fraction": 0.01963991769547325,
+      "donor_cbcr_cov": [
+        [
+          0.00042925676977676244,
+          -0.0006263226707621577
+        ],
+        [
+          -0.0006263226707621577,
+          0.0015581574122842548
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4829726932104236,
+        0.5214661897313588
+      ],
+      "luma_abs_error_mean": 0.2109188865740734,
+      "luma_abs_error_p95": 0.3701999999999772,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004202698173191547,
+          -0.0006216938274644887
+        ],
+        [
+          -0.0006216938274644887,
+          0.0015588839112154658
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4829354711850773,
+        0.5214546939557284
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0005822546939917785,
+          -0.0007297088216162946
+        ],
+        [
+          -0.0007297088216162946,
+          0.0018357141818172338
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4699374111179229,
+        0.5332078121375723
+      ]
+    },
+    "sample_id": "training/flip/0010_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0052_000000028",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.1741457744205623e-18,
+      "clip_fraction": 0.014243023405349794,
+      "luma_abs_error_mean": 0.16534899517746937,
+      "luma_abs_error_p95": 0.3581999999999802
+    },
+    "naturalistic": {
+      "clip_fraction": 0.01976385673868313,
+      "donor_cbcr_cov": [
+        [
+          0.00041891112180746293,
+          -0.0004966453375464995
+        ],
+        [
+          -0.0004966453375464995,
+          0.0012802361084694781
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4819781264645647,
+        0.5193674905393395
+      ],
+      "luma_abs_error_mean": 0.18886195997299352,
+      "luma_abs_error_p95": 0.3702000000000055,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004199701137125241,
+          -0.00048725376911373596
+        ],
+        [
+          -0.00048725376911373596,
+          0.0012745867971707832
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4818303383877647,
+        0.5193946370601495
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0005478029258115251,
+          -0.0007698023437717842
+        ],
+        [
+          -0.0007698023437717842,
+          0.0019966565449457655
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.46765859269381105,
+        0.534724873232851
+      ]
+    },
+    "sample_id": "training/flip/0010_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0017_000000021",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.970814038098251e-18,
+      "clip_fraction": 0.020054012345679013,
+      "luma_abs_error_mean": 0.16080543296682137,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.002405639146090535,
+      "donor_cbcr_cov": [
+        [
+          0.0007405045825937453,
+          -0.0013767171559571278
+        ],
+        [
+          -0.0013767171559571278,
+          0.0034821148416168198
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4727192281784997,
+        0.5451437826455194
+      ],
+      "luma_abs_error_mean": 0.20566556201774758,
+      "luma_abs_error_p95": 0.35819999999999436,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007427706128046529,
+          -0.0013708997621187738
+        ],
+        [
+          -0.0013708997621187738,
+          0.0034753198090809448
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47266194328446975,
+        0.5451780938802566
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000579517168200128,
+          -0.0006548035936399074
+        ],
+        [
+          -0.0006548035936399074,
+          0.0018189542418532037
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47274911123065644,
+        0.5336528013870513
+      ]
+    },
+    "sample_id": "training/flip/0004_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0029_000000006",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.2175781285576535e-18,
+      "clip_fraction": 0.014409561471193415,
+      "luma_abs_error_mean": 0.16658611381172872,
+      "luma_abs_error_p95": 0.3581999999999802
+    },
+    "naturalistic": {
+      "clip_fraction": 0.012358699845679012,
+      "donor_cbcr_cov": [
+        [
+          0.0003382522889016059,
+          -0.0006919118191945115
+        ],
+        [
+          -0.0006919118191945115,
+          0.0021084133093090666
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48417376964612346,
+        0.5279996655710905
+      ],
+      "luma_abs_error_mean": 0.16062835947145057,
+      "luma_abs_error_p95": 0.34900000000000986,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00034376997572232147,
+          -0.0006903059565411478
+        ],
+        [
+          -0.0006903059565411478,
+          0.0020934360719597205
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4843892002770332,
+        0.5282343115824457
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0005381837613003794,
+          -0.000751588896124807
+        ],
+        [
+          -0.000751588896124807,
+          0.0019649282510234662
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4678044698500273,
+        0.5348794396201276
+      ]
+    },
+    "sample_id": "training/flip/0010_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0058_000000028",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.3522315480251623e-18,
+      "clip_fraction": 0.019859503600823045,
+      "luma_abs_error_mean": 0.16878260667438336,
+      "luma_abs_error_p95": 0.3582000000000006
+    },
+    "naturalistic": {
+      "clip_fraction": 0.002420428240740741,
+      "donor_cbcr_cov": [
+        [
+          0.0003913660935662958,
+          -0.0005732565355739761
+        ],
+        [
+          -0.0005732565355739761,
+          0.0016942129080400436
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47563694566242626,
+        0.5297299419741581
+      ],
+      "luma_abs_error_mean": 0.2282248542631172,
+      "luma_abs_error_p95": 0.4211999999999999,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00040082054789148774,
+          -0.000581115003816973
+        ],
+        [
+          -0.000581115003816973,
+          0.0016798585342048412
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47589146742107274,
+        0.530082192230759
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0005037597588232044,
+          -0.0007213984025531818
+        ],
+        [
+          -0.0007213984025531818,
+          0.0020546973833580192
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4684883157458737,
+        0.5374649377224692
+      ]
+    },
+    "sample_id": "training/flip/0001_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0027_000000024",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.5759543301355342e-18,
+      "clip_fraction": 0.01553835519547325,
+      "luma_abs_error_mean": 0.16259517447916674,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 0.002251318158436214,
+      "donor_cbcr_cov": [
+        [
+          0.00027288087319651914,
+          -0.0005812026905524645
+        ],
+        [
+          -0.0005812026905524645,
+          0.0019704608737352914
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48028488493197824,
+        0.5311648829745413
+      ],
+      "luma_abs_error_mean": 0.15299837818287002,
+      "luma_abs_error_p95": 0.3662000000000018,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002791325756438184,
+          -0.0005783225259307055
+        ],
+        [
+          -0.0005783225259307055,
+          0.0019766883215314103
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4803492446688036,
+        0.5312460794397479
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000713138730206194,
+          -0.0008538098840154868
+        ],
+        [
+          -0.0008538098840154868,
+          0.0021864706758236313
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47274929386644116,
+        0.5348319987752314
+      ]
+    },
+    "sample_id": "training/flip/0007_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0051_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.287851827645602e-18,
+      "clip_fraction": 0.01984519675925926,
+      "luma_abs_error_mean": 0.1671688932291674,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.009753890174897119,
+      "donor_cbcr_cov": [
+        [
+          0.00037415375061322366,
+          -0.0005545024137657634
+        ],
+        [
+          -0.0005545024137657634,
+          0.00158145764865817
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47784087894765426,
+        0.5273135095774424
+      ],
+      "luma_abs_error_mean": 0.2458371595293209,
+      "luma_abs_error_p95": 0.43439999999999873,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0003691826387187468,
+          -0.0005517525827032565
+        ],
+        [
+          -0.0005517525827032565,
+          0.0015741871735223888
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4777549955212605,
+        0.5273444518366164
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000505722682638435,
+          -0.0007105038710940562
+        ],
+        [
+          -0.0007105038710940562,
+          0.0020223515827106943
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.46888653893013305,
+        0.5375915942532002
+      ]
+    },
+    "sample_id": "training/flip/0001_000000024",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0036_000000017",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.4611434905131983e-18,
+      "clip_fraction": 0.01018775720164609,
+      "luma_abs_error_mean": 0.16742444483024668,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0001398533950617284,
+      "donor_cbcr_cov": [
+        [
+          0.00025958610853161394,
+          -0.0004911944379469057
+        ],
+        [
+          -0.0004911944379469057,
+          0.0015790276694474799
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4840248762616178,
+        0.5256827283983142
+      ],
+      "luma_abs_error_mean": 0.15499909355709882,
+      "luma_abs_error_p95": 0.34900000000000986,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002611893793007404,
+          -0.0004929485259220995
+        ],
+        [
+          -0.0004929485259220995,
+          0.0015772781789192727
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48417486397017184,
+        0.5258316051301696
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00054870939233628,
+          -0.0008195969707206729
+        ],
+        [
+          -0.0008195969707206729,
+          0.002139419631436857
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47319735756910064,
+        0.5337231951969015
+      ]
+    },
+    "sample_id": "training/flip/0006_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0035_000000018",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.4336124080849619e-18,
+      "clip_fraction": 0.014550379372427983,
+      "luma_abs_error_mean": 0.16388001234567906,
+      "luma_abs_error_p95": 0.35820000000000013
+    },
+    "naturalistic": {
+      "clip_fraction": 0.020422935956790123,
+      "donor_cbcr_cov": [
+        [
+          0.0002641872474756288,
+          -0.00046806208527073464
+        ],
+        [
+          -0.00046806208527073464,
+          0.0013014741815404116
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48536890010309974,
+        0.5200520301000096
+      ],
+      "luma_abs_error_mean": 0.17729958613040053,
+      "luma_abs_error_p95": 0.36620000000001596,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002650859532616828,
+          -0.0004639002660555632
+        ],
+        [
+          -0.0004639002660555632,
+          0.001298317147956386
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4852538010342436,
+        0.5201394776123895
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006504165400433111,
+          -0.0007764360157281163
+        ],
+        [
+          -0.0007764360157281163,
+          0.002005084174825399
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47144982819814407,
+        0.5345356242650211
+      ]
+    },
+    "sample_id": "training/flip/0007_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0044_000000016",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 4.1927138598366004e-18,
+      "clip_fraction": 0.0061406893004115224,
+      "luma_abs_error_mean": 0.16785320196759254,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00030976723251028806,
+      "donor_cbcr_cov": [
+        [
+          0.00034379192314923975,
+          -0.00046227771267918816
+        ],
+        [
+          -0.00046227771267918816,
+          0.0011729309616161747
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48582203289898,
+        0.5182496362380954
+      ],
+      "luma_abs_error_mean": 0.18847365219907367,
+      "luma_abs_error_p95": 0.36100000000000687,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00034773161255614334,
+          -0.0004623322336382577
+        ],
+        [
+          -0.0004623322336382577,
+          0.0011682370320869396
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4860031394826828,
+        0.5184298077381041
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006807866047900588,
+          -0.0007559870728976421
+        ],
+        [
+          -0.0007559870728976421,
+          0.001673089027392832
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4818085090849549,
+        0.5237563528151257
+      ]
+    },
+    "sample_id": "testing/notflip/0002_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0058_000000029",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.3756003839775726e-18,
+      "clip_fraction": 0.007523469650205761,
+      "luma_abs_error_mean": 0.16512476668595646,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.005666152263374485,
+      "donor_cbcr_cov": [
+        [
+          0.000409289720838029,
+          -0.0004704837542159799
+        ],
+        [
+          -0.0004704837542159799,
+          0.0011410310671845006
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4829732710166039,
+        0.5171797401319496
+      ],
+      "luma_abs_error_mean": 0.2369904825424383,
+      "luma_abs_error_p95": 0.39760000000000767,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00040960729768233016,
+          -0.00046865951346049164
+        ],
+        [
+          -0.00046865951346049164,
+          0.0011360504989419596
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4829466231532107,
+        0.5172220175864178
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006834027066220322,
+          -0.0007997805099906419
+        ],
+        [
+          -0.0007997805099906419,
+          0.001780084048011971
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4809546359078028,
+        0.5258770888975601
+      ]
+    },
+    "sample_id": "training/notflip/0004_000000032",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0040_000000023",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.303702354440637e-18,
+      "clip_fraction": 0.01029417438271605,
+      "luma_abs_error_mean": 0.15968261921296328,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 8.825231481481481e-05,
+      "donor_cbcr_cov": [
+        [
+          0.0004248628174456261,
+          -0.000580801163741105
+        ],
+        [
+          -0.000580801163741105,
+          0.0015812857568339273
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48526189503787154,
+        0.5248614009033846
+      ],
+      "luma_abs_error_mean": 0.15689740094521626,
+      "luma_abs_error_p95": 0.36100000000000687,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00042037144953410336,
+          -0.0005799965658785854
+        ],
+        [
+          -0.0005799965658785854,
+          0.0015975159301731534
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4850926823652705,
+        0.5245309756072295
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006168263194949275,
+          -0.0008622037464417578
+        ],
+        [
+          -0.0008622037464417578,
+          0.0022408183997567653
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4768734109350085,
+        0.5297323838334661
+      ]
+    },
+    "sample_id": "testing/notflip/0006_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0031_000000007",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.0924804467503337e-18,
+      "clip_fraction": 0.007166923868312757,
+      "luma_abs_error_mean": 0.1713574693287033,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0032034465020576133,
+      "donor_cbcr_cov": [
+        [
+          0.0003217798875383243,
+          -0.0007104323416809886
+        ],
+        [
+          -0.0007104323416809886,
+          0.0021694594390867924
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48416270511018483,
+        0.5287866124332281
+      ],
+      "luma_abs_error_mean": 0.1581403574459875,
+      "luma_abs_error_p95": 0.3529999999999994,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00032079819907112283,
+          -0.0007097923235311101
+        ],
+        [
+          -0.0007097923235311101,
+          0.002164141195597193
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.484280380209593,
+        0.5289773797497269
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006702777480284414,
+          -0.0007210759561413612
+        ],
+        [
+          -0.0007210759561413612,
+          0.0016205095175950192
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4803232709885152,
+        0.5239997349774614
+      ]
+    },
+    "sample_id": "testing/notflip/0003_000000030",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0032_000000003",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.4846317891710626e-18,
+      "clip_fraction": 0.006180716306584362,
+      "luma_abs_error_mean": 0.16766277237654348,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.01032568158436214,
+      "donor_cbcr_cov": [
+        [
+          0.0002806721121143499,
+          -0.000637839703120503
+        ],
+        [
+          -0.000637839703120503,
+          0.0020450047048579984
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48315467453365035,
+        0.5283130474803723
+      ],
+      "luma_abs_error_mean": 0.16531540142746906,
+      "luma_abs_error_p95": 0.3609999999999927,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002826481295125402,
+          -0.0006336319456573296
+        ],
+        [
+          -0.0006336319456573296,
+          0.002037929313274713
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4831015472076123,
+        0.5283568883135183
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0007158326525343128,
+          -0.000884893736527953
+        ],
+        [
+          -0.000884893736527953,
+          0.0019881542699282427
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4808804087592602,
+        0.527512171613141
+      ]
+    },
+    "sample_id": "training/notflip/0008_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0038_000000018",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.7267674579101666e-18,
+      "clip_fraction": 0.0068690522119341565,
+      "luma_abs_error_mean": 0.16070937085262374,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0024308770576131687,
+      "donor_cbcr_cov": [
+        [
+          0.00023876960019458086,
+          -0.0004619161770567701
+        ],
+        [
+          -0.0004619161770567701,
+          0.0015047016625195208
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4848796714583265,
+        0.5243618092896492
+      ],
+      "luma_abs_error_mean": 0.1738311069637347,
+      "luma_abs_error_p95": 0.36500000000002475,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002432916294282609,
+          -0.0004583788355662768
+        ],
+        [
+          -0.0004583788355662768,
+          0.0015065165862258399
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48484141693575455,
+        0.5243200962044331
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006972937577754987,
+          -0.0008062989358313896
+        ],
+        [
+          -0.0008062989358313896,
+          0.0018908298188860995
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47906644092042144,
+        0.5264854435441405
+      ]
+    },
+    "sample_id": "training/notflip/0010_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0048_000000010",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.8383836845491614e-18,
+      "clip_fraction": 0.006486304012345679,
+      "luma_abs_error_mean": 0.16131810812114222,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.02773244598765432,
+      "donor_cbcr_cov": [
+        [
+          0.0008982380030396973,
+          -0.0010481447441023774
+        ],
+        [
+          -0.0010481447441023774,
+          0.0018334080117825221
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4904047386443582,
+        0.5143908464911741
+      ],
+      "luma_abs_error_mean": 0.16474115769675982,
+      "luma_abs_error_p95": 0.3478000000000045,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000897387127486869,
+          -0.0010348612084950257
+        ],
+        [
+          -0.0010348612084950257,
+          0.001812688357543223
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.49024986575811735,
+        0.5148628264479821
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006983479887445674,
+          -0.0007900614347766053
+        ],
+        [
+          -0.0007900614347766053,
+          0.001843109172476348
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4796949891129706,
+        0.5254704741842496
+      ]
+    },
+    "sample_id": "training/notflip/0010_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0037_000000005",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 4.198901454878118e-18,
+      "clip_fraction": 0.006194701646090535,
+      "luma_abs_error_mean": 0.16770466126543201,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0027639531893004117,
+      "donor_cbcr_cov": [
+        [
+          0.00027167776058832985,
+          -0.00041017338744849213
+        ],
+        [
+          -0.00041017338744849213,
+          0.0011398920734791828
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48597463303081223,
+        0.5186128836134806
+      ],
+      "luma_abs_error_mean": 0.1579340795717597,
+      "luma_abs_error_p95": 0.3529999999999994,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00027615185322585345,
+          -0.00040842196008797387
+        ],
+        [
+          -0.00040842196008797387,
+          0.0011335143439416286
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.486106178451639,
+        0.5188378603414936
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006804298695361384,
+          -0.0007608610449143092
+        ],
+        [
+          -0.0007608610449143092,
+          0.0016847717980413084
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48172310013969616,
+        0.5237481701802691
+      ]
+    },
+    "sample_id": "training/notflip/0002_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0063_000000023",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.9978717629209315e-18,
+      "clip_fraction": 0.007104070216049383,
+      "luma_abs_error_mean": 0.16814962712191292,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.013895640432098766,
+      "donor_cbcr_cov": [
+        [
+          0.00040573720097724584,
+          -0.0005902218101431301
+        ],
+        [
+          -0.0005902218101431301,
+          0.0015782623050762553
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47885087556596423,
+        0.5252261809221053
+      ],
+      "luma_abs_error_mean": 0.13953748514660488,
+      "luma_abs_error_p95": 0.2887999999999885,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004157561393160037,
+          -0.0005882131357278821
+        ],
+        [
+          -0.0005882131357278821,
+          0.001574552322888161
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4786226072254507,
+        0.5248732850354162
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006643505758148349,
+          -0.0007147778060910868
+        ],
+        [
+          -0.0007147778060910868,
+          0.0016034531677266506
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48048973977707204,
+        0.5232280598597188
+      ]
+    },
+    "sample_id": "training/notflip/0003_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0028_000000019",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.366398048967966e-18,
+      "clip_fraction": 0.00808079346707819,
+      "luma_abs_error_mean": 0.16333658294753076,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0028258423353909466,
+      "donor_cbcr_cov": [
+        [
+          0.0002368292301429354,
+          -0.00045612163147826
+        ],
+        [
+          -0.00045612163147826,
+          0.001383690826625189
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48458784858320625,
+        0.5223001719716458
+      ],
+      "luma_abs_error_mean": 0.15363210223765397,
+      "luma_abs_error_p95": 0.3462000000000115,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000240511582755706,
+          -0.0004540399146733478
+        ],
+        [
+          -0.0004540399146733478,
+          0.001386235641283931
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4846274702970843,
+        0.5223272165319941
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006711327133547412,
+          -0.0008553799968415602
+        ],
+        [
+          -0.0008553799968415602,
+          0.0019983048951991767
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47953921874648386,
+        0.5272179585264569
+      ]
+    },
+    "sample_id": "training/notflip/0005_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0047_000000018",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.765318489066881e-18,
+      "clip_fraction": 0.0066345164609053495,
+      "luma_abs_error_mean": 0.16134789178240772,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0008039158950617284,
+      "donor_cbcr_cov": [
+        [
+          0.00041360027404749186,
+          -0.0006723328051095215
+        ],
+        [
+          -0.0006723328051095215,
+          0.001848158254700102
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4819113909986742,
+        0.528527082397549
+      ],
+      "luma_abs_error_mean": 0.19074968952546245,
+      "luma_abs_error_p95": 0.3569999999999961,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004042870833635189,
+          -0.0006759497348743555
+        ],
+        [
+          -0.0006759497348743555,
+          0.0018687115215558702
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4818431747239718,
+        0.5285773288649527
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006984597091278896,
+          -0.000803484443723963
+        ],
+        [
+          -0.000803484443723963,
+          0.0018759760741440515
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47929792039345004,
+        0.5260769027018943
+      ]
+    },
+    "sample_id": "training/notflip/0010_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0031_000000023",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.775367590652524e-18,
+      "clip_fraction": 0.006743987911522633,
+      "luma_abs_error_mean": 0.16151493740354952,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0003721386316872428,
+      "donor_cbcr_cov": [
+        [
+          0.00028098079003467273,
+          -0.0005700429652317656
+        ],
+        [
+          -0.0005700429652317656,
+          0.0017699635499090715
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48556464820306783,
+        0.5246633436064895
+      ],
+      "luma_abs_error_mean": 0.1706497778742284,
+      "luma_abs_error_p95": 0.36500000000002475,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00028429379883985925,
+          -0.0005684040949085269
+        ],
+        [
+          -0.0005684040949085269,
+          0.0017564427726820266
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4854310973319126,
+        0.5246748414565116
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006957148792387258,
+          -0.0008050746937198949
+        ],
+        [
+          -0.0008050746937198949,
+          0.0018807329029642602
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4792049226754088,
+        0.5262727794507768
+      ]
+    },
+    "sample_id": "training/notflip/0010_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0049_000000030",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.849577085931494e-18,
+      "clip_fraction": 0.008290412808641975,
+      "luma_abs_error_mean": 0.16638431751543228,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0013409850823045267,
+      "donor_cbcr_cov": [
+        [
+          0.000386959576715624,
+          -0.00041213433232063134
+        ],
+        [
+          -0.00041213433232063134,
+          0.0010208941297277895
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4835974322241654,
+        0.5167244097995273
+      ],
+      "luma_abs_error_mean": 0.21750917418981447,
+      "luma_abs_error_p95": 0.38979999999996573,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0003938809803780572,
+          -0.00041367976848619446
+        ],
+        [
+          -0.00041367976848619446,
+          0.0010204566553021622
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48376130981823656,
+        0.516714330258701
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006645135663416889,
+          -0.0008501771553673776
+        ],
+        [
+          -0.0008501771553673776,
+          0.0019924421709723895
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47955580552079546,
+        0.5271892444080728
+      ]
+    },
+    "sample_id": "training/notflip/0005_000000030",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-01",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0036_000000001",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 7.089366541758946e-18,
+      "clip_fraction": 0.01217721193415638,
+      "luma_abs_error_mean": 0.15666234905478496,
+      "luma_abs_error_p95": 0.3602000000000033
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0012715406378600823,
+      "donor_cbcr_cov": [
+        [
+          0.00030494170225245734,
+          -0.0006645277022079626
+        ],
+        [
+          -0.0006645277022079626,
+          0.0021413825472512246
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4830972718446678,
+        0.5302992188257298
+      ],
+      "luma_abs_error_mean": 0.17920255025077092,
+      "luma_abs_error_p95": 0.3569999999999996,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00030772075780429603,
+          -0.000659234142377899
+        ],
+        [
+          -0.000659234142377899,
+          0.002114395720640679
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4831207869360777,
+        0.5306851742706616
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0008916897093145593,
+          -0.001411783989443193
+        ],
+        [
+          -0.001411783989443193,
+          0.003527230912019778
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4711711035617241,
+        0.5453178723285949
+      ]
+    },
+    "sample_id": "training/flip/0015_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0042_000000012",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.082195337414355e-18,
+      "clip_fraction": 0.008108281893004115,
+      "luma_abs_error_mean": 0.17027736419753092,
+      "luma_abs_error_p95": 0.3611999999999582
+    },
+    "naturalistic": {
+      "clip_fraction": 3.054269547325103e-05,
+      "donor_cbcr_cov": [
+        [
+          0.0003687817501229523,
+          -0.0004761864525292896
+        ],
+        [
+          -0.0004761864525292896,
+          0.0012908439633283091
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4820845523249785,
+        0.5216661422619189
+      ],
+      "luma_abs_error_mean": 0.14489594608410553,
+      "luma_abs_error_p95": 0.3622000000000264,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0003690453009840943,
+          -0.0004722779168621577
+        ],
+        [
+          -0.0004722779168621577,
+          0.0012864280600033444
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.481972619122007,
+        0.5217476071917677
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004598849200295506,
+          -0.0007881217517213877
+        ],
+        [
+          -0.0007881217517213877,
+          0.0020707367822257066
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47938286293441473,
+        0.5291241854703798
+      ]
+    },
+    "sample_id": "training/flip/0030_000000035",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0048_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 6.650878144176244e-18,
+      "clip_fraction": 0.022644997427983538,
+      "luma_abs_error_mean": 0.15757042737268373,
+      "luma_abs_error_p95": 0.3606000000000051
+    },
+    "naturalistic": {
+      "clip_fraction": 0.01002636316872428,
+      "donor_cbcr_cov": [
+        [
+          0.00040445717678709895,
+          -0.00045453747504165546
+        ],
+        [
+          -0.00045453747504165546,
+          0.0011685530808177545
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.483707455374698,
+        0.5180818272428775
+      ],
+      "luma_abs_error_mean": 0.1967893111496906,
+      "luma_abs_error_p95": 0.3607999999999989,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00040335416472834026,
+          -0.0004539351760045052
+        ],
+        [
+          -0.0004539351760045052,
+          0.0011745348159467653
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4836016354895753,
+        0.5180191644432471
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000793795682502594,
+          -0.0012558348943521385
+        ],
+        [
+          -0.0012558348943521385,
+          0.003204624649270369
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4722470174556426,
+        0.5443040535953563
+      ]
+    },
+    "sample_id": "training/flip/0021_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0036_000000011",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 6.057299876779983e-18,
+      "clip_fraction": 0.021317997685185185,
+      "luma_abs_error_mean": 0.16197618557098659,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0016142618312757202,
+      "donor_cbcr_cov": [
+        [
+          0.0002673297296637996,
+          -0.0005189956710373708
+        ],
+        [
+          -0.0005189956710373708,
+          0.0016490650564610204
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48431762240803145,
+        0.5261113444335993
+      ],
+      "luma_abs_error_mean": 0.21777200549768677,
+      "luma_abs_error_p95": 0.4252000000000001,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00026950514232603053,
+          -0.0005213058723649024
+        ],
+        [
+          -0.0005213058723649024,
+          0.001645117368510086
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4844451249101085,
+        0.526164568817978
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0008358202442599025,
+          -0.0011447248291262162
+        ],
+        [
+          -0.0011447248291262162,
+          0.0027458165505370095
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47298713622418476,
+        0.5407718483892557
+      ]
+    },
+    "sample_id": "testing/flip/0020_000000020",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0054_000000029",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 6.176015795626943e-18,
+      "clip_fraction": 0.02224022633744856,
+      "luma_abs_error_mean": 0.15940774160879492,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.01244309413580247,
+      "donor_cbcr_cov": [
+        [
+          0.0004159503728132859,
+          -0.0005653175249744129
+        ],
+        [
+          -0.0005653175249744129,
+          0.0015765530521575407
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48119200737436163,
+        0.5210985383580127
+      ],
+      "luma_abs_error_mean": 0.14506113049768576,
+      "luma_abs_error_p95": 0.3385999999999917,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004190788960942765,
+          -0.0005659711946709374
+        ],
+        [
+          -0.0005659711946709374,
+          0.0015742730418632901
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48123409090584107,
+        0.5211409130890551
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0008336989469799653,
+          -0.0012860550882263194
+        ],
+        [
+          -0.0012860550882263194,
+          0.00323995499654137
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4721729582660136,
+        0.5454235265823238
+      ]
+    },
+    "sample_id": "training/flip/0019_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0037_000000019",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.193835222282728e-18,
+      "clip_fraction": 0.015043242026748971,
+      "luma_abs_error_mean": 0.1855094638310197,
+      "luma_abs_error_p95": 0.36999999999999755
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0003070344650205761,
+      "donor_cbcr_cov": [
+        [
+          0.0002528066640677565,
+          -0.00045734858641353915
+        ],
+        [
+          -0.00045734858641353915,
+          0.0013199360315676665
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.485077752890339,
+        0.5225148344124233
+      ],
+      "luma_abs_error_mean": 0.1555910653935194,
+      "luma_abs_error_p95": 0.3570000000000173,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002531848690196191,
+          -0.0004571787122459728
+        ],
+        [
+          -0.0004571787122459728,
+          0.0013138326546296556
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48517893788154604,
+        0.5227099816808686
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00040014336511375666,
+          -0.000627285220668015
+        ],
+        [
+          -0.000627285220668015,
+          0.0019170370744577166
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4790221789867521,
+        0.5299667436526764
+      ]
+    },
+    "sample_id": "training/flip/0024_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0055_000000029",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.2506995563989854e-18,
+      "clip_fraction": 0.019376446759259258,
+      "luma_abs_error_mean": 0.18219547733410557,
+      "luma_abs_error_p95": 0.3582000000000006
+    },
+    "naturalistic": {
+      "clip_fraction": 0.01020897633744856,
+      "donor_cbcr_cov": [
+        [
+          0.00042892563839907425,
+          -0.0004808984536960094
+        ],
+        [
+          -0.0004808984536960094,
+          0.0011699297702313363
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48263483118061734,
+        0.5188256589860049
+      ],
+      "luma_abs_error_mean": 0.20191998485725116,
+      "luma_abs_error_p95": 0.3438000000000291,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00041861361416840545,
+          -0.0004785391273739994
+        ],
+        [
+          -0.0004785391273739994,
+          0.0011871201186970275
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4825816100956665,
+        0.5185751598855111
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00046288778262175797,
+          -0.0006863161632393378
+        ],
+        [
+          -0.0006863161632393378,
+          0.0021232727508097436
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47637003335056705,
+        0.534329822698935
+      ]
+    },
+    "sample_id": "training/flip/0027_000000020",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0006_000000030",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.014836055798414e-18,
+      "clip_fraction": 0.021153227880658435,
+      "luma_abs_error_mean": 0.16005608323688225,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 0.007672646604938271,
+      "donor_cbcr_cov": [
+        [
+          0.0006152452682541431,
+          -0.0008461594560683974
+        ],
+        [
+          -0.0008461594560683974,
+          0.002209072468495095
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4772968131620707,
+        0.5294107083671172
+      ],
+      "luma_abs_error_mean": 0.20455036535493726,
+      "luma_abs_error_p95": 0.38979999999999404,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0006246524548856802,
+          -0.0008529294972576081
+        ],
+        [
+          -0.0008529294972576081,
+          0.002213645308876514
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4773920277748745,
+        0.5293216321120763
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0007518922957029107,
+          -0.001277036208000887
+        ],
+        [
+          -0.001277036208000887,
+          0.0032769815307180203
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47083192962581344,
+        0.5457061372233379
+      ]
+    },
+    "sample_id": "training/flip/0018_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0042_000000014",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.088974629574578e-18,
+      "clip_fraction": 0.011695441100823045,
+      "luma_abs_error_mean": 0.18128033227237622,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.001529224537037037,
+      "donor_cbcr_cov": [
+        [
+          0.0003855608870121704,
+          -0.00046895194031522684
+        ],
+        [
+          -0.00046895194031522684,
+          0.0012268997584807591
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48219468842873836,
+        0.5213682555040919
+      ],
+      "luma_abs_error_mean": 0.2121198506944459,
+      "luma_abs_error_p95": 0.35300000000002774,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004001258400583351,
+          -0.00047141243878568985
+        ],
+        [
+          -0.00047141243878568985,
+          0.001220994679589338
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48236047320530656,
+        0.5214215373780079
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00048522266824270894,
+          -0.0006328057056323751
+        ],
+        [
+          -0.0006328057056323751,
+          0.0017119493045887775
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47858481224284627,
+        0.5299171049580262
+      ]
+    },
+    "sample_id": "training/flip/0029_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0009_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 6.2360048872758885e-18,
+      "clip_fraction": 0.025304783950617284,
+      "luma_abs_error_mean": 0.16381217920524604,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.009906282150205762,
+      "donor_cbcr_cov": [
+        [
+          0.0005389310460906013,
+          -0.0007022428970880032
+        ],
+        [
+          -0.0007022428970880032,
+          0.0018341021005293476
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47076933940625276,
+        0.5332719525643302
+      ],
+      "luma_abs_error_mean": 0.17860454504243872,
+      "luma_abs_error_p95": 0.36739999999997885,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000548873952631761,
+          -0.0007115531372503387
+        ],
+        [
+          -0.0007115531372503387,
+          0.001829835530207281
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4710514274366711,
+        0.5333276034150491
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0008579256950212802,
+          -0.001205905557860635
+        ],
+        [
+          -0.001205905557860635,
+          0.0029632039732709827
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47194284255555125,
+        0.5427544451561142
+      ]
+    },
+    "sample_id": "training/flip/0020_000000021",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0037_000000009",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 7.642103283642914e-18,
+      "clip_fraction": 0.012742894804526748,
+      "luma_abs_error_mean": 0.15723933912037136,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.001145190329218107,
+      "donor_cbcr_cov": [
+        [
+          0.00027771957559251674,
+          -0.0005137258332482012
+        ],
+        [
+          -0.0005137258332482012,
+          0.0014481180500032773
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4836107763750854,
+        0.5254820948682106
+      ],
+      "luma_abs_error_mean": 0.16230664110725324,
+      "luma_abs_error_p95": 0.34900000000000986,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002807183822029358,
+          -0.0005144262191553883
+        ],
+        [
+          -0.0005144262191553883,
+          0.0014498564280098947
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4836742911548346,
+        0.5255535783277033
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0009112307737323448,
+          -0.001420004170196058
+        ],
+        [
+          -0.001420004170196058,
+          0.003578988692849983
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47080666725337006,
+        0.545504368032235
+      ]
+    },
+    "sample_id": "testing/flip/0015_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0036_000000003",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.466738781034868e-18,
+      "clip_fraction": 0.016648341049382717,
+      "luma_abs_error_mean": 0.1527966925154323,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0012572337962962962,
+      "donor_cbcr_cov": [
+        [
+          0.0003011785065570916,
+          -0.0006565152089473802
+        ],
+        [
+          -0.0006565152089473802,
+          0.002088787819892742
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48344062467917076,
+        0.5297757489088952
+      ],
+      "luma_abs_error_mean": 0.17850336352237614,
+      "luma_abs_error_p95": 0.36620000000001596,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002996907574579352,
+          -0.0006484547314514422
+        ],
+        [
+          -0.0006484547314514422,
+          0.002071933545240843
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4833110649471036,
+        0.5299862683363592
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0007560034444080867,
+          -0.0013235768255240906
+        ],
+        [
+          -0.0013235768255240906,
+          0.003417419566694582
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47236602915318404,
+        0.5437162829480908
+      ]
+    },
+    "sample_id": "training/flip/0011_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0037_000000019",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.59669184694243e-18,
+      "clip_fraction": 0.005717110339506173,
+      "luma_abs_error_mean": 0.16754198022762298,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0021543852880658437,
+      "donor_cbcr_cov": [
+        [
+          0.00035007227244607416,
+          -0.0006175191805972863
+        ],
+        [
+          -0.0006175191805972863,
+          0.0018980826907670383
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4804612570131137,
+        0.5295902079971162
+      ],
+      "luma_abs_error_mean": 0.27743045534336325,
+      "luma_abs_error_p95": 0.3621999999999981,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00034010626641029277,
+          -0.0006129966728118615
+        ],
+        [
+          -0.0006129966728118615,
+          0.0019046889068053575
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4803965184727155,
+        0.5296923604226864
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004001347033405353,
+          -0.00058807887547193
+        ],
+        [
+          -0.00058807887547193,
+          0.001619270763010889
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4820772407985062,
+        0.5235523087157365
+      ]
+    },
+    "sample_id": "testing/notflip/0016_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0053_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.179647372460303e-18,
+      "clip_fraction": 0.006427147633744856,
+      "luma_abs_error_mean": 0.18266206365740756,
+      "luma_abs_error_p95": 0.3797999999999918
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0003112139917695473,
+      "donor_cbcr_cov": [
+        [
+          0.00043488323065389047,
+          -0.0004560469270729821
+        ],
+        [
+          -0.0004560469270729821,
+          0.0010411366530369663
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48273565906373245,
+        0.5176479083236736
+      ],
+      "luma_abs_error_mean": 0.177793858989198,
+      "luma_abs_error_p95": 0.3570000000000173,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004354368886274862,
+          -0.0004573253426539157
+        ],
+        [
+          -0.0004573253426539157,
+          0.0010296450154923483
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4829910858966192,
+        0.5180791242814462
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00032646405178492877,
+          -0.0004278064449446624
+        ],
+        [
+          -0.0004278064449446624,
+          0.0012198693793782026
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4836786052694738,
+        0.52052352702153
+      ]
+    },
+    "sample_id": "training/notflip/0025_000000030",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0035_000000016",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.4342521489532513e-18,
+      "clip_fraction": 0.006326999742798354,
+      "luma_abs_error_mean": 0.18112938310185223,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00010818544238683128,
+      "donor_cbcr_cov": [
+        [
+          0.00026846080961719294,
+          -0.0004892410510686005
+        ],
+        [
+          -0.0004892410510686005,
+          0.0013657125378010093
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4851487844140288,
+        0.5209888823474599
+      ],
+      "luma_abs_error_mean": 0.14927413126929098,
+      "luma_abs_error_p95": 0.36220000000001223,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00026996444457519993,
+          -0.00048804383189934966
+        ],
+        [
+          -0.00048804383189934966,
+          0.0013570799989607515
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.484995901720087,
+        0.521059940344167
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003331057112377806,
+          -0.0004363486617904356
+        ],
+        [
+          -0.0004363486617904356,
+          0.001264794843971132
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48328104846534836,
+        0.5207623795981814
+      ]
+    },
+    "sample_id": "testing/notflip/0024_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0004_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.4467520886225376e-18,
+      "clip_fraction": 0.005679655349794238,
+      "luma_abs_error_mean": 0.18203050810185273,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.004321630658436214,
+      "donor_cbcr_cov": [
+        [
+          0.000579517168200128,
+          -0.0006548035936399074
+        ],
+        [
+          -0.0006548035936399074,
+          0.0018189542418532037
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47274911123065644,
+        0.5336528013870513
+      ],
+      "luma_abs_error_mean": 0.22876849305555524,
+      "luma_abs_error_p95": 0.3701999999999772,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0005872867753499237,
+          -0.0006584116130919779
+        ],
+        [
+          -0.0006584116130919779,
+          0.001823282652542403
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4729372547215651,
+        0.5336215573708046
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003726653450364026,
+          -0.0005136044929652211
+        ],
+        [
+          -0.0005136044929652211,
+          0.0013539238541331198
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48285819204682967,
+        0.5223605407483384
+      ]
+    },
+    "sample_id": "training/notflip/0023_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0029_000000006",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.2855374969042252e-18,
+      "clip_fraction": 0.004360371656378601,
+      "luma_abs_error_mean": 0.18755400144675966,
+      "luma_abs_error_p95": 0.38420000000002563
+    },
+    "naturalistic": {
+      "clip_fraction": 9.677211934156379e-05,
+      "donor_cbcr_cov": [
+        [
+          0.0003382522889016059,
+          -0.0006919118191945115
+        ],
+        [
+          -0.0006919118191945115,
+          0.0021084133093090666
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48417376964612346,
+        0.5279996655710905
+      ],
+      "luma_abs_error_mean": 0.1334003513695998,
+      "luma_abs_error_p95": 0.3518000000000082,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0003361169792313374,
+          -0.0006884910223174201
+        ],
+        [
+          -0.0006884910223174201,
+          0.002108693267379499
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48404987759529833,
+        0.5280864039294852
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003355532150687287,
+          -0.000438760320252206
+        ],
+        [
+          -0.000438760320252206,
+          0.0011971914664789527
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4834223205299506,
+        0.5208955609139242
+      ]
+    },
+    "sample_id": "training/notflip/0026_000000030",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0029_000000001",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.6238442821608294e-18,
+      "clip_fraction": 0.005663258744855967,
+      "luma_abs_error_mean": 0.16759143904320944,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00030864197530864197,
+      "donor_cbcr_cov": [
+        [
+          0.00035764667090361054,
+          -0.000758273437477084
+        ],
+        [
+          -0.000758273437477084,
+          0.0023456566465103776
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4832769399162202,
+        0.5300274836348917
+      ],
+      "luma_abs_error_mean": 0.1904566168016972,
+      "luma_abs_error_p95": 0.3582000000000085,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0003603289807907725,
+          -0.000760407016862095
+        ],
+        [
+          -0.000760407016862095,
+          0.0023568343309902434
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4833168507160861,
+        0.5298910674957188
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00040168217334872746,
+          -0.0005896625670344031
+        ],
+        [
+          -0.0005896625670344031,
+          0.0016237008218740986
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48201778383243143,
+        0.5234990639767542
+      ]
+    },
+    "sample_id": "training/notflip/0016_000000024",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0039_000000011",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.1793344809976513e-18,
+      "clip_fraction": 0.006398694701646091,
+      "luma_abs_error_mean": 0.18257987336033968,
+      "luma_abs_error_p95": 0.3768000000000138
+    },
+    "naturalistic": {
+      "clip_fraction": 0.000464891975308642,
+      "donor_cbcr_cov": [
+        [
+          0.0002695870843158825,
+          -0.00042393300136724126
+        ],
+        [
+          -0.00042393300136724126,
+          0.0011748698851066937
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4859068757587764,
+        0.5176965011417655
+      ],
+      "luma_abs_error_mean": 0.15839641743827126,
+      "luma_abs_error_p95": 0.3621999999999981,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00027125276402811615,
+          -0.00042185005816688096
+        ],
+        [
+          -0.00042185005816688096,
+          0.0011606855468675884
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48607648828535394,
+        0.5179420154833465
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003262304626794446,
+          -0.00042663041798066294
+        ],
+        [
+          -0.00042663041798066294,
+          0.0012149424189374929
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4836802821580989,
+        0.5204621910887249
+      ]
+    },
+    "sample_id": "training/notflip/0025_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0029_000000009",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.753286802297458e-18,
+      "clip_fraction": 0.005679012345679012,
+      "luma_abs_error_mean": 0.16842370428240777,
+      "luma_abs_error_p95": 0.3582000000000014
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0003978587962962963,
+      "donor_cbcr_cov": [
+        [
+          0.0003123101438776351,
+          -0.0005945115486365016
+        ],
+        [
+          -0.0005945115486365016,
+          0.0018108883634913762
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4851813426409434,
+        0.5253643653696909
+      ],
+      "luma_abs_error_mean": 0.16737526302083308,
+      "luma_abs_error_p95": 0.3582000000000368,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00030917696413496727,
+          -0.0005922613719543195
+        ],
+        [
+          -0.0005922613719543195,
+          0.0018176949569640964
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4850145914590807,
+        0.525268049923445
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003734305957595542,
+          -0.0005073858804249849
+        ],
+        [
+          -0.0005073858804249849,
+          0.0013893422421268585
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4823883622852938,
+        0.5218679749184179
+      ]
+    },
+    "sample_id": "training/notflip/0019_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-04",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0055_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.3980471650803422e-18,
+      "clip_fraction": 0.006416859567901234,
+      "luma_abs_error_mean": 0.1814978737461422,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 0.00020961934156378602,
+      "donor_cbcr_cov": [
+        [
+          0.0004331224520031352,
+          -0.0004979518966317049
+        ],
+        [
+          -0.0004979518966317049,
+          0.0012044890224011126
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48268047943787,
+        0.5187960473099101
+      ],
+      "luma_abs_error_mean": 0.18623637065972273,
+      "luma_abs_error_p95": 0.28480000000002725,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00043358877316631623,
+          -0.0005004449087351622
+        ],
+        [
+          -0.0005004449087351622,
+          0.0012028402569276594
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48293866557487075,
+        0.5188818263869243
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00033099198696075774,
+          -0.0004359695544392972
+        ],
+        [
+          -0.0004359695544392972,
+          0.0012581201653087415
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4834311706484641,
+        0.5207240732650189
+      ]
+    },
+    "sample_id": "training/notflip/0024_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0047_000000006",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.4578569748246625e-18,
+      "clip_fraction": 0.0054809670781893,
+      "luma_abs_error_mean": 0.1823930269097232,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 6.108539094650206e-05,
+      "donor_cbcr_cov": [
+        [
+          0.00023989868502677657,
+          -0.00044183912381975227
+        ],
+        [
+          -0.00044183912381975227,
+          0.0013442847733327406
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48694957165387676,
+        0.5204853465987267
+      ],
+      "luma_abs_error_mean": 0.09468160214120391,
+      "luma_abs_error_p95": 0.22059999999998803,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00024132710942247718,
+          -0.00043811457094786204
+        ],
+        [
+          -0.00043811457094786204,
+          0.001341499669830834
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48680690659766696,
+        0.5203106297738985
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003645752508107213,
+          -0.0005089906180246809
+        ],
+        [
+          -0.0005089906180246809,
+          0.0013470316544640986
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48317620988475884,
+        0.5219560131900559
+      ]
+    },
+    "sample_id": "training/notflip/0023_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0048_000000009",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.192763653670578e-18,
+      "clip_fraction": 0.0062020961934156375,
+      "luma_abs_error_mean": 0.18255199257330265,
+      "luma_abs_error_p95": 0.3702000000000055
+    },
+    "naturalistic": {
+      "clip_fraction": 0.007599183384773662,
+      "donor_cbcr_cov": [
+        [
+          0.0009046504534215964,
+          -0.0010539088779025069
+        ],
+        [
+          -0.0010539088779025069,
+          0.0018377851081979287
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4904416837259633,
+        0.51445375102286
+      ],
+      "luma_abs_error_mean": 0.20316441464120455,
+      "luma_abs_error_p95": 0.34900000000000986,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0009003009261319111,
+          -0.001047372084138153
+        ],
+        [
+          -0.001047372084138153,
+          0.0018323842613578599
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4904156929279543,
+        0.5147243782088621
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003270661716139568,
+          -0.00042736711582392153
+        ],
+        [
+          -0.00042736711582392153,
+          0.0012086441257744128
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4836524843815299,
+        0.5203237268846383
+      ]
+    },
+    "sample_id": "training/notflip/0025_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0006_000000026",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 5.457524749984382e-18,
+      "clip_fraction": 0.0075,
+      "luma_abs_error_mean": 0.15479895264274632,
+      "luma_abs_error_p95": 0.3582000000000014
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0003213413065843621,
+      "donor_cbcr_cov": [
+        [
+          0.0007561416796145543,
+          -0.0009625204634723854
+        ],
+        [
+          -0.0009625204634723854,
+          0.002379815491521646
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4766045313173397,
+        0.5318158138485188
+      ],
+      "luma_abs_error_mean": 0.1774070851658952,
+      "luma_abs_error_p95": 0.37540000000000046,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0007597979803925494,
+          -0.0009641429831922672
+        ],
+        [
+          -0.0009641429831922672,
+          0.002367787476622935
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4766158293882947,
+        0.53190892793979
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0006925063517115053,
+          -0.001222263019395769
+        ],
+        [
+          -0.001222263019395769,
+          0.0029440589852477656
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4764468441521551,
+        0.5372456509140827
+      ]
+    },
+    "sample_id": "training/notflip/0015_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-02",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0033_000000015",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.2862417018733632e-18,
+      "clip_fraction": 0.018163419495884774,
+      "luma_abs_error_mean": 0.1571866584683637,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.014007523148148147,
+      "donor_cbcr_cov": [
+        [
+          0.0002794075867078894,
+          -0.0004390867382051094
+        ],
+        [
+          -0.0004390867382051094,
+          0.0012698113309749163
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48218888632492396,
+        0.5222835401911113
+      ],
+      "luma_abs_error_mean": 0.19207608516589544,
+      "luma_abs_error_p95": 0.3570000000000173,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002882139233696191,
+          -0.00044298310463077
+        ],
+        [
+          -0.00044298310463077,
+          0.0012714962393218273
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48226679710553755,
+        0.5222152177550843
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004801709958956361,
+          -0.0005317718945330557
+        ],
+        [
+          -0.0005317718945330557,
+          0.0014571352919834951
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48042276977503323,
+        0.5250025265570977
+      ]
+    },
+    "sample_id": "training/flip/0058_000000024",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0038_000000008",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.411813350191898e-19,
+      "clip_fraction": 0.013441036522633745,
+      "luma_abs_error_mean": 0.1552309244791666,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 0.02440747170781893,
+      "donor_cbcr_cov": [
+        [
+          0.0003842547484915121,
+          -0.0004954520671399223
+        ],
+        [
+          -0.0004954520671399223,
+          0.0012184851068607484
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48402457089462303,
+        0.5203827053031639
+      ],
+      "luma_abs_error_mean": 0.19389190036651127,
+      "luma_abs_error_p95": 0.3662000000000018,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00038438414650577044,
+          -0.0004917808828812059
+        ],
+        [
+          -0.0004917808828812059,
+          0.0012047622095920669
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48387242802302066,
+        0.5206566720480601
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004091308145952837,
+          -0.0006092003955627312
+        ],
+        [
+          -0.0006092003955627312,
+          0.0016930857714217821
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4748904571118867,
+        0.5290607664229335
+      ]
+    },
+    "sample_id": "testing/flip/0059_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0005_000000027",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 6.993071404072602e-19,
+      "clip_fraction": 0.014993087705761316,
+      "luma_abs_error_mean": 0.16247206857638857,
+      "luma_abs_error_p95": 0.3841999999999973
+    },
+    "naturalistic": {
+      "clip_fraction": 0.020867091049382717,
+      "donor_cbcr_cov": [
+        [
+          0.0006697831540329278,
+          -0.00085892492502137
+        ],
+        [
+          -0.00085892492502137,
+          0.0020078990829023656
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4795360547404408,
+        0.5272470979795011
+      ],
+      "luma_abs_error_mean": 0.13238810657793318,
+      "luma_abs_error_p95": 0.28479999999999894,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000670180335651318,
+          -0.0008569791102650175
+        ],
+        [
+          -0.0008569791102650175,
+          0.0019822602387110015
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4796190617003754,
+        0.5274735769684809
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004052654508272794,
+          -0.0006281063085429537
+        ],
+        [
+          -0.0006281063085429537,
+          0.0017679423853975218
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4770954495371884,
+        0.5291288814658569
+      ]
+    },
+    "sample_id": "training/flip/0055_000000030",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0026_000000029",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.9677391917847513e-19,
+      "clip_fraction": 0.014693447788065844,
+      "luma_abs_error_mean": 0.15589423099922764,
+      "luma_abs_error_p95": 0.3669999999999912
+    },
+    "naturalistic": {
+      "clip_fraction": 0.006944926697530864,
+      "donor_cbcr_cov": [
+        [
+          0.00033418958517724345,
+          -0.0004392124688533186
+        ],
+        [
+          -0.0004392124688533186,
+          0.0011949333493064137
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4834347935519761,
+        0.520983010135704
+      ],
+      "luma_abs_error_mean": 0.1774945586419763,
+      "luma_abs_error_p95": 0.2940000000000047,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00033508597732916713,
+          -0.0004385319443485506
+        ],
+        [
+          -0.0004385319443485506,
+          0.0011855662860982396
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48346035825319883,
+        0.5212564574358216
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003675721544243999,
+          -0.000556661301187543
+        ],
+        [
+          -0.000556661301187543,
+          0.0015879742052703264
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4783634076350798,
+        0.5271050221170057
+      ]
+    },
+    "sample_id": "training/flip/0052_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0033_000000004",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.2475066927996311e-18,
+      "clip_fraction": 0.018970068158436215,
+      "luma_abs_error_mean": 0.1569721714891973,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.014841820987654322,
+      "donor_cbcr_cov": [
+        [
+          0.0002510492937436419,
+          -0.00048206596845450057
+        ],
+        [
+          -0.00048206596845450057,
+          0.001646535419622208
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48118470649867273,
+        0.525942322291119
+      ],
+      "luma_abs_error_mean": 0.1305568756751538,
+      "luma_abs_error_p95": 0.35700000000000315,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000256739016206644,
+          -0.00047994074174344416
+        ],
+        [
+          -0.00047994074174344416,
+          0.0016527620537388197
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4811646580381871,
+        0.5259712603293775
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004592570388664817,
+          -0.0005544655032018719
+        ],
+        [
+          -0.0005544655032018719,
+          0.0015511634084773933
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4793393038353307,
+        0.526004273856843
+      ]
+    },
+    "sample_id": "training/flip/0058_000000025",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0026_000000020",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.8787775615844474e-19,
+      "clip_fraction": 0.014192065329218106,
+      "luma_abs_error_mean": 0.1479316341628086,
+      "luma_abs_error_p95": 0.3582000000000368
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0006557034465020577,
+      "donor_cbcr_cov": [
+        [
+          0.000450701916488085,
+          -0.00067113707131548
+        ],
+        [
+          -0.00067113707131548,
+          0.001912174046590871
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.478592168593033,
+        0.5314083937567192
+      ],
+      "luma_abs_error_mean": 0.23780244010416668,
+      "luma_abs_error_p95": 0.42520000000000363,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00045296750198265523,
+          -0.0006650653324434021
+        ],
+        [
+          -0.0006650653324434021,
+          0.001932450837737371
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.478293320792288,
+        0.5310707214163682
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000379061857412035,
+          -0.0005911934587123097
+        ],
+        [
+          -0.0005911934587123097,
+          0.001668616031484617
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4785452557566258,
+        0.5264577716961607
+      ]
+    },
+    "sample_id": "training/flip/0052_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0047_000000007",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 6.7236990094618055e-19,
+      "clip_fraction": 0.016642875514403292,
+      "luma_abs_error_mean": 0.15114407744984562,
+      "luma_abs_error_p95": 0.3581999999999802
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0022731802983539094,
+      "donor_cbcr_cov": [
+        [
+          0.00023742913592956228,
+          -0.0004291860173060028
+        ],
+        [
+          -0.0004291860173060028,
+          0.0013088467915156419
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4864231073084221,
+        0.5207466780594006
+      ],
+      "luma_abs_error_mean": 0.1402462339891967,
+      "luma_abs_error_p95": 0.3226000000000051,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00024122739022407465,
+          -0.0004288374977851511
+        ],
+        [
+          -0.0004288374977851511,
+          0.0013097176313825417
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4864707258003256,
+        0.5207294070937372
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000502879757008191,
+          -0.0008144644319138975
+        ],
+        [
+          -0.0008144644319138975,
+          0.0020786150599745035
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.474905593534488,
+        0.5286779635581016
+      ]
+    },
+    "sample_id": "training/flip/0060_000000054",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0003_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.3669134719528616e-19,
+      "clip_fraction": 0.015710841049382716,
+      "luma_abs_error_mean": 0.15812431259645143,
+      "luma_abs_error_p95": 0.40039999999996356
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0032550475823045267,
+      "donor_cbcr_cov": [
+        [
+          0.0005366855788282042,
+          -0.0007411263549248685
+        ],
+        [
+          -0.0007411263549248685,
+          0.001995085442573785
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4721242282456174,
+        0.5345500905370452
+      ],
+      "luma_abs_error_mean": 0.22795118904320966,
+      "luma_abs_error_p95": 0.3622000000000264,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0005508919227595326,
+          -0.0007379854509173036
+        ],
+        [
+          -0.0007379854509173036,
+          0.0019963261450219347
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.47227839354616374,
+        0.5346603868981091
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003895389157944568,
+          -0.0005981430116109738
+        ],
+        [
+          -0.0005981430116109738,
+          0.0016745580715425415
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4770832621022542,
+        0.5270554983536293
+      ]
+    },
+    "sample_id": "training/flip/0064_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0039_000000021",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.160085577991715e-19,
+      "clip_fraction": 0.015942322530864198,
+      "luma_abs_error_mean": 0.15464290673225273,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.000822241512345679,
+      "donor_cbcr_cov": [
+        [
+          0.0003059812650893502,
+          -0.0005572979328665355
+        ],
+        [
+          -0.0005572979328665355,
+          0.00172515676226033
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4809632940723832,
+        0.528186009701359
+      ],
+      "luma_abs_error_mean": 0.11258182330246924,
+      "luma_abs_error_p95": 0.356999999999989,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00030537895799154864,
+          -0.0005527901563188994
+        ],
+        [
+          -0.0005527901563188994,
+          0.0017232082013155983
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4805929101298827,
+        0.5281899726708433
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00037526857934819073,
+          -0.00057592017668808
+        ],
+        [
+          -0.00057592017668808,
+          0.0016521307205720449
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4781922856548744,
+        0.5280205087154086
+      ]
+    },
+    "sample_id": "training/flip/0056_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0035_000000008",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.9771754281407694e-19,
+      "clip_fraction": 0.014379179526748971,
+      "luma_abs_error_mean": 0.15690381539351844,
+      "luma_abs_error_p95": 0.3523999999999967
+    },
+    "naturalistic": {
+      "clip_fraction": 0.006443222736625514,
+      "donor_cbcr_cov": [
+        [
+          0.00032198475214581415,
+          -0.0006941181712725706
+        ],
+        [
+          -0.0006941181712725706,
+          0.002095716467826417
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4827031228154338,
+        0.5283737961193208
+      ],
+      "luma_abs_error_mean": 0.1502871767939807,
+      "luma_abs_error_p95": 0.35700000000000315,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00032543536380681497,
+          -0.0006920389823823898
+        ],
+        [
+          -0.0006920389823823898,
+          0.0021004739714588832
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48267922486172504,
+        0.528289912474846
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00039507006831560146,
+          -0.0005552938870090034
+        ],
+        [
+          -0.0005552938870090034,
+          0.0015548023758085443
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4784496343522101,
+        0.5269745124458806
+      ]
+    },
+    "sample_id": "training/flip/0051_000000024",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0031_000000010",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.586314732514846e-19,
+      "clip_fraction": 0.014584297839506172,
+      "luma_abs_error_mean": 0.16416129272762361,
+      "luma_abs_error_p95": 0.3875999999999913
+    },
+    "naturalistic": {
+      "clip_fraction": 0.024075038580246913,
+      "donor_cbcr_cov": [
+        [
+          0.000301240161525609,
+          -0.0006454044271034255
+        ],
+        [
+          -0.0006454044271034255,
+          0.001987291153278007
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4847989097729606,
+        0.5268765534049146
+      ],
+      "luma_abs_error_mean": 0.12562855343364157,
+      "luma_abs_error_p95": 0.35419999999999774,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00030276741446752867,
+          -0.000641481881700851
+        ],
+        [
+          -0.000641481881700851,
+          0.0019788040121652994
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.484817113401111,
+        0.5269612498639547
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003311019209101691,
+          -0.0005240645965374368
+        ],
+        [
+          -0.0005240645965374368,
+          0.0015410351462226668
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47663539466224664,
+        0.5279141212347513
+      ]
+    },
+    "sample_id": "training/flip/0049_000000030",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0028_000000005",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 3.888542388265441e-19,
+      "clip_fraction": 0.01562644675925926,
+      "luma_abs_error_mean": 0.16679409403935247,
+      "luma_abs_error_p95": 0.40039999999996356
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0013155864197530863,
+      "donor_cbcr_cov": [
+        [
+          0.00026210841911608515,
+          -0.0006167896904430678
+        ],
+        [
+          -0.0006167896904430678,
+          0.0021449609688510146
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4815906917220594,
+        0.5308586864602988
+      ],
+      "luma_abs_error_mean": 0.1546454999999991,
+      "luma_abs_error_p95": 0.356999999999989,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002634152222834647,
+          -0.0006148295000001418
+        ],
+        [
+          -0.0006148295000001418,
+          0.0021582641812561516
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48146846530662535,
+        0.5305487835541756
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00040144516188114955,
+          -0.000623186562368281
+        ],
+        [
+          -0.000623186562368281,
+          0.001787496585418017
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.47662258957170706,
+        0.5291104671893586
+      ]
+    },
+    "sample_id": "training/flip/0053_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "flip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0045_000000008",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.0235477500729425e-18,
+      "clip_fraction": 0.007628118569958848,
+      "luma_abs_error_mean": 0.16661829870756176,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0019253150720164609,
+      "donor_cbcr_cov": [
+        [
+          0.0002633682454319698,
+          -0.0004381306282448859
+        ],
+        [
+          -0.0004381306282448859,
+          0.0012504436177156665
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48523547342207923,
+        0.520732543534616
+      ],
+      "luma_abs_error_mean": 0.22440228771219087,
+      "luma_abs_error_p95": 0.3570000000000173,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000260592570022011,
+          -0.0004311470875941068
+        ],
+        [
+          -0.0004311470875941068,
+          0.0012505505787399223
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4848629977264164,
+        0.5207179736363207
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00042600745433714137,
+          -0.0004767901559944802
+        ],
+        [
+          -0.0004767901559944802,
+          0.0011644419721830285
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48272758132310556,
+        0.5188047088740987
+      ]
+    },
+    "sample_id": "training/notflip/0055_000000030",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0039_000000021",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.0298375063239716e-18,
+      "clip_fraction": 0.006828060699588477,
+      "luma_abs_error_mean": 0.1592324922839505,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 0.02803176440329218,
+      "donor_cbcr_cov": [
+        [
+          0.0003059812650893502,
+          -0.0005572979328665355
+        ],
+        [
+          -0.0005572979328665355,
+          0.00172515676226033
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4809632940723832,
+        0.528186009701359
+      ],
+      "luma_abs_error_mean": 0.20166838541666585,
+      "luma_abs_error_p95": 0.36219999999999986,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00030831440316300934,
+          -0.0005649100531180993
+        ],
+        [
+          -0.0005649100531180993,
+          0.0017280475534315657
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4811470338099639,
+        0.5280684650381144
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00043912600385713057,
+          -0.000426255000872058
+        ],
+        [
+          -0.000426255000872058,
+          0.0009532873749820308
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48307866513978215,
+        0.5173434775860034
+      ]
+    },
+    "sample_id": "training/notflip/0051_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0043_000000020",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.7028215884782973e-18,
+      "clip_fraction": 0.009316004372427984,
+      "luma_abs_error_mean": 0.15487378414351824,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.022926633230452676,
+      "donor_cbcr_cov": [
+        [
+          0.00040927631818087203,
+          -0.000646905870976534
+        ],
+        [
+          -0.000646905870976534,
+          0.001837880710945554
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.479254630875178,
+        0.5290586760181354
+      ],
+      "luma_abs_error_mean": 0.16614970842978466,
+      "luma_abs_error_p95": 0.3438000000000149,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00041309003620662653,
+          -0.0006505255867684264
+        ],
+        [
+          -0.0006505255867684264,
+          0.0018220606997382978
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4795558648038811,
+        0.5293778270278384
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003949274404068474,
+          -0.0004855916548207427
+        ],
+        [
+          -0.0004855916548207427,
+          0.0013064978848714485
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4838193783806999,
+        0.5188035001761525
+      ]
+    },
+    "sample_id": "training/notflip/0046_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0038_000000031",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.3183087398213352e-18,
+      "clip_fraction": 0.009300572273662551,
+      "luma_abs_error_mean": 0.15320338069058634,
+      "luma_abs_error_p95": 0.3581999999999802
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0029468878600823045,
+      "donor_cbcr_cov": [
+        [
+          0.0003629118832142013,
+          -0.0005835845248168267
+        ],
+        [
+          -0.0005835845248168267,
+          0.0016167144903569044
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48323160820371586,
+        0.5239532969053757
+      ],
+      "luma_abs_error_mean": 0.1984335901813271,
+      "luma_abs_error_p95": 0.3621999999999981,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00036000402258593375,
+          -0.0005879469371569227
+        ],
+        [
+          -0.0005879469371569227,
+          0.0016155449238543862
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4832508999107791,
+        0.524101297504429
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00040471390490375594,
+          -0.0004643993554079347
+        ],
+        [
+          -0.0004643993554079347,
+          0.0012341161373859452
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4839310562045741,
+        0.5178495839123822
+      ]
+    },
+    "sample_id": "training/notflip/0044_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-01",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0009_000000025",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.1611629542844345e-18,
+      "clip_fraction": 0.009214731224279835,
+      "luma_abs_error_mean": 0.15499417978394933,
+      "luma_abs_error_p95": 0.3581999999999999
+    },
+    "naturalistic": {
+      "clip_fraction": 0.005282600308641975,
+      "donor_cbcr_cov": [
+        [
+          0.0006243831232864347,
+          -0.0008078170405736717
+        ],
+        [
+          -0.0008078170405736717,
+          0.001950248462342276
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4784411057943081,
+        0.5273144555585126
+      ],
+      "luma_abs_error_mean": 0.2316666023341049,
+      "luma_abs_error_p95": 0.3622000000000264,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0006232307863322424,
+          -0.0008029080434743547
+        ],
+        [
+          -0.0008029080434743547,
+          0.0019671708072866406
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4781972998682165,
+        0.5270934238386966
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004069759204728611,
+          -0.0005244316017145868
+        ],
+        [
+          -0.0005244316017145868,
+          0.0014120248724532269
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4824733454567989,
+        0.5201592725337284
+      ]
+    },
+    "sample_id": "training/notflip/0056_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0036_000000010",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.4173098455523196e-18,
+      "clip_fraction": 0.00869357638888889,
+      "luma_abs_error_mean": 0.15330783854166558,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 0.006788355195473251,
+      "donor_cbcr_cov": [
+        [
+          0.00022854918798166486,
+          -0.0003895084633260956
+        ],
+        [
+          -0.0003895084633260956,
+          0.0011562439511542736
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4857266122982115,
+        0.5186073132604333
+      ],
+      "luma_abs_error_mean": 0.15677049122299394,
+      "luma_abs_error_p95": 0.36099999999997856,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00023508702132119842,
+          -0.00038772152535034666
+        ],
+        [
+          -0.00038772152535034666,
+          0.0011625044929613063
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48562793523621295,
+        0.5179051462787396
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00040235951177055326,
+          -0.00044223169960570845
+        ],
+        [
+          -0.00044223169960570845,
+          0.0011464954425240573
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48392049405706467,
+        0.5178902077354217
+      ]
+    },
+    "sample_id": "training/notflip/0048_000000028",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0028_000000023",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.8306436693852767e-18,
+      "clip_fraction": 0.007336355452674897,
+      "luma_abs_error_mean": 0.16153523177083365,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.009350887345679012,
+      "donor_cbcr_cov": [
+        [
+          0.00023123890398717855,
+          -0.0004316721391284779
+        ],
+        [
+          -0.0004316721391284779,
+          0.0013042980248011119
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4847533765118082,
+        0.5213639964085302
+      ],
+      "luma_abs_error_mean": 0.1972101355131177,
+      "luma_abs_error_p95": 0.3581999999999802,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00023377313297934406,
+          -0.00043789048083291783
+        ],
+        [
+          -0.00043789048083291783,
+          0.0013040507777179163
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48497984913627573,
+        0.5214377283165117
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0003899233059893113,
+          -0.0004190337709973323
+        ],
+        [
+          -0.0004190337709973323,
+          0.0010303138149618618
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4835877997307713,
+        0.5166514015761002
+      ]
+    },
+    "sample_id": "testing/notflip/0049_000000026",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0035_000000012",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.0097624671568044e-18,
+      "clip_fraction": 0.007475726594650206,
+      "luma_abs_error_mean": 0.16458646190200632,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.01103395061728395,
+      "donor_cbcr_cov": [
+        [
+          0.0003040624580251726,
+          -0.0004900362050451531
+        ],
+        [
+          -0.0004900362050451531,
+          0.0014220695627355782
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48194713204163614,
+        0.5233198907235307
+      ],
+      "luma_abs_error_mean": 0.22120723794367275,
+      "luma_abs_error_p95": 0.4148000000000279,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.00030484417224018687,
+          -0.00048784975414932735
+        ],
+        [
+          -0.00048784975414932735,
+          0.0014336553386962007
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48174328544704814,
+        0.5231004410452571
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004294085835762396,
+          -0.00048731873613900553
+        ],
+        [
+          -0.00048731873613900553,
+          0.0011824167624489644
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4826590441098394,
+        0.518851027294272
+      ]
+    },
+    "sample_id": "training/notflip/0055_000000027",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-02",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "testing/flip/0015_000000029",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 2.0201463099079914e-18,
+      "clip_fraction": 0.00756494341563786,
+      "luma_abs_error_mean": 0.1666378874421298,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.03890576774691358,
+      "donor_cbcr_cov": [
+        [
+          0.0009112307737323448,
+          -0.001420004170196058
+        ],
+        [
+          -0.001420004170196058,
+          0.003578988692849983
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.47080666725337006,
+        0.545504368032235
+      ],
+      "luma_abs_error_mean": 0.18094214728009278,
+      "luma_abs_error_p95": 0.35300000000000004,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0009096890791715463,
+          -0.0014099902686595994
+        ],
+        [
+          -0.0014099902686595994,
+          0.0035583496097323915
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4708921919743762,
+        0.5454950373454428
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.00042892563839907425,
+          -0.0004808984536960094
+        ],
+        [
+          -0.0004808984536960094,
+          0.0011699297702313363
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.48263483118061734,
+        0.5188256589860049
+      ]
+    },
+    "sample_id": "training/notflip/0055_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "flip",
+    "donor_sample_id": "training/flip/0040_000000022",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.3039904073016152e-18,
+      "clip_fraction": 0.00906812628600823,
+      "luma_abs_error_mean": 0.15430428018904205,
+      "luma_abs_error_p95": 0.3581999999999997
+    },
+    "naturalistic": {
+      "clip_fraction": 0.0013143004115226337,
+      "donor_cbcr_cov": [
+        [
+          0.0004306301808045086,
+          -0.0005588463735475996
+        ],
+        [
+          -0.0005588463735475996,
+          0.001493775980990162
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48558774123290416,
+        0.5241821442707925
+      ],
+      "luma_abs_error_mean": 0.19645160551697605,
+      "luma_abs_error_p95": 0.3581999999999802,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0004433130007245116,
+          -0.000561508913864316
+        ],
+        [
+          -0.000561508913864316,
+          0.0014609198914387522
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4858263093942803,
+        0.5251161951499614
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000401902590640847,
+          -0.0005132397636594434
+        ],
+        [
+          -0.0005132397636594434,
+          0.0013772216852891755
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.482830908328524,
+        0.5194584774258777
+      ]
+    },
+    "sample_id": "training/notflip/0056_000000030",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "testing/notflip/0037_000000014",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.614222852096348e-18,
+      "clip_fraction": 0.00924977494855967,
+      "luma_abs_error_mean": 0.15181479166666523,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.002667824074074074,
+      "donor_cbcr_cov": [
+        [
+          0.0002616917813788047,
+          -0.0004764934244528821
+        ],
+        [
+          -0.0004764934244528821,
+          0.0013625771077278267
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.4844634115449341,
+        0.5234658932967302
+      ],
+      "luma_abs_error_mean": 0.2319925357831793,
+      "luma_abs_error_p95": 0.43039999999999856,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.000258230101531985,
+          -0.0004757934125474011
+        ],
+        [
+          -0.0004757934125474011,
+          0.0013450994057337292
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.48443743364479896,
+        0.5237362702830061
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.0004124252318070934,
+          -0.0005460277019054127
+        ],
+        [
+          -0.0005460277019054127,
+          0.0014472146398816208
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4823283564017783,
+        0.5200832651545785
+      ]
+    },
+    "sample_id": "training/notflip/0043_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  },
+  {
+    "different_environment": true,
+    "donor_environment_id": "ENV-03",
+    "donor_label_recorded_but_not_used_for_selection": "notflip",
+    "donor_sample_id": "training/notflip/0037_000000012",
+    "matched": {
+      "chroma_magnitude_mae_preclip": 1.7111839354298183e-18,
+      "clip_fraction": 0.007849151234567902,
+      "luma_abs_error_mean": 0.15952817091049393,
+      "luma_abs_error_p95": 0.3582000000000085
+    },
+    "naturalistic": {
+      "clip_fraction": 0.007374292695473251,
+      "donor_cbcr_cov": [
+        [
+          0.0002644828896552493,
+          -0.000478988048100769
+        ],
+        [
+          -0.000478988048100769,
+          0.0013565607065343433
+        ]
+      ],
+      "donor_cbcr_mean": [
+        0.48415183897965086,
+        0.5239206355681161
+      ],
+      "luma_abs_error_mean": 0.181955042341821,
+      "luma_abs_error_p95": 0.3530000000000003,
+      "output_cbcr_cov_after_clip": [
+        [
+          0.0002638857801811513,
+          -0.00047958744823978845
+        ],
+        [
+          -0.00047958744823978845,
+          0.0013581934020023409
+        ]
+      ],
+      "output_cbcr_mean_after_clip": [
+        0.4841962604488759,
+        0.5239978485436607
+      ],
+      "target_cbcr_cov_before": [
+        [
+          0.000392484967469524,
+          -0.00044061764670307317
+        ],
+        [
+          -0.00044061764670307317,
+          0.0011077390664552616
+        ]
+      ],
+      "target_cbcr_mean_before": [
+        0.4838649792373911,
+        0.5174640152308948
+      ]
+    },
+    "sample_id": "training/notflip/0045_000000029",
+    "shape": [
+      1920,
+      1080,
+      3
+    ],
+    "target_environment_id": "ENV-04",
+    "target_label_recorded_but_not_used_for_donor": "notflip"
+  }
+]
