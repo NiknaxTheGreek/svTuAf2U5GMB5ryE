@@ -1,0 +1,40 @@
+name: MonReader V2 Phase 11B freeze chroma validation sample
+
+on:
+  push:
+    branches: ["phase/v2-11b-inpainting-chroma"]
+    paths:
+      - ".github/workflows/v2_phase11b_freeze_chroma_validation.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  freeze-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Compile deterministic sampler
+        run: python -m compileall -q scripts/freeze_chroma_validation_sample_v2.py
+
+      - name: Freeze non-overlapping validation 100
+        run: |
+          set -euo pipefail
+          python -m scripts.freeze_chroma_validation_sample_v2             --st-membership manifests/splits/ST.csv             --exclude manifests/secondary/PHASE11B_POC_100.csv             --output-csv manifests/secondary/PHASE11B_CHROMA_VALIDATION_100.csv             --output-summary manifests/secondary/PHASE11B_CHROMA_VALIDATION_100_SUMMARY.json
+          sha256sum             manifests/secondary/PHASE11B_CHROMA_VALIDATION_100.csv             manifests/secondary/PHASE11B_CHROMA_VALIDATION_100_SUMMARY.json
+
+      - name: Publish frozen validation sample
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add             manifests/secondary/PHASE11B_CHROMA_VALIDATION_100.csv             manifests/secondary/PHASE11B_CHROMA_VALIDATION_100_SUMMARY.json
+          git commit -m "Phase 11B: freeze independent chroma validation 100 [skip ci]"
+          git fetch origin phase/v2-11b-inpainting-chroma
+          git rebase origin/phase/v2-11b-inpainting-chroma
+          git push origin HEAD:phase/v2-11b-inpainting-chroma
