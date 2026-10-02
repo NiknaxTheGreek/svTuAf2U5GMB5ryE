@@ -302,8 +302,10 @@ def main():
     records = []
     visual_entries = []
 
-    with ZipFile(args.archive) as z, TaskHandMasker(args.hand_model) as hand_masker:
-        for index, sid in enumerate(target_ids, 1):
+    hand_masker = TaskHandMasker(args.hand_model)
+    try:
+        with ZipFile(args.archive) as z:
+            for index, sid in enumerate(target_ids, 1):
             target_meta = by_id[sid]
             target_rgb = decode_member(z, target_meta["archive_member"])
             target_mask, arm_px, hand_px, detected_hands = final_hand_arm_mask(
@@ -376,7 +378,9 @@ def main():
                 "residual_fraction": residual_fraction,
                 "accepted_count": len(accepted),
             })
-            print(f"{index}/48 {sid} real={real_fill_fraction:.3f} residual={residual_fraction:.3f} accepted={len(accepted)}", flush=True)
+                print(f"{index}/48 {sid} real={real_fill_fraction:.3f} residual={residual_fraction:.3f} accepted={len(accepted)}", flush=True)
+    finally:
+        hand_masker.close()
 
     for start in range(0, 48, 12):
         build_sheet(visual_entries[start:start+12], qa_root / f"video_reconstruction_{start//12+1}.jpg")
