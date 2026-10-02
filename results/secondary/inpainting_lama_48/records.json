@@ -1,0 +1,3330 @@
+[
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 2709,
+        "frame_distance": 1,
+        "inlier_ratio": 0.977326968973747,
+        "inliers": 2457,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9963451874933178,
+        "sample_id": "testing/flip/0048_000000010",
+        "weighted_score": 2286.945107398568
+      },
+      {
+        "fill_pixels": 1954,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9713478611783697,
+        "inliers": 2407,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.996839339846499,
+        "sample_id": "training/flip/0048_000000012",
+        "weighted_score": 2226.699335101272
+      },
+      {
+        "fill_pixels": 3149,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9493865030674846,
+        "inliers": 1857,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.997273917319641,
+        "sample_id": "training/flip/0048_000000009",
+        "weighted_score": 1602.7370329057444
+      },
+      {
+        "fill_pixels": 2947,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9515151515151515,
+        "inliers": 1884,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9953664573212474,
+        "sample_id": "training/flip/0048_000000013",
+        "weighted_score": 814.8429752066115
+      },
+      {
+        "fill_pixels": 1143,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8948137326515705,
+        "inliers": 1225,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9909414267226316,
+        "sample_id": "training/flip/0048_000000014",
+        "weighted_score": 476.5855749992061
+      },
+      {
+        "fill_pixels": 5724,
+        "frame_distance": 4,
+        "inlier_ratio": 0.891358024691358,
+        "inliers": 1083,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9940871931561229,
+        "sample_id": "training/flip/0048_000000015",
+        "weighted_score": 402.22530864197535
+      },
+      {
+        "fill_pixels": 2493,
+        "frame_distance": 5,
+        "inlier_ratio": 0.8909090909090909,
+        "inliers": 882,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9856940500120479,
+        "sample_id": "training/flip/0048_000000016",
+        "weighted_score": 209.5418181818182
+      },
+      {
+        "fill_pixels": 3522,
+        "frame_distance": 6,
+        "inlier_ratio": 0.8677685950413223,
+        "inliers": 735,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9928425036981638,
+        "sample_id": "training/flip/0048_000000017",
+        "weighted_score": 163.54100445009536
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 50,
+    "detected_hands": 1,
+    "frame_number": 11,
+    "hand_pixels": 177903,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.09337046682098765,
+    "real_pixel_fill_fraction": 0.03575173154695191,
+    "sample_id": "testing/flip/0048_000000011",
+    "video_id": "flip/0048",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 2424,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9508041627246925,
+        "inliers": 2010,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9909945355652999,
+        "sample_id": "training/flip/0040_000000008",
+        "weighted_score": 910.0554128936342
+      },
+      {
+        "fill_pixels": 11748,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9656810982048575,
+        "inliers": 1829,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9849470588328492,
+        "sample_id": "training/flip/0040_000000010",
+        "weighted_score": 560.7081678148204
+      },
+      {
+        "fill_pixels": 8108,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8943298969072165,
+        "inliers": 1041,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9513033154706295,
+        "sample_id": "testing/flip/0040_000000007",
+        "weighted_score": 423.1806466729147
+      },
+      {
+        "fill_pixels": 2667,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8989675516224189,
+        "inliers": 1219,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.990099375923216,
+        "sample_id": "training/flip/0040_000000011",
+        "weighted_score": 332.07316528112983
+      },
+      {
+        "fill_pixels": 3603,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8417553191489362,
+        "inliers": 633,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9861321551377674,
+        "sample_id": "training/flip/0040_000000006",
+        "weighted_score": 231.66570305272901
+      },
+      {
+        "fill_pixels": 3551,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9150546677880572,
+        "inliers": 1088,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9943396336024446,
+        "sample_id": "training/flip/0040_000000012",
+        "weighted_score": 288.5737618995381
+      },
+      {
+        "fill_pixels": 7879,
+        "frame_distance": 4,
+        "inlier_ratio": 0.903,
+        "inliers": 903,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9860972993640934,
+        "sample_id": "training/flip/0040_000000013",
+        "weighted_score": 169.876875
+      },
+      {
+        "fill_pixels": 2745,
+        "frame_distance": 5,
+        "inlier_ratio": 0.9093023255813953,
+        "inliers": 782,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9942567191105229,
+        "sample_id": "training/flip/0040_000000014",
+        "weighted_score": 142.21488372093023
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 1,
+    "frame_number": 9,
+    "hand_pixels": 164835,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.08684558256172839,
+    "real_pixel_fill_fraction": 0.1110932181271969,
+    "sample_id": "training/flip/0040_000000009",
+    "video_id": "flip/0040",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 3089,
+        "frame_distance": 1,
+        "inlier_ratio": 0.7115384615384616,
+        "inliers": 148,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9918427493254128,
+        "sample_id": "training/flip/0042_000000008",
+        "weighted_score": 50.146520146520146
+      },
+      {
+        "fill_pixels": 1404,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8584905660377359,
+        "inliers": 182,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.992882465544045,
+        "sample_id": "training/flip/0042_000000010",
+        "weighted_score": 74.40251572327044
+      },
+      {
+        "fill_pixels": 4427,
+        "frame_distance": 2,
+        "inlier_ratio": 0.653179190751445,
+        "inliers": 113,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9508975850774325,
+        "sample_id": "testing/flip/0042_000000011",
+        "weighted_score": 22.36643895603433
+      },
+      {
+        "fill_pixels": 1357,
+        "frame_distance": 2,
+        "inlier_ratio": 0.7142857142857143,
+        "inliers": 105,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9789673093147909,
+        "sample_id": "training/flip/0042_000000007",
+        "weighted_score": 34.090909090909086
+      },
+      {
+        "fill_pixels": 3661,
+        "frame_distance": 3,
+        "inlier_ratio": 0.6153846153846154,
+        "inliers": 80,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9965259155409608,
+        "sample_id": "testing/flip/0042_000000006",
+        "weighted_score": 21.404682274247495
+      },
+      {
+        "fill_pixels": 200,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8083333333333333,
+        "inliers": 97,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9853336762462742,
+        "sample_id": "testing/flip/0042_000000012",
+        "weighted_score": 34.09057971014493
+      },
+      {
+        "fill_pixels": 3347,
+        "frame_distance": 4,
+        "inlier_ratio": 0.672566371681416,
+        "inliers": 76,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9938782721787831,
+        "sample_id": "training/flip/0042_000000005",
+        "weighted_score": 21.29793510324484
+      },
+      {
+        "fill_pixels": 1709,
+        "frame_distance": 4,
+        "inlier_ratio": 0.6464646464646465,
+        "inliers": 64,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9480183709335283,
+        "sample_id": "training/flip/0042_000000013",
+        "weighted_score": 11.49270482603816
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 1,
+    "frame_number": 9,
+    "hand_pixels": 146950,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.07743923611111111,
+    "real_pixel_fill_fraction": 0.05506981031025421,
+    "sample_id": "training/flip/0042_000000009",
+    "video_id": "flip/0042",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 16291,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8717366628830874,
+        "inliers": 768,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9546745100999442,
+        "sample_id": "training/flip/0045_000000015",
+        "weighted_score": 318.8065509972434
+      },
+      {
+        "fill_pixels": 4791,
+        "frame_distance": 1,
+        "inlier_ratio": 0.845945945945946,
+        "inliers": 626,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9842835416014362,
+        "sample_id": "training/flip/0045_000000017",
+        "weighted_score": 168.11497211497212
+      },
+      {
+        "fill_pixels": 14504,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8092105263157895,
+        "inliers": 615,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9363968510734663,
+        "sample_id": "training/flip/0045_000000014",
+        "weighted_score": 150.80741626794259
+      },
+      {
+        "fill_pixels": 8971,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8925081433224755,
+        "inliers": 548,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9919240846950454,
+        "sample_id": "training/flip/0045_000000018",
+        "weighted_score": 222.31566479123478
+      },
+      {
+        "fill_pixels": 13561,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8454258675078864,
+        "inliers": 536,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.915872161110045,
+        "sample_id": "training/flip/0045_000000013",
+        "weighted_score": 131.34732318383396
+      },
+      {
+        "fill_pixels": 14905,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8795918367346939,
+        "inliers": 431,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9809956574412766,
+        "sample_id": "training/flip/0045_000000019",
+        "weighted_score": 109.88524105294292
+      },
+      {
+        "fill_pixels": 24976,
+        "frame_distance": 4,
+        "inlier_ratio": 0.7995951417004049,
+        "inliers": 395,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.896267653439467,
+        "sample_id": "training/flip/0045_000000012",
+        "weighted_score": 87.73335582546109
+      },
+      {
+        "fill_pixels": 10758,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8787128712871287,
+        "inliers": 355,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9850628525438442,
+        "sample_id": "training/flip/0045_000000020",
+        "weighted_score": 86.65085258525853
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 1,
+    "frame_number": 16,
+    "hand_pixels": 177179,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.0928100887345679,
+    "real_pixel_fill_fraction": 0.24078336823399202,
+    "sample_id": "training/flip/0045_000000016",
+    "video_id": "flip/0045",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 4683,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9053857350800583,
+        "inliers": 1244,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9879918928585621,
+        "sample_id": "testing/flip/0046_000000010",
+        "weighted_score": 536.3332640188536
+      },
+      {
+        "fill_pixels": 2524,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8796366389099167,
+        "inliers": 1162,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9915574454556293,
+        "sample_id": "testing/flip/0046_000000012",
+        "weighted_score": 486.73227353015386
+      },
+      {
+        "fill_pixels": 1713,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8415545590433483,
+        "inliers": 563,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.995696326617123,
+        "sample_id": "testing/flip/0046_000000013",
+        "weighted_score": 143.57430810345608
+      },
+      {
+        "fill_pixels": 3213,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8811428571428571,
+        "inliers": 771,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9897473804130403,
+        "sample_id": "training/flip/0046_000000009",
+        "weighted_score": 308.8005194805194
+      },
+      {
+        "fill_pixels": 45653,
+        "frame_distance": 3,
+        "inlier_ratio": 0.7586206896551724,
+        "inliers": 308,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.8804408589330895,
+        "sample_id": "training/flip/0046_000000008",
+        "weighted_score": 67.72613693153423
+      },
+      {
+        "fill_pixels": 1341,
+        "frame_distance": 3,
+        "inlier_ratio": 0.825974025974026,
+        "inliers": 318,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9898205036495383,
+        "sample_id": "training/flip/0046_000000014",
+        "weighted_score": 57.09994353472615
+      },
+      {
+        "fill_pixels": 25437,
+        "frame_distance": 4,
+        "inlier_ratio": 0.7939560439560439,
+        "inliers": 289,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9243275179165177,
+        "sample_id": "training/flip/0046_000000007",
+        "weighted_score": 63.737026862026866
+      },
+      {
+        "fill_pixels": 4183,
+        "frame_distance": 4,
+        "inlier_ratio": 0.7311320754716981,
+        "inliers": 155,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9920036031739724,
+        "sample_id": "training/flip/0046_000000015",
+        "weighted_score": 23.60947327044025
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 1,
+    "frame_number": 11,
+    "hand_pixels": 170851,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.08987991898148148,
+    "real_pixel_fill_fraction": 0.26961234071093226,
+    "sample_id": "training/flip/0046_000000011",
+    "video_id": "flip/0046",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 11376,
+        "frame_distance": 1,
+        "inlier_ratio": 0.7971391417425228,
+        "inliers": 613,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9982465337406677,
+        "sample_id": "training/flip/0047_000000022",
+        "weighted_score": 232.68871137531735
+      },
+      {
+        "fill_pixels": 12089,
+        "frame_distance": 1,
+        "inlier_ratio": 0.7223926380368099,
+        "inliers": 471,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9846611577981398,
+        "sample_id": "training/flip/0047_000000024",
+        "weighted_score": 162.02234881682736
+      },
+      {
+        "fill_pixels": 5966,
+        "frame_distance": 2,
+        "inlier_ratio": 0.6839237057220708,
+        "inliers": 251,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9942451428771947,
+        "sample_id": "testing/flip/0047_000000021",
+        "weighted_score": 39.01473866732722
+      },
+      {
+        "fill_pixels": 4245,
+        "frame_distance": 2,
+        "inlier_ratio": 0.6982968369829684,
+        "inliers": 287,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.971980162118536,
+        "sample_id": "training/flip/0047_000000025",
+        "weighted_score": 45.54799823047998
+      },
+      {
+        "fill_pixels": 9919,
+        "frame_distance": 3,
+        "inlier_ratio": 0.6127819548872181,
+        "inliers": 163,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9849487943191522,
+        "sample_id": "training/flip/0047_000000020",
+        "weighted_score": 17.371036286368096
+      },
+      {
+        "fill_pixels": 4264,
+        "frame_distance": 4,
+        "inlier_ratio": 0.6708333333333333,
+        "inliers": 161,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9820814675949014,
+        "sample_id": "training/flip/0047_000000019",
+        "weighted_score": 18.000694444444445
+      },
+      {
+        "fill_pixels": 11376,
+        "frame_distance": 5,
+        "inlier_ratio": 0.6530612244897959,
+        "inliers": 128,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.983897671579704,
+        "sample_id": "training/flip/0047_000000018",
+        "weighted_score": 13.37469387755102
+      },
+      {
+        "fill_pixels": 192364,
+        "frame_distance": 6,
+        "inlier_ratio": 0.5459459459459459,
+        "inliers": 101,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9841799913443205,
+        "sample_id": "training/flip/0047_000000017",
+        "weighted_score": 7.069300069300069
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 1,
+    "frame_number": 23,
+    "hand_pixels": 177660,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.09295621141975309,
+    "real_pixel_fill_fraction": 1.0,
+    "sample_id": "training/flip/0047_000000023",
+    "video_id": "flip/0047",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 4312,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9569838056680162,
+        "inliers": 1891,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9987556791157475,
+        "sample_id": "training/notflip/0039_000000021",
+        "weighted_score": 1723.4822633506844
+      },
+      {
+        "fill_pixels": 2145,
+        "frame_distance": 1,
+        "inlier_ratio": 0.950784207679827,
+        "inliers": 1758,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9990700956755179,
+        "sample_id": "training/notflip/0039_000000023",
+        "weighted_score": 1591.8844162867958
+      },
+      {
+        "fill_pixels": 3925,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9403778040141676,
+        "inliers": 1593,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.997245518763302,
+        "sample_id": "training/notflip/0039_000000020",
+        "weighted_score": 680.9190189975312
+      },
+      {
+        "fill_pixels": 3203,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9374255065554231,
+        "inliers": 1573,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9993444761708014,
+        "sample_id": "training/notflip/0039_000000024",
+        "weighted_score": 670.2592371871275
+      },
+      {
+        "fill_pixels": 8758,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9229480737018425,
+        "inliers": 1102,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9807971020295082,
+        "sample_id": "training/notflip/0039_000000019",
+        "weighted_score": 442.212511834535
+      },
+      {
+        "fill_pixels": 9158,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9054905490549054,
+        "inliers": 1006,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9657355345695402,
+        "sample_id": "training/notflip/0039_000000018",
+        "weighted_score": 379.5514551455145
+      },
+      {
+        "fill_pixels": 15235,
+        "frame_distance": 5,
+        "inlier_ratio": 0.9232209737827716,
+        "inliers": 986,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9555861253150171,
+        "sample_id": "training/notflip/0039_000000017",
+        "weighted_score": 242.74556803995006
+      },
+      {
+        "fill_pixels": 13877,
+        "frame_distance": 6,
+        "inlier_ratio": 0.9117352056168505,
+        "inliers": 909,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9501161312777217,
+        "sample_id": "training/notflip/0039_000000016",
+        "weighted_score": 212.5044363860813
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 1,
+    "frame_number": 22,
+    "hand_pixels": 184736,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.09658998842592592,
+    "real_pixel_fill_fraction": 0.09005487071182142,
+    "sample_id": "testing/notflip/0039_000000022",
+    "video_id": "notflip/0039",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 271651,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8948051948051948,
+        "inliers": 689,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9942884376187198,
+        "sample_id": "testing/notflip/0040_000000005",
+        "weighted_score": 587.1626468769325
+      },
+      {
+        "fill_pixels": 13469,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9452282157676348,
+        "inliers": 1139,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9740023513094265,
+        "sample_id": "training/notflip/0040_000000003",
+        "weighted_score": 1025.3475597707961
+      },
+      {
+        "fill_pixels": 270177,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8929088277858177,
+        "inliers": 617,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9908370822691809,
+        "sample_id": "testing/notflip/0040_000000006",
+        "weighted_score": 250.42033942902248
+      },
+      {
+        "fill_pixels": 20237,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8918296892980437,
+        "inliers": 775,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9491097064953529,
+        "sample_id": "training/notflip/0040_000000002",
+        "weighted_score": 314.16727691181086
+      },
+      {
+        "fill_pixels": 272556,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8656488549618321,
+        "inliers": 567,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9913384553124162,
+        "sample_id": "testing/notflip/0040_000000007",
+        "weighted_score": 213.40126120146036
+      },
+      {
+        "fill_pixels": 26675,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8484398216939079,
+        "inliers": 571,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9288948907669892,
+        "sample_id": "training/notflip/0040_000000001",
+        "weighted_score": 210.6344079074876
+      },
+      {
+        "fill_pixels": 274843,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8809523809523809,
+        "inliers": 555,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9894575317200566,
+        "sample_id": "training/notflip/0040_000000008",
+        "weighted_score": 203.7202380952381
+      },
+      {
+        "fill_pixels": 270721,
+        "frame_distance": 5,
+        "inlier_ratio": 0.8443396226415094,
+        "inliers": 537,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.983097097180226,
+        "sample_id": "training/notflip/0040_000000009",
+        "weighted_score": 181.36415094339623
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 1124,
+    "detected_hands": 2,
+    "frame_number": 4,
+    "hand_pixels": 430429,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.22185136959876542,
+    "real_pixel_fill_fraction": 0.6076112261999734,
+    "sample_id": "testing/notflip/0040_000000004",
+    "video_id": "notflip/0040",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 2443,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9095911949685535,
+        "inliers": 1157,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9960407795458684,
+        "sample_id": "testing/notflip/0040_000000017",
+        "weighted_score": 1002.2828691224917
+      },
+      {
+        "fill_pixels": 1270,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9502551020408163,
+        "inliers": 1490,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.995738103089477,
+        "sample_id": "training/notflip/0040_000000015",
+        "weighted_score": 1348.4572400388727
+      },
+      {
+        "fill_pixels": 2440,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9336283185840708,
+        "inliers": 1266,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9962468119407455,
+        "sample_id": "testing/notflip/0040_000000014",
+        "weighted_score": 537.2606596942879
+      },
+      {
+        "fill_pixels": 3926,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8766114180478821,
+        "inliers": 952,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9961199002335919,
+        "sample_id": "testing/notflip/0040_000000018",
+        "weighted_score": 379.33366817344717
+      },
+      {
+        "fill_pixels": 1169,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8773678963110668,
+        "inliers": 880,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9972440512128564,
+        "sample_id": "training/notflip/0040_000000013",
+        "weighted_score": 335.68858641466903
+      },
+      {
+        "fill_pixels": 1794,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9020442930153322,
+        "inliers": 1059,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9950961103951308,
+        "sample_id": "training/notflip/0040_000000019",
+        "weighted_score": 415.3325679579291
+      },
+      {
+        "fill_pixels": 3719,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8744019138755981,
+        "inliers": 731,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9931887177085374,
+        "sample_id": "testing/notflip/0040_000000012",
+        "weighted_score": 266.32824960127596
+      },
+      {
+        "fill_pixels": 2646,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8927364864864865,
+        "inliers": 1057,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9972557334620504,
+        "sample_id": "training/notflip/0040_000000020",
+        "weighted_score": 393.17602759009014
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 1,
+    "frame_number": 16,
+    "hand_pixels": 174658,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.0918214699074074,
+    "real_pixel_fill_fraction": 0.03602922253559593,
+    "sample_id": "testing/notflip/0040_000000016",
+    "video_id": "notflip/0040",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 4109,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9673433362753752,
+        "inliers": 1096,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9941134966617321,
+        "sample_id": "training/notflip/0035_000000002",
+        "weighted_score": 504.8610935989576
+      },
+      {
+        "fill_pixels": 216067,
+        "frame_distance": 2,
+        "inlier_ratio": 0.944578313253012,
+        "inliers": 784,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9940455437156543,
+        "sample_id": "training/notflip/0035_000000003",
+        "weighted_score": 336.61336254107334
+      },
+      {
+        "fill_pixels": 36108,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9506966773847803,
+        "inliers": 887,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9772738675196985,
+        "sample_id": "training/notflip/0035_000000004",
+        "weighted_score": 366.6382403653479
+      },
+      {
+        "fill_pixels": 61446,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9231927710843374,
+        "inliers": 613,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9678169766781679,
+        "sample_id": "training/notflip/0035_000000005",
+        "weighted_score": 235.7988202811245
+      },
+      {
+        "fill_pixels": 104501,
+        "frame_distance": 5,
+        "inlier_ratio": 0.8975409836065574,
+        "inliers": 438,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9303120310373494,
+        "sample_id": "training/notflip/0035_000000006",
+        "weighted_score": 157.24918032786886
+      },
+      {
+        "fill_pixels": 155230,
+        "frame_distance": 6,
+        "inlier_ratio": 0.8591954022988506,
+        "inliers": 299,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9006070674874367,
+        "sample_id": "training/notflip/0035_000000007",
+        "weighted_score": 98.80747126436782
+      },
+      {
+        "fill_pixels": 213761,
+        "frame_distance": 7,
+        "inlier_ratio": 0.8333333333333334,
+        "inliers": 175,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8790342298676695,
+        "sample_id": "training/notflip/0035_000000008",
+        "weighted_score": 54.01234567901235
+      },
+      {
+        "fill_pixels": 259226,
+        "frame_distance": 8,
+        "inlier_ratio": 0.7551020408163265,
+        "inliers": 74,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8694109495693879,
+        "sample_id": "testing/notflip/0035_000000009",
+        "weighted_score": 19.956268221574344
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 2,
+    "frame_number": 1,
+    "hand_pixels": 471944,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.24063512731481482,
+    "real_pixel_fill_fraction": 0.8955070433543562,
+    "sample_id": "training/notflip/0035_000000001",
+    "video_id": "notflip/0035",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 211256,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9660314830157415,
+        "inliers": 1166,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9983603303611951,
+        "sample_id": "training/notflip/0035_000000003",
+        "weighted_score": 1072.7549611393854
+      },
+      {
+        "fill_pixels": 32716,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9617777777777777,
+        "inliers": 1082,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9856513104082992,
+        "sample_id": "training/notflip/0035_000000005",
+        "weighted_score": 991.0891005291003
+      },
+      {
+        "fill_pixels": 20097,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9561324977618622,
+        "inliers": 1068,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9707849302097437,
+        "sample_id": "training/notflip/0035_000000002",
+        "weighted_score": 928.317734190608
+      },
+      {
+        "fill_pixels": 83711,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8891129032258065,
+        "inliers": 441,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9537681428750223,
+        "sample_id": "training/notflip/0035_000000006",
+        "weighted_score": 356.4534457478006
+      },
+      {
+        "fill_pixels": 25077,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9512459371614301,
+        "inliers": 878,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9578464576435533,
+        "sample_id": "training/notflip/0035_000000001",
+        "weighted_score": 363.12779688162425
+      },
+      {
+        "fill_pixels": 142854,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8924205378973105,
+        "inliers": 365,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9109970379753557,
+        "sample_id": "training/notflip/0035_000000007",
+        "weighted_score": 141.62325927500797
+      },
+      {
+        "fill_pixels": 191892,
+        "frame_distance": 4,
+        "inlier_ratio": 0.842809364548495,
+        "inliers": 252,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8868988246716553,
+        "sample_id": "training/notflip/0035_000000008",
+        "weighted_score": 88.49498327759198
+      },
+      {
+        "fill_pixels": 238048,
+        "frame_distance": 5,
+        "inlier_ratio": 0.7394957983193278,
+        "inliers": 88,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8822029473599043,
+        "sample_id": "testing/notflip/0035_000000009",
+        "weighted_score": 26.030252100840336
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 0,
+    "detected_hands": 2,
+    "frame_number": 4,
+    "hand_pixels": 461282,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.23706307870370372,
+    "real_pixel_fill_fraction": 0.8928035250033566,
+    "sample_id": "training/notflip/0035_000000004",
+    "video_id": "notflip/0035",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 328,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9244226731980406,
+        "inliers": 1321,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.8691521084328938,
+        "sample_id": "testing/notflip/0039_000000003",
+        "weighted_score": 1163.0117631377254
+      },
+      {
+        "fill_pixels": 905,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9231974921630094,
+        "inliers": 1178,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.8712437578646298,
+        "sample_id": "training/notflip/0039_000000005",
+        "weighted_score": 1035.7396626362142
+      },
+      {
+        "fill_pixels": 204,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9153908138597905,
+        "inliers": 1136,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.8615127009756749,
+        "sample_id": "training/notflip/0039_000000002",
+        "weighted_score": 945.3490586770199
+      },
+      {
+        "fill_pixels": 26794,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8551165146909828,
+        "inliers": 844,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8598298866264571,
+        "sample_id": "training/notflip/0039_000000006",
+        "weighted_score": 328.05379018144976
+      },
+      {
+        "fill_pixels": 1059,
+        "frame_distance": 3,
+        "inlier_ratio": 0.905511811023622,
+        "inliers": 1035,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8492543507145957,
+        "sample_id": "training/notflip/0039_000000001",
+        "weighted_score": 407.4803149606299
+      },
+      {
+        "fill_pixels": 276314,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8133159268929504,
+        "inliers": 623,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8879160748704378,
+        "sample_id": "training/notflip/0039_000000007",
+        "weighted_score": 220.3025315018731
+      },
+      {
+        "fill_pixels": 276615,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8086696562032885,
+        "inliers": 541,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9008362688101837,
+        "sample_id": "training/notflip/0039_000000008",
+        "weighted_score": 121.52507889054974
+      },
+      {
+        "fill_pixels": 282752,
+        "frame_distance": 5,
+        "inlier_ratio": 0.7874818049490538,
+        "inliers": 541,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9918065428134668,
+        "sample_id": "training/notflip/0039_000000009",
+        "weighted_score": 113.60737506065018
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 3018,
+    "detected_hands": 1,
+    "frame_number": 4,
+    "hand_pixels": 259548,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.13654851466049384,
+    "real_pixel_fill_fraction": 1.0,
+    "sample_id": "training/notflip/0039_000000004",
+    "video_id": "notflip/0039",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 17148,
+        "frame_distance": 1,
+        "inlier_ratio": 0.7241379310344828,
+        "inliers": 651,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9447454106637083,
+        "sample_id": "training/flip/0008_000000028",
+        "weighted_score": 112.24137931034481
+      },
+      {
+        "fill_pixels": 22656,
+        "frame_distance": 2,
+        "inlier_ratio": 0.7237569060773481,
+        "inliers": 262,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9796577634529662,
+        "sample_id": "training/flip/0008_000000027",
+        "weighted_score": 34.47714716223004
+      },
+      {
+        "fill_pixels": 33992,
+        "frame_distance": 3,
+        "inlier_ratio": 0.6269230769230769,
+        "inliers": 163,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9745480876722432,
+        "sample_id": "testing/flip/0008_000000026",
+        "weighted_score": 14.809921962095878
+      },
+      {
+        "fill_pixels": 64839,
+        "frame_distance": 4,
+        "inlier_ratio": 0.5294117647058824,
+        "inliers": 72,
+        "median_gray_abs_error": 8.0,
+        "overlap_fraction": 0.9318188894987585,
+        "sample_id": "training/flip/0008_000000025",
+        "weighted_score": 3.5294117647058827
+      },
+      {
+        "fill_pixels": 75379,
+        "frame_distance": 5,
+        "inlier_ratio": 0.4198473282442748,
+        "inliers": 55,
+        "median_gray_abs_error": 8.0,
+        "overlap_fraction": 0.9218327672536271,
+        "sample_id": "training/flip/0008_000000024",
+        "weighted_score": 2.052586938083121
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 16311,
+    "detected_hands": 2,
+    "frame_number": 29,
+    "hand_pixels": 404832,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.21013069058641975,
+    "real_pixel_fill_fraction": 0.23177585965524286,
+    "sample_id": "testing/flip/0008_000000029",
+    "video_id": "flip/0008",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 59220,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9051819184123484,
+        "inliers": 821,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9567902097604535,
+        "sample_id": "testing/flip/0003_000000025",
+        "weighted_score": 353.88302619835144
+      },
+      {
+        "fill_pixels": 27481,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8654708520179372,
+        "inliers": 579,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9687465616901926,
+        "sample_id": "training/flip/0003_000000023",
+        "weighted_score": 159.08178518043988
+      },
+      {
+        "fill_pixels": 247506,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8100686498855835,
+        "inliers": 354,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9852784111528589,
+        "sample_id": "testing/flip/0003_000000022",
+        "weighted_score": 65.17370501352194
+      },
+      {
+        "fill_pixels": 65662,
+        "frame_distance": 2,
+        "inlier_ratio": 0.7565217391304347,
+        "inliers": 435,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.8981342401251743,
+        "sample_id": "training/flip/0003_000000026",
+        "weighted_score": 59.83399209486165
+      },
+      {
+        "fill_pixels": 244583,
+        "frame_distance": 3,
+        "inlier_ratio": 0.7687861271676301,
+        "inliers": 266,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9819970858329782,
+        "sample_id": "training/flip/0003_000000021",
+        "weighted_score": 35.56471475245037
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 48,
+    "detected_hands": 2,
+    "frame_number": 24,
+    "hand_pixels": 398214,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.20666136188271605,
+    "real_pixel_fill_fraction": 0.6802883325204827,
+    "sample_id": "training/flip/0003_000000024",
+    "video_id": "flip/0003",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 14546,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8976458546571137,
+        "inliers": 877,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9945956038062588,
+        "sample_id": "training/flip/0005_000000029",
+        "weighted_score": 249.91600461405991
+      },
+      {
+        "fill_pixels": 55104,
+        "frame_distance": 2,
+        "inlier_ratio": 0.852112676056338,
+        "inliers": 363,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.962389136574718,
+        "sample_id": "testing/flip/0005_000000028",
+        "weighted_score": 70.29929577464787
+      },
+      {
+        "fill_pixels": 51624,
+        "frame_distance": 3,
+        "inlier_ratio": 0.7929824561403509,
+        "inliers": 226,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9441272144491476,
+        "sample_id": "training/flip/0005_000000027",
+        "weighted_score": 31.1676582761251
+      },
+      {
+        "fill_pixels": 63895,
+        "frame_distance": 4,
+        "inlier_ratio": 0.6445783132530121,
+        "inliers": 107,
+        "median_gray_abs_error": 7.0,
+        "overlap_fraction": 0.9425778205484842,
+        "sample_id": "training/flip/0005_000000026",
+        "weighted_score": 7.184362449799197
+      },
+      {
+        "fill_pixels": 79310,
+        "frame_distance": 5,
+        "inlier_ratio": 0.5503875968992248,
+        "inliers": 71,
+        "median_gray_abs_error": 8.0,
+        "overlap_fraction": 0.940456410217855,
+        "sample_id": "training/flip/0005_000000025",
+        "weighted_score": 3.4735572782084403
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 0,
+    "detected_hands": 2,
+    "frame_number": 30,
+    "hand_pixels": 446300,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.23027199074074073,
+    "real_pixel_fill_fraction": 0.21203496603084449,
+    "sample_id": "training/flip/0005_000000030",
+    "video_id": "flip/0005",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 20360,
+        "frame_distance": 1,
+        "inlier_ratio": 0.92616226071103,
+        "inliers": 1016,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9864952768647219,
+        "sample_id": "testing/flip/0006_000000030",
+        "weighted_score": 448.0861223249555
+      },
+      {
+        "fill_pixels": 46177,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8965922444183314,
+        "inliers": 763,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9449411907016013,
+        "sample_id": "training/flip/0006_000000028",
+        "weighted_score": 325.7618488053271
+      },
+      {
+        "fill_pixels": 51922,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8212927756653993,
+        "inliers": 432,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.920725016385632,
+        "sample_id": "training/flip/0006_000000027",
+        "weighted_score": 107.51469063256135
+      },
+      {
+        "fill_pixels": 57559,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8252148997134671,
+        "inliers": 288,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.932104853232876,
+        "sample_id": "training/flip/0006_000000026",
+        "weighted_score": 68.8875046717329
+      },
+      {
+        "fill_pixels": 83341,
+        "frame_distance": 4,
+        "inlier_ratio": 0.7664233576642335,
+        "inliers": 210,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.933034915282271,
+        "sample_id": "testing/flip/0006_000000025",
+        "weighted_score": 44.708029197080286
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 38684,
+    "detected_hands": 2,
+    "frame_number": 29,
+    "hand_pixels": 414147,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.21859471450617285,
+    "real_pixel_fill_fraction": 0.23073478086295826,
+    "sample_id": "training/flip/0006_000000029",
+    "video_id": "flip/0006",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 41443,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9045226130653267,
+        "inliers": 1080,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9706612537071817,
+        "sample_id": "training/flip/0007_000000026",
+        "weighted_score": 310.12203876525484
+      },
+      {
+        "fill_pixels": 92537,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8869395711500975,
+        "inliers": 910,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9676442876203846,
+        "sample_id": "training/flip/0007_000000028",
+        "weighted_score": 384.3404808317089
+      },
+      {
+        "fill_pixels": 32010,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8671328671328671,
+        "inliers": 620,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9657750460038321,
+        "sample_id": "training/flip/0007_000000025",
+        "weighted_score": 122.18690400508581
+      },
+      {
+        "fill_pixels": 52805,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8140417457305503,
+        "inliers": 429,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9790241496405061,
+        "sample_id": "training/flip/0007_000000029",
+        "weighted_score": 105.82542694497154
+      },
+      {
+        "fill_pixels": 85906,
+        "frame_distance": 3,
+        "inlier_ratio": 0.7124600638977636,
+        "inliers": 223,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9549054945332903,
+        "sample_id": "training/flip/0007_000000030",
+        "weighted_score": 27.631059869426313
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 45267,
+    "detected_hands": 2,
+    "frame_number": 27,
+    "hand_pixels": 460059,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.23736979166666666,
+    "real_pixel_fill_fraction": 0.2770341927226184,
+    "sample_id": "training/flip/0007_000000027",
+    "video_id": "flip/0007",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 22227,
+        "frame_distance": 1,
+        "inlier_ratio": 0.829686013320647,
+        "inliers": 872,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9759725248739176,
+        "sample_id": "training/flip/0010_000000028",
+        "weighted_score": 137.80689592678175
+      },
+      {
+        "fill_pixels": 14621,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9761092150170648,
+        "inliers": 2002,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9850835423918994,
+        "sample_id": "training/flip/0010_000000030",
+        "weighted_score": 1861.1149032992037
+      },
+      {
+        "fill_pixels": 37402,
+        "frame_distance": 2,
+        "inlier_ratio": 0.7238658777120316,
+        "inliers": 367,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9519551527543005,
+        "sample_id": "training/flip/0010_000000027",
+        "weighted_score": 40.251329866714485
+      },
+      {
+        "fill_pixels": 51123,
+        "frame_distance": 3,
+        "inlier_ratio": 0.6398601398601399,
+        "inliers": 183,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9735837952827799,
+        "sample_id": "training/flip/0010_000000026",
+        "weighted_score": 16.970203709334147
+      },
+      {
+        "fill_pixels": 79194,
+        "frame_distance": 4,
+        "inlier_ratio": 0.6464285714285715,
+        "inliers": 181,
+        "median_gray_abs_error": 8.0,
+        "overlap_fraction": 0.9676040783311349,
+        "sample_id": "training/flip/0010_000000025",
+        "weighted_score": 10.833664021164022
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 50530,
+    "detected_hands": 2,
+    "frame_number": 29,
+    "hand_pixels": 453756,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.2362620563271605,
+    "real_pixel_fill_fraction": 0.1837224160208037,
+    "sample_id": "training/flip/0010_000000029",
+    "video_id": "flip/0010",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 2177,
+        "frame_distance": 1,
+        "inlier_ratio": 0.956567242281528,
+        "inliers": 1828,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9938469663302012,
+        "sample_id": "training/notflip/0007_000000026",
+        "weighted_score": 1665.3380179910791
+      },
+      {
+        "fill_pixels": 1188,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9332501559575795,
+        "inliers": 1496,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9859937523042738,
+        "sample_id": "training/notflip/0007_000000027",
+        "weighted_score": 634.610106051154
+      },
+      {
+        "fill_pixels": 3572,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9380087664370695,
+        "inliers": 1498,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9910289018205009,
+        "sample_id": "training/notflip/0007_000000028",
+        "weighted_score": 610.929187879448
+      },
+      {
+        "fill_pixels": 2166,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9388361045130641,
+        "inliers": 1581,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9922040814292974,
+        "sample_id": "training/notflip/0007_000000029",
+        "weighted_score": 618.458283847981
+      },
+      {
+        "fill_pixels": 6622,
+        "frame_distance": 5,
+        "inlier_ratio": 0.9377643504531722,
+        "inliers": 1552,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.990685751865839,
+        "sample_id": "training/notflip/0007_000000030",
+        "weighted_score": 582.1641087613293
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 118458,
+    "detected_hands": 2,
+    "frame_number": 25,
+    "hand_pixels": 437692,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.22564043209876544,
+    "real_pixel_fill_fraction": 0.018027818623260267,
+    "sample_id": "testing/notflip/0007_000000025",
+    "video_id": "notflip/0007",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 1072,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9419191919191919,
+        "inliers": 1865,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9964078914491195,
+        "sample_id": "testing/notflip/0002_000000026",
+        "weighted_score": 1673.0278980278981
+      },
+      {
+        "fill_pixels": 2369,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9445896497647673,
+        "inliers": 1807,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9971183826005714,
+        "sample_id": "testing/notflip/0002_000000027",
+        "weighted_score": 775.8515896022429
+      },
+      {
+        "fill_pixels": 2010,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9353689567430026,
+        "inliers": 1838,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9989630522873687,
+        "sample_id": "testing/notflip/0002_000000028",
+        "weighted_score": 747.4818010841908
+      },
+      {
+        "fill_pixels": 2389,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9235705950991832,
+        "inliers": 1583,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9937842888027029,
+        "sample_id": "training/notflip/0002_000000029",
+        "weighted_score": 609.1717716841696
+      },
+      {
+        "fill_pixels": 1661,
+        "frame_distance": 5,
+        "inlier_ratio": 0.9169632265717675,
+        "inliers": 1546,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9923095307933818,
+        "sample_id": "training/notflip/0002_000000030",
+        "weighted_score": 567.050059311981
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 66117,
+    "detected_hands": 1,
+    "frame_number": 25,
+    "hand_pixels": 214173,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.11218171296296296,
+    "real_pixel_fill_fraction": 0.018261542429713697,
+    "sample_id": "training/notflip/0002_000000025",
+    "video_id": "notflip/0002",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 2663,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9474717722140402,
+        "inliers": 1930,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.997624343314964,
+        "sample_id": "testing/notflip/0002_000000028",
+        "weighted_score": 1741.5433527362834
+      },
+      {
+        "fill_pixels": 1020,
+        "frame_distance": 1,
+        "inlier_ratio": 0.935093509350935,
+        "inliers": 1700,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9982459445271135,
+        "sample_id": "training/notflip/0002_000000030",
+        "weighted_score": 756.9804599507569
+      },
+      {
+        "fill_pixels": 1795,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9301691216584833,
+        "inliers": 1705,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9957161090261382,
+        "sample_id": "testing/notflip/0002_000000027",
+        "weighted_score": 720.8810692853245
+      },
+      {
+        "fill_pixels": 1922,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9388471177944863,
+        "inliers": 1873,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9928811731922127,
+        "sample_id": "testing/notflip/0002_000000026",
+        "weighted_score": 764.5481094039447
+      },
+      {
+        "fill_pixels": 933,
+        "frame_distance": 4,
+        "inlier_ratio": 0.922093023255814,
+        "inliers": 1586,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9931461001717139,
+        "sample_id": "training/notflip/0002_000000025",
+        "weighted_score": 609.3498062015505
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 60431,
+    "detected_hands": 1,
+    "frame_number": 29,
+    "hand_pixels": 212580,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.11168161651234568,
+    "real_pixel_fill_fraction": 0.019042848568331872,
+    "sample_id": "training/notflip/0002_000000029",
+    "video_id": "notflip/0002",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 1388,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9615724381625441,
+        "inliers": 2177,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9980004588397877,
+        "sample_id": "training/notflip/0003_000000026",
+        "weighted_score": 1993.660188457008
+      },
+      {
+        "fill_pixels": 1887,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9087136929460581,
+        "inliers": 1314,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9907688393419237,
+        "sample_id": "training/notflip/0003_000000028",
+        "weighted_score": 568.5951393005334
+      },
+      {
+        "fill_pixels": 1751,
+        "frame_distance": 2,
+        "inlier_ratio": 0.941747572815534,
+        "inliers": 1940,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9991975740205347,
+        "sample_id": "testing/notflip/0003_000000025",
+        "weighted_score": 1660.90026478376
+      },
+      {
+        "fill_pixels": 511,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9018264840182648,
+        "inliers": 1185,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9805101820028248,
+        "sample_id": "training/notflip/0003_000000029",
+        "weighted_score": 485.7565379825653
+      },
+      {
+        "fill_pixels": 2281,
+        "frame_distance": 3,
+        "inlier_ratio": 0.880718954248366,
+        "inliers": 1078,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9804650591327058,
+        "sample_id": "testing/notflip/0003_000000030",
+        "weighted_score": 412.7891446433646
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 18679,
+    "detected_hands": 1,
+    "frame_number": 27,
+    "hand_pixels": 216101,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.11293306327160493,
+    "real_pixel_fill_fraction": 0.018618315981859954,
+    "sample_id": "training/notflip/0003_000000027",
+    "video_id": "notflip/0003",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 3023,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9632511889321228,
+        "inliers": 2228,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.996677160228164,
+        "sample_id": "training/notflip/0009_000000028",
+        "weighted_score": 2043.927284705495
+      },
+      {
+        "fill_pixels": 1664,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9448857994041708,
+        "inliers": 1903,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9936765550824593,
+        "sample_id": "training/notflip/0009_000000030",
+        "weighted_score": 1712.4930250153686
+      },
+      {
+        "fill_pixels": 5409,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9448818897637795,
+        "inliers": 2040,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9929135690270262,
+        "sample_id": "testing/notflip/0009_000000027",
+        "weighted_score": 876.1632068718682
+      },
+      {
+        "fill_pixels": 5538,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9174454828660437,
+        "inliers": 1767,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9926366657127065,
+        "sample_id": "training/notflip/0009_000000026",
+        "weighted_score": 704.8374644453475
+      },
+      {
+        "fill_pixels": 4408,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9166177334116266,
+        "inliers": 1561,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9875398970159981,
+        "sample_id": "training/notflip/0009_000000025",
+        "weighted_score": 596.1834507731455
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 51321,
+    "detected_hands": 1,
+    "frame_number": 29,
+    "hand_pixels": 220404,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.11701195987654321,
+    "real_pixel_fill_fraction": 0.03203564186682933,
+    "sample_id": "training/notflip/0009_000000029",
+    "video_id": "notflip/0009",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 9841,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9412008281573498,
+        "inliers": 2273,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9794612586130294,
+        "sample_id": "training/notflip/0010_000000027",
+        "weighted_score": 1018.7378487626934
+      },
+      {
+        "fill_pixels": 1335,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9505545286506469,
+        "inliers": 2057,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9907289422770877,
+        "sample_id": "training/notflip/0010_000000029",
+        "weighted_score": 931.0907930639909
+      },
+      {
+        "fill_pixels": 7907,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9098922624877571,
+        "inliers": 1858,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9838944634366517,
+        "sample_id": "testing/notflip/0010_000000026",
+        "weighted_score": 768.4453744101148
+      },
+      {
+        "fill_pixels": 1931,
+        "frame_distance": 2,
+        "inlier_ratio": 0.921751968503937,
+        "inliers": 1873,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.986339189595819,
+        "sample_id": "training/notflip/0010_000000030",
+        "weighted_score": 784.7461077308518
+      },
+      {
+        "fill_pixels": 5690,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9002169197396963,
+        "inliers": 1660,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9916159091328799,
+        "sample_id": "training/notflip/0010_000000025",
+        "weighted_score": 649.7217768556069
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 118787,
+    "detected_hands": 1,
+    "frame_number": 28,
+    "hand_pixels": 208120,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.11212094907407408,
+    "real_pixel_fill_fraction": 0.05040560186499436,
+    "sample_id": "training/notflip/0010_000000028",
+    "video_id": "notflip/0010",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 326464,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9361022364217252,
+        "inliers": 879,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9875242155091529,
+        "sample_id": "training/flip/0017_000000020",
+        "weighted_score": 391.82565038795065
+      },
+      {
+        "fill_pixels": 23870,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8701030927835052,
+        "inliers": 422,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.944617941988175,
+        "sample_id": "training/flip/0017_000000021",
+        "weighted_score": 111.26772883473915
+      },
+      {
+        "fill_pixels": 38779,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8333333333333334,
+        "inliers": 335,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9236662996869025,
+        "sample_id": "training/flip/0017_000000022",
+        "weighted_score": 80.91787439613528
+      }
+    ],
+    "accepted_video_sources": 3,
+    "arm_pixels": 90,
+    "detected_hands": 1,
+    "frame_number": 19,
+    "hand_pixels": 309440,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.1580912422839506,
+    "real_pixel_fill_fraction": 0.9996949526871618,
+    "sample_id": "training/flip/0017_000000019",
+    "video_id": "flip/0017",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 1528,
+        "frame_distance": 4,
+        "inlier_ratio": 0.6287878787878788,
+        "inliers": 83,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9866660038840349,
+        "sample_id": "training/flip/0018_000000025",
+        "weighted_score": 8.698232323232324
+      }
+    ],
+    "accepted_video_sources": 1,
+    "arm_pixels": 420,
+    "detected_hands": 0,
+    "frame_number": 21,
+    "hand_pixels": 0,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.0007368827160493827,
+    "real_pixel_fill_fraction": 1.0,
+    "sample_id": "training/flip/0018_000000021",
+    "video_id": "flip/0018",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 24504,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8974358974358975,
+        "inliers": 1225,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9793769257185374,
+        "sample_id": "testing/flip/0021_000000027",
+        "weighted_score": 523.5042735042734
+      },
+      {
+        "fill_pixels": 11287,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9221604447974583,
+        "inliers": 1161,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9839551277770888,
+        "sample_id": "training/flip/0021_000000029",
+        "weighted_score": 509.8229887665948
+      },
+      {
+        "fill_pixels": 43728,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8716094032549728,
+        "inliers": 964,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9654992320973758,
+        "sample_id": "training/flip/0021_000000026",
+        "weighted_score": 254.615595375089
+      },
+      {
+        "fill_pixels": 22595,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9355179704016914,
+        "inliers": 885,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9841870486783489,
+        "sample_id": "training/flip/0021_000000030",
+        "weighted_score": 376.3333653661349
+      }
+    ],
+    "accepted_video_sources": 4,
+    "arm_pixels": 8,
+    "detected_hands": 1,
+    "frame_number": 28,
+    "hand_pixels": 377056,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.19111882716049383,
+    "real_pixel_fill_fraction": 0.16610985506076142,
+    "sample_id": "training/flip/0021_000000028",
+    "video_id": "flip/0021",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 9016,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9299867899603699,
+        "inliers": 1408,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9912158565294027,
+        "sample_id": "training/flip/0024_000000026",
+        "weighted_score": 623.5340001258099
+      },
+      {
+        "fill_pixels": 24639,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8895207148659626,
+        "inliers": 1095,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9126530467391433,
+        "sample_id": "training/flip/0024_000000025",
+        "weighted_score": 295.15914629643305
+      }
+    ],
+    "accepted_video_sources": 2,
+    "arm_pixels": 111137,
+    "detected_hands": 1,
+    "frame_number": 27,
+    "hand_pixels": 246618,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.18467399691358025,
+    "real_pixel_fill_fraction": 0.06915704810153027,
+    "sample_id": "training/flip/0024_000000027",
+    "video_id": "flip/0024",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 45578,
+        "frame_distance": 2,
+        "inlier_ratio": 0.7954545454545454,
+        "inliers": 315,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9954460121909785,
+        "sample_id": "training/flip/0026_000000020",
+        "weighted_score": 75.9297520661157
+      }
+    ],
+    "accepted_video_sources": 1,
+    "arm_pixels": 36438,
+    "detected_hands": 0,
+    "frame_number": 22,
+    "hand_pixels": 0,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.022042341820987653,
+    "real_pixel_fill_fraction": 0.9971776751919837,
+    "sample_id": "training/flip/0026_000000022",
+    "video_id": "flip/0026",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 238137,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9374379344587885,
+        "inliers": 944,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9941318978488711,
+        "sample_id": "training/flip/0033_000000025",
+        "weighted_score": 421.4006714900459
+      },
+      {
+        "fill_pixels": 277535,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9298892988929889,
+        "inliers": 504,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9896807602405725,
+        "sample_id": "training/flip/0033_000000024",
+        "weighted_score": 213.0291848373029
+      }
+    ],
+    "accepted_video_sources": 2,
+    "arm_pixels": 116121,
+    "detected_hands": 2,
+    "frame_number": 26,
+    "hand_pixels": 368702,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.2413768325617284,
+    "real_pixel_fill_fraction": 0.6832687670198334,
+    "sample_id": "training/flip/0033_000000026",
+    "video_id": "flip/0033",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 6289,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9665637860082305,
+        "inliers": 1879,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9988360913691461,
+        "sample_id": "training/notflip/0016_000000022",
+        "weighted_score": 1729.6889084852048
+      },
+      {
+        "fill_pixels": 5812,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9335766423357664,
+        "inliers": 1279,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9950687164648504,
+        "sample_id": "training/notflip/0016_000000024",
+        "weighted_score": 568.5926312130692
+      },
+      {
+        "fill_pixels": 8663,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9086799276672695,
+        "inliers": 1005,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9739385452121054,
+        "sample_id": "testing/notflip/0016_000000025",
+        "weighted_score": 415.10151241163896
+      },
+      {
+        "fill_pixels": 1941,
+        "frame_distance": 2,
+        "inlier_ratio": 0.944544906570223,
+        "inliers": 1567,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9902904567735978,
+        "sample_id": "training/notflip/0016_000000021",
+        "weighted_score": 1345.5471532686722
+      }
+    ],
+    "accepted_video_sources": 4,
+    "arm_pixels": 4918,
+    "detected_hands": 1,
+    "frame_number": 23,
+    "hand_pixels": 110911,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.06400752314814814,
+    "real_pixel_fill_fraction": 0.1015626177237316,
+    "sample_id": "testing/notflip/0016_000000023",
+    "video_id": "notflip/0016",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 33754,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9151234567901234,
+        "inliers": 1186,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9906717050589305,
+        "sample_id": "training/notflip/0016_000000024",
+        "weighted_score": 516.8268665490888
+      },
+      {
+        "fill_pixels": 34029,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9139072847682119,
+        "inliers": 966,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9896334887875251,
+        "sample_id": "testing/notflip/0016_000000023",
+        "weighted_score": 401.2883804936785
+      },
+      {
+        "fill_pixels": 36855,
+        "frame_distance": 3,
+        "inlier_ratio": 0.896,
+        "inliers": 896,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9867838720667129,
+        "sample_id": "training/notflip/0016_000000022",
+        "weighted_score": 349.05043478260876
+      },
+      {
+        "fill_pixels": 25048,
+        "frame_distance": 4,
+        "inlier_ratio": 0.914396887159533,
+        "inliers": 940,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9867515256301164,
+        "sample_id": "training/notflip/0016_000000021",
+        "weighted_score": 358.13878080415043
+      }
+    ],
+    "accepted_video_sources": 4,
+    "arm_pixels": 2233,
+    "detected_hands": 1,
+    "frame_number": 25,
+    "hand_pixels": 137708,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.07564187885802469,
+    "real_pixel_fill_fraction": 0.24532199348426215,
+    "sample_id": "testing/notflip/0016_000000025",
+    "video_id": "notflip/0016",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 13142,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9452145214521452,
+        "inliers": 1432,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9955905396291082,
+        "sample_id": "training/notflip/0019_000000026",
+        "weighted_score": 1289.092566399497
+      },
+      {
+        "fill_pixels": 24227,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9376832844574781,
+        "inliers": 1279,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9853070626758741,
+        "sample_id": "testing/notflip/0019_000000027",
+        "weighted_score": 1090.2699280191948
+      },
+      {
+        "fill_pixels": 25790,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9074766355140187,
+        "inliers": 971,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9581106358873835,
+        "sample_id": "training/notflip/0019_000000028",
+        "weighted_score": 383.11296221048354
+      },
+      {
+        "fill_pixels": 34605,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8917748917748918,
+        "inliers": 824,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9882621550524388,
+        "sample_id": "training/notflip/0019_000000029",
+        "weighted_score": 204.1173641173641
+      },
+      {
+        "fill_pixels": 33226,
+        "frame_distance": 5,
+        "inlier_ratio": 0.9228486646884273,
+        "inliers": 933,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9860192190527811,
+        "sample_id": "training/notflip/0019_000000030",
+        "weighted_score": 229.6047477744807
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 3989,
+    "detected_hands": 1,
+    "frame_number": 25,
+    "hand_pixels": 95834,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.05331211419753087,
+    "real_pixel_fill_fraction": 0.3471975974237435,
+    "sample_id": "testing/notflip/0019_000000025",
+    "video_id": "notflip/0019",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 19161,
+        "frame_distance": 1,
+        "inlier_ratio": 0.985032362459547,
+        "inliers": 2435,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9938881482180139,
+        "sample_id": "training/notflip/0019_000000026",
+        "weighted_score": 2284.3369548466635
+      },
+      {
+        "fill_pixels": 5480,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9582806573957017,
+        "inliers": 1516,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9714127666733794,
+        "sample_id": "training/notflip/0019_000000028",
+        "weighted_score": 1383.5747396303655
+      },
+      {
+        "fill_pixels": 25844,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9479245283018868,
+        "inliers": 1256,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9871272818115309,
+        "sample_id": "testing/notflip/0019_000000025",
+        "weighted_score": 1082.357461406518
+      },
+      {
+        "fill_pixels": 24214,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9565217391304348,
+        "inliers": 1364,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9963975354778517,
+        "sample_id": "training/notflip/0019_000000029",
+        "weighted_score": 593.0434782608695
+      },
+      {
+        "fill_pixels": 17880,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8938869665513264,
+        "inliers": 775,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9939870553956669,
+        "sample_id": "training/notflip/0019_000000030",
+        "weighted_score": 301.2010430770774
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 0,
+    "detected_hands": 1,
+    "frame_number": 27,
+    "hand_pixels": 99101,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.0540919174382716,
+    "real_pixel_fill_fraction": 0.35227566531449206,
+    "sample_id": "testing/notflip/0019_000000027",
+    "video_id": "notflip/0019",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 17547,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9458637469586375,
+        "inliers": 1555,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9845455931285712,
+        "sample_id": "testing/notflip/0020_000000019",
+        "weighted_score": 1400.7791681149345
+      },
+      {
+        "fill_pixels": 1763,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9575146043547531,
+        "inliers": 1803,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9849140808570362,
+        "sample_id": "training/notflip/0020_000000021",
+        "weighted_score": 1644.1893634777332
+      },
+      {
+        "fill_pixels": 19619,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9316298342541437,
+        "inliers": 1349,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9782565957200755,
+        "sample_id": "training/notflip/0020_000000018",
+        "weighted_score": 571.2584756403818
+      },
+      {
+        "fill_pixels": 11642,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9296,
+        "inliers": 1162,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9628006118683536,
+        "sample_id": "training/notflip/0020_000000017",
+        "weighted_score": 469.6500869565217
+      }
+    ],
+    "accepted_video_sources": 4,
+    "arm_pixels": 28458,
+    "detected_hands": 1,
+    "frame_number": 20,
+    "hand_pixels": 120778,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.08257619598765432,
+    "real_pixel_fill_fraction": 0.1476902411960521,
+    "sample_id": "training/notflip/0020_000000020",
+    "video_id": "notflip/0020",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 34583,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9654806160382369,
+        "inliers": 1818,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9932152924061195,
+        "sample_id": "training/notflip/0023_000000026",
+        "weighted_score": 1671.6607237690614
+      },
+      {
+        "fill_pixels": 55511,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9820234113712375,
+        "inliers": 2349,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9977723726163709,
+        "sample_id": "training/notflip/0023_000000028",
+        "weighted_score": 2196.9266602962252
+      },
+      {
+        "fill_pixels": 8430,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9744973025993134,
+        "inliers": 1987,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.990057137128063,
+        "sample_id": "testing/notflip/0023_000000029",
+        "weighted_score": 1760.2964911498507
+      },
+      {
+        "fill_pixels": 48253,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9573248407643312,
+        "inliers": 1503,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9884373293118376,
+        "sample_id": "training/notflip/0023_000000025",
+        "weighted_score": 1308.0538506079906
+      },
+      {
+        "fill_pixels": 18686,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9533615990308903,
+        "inliers": 1574,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9813784762945147,
+        "sample_id": "testing/notflip/0023_000000030",
+        "weighted_score": 652.4309377715746
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 54728,
+    "detected_hands": 1,
+    "frame_number": 27,
+    "hand_pixels": 93788,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.07646508487654322,
+    "real_pixel_fill_fraction": 0.5015830169401733,
+    "sample_id": "training/notflip/0023_000000027",
+    "video_id": "notflip/0023",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 13583,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9184549356223176,
+        "inliers": 1070,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9907042612700575,
+        "sample_id": "training/flip/0059_000000027",
+        "weighted_score": 467.97465767422847
+      },
+      {
+        "fill_pixels": 33003,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9067599067599068,
+        "inliers": 1167,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9897072140410696,
+        "sample_id": "training/flip/0059_000000029",
+        "weighted_score": 201.5597735597736
+      },
+      {
+        "fill_pixels": 22461,
+        "frame_distance": 2,
+        "inlier_ratio": 0.916219119226638,
+        "inliers": 853,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.97951242088262,
+        "sample_id": "training/flip/0059_000000026",
+        "weighted_score": 236.82876021221884
+      },
+      {
+        "fill_pixels": 25241,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8488372093023255,
+        "inliers": 730,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9684250667944903,
+        "sample_id": "training/flip/0059_000000030",
+        "weighted_score": 93.88653981677236
+      },
+      {
+        "fill_pixels": 30266,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8428571428571429,
+        "inliers": 354,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.942341862642429,
+        "sample_id": "training/flip/0059_000000025",
+        "weighted_score": 51.89068322981367
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 71956,
+    "detected_hands": 2,
+    "frame_number": 28,
+    "hand_pixels": 323078,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.18306230709876542,
+    "real_pixel_fill_fraction": 0.197026854725262,
+    "sample_id": "testing/flip/0059_000000028",
+    "video_id": "flip/0059",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 21869,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9096385542168675,
+        "inliers": 1510,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9868330254643267,
+        "sample_id": "training/flip/0059_000000029",
+        "weighted_score": 654.0734366035571
+      },
+      {
+        "fill_pixels": 10552,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8725728155339806,
+        "inliers": 719,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9806347656479215,
+        "sample_id": "testing/flip/0059_000000028",
+        "weighted_score": 95.05755369226242
+      },
+      {
+        "fill_pixels": 28895,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8966725043782837,
+        "inliers": 512,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9724091473475931,
+        "sample_id": "training/flip/0059_000000027",
+        "weighted_score": 66.53569887560599
+      },
+      {
+        "fill_pixels": 29581,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8245192307692307,
+        "inliers": 343,
+        "median_gray_abs_error": 6.0,
+        "overlap_fraction": 0.9689359389926464,
+        "sample_id": "training/flip/0059_000000026",
+        "weighted_score": 33.66786858974359
+      },
+      {
+        "fill_pixels": 41784,
+        "frame_distance": 5,
+        "inlier_ratio": 0.8125,
+        "inliers": 247,
+        "median_gray_abs_error": 8.0,
+        "overlap_fraction": 0.925835060451077,
+        "sample_id": "training/flip/0059_000000025",
+        "weighted_score": 17.83888888888889
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 63511,
+    "detected_hands": 2,
+    "frame_number": 30,
+    "hand_pixels": 319413,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.17815007716049383,
+    "real_pixel_fill_fraction": 0.18880545299015733,
+    "sample_id": "training/flip/0059_000000030",
+    "video_id": "flip/0059",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 3592,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9680918953414167,
+        "inliers": 1517,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8601959033657168,
+        "sample_id": "testing/flip/0060_000000052",
+        "weighted_score": 699.3311453490138
+      },
+      {
+        "fill_pixels": 1765,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9178082191780822,
+        "inliers": 1072,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9679162192086445,
+        "sample_id": "training/flip/0060_000000050",
+        "weighted_score": 312.34616220917593
+      },
+      {
+        "fill_pixels": 42447,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9431230610134437,
+        "inliers": 912,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.8485437842877717,
+        "sample_id": "testing/flip/0060_000000053",
+        "weighted_score": 390.9673780201184
+      },
+      {
+        "fill_pixels": 4363,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8923076923076924,
+        "inliers": 638,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9625638928431691,
+        "sample_id": "training/flip/0060_000000049",
+        "weighted_score": 103.50769230769231
+      },
+      {
+        "fill_pixels": 1510,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8506616257088847,
+        "inliers": 450,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9691711828708907,
+        "sample_id": "training/flip/0060_000000048",
+        "weighted_score": 66.5735185337388
+      },
+      {
+        "fill_pixels": 34449,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9302030456852792,
+        "inliers": 733,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.8450681801153818,
+        "sample_id": "training/flip/0060_000000054",
+        "weighted_score": 197.6344441992202
+      },
+      {
+        "fill_pixels": 28320,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9148936170212766,
+        "inliers": 602,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.7994269415515763,
+        "sample_id": "testing/flip/0060_000000055",
+        "weighted_score": 91.79432624113477
+      },
+      {
+        "fill_pixels": 11005,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8291571753986332,
+        "inliers": 364,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.944607298352522,
+        "sample_id": "training/flip/0060_000000047",
+        "weighted_score": 41.91850164515313
+      }
+    ],
+    "accepted_video_sources": 8,
+    "arm_pixels": 54524,
+    "detected_hands": 1,
+    "frame_number": 51,
+    "hand_pixels": 133226,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.073125,
+    "real_pixel_fill_fraction": 0.33084705075445814,
+    "sample_id": "training/flip/0060_000000051",
+    "video_id": "flip/0060",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 8349,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9390581717451524,
+        "inliers": 1356,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9730045005493742,
+        "sample_id": "training/flip/0062_000000026",
+        "weighted_score": 404.2421844083894
+      },
+      {
+        "fill_pixels": 20659,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9649122807017544,
+        "inliers": 1595,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9176358681310245,
+        "sample_id": "training/flip/0062_000000028",
+        "weighted_score": 732.8738512949038
+      },
+      {
+        "fill_pixels": 25371,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8269030239833159,
+        "inliers": 793,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.9772687470911962,
+        "sample_id": "training/flip/0062_000000025",
+        "weighted_score": 149.0304768224476
+      },
+      {
+        "fill_pixels": 73542,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8876106194690265,
+        "inliers": 1003,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.7975808347607464,
+        "sample_id": "training/flip/0062_000000029",
+        "weighted_score": 202.33487530168944
+      },
+      {
+        "fill_pixels": 38439,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8952187182095626,
+        "inliers": 880,
+        "median_gray_abs_error": 3.0,
+        "overlap_fraction": 0.942724151828768,
+        "sample_id": "training/flip/0062_000000030",
+        "weighted_score": 171.2592330487859
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 42118,
+    "detected_hands": 2,
+    "frame_number": 27,
+    "hand_pixels": 382187,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.19591435185185185,
+    "real_pixel_fill_fraction": 0.24644552096256475,
+    "sample_id": "training/flip/0062_000000027",
+    "video_id": "flip/0062",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 17138,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8579136690647482,
+        "inliers": 954,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9382601296224221,
+        "sample_id": "training/flip/0064_000000028",
+        "weighted_score": 155.89516957862278
+      },
+      {
+        "fill_pixels": 49639,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8630573248407644,
+        "inliers": 542,
+        "median_gray_abs_error": 4.0,
+        "overlap_fraction": 0.9799208534483383,
+        "sample_id": "testing/flip/0064_000000027",
+        "weighted_score": 85.05037637521713
+      }
+    ],
+    "accepted_video_sources": 2,
+    "arm_pixels": 100374,
+    "detected_hands": 2,
+    "frame_number": 29,
+    "hand_pixels": 356027,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.2020389660493827,
+    "real_pixel_fill_fraction": 0.1323839712804453,
+    "sample_id": "training/flip/0064_000000029",
+    "video_id": "flip/0064",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 28160,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8016806722689076,
+        "inliers": 954,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9585075308296701,
+        "sample_id": "testing/flip/0065_000000025",
+        "weighted_score": 364.1920768307323
+      },
+      {
+        "fill_pixels": 30663,
+        "frame_distance": 2,
+        "inlier_ratio": 0.7824897400820794,
+        "inliers": 572,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9459354315914779,
+        "sample_id": "testing/flip/0065_000000026",
+        "weighted_score": 135.63155494756043
+      },
+      {
+        "fill_pixels": 29662,
+        "frame_distance": 3,
+        "inlier_ratio": 0.7052238805970149,
+        "inliers": 378,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9486933096209605,
+        "sample_id": "training/flip/0065_000000027",
+        "weighted_score": 38.6340038935756
+      },
+      {
+        "fill_pixels": 29883,
+        "frame_distance": 4,
+        "inlier_ratio": 0.7443181818181818,
+        "inliers": 262,
+        "median_gray_abs_error": 5.0,
+        "overlap_fraction": 0.9438588062063311,
+        "sample_id": "training/flip/0065_000000028",
+        "weighted_score": 27.084911616161616
+      },
+      {
+        "fill_pixels": 31704,
+        "frame_distance": 5,
+        "inlier_ratio": 0.8122977346278317,
+        "inliers": 251,
+        "median_gray_abs_error": 7.0,
+        "overlap_fraction": 0.9184128247603066,
+        "sample_id": "training/flip/0065_000000029",
+        "weighted_score": 20.388673139158577
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 122635,
+    "detected_hands": 2,
+    "frame_number": 24,
+    "hand_pixels": 345521,
+    "label": "flip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.19300347222222222,
+    "real_pixel_fill_fraction": 0.1367725105693982,
+    "sample_id": "training/flip/0065_000000024",
+    "video_id": "flip/0065",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 1369,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9135206321334504,
+        "inliers": 2081,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9959079015397859,
+        "sample_id": "training/notflip/0052_000000028",
+        "weighted_score": 1810.5108909235335
+      },
+      {
+        "fill_pixels": 2087,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9558336400441664,
+        "inliers": 2597,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9976983258404261,
+        "sample_id": "training/notflip/0052_000000030",
+        "weighted_score": 2364.0952030425715
+      },
+      {
+        "fill_pixels": 1908,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9027845627747924,
+        "inliers": 1848,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.990631110131303,
+        "sample_id": "training/notflip/0052_000000027",
+        "weighted_score": 1516.6780654616512
+      },
+      {
+        "fill_pixels": 2074,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8991825613079019,
+        "inliers": 1650,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9878712007285573,
+        "sample_id": "training/notflip/0052_000000026",
+        "weighted_score": 645.0657505034949
+      },
+      {
+        "fill_pixels": 5047,
+        "frame_distance": 4,
+        "inlier_ratio": 0.893739230327398,
+        "inliers": 1556,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9842940264075775,
+        "sample_id": "training/notflip/0052_000000025",
+        "weighted_score": 579.4409343289298
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 121393,
+    "detected_hands": 1,
+    "frame_number": 29,
+    "hand_pixels": 114786,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.0812427662037037,
+    "real_pixel_fill_fraction": 0.04095212655447719,
+    "sample_id": "testing/notflip/0052_000000029",
+    "video_id": "notflip/0052",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 1748,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9672272531263476,
+        "inliers": 2243,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9980914263400097,
+        "sample_id": "testing/notflip/0042_000000030",
+        "weighted_score": 2066.1816464403787
+      },
+      {
+        "fill_pixels": 7493,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9760649087221095,
+        "inliers": 2406,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9972527545210231,
+        "sample_id": "training/notflip/0042_000000028",
+        "weighted_score": 2236.583019414662
+      },
+      {
+        "fill_pixels": 5660,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9673524150268337,
+        "inliers": 2163,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9915476696299738,
+        "sample_id": "testing/notflip/0042_000000027",
+        "weighted_score": 951.083306228655
+      },
+      {
+        "fill_pixels": 9211,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9721800708143652,
+        "inliers": 1922,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9889189493796738,
+        "sample_id": "training/notflip/0042_000000026",
+        "weighted_score": 812.4043896109608
+      },
+      {
+        "fill_pixels": 12483,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9595588235294118,
+        "inliers": 1827,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9803338072578712,
+        "sample_id": "training/notflip/0042_000000025",
+        "weighted_score": 730.4641544117648
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 138670,
+    "detected_hands": 1,
+    "frame_number": 29,
+    "hand_pixels": 142055,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.08859326774691358,
+    "real_pixel_fill_fraction": 0.08072637406304604,
+    "sample_id": "training/notflip/0042_000000029",
+    "video_id": "notflip/0042",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 155,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9647331786542923,
+        "inliers": 2079,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9975357140039914,
+        "sample_id": "testing/notflip/0049_000000026",
+        "weighted_score": 1910.1716937354986
+      },
+      {
+        "fill_pixels": 823,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9632867132867133,
+        "inliers": 2204,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9922285065196299,
+        "sample_id": "training/notflip/0049_000000027",
+        "weighted_score": 965.0381436745074
+      },
+      {
+        "fill_pixels": 266,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9611895161290323,
+        "inliers": 1907,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9935984307662373,
+        "sample_id": "testing/notflip/0049_000000028",
+        "weighted_score": 796.9514814165498
+      },
+      {
+        "fill_pixels": 655,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9524076147816349,
+        "inliers": 1701,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9936915119914387,
+        "sample_id": "training/notflip/0049_000000029",
+        "weighted_score": 675.0188969764838
+      },
+      {
+        "fill_pixels": 609,
+        "frame_distance": 5,
+        "inlier_ratio": 0.951937984496124,
+        "inliers": 1842,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9953312140263415,
+        "sample_id": "training/notflip/0049_000000030",
+        "weighted_score": 701.3879069767441
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 138557,
+    "detected_hands": 1,
+    "frame_number": 25,
+    "hand_pixels": 129955,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.08296440972222222,
+    "real_pixel_fill_fraction": 0.009451565088499434,
+    "sample_id": "training/notflip/0049_000000025",
+    "video_id": "notflip/0049",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 1984,
+        "frame_distance": 1,
+        "inlier_ratio": 0.8997275204359673,
+        "inliers": 1651,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9964566576669541,
+        "sample_id": "testing/notflip/0051_000000025",
+        "weighted_score": 1414.7144154664588
+      },
+      {
+        "fill_pixels": 3582,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9251700680272109,
+        "inliers": 1904,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.9963048300551658,
+        "sample_id": "training/notflip/0051_000000027",
+        "weighted_score": 1677.6417233560092
+      },
+      {
+        "fill_pixels": 4143,
+        "frame_distance": 2,
+        "inlier_ratio": 0.8986636971046771,
+        "inliers": 1614,
+        "median_gray_abs_error": 0.0,
+        "overlap_fraction": 0.997402700751442,
+        "sample_id": "training/notflip/0051_000000028",
+        "weighted_score": 1318.5847337517716
+      },
+      {
+        "fill_pixels": 5674,
+        "frame_distance": 3,
+        "inlier_ratio": 0.8646922183507549,
+        "inliers": 1489,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9855041278786384,
+        "sample_id": "training/notflip/0051_000000029",
+        "weighted_score": 559.7942230975104
+      },
+      {
+        "fill_pixels": 2565,
+        "frame_distance": 4,
+        "inlier_ratio": 0.8849135360763267,
+        "inliers": 1484,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9968854397843838,
+        "sample_id": "training/notflip/0051_000000030",
+        "weighted_score": 547.171536473862
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 124284,
+    "detected_hands": 1,
+    "frame_number": 26,
+    "hand_pixels": 112579,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.0788671875,
+    "real_pixel_fill_fraction": 0.050941977143066794,
+    "sample_id": "training/notflip/0051_000000026",
+    "video_id": "notflip/0051",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 2952,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9683908045977011,
+        "inliers": 2022,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9935208369402784,
+        "sample_id": "training/notflip/0053_000000026",
+        "weighted_score": 932.4220032840722
+      },
+      {
+        "fill_pixels": 584,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9683995922528033,
+        "inliers": 1900,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9969097525343639,
+        "sample_id": "training/notflip/0053_000000028",
+        "weighted_score": 876.1710596572981
+      },
+      {
+        "fill_pixels": 2896,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9640151515151515,
+        "inliers": 2036,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9967183120177046,
+        "sample_id": "testing/notflip/0053_000000025",
+        "weighted_score": 892.1522038567492
+      },
+      {
+        "fill_pixels": 655,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9655172413793104,
+        "inliers": 1960,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9984669066821632,
+        "sample_id": "training/notflip/0053_000000029",
+        "weighted_score": 860.1880877742947
+      },
+      {
+        "fill_pixels": 1418,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9633273703041145,
+        "inliers": 2154,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9978601553178881,
+        "sample_id": "training/notflip/0053_000000030",
+        "weighted_score": 902.1770241891577
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 119618,
+    "detected_hands": 1,
+    "frame_number": 27,
+    "hand_pixels": 114617,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.07801842206790123,
+    "real_pixel_fill_fraction": 0.026511475531434858,
+    "sample_id": "training/notflip/0053_000000027",
+    "video_id": "notflip/0053",
+    "video_lama_outside_mask_changed": 0
+  },
+  {
+    "accepted_source_details": [
+      {
+        "fill_pixels": 561,
+        "frame_distance": 1,
+        "inlier_ratio": 0.9723076923076923,
+        "inliers": 2212,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9985016756130317,
+        "sample_id": "training/notflip/0053_000000029",
+        "weighted_score": 1024.1641025641024
+      },
+      {
+        "fill_pixels": 266,
+        "frame_distance": 2,
+        "inlier_ratio": 0.9707822808671065,
+        "inliers": 2060,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9968574411025157,
+        "sample_id": "training/notflip/0053_000000028",
+        "weighted_score": 909.0052266301087
+      },
+      {
+        "fill_pixels": 916,
+        "frame_distance": 3,
+        "inlier_ratio": 0.9691136974037601,
+        "inliers": 2165,
+        "median_gray_abs_error": 1.0,
+        "overlap_fraction": 0.9972062656631119,
+        "sample_id": "training/notflip/0053_000000027",
+        "weighted_score": 912.2309369039742
+      },
+      {
+        "fill_pixels": 1774,
+        "frame_distance": 4,
+        "inlier_ratio": 0.9572254335260115,
+        "inliers": 1656,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9951070425952966,
+        "sample_id": "training/notflip/0053_000000026",
+        "weighted_score": 440.32369942196533
+      },
+      {
+        "fill_pixels": 2304,
+        "frame_distance": 5,
+        "inlier_ratio": 0.9667370644139388,
+        "inliers": 1831,
+        "median_gray_abs_error": 2.0,
+        "overlap_fraction": 0.9974572938326562,
+        "sample_id": "testing/notflip/0053_000000025",
+        "weighted_score": 472.02548398451256
+      }
+    ],
+    "accepted_video_sources": 5,
+    "arm_pixels": 120660,
+    "detected_hands": 1,
+    "frame_number": 30,
+    "hand_pixels": 113214,
+    "label": "notflip",
+    "lama_full_outside_mask_changed": 0,
+    "mask_fraction": 0.07786651234567901,
+    "real_pixel_fill_fraction": 0.021069712133974138,
+    "sample_id": "training/notflip/0053_000000030",
+    "video_id": "notflip/0053",
+    "video_lama_outside_mask_changed": 0
+  }
+]

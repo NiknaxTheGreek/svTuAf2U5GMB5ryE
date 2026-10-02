@@ -1,0 +1,22 @@
+{
+  "classifier_predictions_used": false,
+  "images": 48,
+  "lama_max_side": 1024,
+  "lama_model_sha256": "7ba7aa7ac37a4d41fdbbeba3a2af7ead18058552997e3a3cd1a3b2210c9e6b4c",
+  "outside_mask_preservation": {
+    "lama_full_images_changed_outside_mask": 0,
+    "video_lama_images_changed_outside_mask": 0
+  },
+  "package": "simple-lama-inpainting==0.1.2",
+  "primary_test_images_used": 0,
+  "status": "LAMA_48_READY_FOR_VISUAL_REVIEW",
+  "variants": [
+    "lama_full",
+    "video_lama_residual"
+  ],
+  "video_real_pixel_fill_fraction": {
+    "mean": 0.2974848478296433,
+    "median": 0.1862639345054805
+  },
+  "visual_gate": "PENDING"
+}
