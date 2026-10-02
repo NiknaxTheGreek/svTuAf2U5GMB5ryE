@@ -149,12 +149,12 @@ def choose_donor(
     target_id: str,
     target_env: str,
     context_rows: list[dict[str, str]],
-    by_id: dict[str, dict[str, str]],
+    st_by_id: dict[str, dict[str, str]],
 ) -> dict[str, str]:
     candidates = [
         r for r in context_rows
         if r["sample_id"] != target_id
-        and by_id[r["sample_id"]]["environment_id"] != target_env
+        and st_by_id[r["sample_id"]]["environment_id"] != target_env
     ]
     if not candidates:
         candidates = [r for r in context_rows if r["sample_id"] != target_id]
@@ -229,6 +229,7 @@ def main() -> None:
     manifest = read_csv(args.manifest)
     by_id = {r["sample_id"]: r for r in manifest}
     st = read_csv(args.st_membership)
+    st_by_id = {r["sample_id"]: r for r in st}
     sample = read_csv(args.sample)
 
     context_rows = [r for r in st if r["role"] == "context"]
@@ -263,11 +264,12 @@ def main() -> None:
 
             donor_row = choose_donor(
                 sid,
-                meta["environment_id"],
+                st_by_id[sid]["environment_id"],
                 context_rows,
-                by_id,
+                st_by_id,
             )
             donor_meta = by_id[donor_row["sample_id"]]
+            donor_st = st_by_id[donor_row["sample_id"]]
             donor = decode_member(z, donor_meta["archive_member"])
             natural, nm, ne = naturalistic_transfer(original, donor)
 
@@ -279,12 +281,12 @@ def main() -> None:
 
             rec = {
                 "sample_id": sid,
-                "target_environment_id": meta["environment_id"],
+                "target_environment_id": st_by_id[sid]["environment_id"],
                 "target_label_recorded_but_not_used_for_donor": meta["label"],
                 "donor_sample_id": donor_row["sample_id"],
-                "donor_environment_id": donor_meta["environment_id"],
+                "donor_environment_id": donor_st_by_id[sid]["environment_id"],
                 "donor_label_recorded_but_not_used_for_selection": donor_meta["label"],
-                "different_environment": donor_meta["environment_id"] != meta["environment_id"],
+                "different_environment": donor_st_by_id[sid]["environment_id"] != st_by_id[sid]["environment_id"],
                 "matched": mm,
                 "naturalistic": nm,
                 "shape": list(original.shape),
@@ -292,9 +294,9 @@ def main() -> None:
             records.append(rec)
             visuals.append({
                 "sample_id": sid,
-                "target_env": meta["environment_id"],
+                "target_env": st_by_id[sid]["environment_id"],
                 "donor_id": donor_row["sample_id"],
-                "donor_env": donor_meta["environment_id"],
+                "donor_env": donor_st_by_id[sid]["environment_id"],
                 "original": original,
                 "grayscale": gray,
                 "matched": matched,
