@@ -1,0 +1,27 @@
+{
+  "classifier_predictions_used": false,
+  "images": 100,
+  "matched_rotation": {
+    "mean_gamut_compressed_fraction": 0.03105041473765432,
+    "mean_luma_mae": 0.17058410162326376,
+    "p95_per_image_luma_mae": 0.1970544743393137,
+    "quantitative_luma_gate_pass": true
+  },
+  "naturalistic": {
+    "luma_gate_pass": true,
+    "mean_gamut_compressed_fraction": 0.01356821952160494,
+    "mean_luma_mae": 0.18492375214409723,
+    "median_per_image_chroma_displacement": 1.5537160435986561,
+    "nontrivial_chroma_gate_pass": false,
+    "p95_per_image_luma_mae": 0.2553230868827172,
+    "visual_gate": "PENDING"
+  },
+  "primary_test_images_used": 0,
+  "quantitative_gate_pass": false,
+  "same_environment_donors": 0,
+  "same_label_fraction_after_selection": 0.51,
+  "same_video_donors": 0,
+  "status": "CHROMA_100_READY_FOR_VISUAL_REVIEW",
+  "target_label_used_for_donor_selection": false,
+  "universal_donor_pool_size": 1428
+}
