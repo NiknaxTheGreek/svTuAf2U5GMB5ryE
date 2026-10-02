@@ -1,0 +1,2902 @@
+[
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0016_000000023",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.0713417709516046,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0016",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9907002314814815,
+      "gamut_compressed_fraction": 0.009299768518518518,
+      "luma_mae": 0.211846248939045,
+      "mean_chroma_displacement": 8.000259837836909,
+      "mean_gamut_scale": 0.997045201578258,
+      "median_chroma_displacement": 5.578708683783684
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.988028549382716,
+      "gamut_compressed_fraction": 0.011971450617283951,
+      "luma_mae": 0.16552011467978334,
+      "mean_gamut_scale": 0.9987986018333906
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0041_000000012",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0041"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000014",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.07123996696754054,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9871103395061729,
+      "gamut_compressed_fraction": 0.01288966049382716,
+      "luma_mae": 0.16596333410493913,
+      "mean_chroma_displacement": 7.710234173278669,
+      "mean_gamut_scale": 0.9964542699448856,
+      "median_chroma_displacement": 6.06325621689958
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9908193479938272,
+      "gamut_compressed_fraction": 0.00918065200617284,
+      "luma_mae": 0.18948174594907397,
+      "mean_gamut_scale": 0.9988260117872262
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0035_000000017",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0035"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0059_000000008",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05037712741835854,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0059",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9511458333333334,
+      "gamut_compressed_fraction": 0.048854166666666664,
+      "luma_mae": 0.1861602127700611,
+      "mean_chroma_displacement": 5.853560586144197,
+      "mean_gamut_scale": 0.9861933135691984,
+      "median_chroma_displacement": 4.166083972823459
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9679075038580247,
+      "gamut_compressed_fraction": 0.03209249614197531,
+      "luma_mae": 0.16496740084876527,
+      "mean_gamut_scale": 0.9959644779452571
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0006_000000028",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0006"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0022_000000018",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03369600749400243,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0022",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.961486786265432,
+      "gamut_compressed_fraction": 0.038513213734567904,
+      "luma_mae": 0.16167164062499956,
+      "mean_chroma_displacement": 3.839891664462991,
+      "mean_gamut_scale": 0.9931035001483964,
+      "median_chroma_displacement": 3.03162810844979
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9776668595679012,
+      "gamut_compressed_fraction": 0.022333140432098764,
+      "luma_mae": 0.1655393598572532,
+      "mean_gamut_scale": 0.9971994028562381
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0009_000000025",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0009"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0054_000000014",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.06599365013932759,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0054",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9736043595679013,
+      "gamut_compressed_fraction": 0.026395640432098764,
+      "luma_mae": 0.1893662093942912,
+      "mean_chroma_displacement": 7.586083406709192,
+      "mean_gamut_scale": 0.9873222228038459,
+      "median_chroma_displacement": 5.578708683783684
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9536091820987654,
+      "gamut_compressed_fraction": 0.04639081790123457,
+      "luma_mae": 0.18017202035107993,
+      "mean_gamut_scale": 0.9928226439158122
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0013_000000030",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0013"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0061_000000013",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.020251246339171098,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0061",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9815721450617284,
+      "gamut_compressed_fraction": 0.018427854938271603,
+      "luma_mae": 0.1890915064621913,
+      "mean_chroma_displacement": 2.6400861773332136,
+      "mean_gamut_scale": 0.9946462008982528,
+      "median_chroma_displacement": 2.2591606907445825
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9829846643518518,
+      "gamut_compressed_fraction": 0.01701533564814815,
+      "luma_mae": 0.16899465596064797,
+      "mean_gamut_scale": 0.9974507823402499
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0019_000000027",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0019"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0011_000000020",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03997369534869687,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0011",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9875728202160494,
+      "gamut_compressed_fraction": 0.012426697530864197,
+      "luma_mae": 0.15085063146219205,
+      "mean_chroma_displacement": 4.394862996068025,
+      "mean_gamut_scale": 0.9975217736797568,
+      "median_chroma_displacement": 3.031628108449791
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9582648533950617,
+      "gamut_compressed_fraction": 0.041735146604938274,
+      "luma_mae": 0.14306825597993933,
+      "mean_gamut_scale": 0.9915560375908274
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0052_000000029",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0052"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000007",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.07123251103286216,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9260570987654321,
+      "gamut_compressed_fraction": 0.07394145447530864,
+      "luma_mae": 0.1626167100694441,
+      "mean_chroma_displacement": 7.541429542431856,
+      "mean_gamut_scale": 0.969762789496669,
+      "median_chroma_displacement": 5.30744483550921
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9726779513888889,
+      "gamut_compressed_fraction": 0.02732204861111111,
+      "luma_mae": 0.15309978530092613,
+      "mean_gamut_scale": 0.9951391617457072
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0043_000000030",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0043"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000008",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.07499710889837947,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9959953703703703,
+      "gamut_compressed_fraction": 0.00400462962962963,
+      "luma_mae": 0.15617522694830183,
+      "mean_chroma_displacement": 8.044657290824965,
+      "mean_gamut_scale": 0.998694634054914,
+      "median_chroma_displacement": 6.031249376344574
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9875655864197531,
+      "gamut_compressed_fraction": 0.012434413580246913,
+      "luma_mae": 0.17084330073302473,
+      "mean_gamut_scale": 0.998524104077139
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0035_000000009",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0035"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0008_000000001",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.034980133655918136,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0008",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9911675347222222,
+      "gamut_compressed_fraction": 0.008832465277777778,
+      "luma_mae": 0.13609133082561728,
+      "mean_chroma_displacement": 4.007076429654671,
+      "mean_gamut_scale": 0.9974011451226693,
+      "median_chroma_displacement": 3.3282093938138737
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9877989969135802,
+      "gamut_compressed_fraction": 0.012200520833333334,
+      "luma_mae": 0.1893452135416658,
+      "mean_gamut_scale": 0.9986709292141008
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0030_000000013",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0030"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0044_000000015",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.04492238266951556,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0044",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9371339699074074,
+      "gamut_compressed_fraction": 0.06286603009259259,
+      "luma_mae": 0.15210566676311724,
+      "mean_chroma_displacement": 5.28978347569708,
+      "mean_gamut_scale": 0.9749823139331959,
+      "median_chroma_displacement": 4.5373658060020885
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9559423225308642,
+      "gamut_compressed_fraction": 0.0440576774691358,
+      "luma_mae": 0.1789545254629631,
+      "mean_gamut_scale": 0.994131066740295
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/flip/0003_000000025",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0003"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0049_000000021",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.025245498318564194,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0049",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9865190972222222,
+      "gamut_compressed_fraction": 0.013480902777777777,
+      "luma_mae": 0.24022601842206787,
+      "mean_chroma_displacement": 3.0469265788887308,
+      "mean_gamut_scale": 0.9976463110947315,
+      "median_chroma_displacement": 2.051835344218087
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9816893325617284,
+      "gamut_compressed_fraction": 0.018310667438271606,
+      "luma_mae": 0.15694321604938233,
+      "mean_gamut_scale": 0.9974093941405967
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0011_000000025",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0011"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0061_000000013",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.07699502499323063,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0061",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9585382908950617,
+      "gamut_compressed_fraction": 0.04146170910493827,
+      "luma_mae": 0.1810192423804013,
+      "mean_chroma_displacement": 8.72147981306424,
+      "mean_gamut_scale": 0.98181502033163,
+      "median_chroma_displacement": 6.5521305588329195
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.931141975308642,
+      "gamut_compressed_fraction": 0.06885802469135803,
+      "luma_mae": 0.16154890952932094,
+      "mean_gamut_scale": 0.9898406282472022
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0018_000000023",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0018"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0051_000000015",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05825217181644173,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0051",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9711106288580247,
+      "gamut_compressed_fraction": 0.028889371141975307,
+      "luma_mae": 0.19980547955246977,
+      "mean_chroma_displacement": 6.5945409443848035,
+      "mean_gamut_scale": 0.9921593571297916,
+      "median_chroma_displacement": 5.0997214375148205
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9774305555555556,
+      "gamut_compressed_fraction": 0.022569444444444444,
+      "luma_mae": 0.15595542457561737,
+      "mean_gamut_scale": 0.9974709736270669
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0015_000000030",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0015"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0017_000000016",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04046170306991236,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0017",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.946929012345679,
+      "gamut_compressed_fraction": 0.053070987654320986,
+      "luma_mae": 0.2022581587577158,
+      "mean_chroma_displacement": 4.4091707794032065,
+      "mean_gamut_scale": 0.9766623568240507,
+      "median_chroma_displacement": 2.5647941802726515
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9625665509259259,
+      "gamut_compressed_fraction": 0.037433449074074074,
+      "luma_mae": 0.15556832677469196,
+      "mean_gamut_scale": 0.9924826505449084
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0060_000000047",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0060"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000006",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.07979243756665585,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.8912152777777778,
+      "gamut_compressed_fraction": 0.10878038194444445,
+      "luma_mae": 0.19342829976851877,
+      "mean_chroma_displacement": 8.358641138247956,
+      "mean_gamut_scale": 0.9559127549477565,
+      "median_chroma_displacement": 6.66846486870884
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9781674382716049,
+      "gamut_compressed_fraction": 0.021832561728395063,
+      "luma_mae": 0.16047508024691387,
+      "mean_gamut_scale": 0.9958042672239704
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "testing/notflip/0042_000000030",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0042"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0008_000000010",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.04582869898517479,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0008",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9909495563271605,
+      "gamut_compressed_fraction": 0.009050443672839506,
+      "luma_mae": 0.19763218518518536,
+      "mean_chroma_displacement": 5.139946986021236,
+      "mean_gamut_scale": 0.9966157918800542,
+      "median_chroma_displacement": 3.71755086518798
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9841179591049383,
+      "gamut_compressed_fraction": 0.01588204089506173,
+      "luma_mae": 0.1820239354745369,
+      "mean_gamut_scale": 0.997938335089036
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0038_000000004",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0038"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0019_000000017",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03432590304622957,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0019",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9972487461419753,
+      "gamut_compressed_fraction": 0.002751253858024691,
+      "luma_mae": 0.19060452613811762,
+      "mean_chroma_displacement": 3.959768761500202,
+      "mean_gamut_scale": 0.999254123987975,
+      "median_chroma_displacement": 3.3546050074165996
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9759129050925925,
+      "gamut_compressed_fraction": 0.024087094907407406,
+      "luma_mae": 0.19766546855709718,
+      "mean_gamut_scale": 0.9968520225713282
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0029_000000012",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0029"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0051_000000007",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.038541429735365354,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0051",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9334640239197531,
+      "gamut_compressed_fraction": 0.06653597608024692,
+      "luma_mae": 0.18290938908179047,
+      "mean_chroma_displacement": 4.6362221105168215,
+      "mean_gamut_scale": 0.9769058766482789,
+      "median_chroma_displacement": 3.8247910781361187
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.956469425154321,
+      "gamut_compressed_fraction": 0.043530574845679015,
+      "luma_mae": 0.16657621257715916,
+      "mean_gamut_scale": 0.9944621830810735
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0002_000000019",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0002"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0059_000000007",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.036503937125835086,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0059",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9669492669753087,
+      "gamut_compressed_fraction": 0.03305073302469136,
+      "luma_mae": 0.2154160364583332,
+      "mean_chroma_displacement": 4.1666137575922075,
+      "mean_gamut_scale": 0.9947862476478389,
+      "median_chroma_displacement": 2.549860718757416
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9737697723765432,
+      "gamut_compressed_fraction": 0.02623022762345679,
+      "luma_mae": 0.16257794531249972,
+      "mean_gamut_scale": 0.996421344957234
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0007_000000027",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0007"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0061_000000012",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.08130434453839173,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0061",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9608825231481481,
+      "gamut_compressed_fraction": 0.03911747685185185,
+      "luma_mae": 0.2071407286844132,
+      "mean_chroma_displacement": 9.12239819439186,
+      "mean_gamut_scale": 0.984547504996076,
+      "median_chroma_displacement": 6.374651796893539
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9645867091049383,
+      "gamut_compressed_fraction": 0.035413290895061726,
+      "luma_mae": 0.15654831404320982,
+      "mean_gamut_scale": 0.995425315786291
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0015_000000026",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0015"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0005_000000001",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.04543883328817298,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0005",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9790321180555556,
+      "gamut_compressed_fraction": 0.020967881944444444,
+      "luma_mae": 0.15515506346450575,
+      "mean_chroma_displacement": 5.114225037835336,
+      "mean_gamut_scale": 0.9937536583123384,
+      "median_chroma_displacement": 3.7175508651879756
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9833082561728395,
+      "gamut_compressed_fraction": 0.016691743827160495,
+      "luma_mae": 0.18219865277777764,
+      "mean_gamut_scale": 0.9983613625573523
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0023_000000026",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0023"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0021_000000021",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.0352031407149475,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0021",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9959784915123456,
+      "gamut_compressed_fraction": 0.004021508487654321,
+      "luma_mae": 0.14878353964120372,
+      "mean_chroma_displacement": 3.947545569362441,
+      "mean_gamut_scale": 0.9988536001134802,
+      "median_chroma_displacement": 2.564794180272623
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9603858024691359,
+      "gamut_compressed_fraction": 0.0396141975308642,
+      "luma_mae": 0.14638964072145097,
+      "mean_gamut_scale": 0.9922124228948428
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0051_000000027",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0051"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0013_000000018",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05614005795944327,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0013",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9552912808641976,
+      "gamut_compressed_fraction": 0.04470871913580247,
+      "luma_mae": 0.17172210358796317,
+      "mean_chroma_displacement": 6.316846364531968,
+      "mean_gamut_scale": 0.980883389107975,
+      "median_chroma_displacement": 5.0208785634781306
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9735416666666666,
+      "gamut_compressed_fraction": 0.026457851080246914,
+      "luma_mae": 0.1589313637152781,
+      "mean_gamut_scale": 0.99379151650417
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0047_000000029",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0047"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000007",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.0676941998031318,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.982884837962963,
+      "gamut_compressed_fraction": 0.017115162037037036,
+      "luma_mae": 0.20606259278549413,
+      "mean_chroma_displacement": 7.2775676214415945,
+      "mean_gamut_scale": 0.9961568510090864,
+      "median_chroma_displacement": 5.525347819543963
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9888387345679013,
+      "gamut_compressed_fraction": 0.011161265432098765,
+      "luma_mae": 0.1825898172260809,
+      "mean_gamut_scale": 0.9991876127396101
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0044_000000019",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0044"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0013_000000019",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03381692939096638,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0013",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9970008680555555,
+      "gamut_compressed_fraction": 0.0029991319444444445,
+      "luma_mae": 0.2419520502507712,
+      "mean_chroma_displacement": 4.203920107722345,
+      "mean_gamut_scale": 0.9992109622484372,
+      "median_chroma_displacement": 3.7175508651879747
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9766097608024691,
+      "gamut_compressed_fraction": 0.023390239197530863,
+      "luma_mae": 0.19429422125771476,
+      "mean_gamut_scale": 0.9967914433538178
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0032_000000001",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0032"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0049_000000009",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.04673727169874651,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0049",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9370500578703703,
+      "gamut_compressed_fraction": 0.06294994212962964,
+      "luma_mae": 0.18977474189814814,
+      "mean_chroma_displacement": 5.54966927400921,
+      "mean_gamut_scale": 0.9767140398790807,
+      "median_chroma_displacement": 4.628021222611884
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9596923225308642,
+      "gamut_compressed_fraction": 0.0403076774691358,
+      "luma_mae": 0.16281288001543184,
+      "mean_gamut_scale": 0.9939491614000296
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/flip/0009_000000026",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0009"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0012_000000024",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03409729706099704,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0012",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.955435474537037,
+      "gamut_compressed_fraction": 0.04456452546296296,
+      "luma_mae": 0.16859223823302436,
+      "mean_chroma_displacement": 3.9735303764516177,
+      "mean_gamut_scale": 0.9831871390342712,
+      "median_chroma_displacement": 3.3546050074165996
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.975790412808642,
+      "gamut_compressed_fraction": 0.024209587191358024,
+      "luma_mae": 0.16050716367669704,
+      "mean_gamut_scale": 0.9971713963555701
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0005_000000025",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0005"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0060_000000003",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.034945422245747024,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0060",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9799064429012345,
+      "gamut_compressed_fraction": 0.02009355709876543,
+      "luma_mae": 0.24140956674382658,
+      "mean_chroma_displacement": 3.9613587826973453,
+      "mean_gamut_scale": 0.995069073629968,
+      "median_chroma_displacement": 2.762673909771978
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9550694444444444,
+      "gamut_compressed_fraction": 0.04493055555555556,
+      "luma_mae": 0.17520990055941363,
+      "mean_gamut_scale": 0.9938961017573321
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0028_000000025",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0028"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0009_000000013",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.02984062766628254,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0009",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9929219714506173,
+      "gamut_compressed_fraction": 0.007078028549382716,
+      "luma_mae": 0.21915545322145077,
+      "mean_chroma_displacement": 3.3930424610841614,
+      "mean_gamut_scale": 0.9980272743437025,
+      "median_chroma_displacement": 2.8989612372627955
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9823138503086419,
+      "gamut_compressed_fraction": 0.017686149691358025,
+      "luma_mae": 0.16475110561342576,
+      "mean_gamut_scale": 0.9975934257625062
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0019_000000030",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0019"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0016_000000020",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.0424374112223719,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0016",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9898890817901235,
+      "gamut_compressed_fraction": 0.010110918209876543,
+      "luma_mae": 0.14880417689043188,
+      "mean_chroma_displacement": 4.849499085143015,
+      "mean_gamut_scale": 0.9969326498773363,
+      "median_chroma_displacement": 3.077753016327145
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9584336419753087,
+      "gamut_compressed_fraction": 0.04156635802469136,
+      "luma_mae": 0.15145096286651338,
+      "mean_gamut_scale": 0.9910241625044081
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0059_000000030",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0059"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0019_000000024",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04775923851088259,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0019",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9602801890432099,
+      "gamut_compressed_fraction": 0.03971981095679012,
+      "luma_mae": 0.19355256838348767,
+      "mean_chroma_displacement": 5.348913177150029,
+      "mean_gamut_scale": 0.9941577815715178,
+      "median_chroma_displacement": 4.304756945748221
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9677946566358024,
+      "gamut_compressed_fraction": 0.03220534336419753,
+      "luma_mae": 0.15344746739969192,
+      "mean_gamut_scale": 0.9937246220788838
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0057_000000030",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0057"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000011",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.0644939069649269,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9971103395061729,
+      "gamut_compressed_fraction": 0.0028896604938271606,
+      "luma_mae": 0.1767832346643516,
+      "mean_chroma_displacement": 6.922628061305811,
+      "mean_gamut_scale": 0.9991799966788586,
+      "median_chroma_displacement": 5.020878563478131
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9779668209876543,
+      "gamut_compressed_fraction": 0.02203317901234568,
+      "luma_mae": 0.17442219955632715,
+      "mean_gamut_scale": 0.9975840786356985
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0035_000000012",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0035"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0006_000000006",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.04994613275856685,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0006",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9888160686728396,
+      "gamut_compressed_fraction": 0.011183931327160494,
+      "luma_mae": 0.1525842759452152,
+      "mean_chroma_displacement": 5.728077933129858,
+      "mean_gamut_scale": 0.9966178305355119,
+      "median_chroma_displacement": 4.931868323259563
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9845847800925925,
+      "gamut_compressed_fraction": 0.015415219907407407,
+      "luma_mae": 0.1737991026234563,
+      "mean_gamut_scale": 0.9983004303626072
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "testing/notflip/0028_000000024",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0028"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0049_000000008",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.039798660214629744,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0049",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9617529899691358,
+      "gamut_compressed_fraction": 0.0382470100308642,
+      "luma_mae": 0.19556548533950668,
+      "mean_chroma_displacement": 4.812764790198648,
+      "mean_gamut_scale": 0.9912708985069651,
+      "median_chroma_displacement": 3.7175508651879725
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9592182677469135,
+      "gamut_compressed_fraction": 0.04078173225308642,
+      "luma_mae": 0.16304961197916604,
+      "mean_gamut_scale": 0.9945336241486632
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0005_000000025",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0005"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0059_000000002",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03635621989561825,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0059",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9916179591049382,
+      "gamut_compressed_fraction": 0.00838059413580247,
+      "luma_mae": 0.20872295138888872,
+      "mean_chroma_displacement": 4.099536043945517,
+      "mean_gamut_scale": 0.9965160065227084,
+      "median_chroma_displacement": 2.5498607187574116
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9737688078703703,
+      "gamut_compressed_fraction": 0.02623119212962963,
+      "luma_mae": 0.16273403780864168,
+      "mean_gamut_scale": 0.9963729148440891
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0007_000000026",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0007"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0049_000000018",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03682078124583971,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0049",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9875236304012346,
+      "gamut_compressed_fraction": 0.012476369598765432,
+      "luma_mae": 0.18238946248070936,
+      "mean_chroma_displacement": 4.427333781631165,
+      "mean_gamut_scale": 0.9978570244341721,
+      "median_chroma_displacement": 3.077753016327159
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9739617091049383,
+      "gamut_compressed_fraction": 0.026038290895061728,
+      "luma_mae": 0.17051753472222292,
+      "mean_gamut_scale": 0.9966706986486176
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0030_000000034",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0030"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0007_000000014",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.02875484053646292,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0007",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9965721450617284,
+      "gamut_compressed_fraction": 0.003427854938271605,
+      "luma_mae": 0.15377003944830134,
+      "mean_chroma_displacement": 3.3134115918808305,
+      "mean_gamut_scale": 0.9990886542237836,
+      "median_chroma_displacement": 2.0697680688439806
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9804200424382716,
+      "gamut_compressed_fraction": 0.019579957561728395,
+      "luma_mae": 0.1816569623842592,
+      "mean_gamut_scale": 0.9974629793343721
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0024_000000026",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0024"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0005_000000004",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.02748705826387276,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0005",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9929103973765432,
+      "gamut_compressed_fraction": 0.00708960262345679,
+      "luma_mae": 0.16906824816743865,
+      "mean_chroma_displacement": 2.9224637983110657,
+      "mean_gamut_scale": 0.9989435106147955,
+      "median_chroma_displacement": 1.6439561077531883
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9624006558641975,
+      "gamut_compressed_fraction": 0.037599344135802466,
+      "luma_mae": 0.16206143865740721,
+      "mean_gamut_scale": 0.9923540736127783
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/flip/0057_000000030",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0057"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0013_000000023",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05139315666974996,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0013",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9496513310185185,
+      "gamut_compressed_fraction": 0.050347222222222224,
+      "luma_mae": 0.16698130941357964,
+      "mean_chroma_displacement": 5.8572654954224435,
+      "mean_gamut_scale": 0.9872137690473486,
+      "median_chroma_displacement": 4.931868323259563
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9728284143518519,
+      "gamut_compressed_fraction": 0.02717110339506173,
+      "luma_mae": 0.1548050453317908,
+      "mean_gamut_scale": 0.9931405395637324
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0052_000000028",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0052"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0030_000000011",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03134293786095236,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0030",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9973056520061728,
+      "gamut_compressed_fraction": 0.0026943479938271605,
+      "luma_mae": 0.14919392496141984,
+      "mean_chroma_displacement": 3.399587587289758,
+      "mean_gamut_scale": 0.9994658576706309,
+      "median_chroma_displacement": 2.7626739097719875
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9782426697530864,
+      "gamut_compressed_fraction": 0.02175733024691358,
+      "luma_mae": 0.19412073350694467,
+      "mean_gamut_scale": 0.9972370175667751
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0046_000000015",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0046"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0013_000000019",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04112467546864786,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0013",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9966970486111111,
+      "gamut_compressed_fraction": 0.0033029513888888887,
+      "luma_mae": 0.16898176331018436,
+      "mean_chroma_displacement": 4.98311841857229,
+      "mean_gamut_scale": 0.998988235997565,
+      "median_chroma_displacement": 4.5373658060020885
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9887736304012346,
+      "gamut_compressed_fraction": 0.011226369598765431,
+      "luma_mae": 0.19409076408179024,
+      "mean_gamut_scale": 0.9987271816053508
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0035_000000012",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0035"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0057_000000012",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04894189196266676,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0057",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9409418402777778,
+      "gamut_compressed_fraction": 0.059058159722222225,
+      "luma_mae": 0.20533779108796332,
+      "mean_chroma_displacement": 5.688633756702825,
+      "mean_gamut_scale": 0.9867817857824726,
+      "median_chroma_displacement": 4.588546790853201
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9544666280864198,
+      "gamut_compressed_fraction": 0.045532889660493826,
+      "luma_mae": 0.16153499778163624,
+      "mean_gamut_scale": 0.9941520439548257
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0007_000000025",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0007"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0011_000000021",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.044923034353821834,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0011",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9700038580246914,
+      "gamut_compressed_fraction": 0.029996141975308643,
+      "luma_mae": 0.20467663069058598,
+      "mean_chroma_displacement": 4.983728660365472,
+      "mean_gamut_scale": 0.9946763786857511,
+      "median_chroma_displacement": 3.976035901866979
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9674763695987655,
+      "gamut_compressed_fraction": 0.03252363040123457,
+      "luma_mae": 0.1710342730516976,
+      "mean_gamut_scale": 0.995963186511287
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0001_000000029",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0001"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0009_000000007",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.02646101875953413,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0009",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9867529899691359,
+      "gamut_compressed_fraction": 0.013247010030864198,
+      "luma_mae": 0.24149030353009227,
+      "mean_chroma_displacement": 3.136930608472398,
+      "mean_gamut_scale": 0.9972719906583244,
+      "median_chroma_displacement": 2.885619963450669
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9776789158950617,
+      "gamut_compressed_fraction": 0.02232108410493827,
+      "luma_mae": 0.17027830198688368,
+      "mean_gamut_scale": 0.9974535152058542
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0030_000000036",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0030"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0008_000000010",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.04432456217965958,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0008",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9976880787037037,
+      "gamut_compressed_fraction": 0.0023119212962962963,
+      "luma_mae": 0.19645908940972234,
+      "mean_chroma_displacement": 5.002629772951501,
+      "mean_gamut_scale": 0.9990453097261028,
+      "median_chroma_displacement": 3.824791078136122
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9875294174382716,
+      "gamut_compressed_fraction": 0.012470582561728396,
+      "luma_mae": 0.18819549334490743,
+      "mean_gamut_scale": 0.9988639663472587
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0026_000000027",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0026"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0019_000000024",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03072901428797662,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0019",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9879229359567901,
+      "gamut_compressed_fraction": 0.012077064043209877,
+      "luma_mae": 0.14419117467206805,
+      "mean_chroma_displacement": 3.6036379095393127,
+      "mean_gamut_scale": 0.9955014835169286,
+      "median_chroma_displacement": 2.455234236120784
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9459215856481481,
+      "gamut_compressed_fraction": 0.05407841435185185,
+      "luma_mae": 0.15912861082175953,
+      "mean_gamut_scale": 0.9901545894293138
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0058_000000026",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0058"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0017_000000010",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.041548775058712704,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0017",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9925424382716049,
+      "gamut_compressed_fraction": 0.007457561728395062,
+      "luma_mae": 0.21474451138117262,
+      "mean_chroma_displacement": 4.451405198417832,
+      "mean_gamut_scale": 0.9973544586735007,
+      "median_chroma_displacement": 2.9250540302291563
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9680097415123456,
+      "gamut_compressed_fraction": 0.03199025848765432,
+      "luma_mae": 0.1533261682098771,
+      "mean_gamut_scale": 0.9938043523423465
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0057_000000027",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0057"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0015_000000014",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04755559156468958,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9977401620370371,
+      "gamut_compressed_fraction": 0.002259837962962963,
+      "luma_mae": 0.19579423668981533,
+      "mean_chroma_displacement": 5.327098818775675,
+      "mean_gamut_scale": 0.9996223060290018,
+      "median_chroma_displacement": 4.166083972823463
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9849421296296297,
+      "gamut_compressed_fraction": 0.01505787037037037,
+      "luma_mae": 0.1853059674961419,
+      "mean_gamut_scale": 0.9983998380472631
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0040_000000013",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0040"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0019_000000021",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03780670011389408,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0019",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9981365740740741,
+      "gamut_compressed_fraction": 0.001863425925925926,
+      "luma_mae": 0.204457698013117,
+      "mean_chroma_displacement": 4.211118941542489,
+      "mean_gamut_scale": 0.9995068719946308,
+      "median_chroma_displacement": 3.3546050074165947
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9866695601851851,
+      "gamut_compressed_fraction": 0.013330439814814814,
+      "luma_mae": 0.18578337779706713,
+      "mean_gamut_scale": 0.9984611373183168
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0030_000000020",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0030"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0058_000000008",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.053235656998478535,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0058",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9411969521604938,
+      "gamut_compressed_fraction": 0.05880304783950617,
+      "luma_mae": 0.18714373379629576,
+      "mean_chroma_displacement": 6.373500889154276,
+      "mean_gamut_scale": 0.9801584390063345,
+      "median_chroma_displacement": 4.931868323259563
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9562369791666666,
+      "gamut_compressed_fraction": 0.04376253858024692,
+      "luma_mae": 0.16978045785107973,
+      "mean_gamut_scale": 0.9939652718732387
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0010_000000026",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0010"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0011_000000024",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05029199223100475,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0011",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9361000192901234,
+      "gamut_compressed_fraction": 0.06389949845679012,
+      "luma_mae": 0.2170946385030866,
+      "mean_chroma_displacement": 5.5252027531384105,
+      "mean_gamut_scale": 0.9758116911958765,
+      "median_chroma_displacement": 4.018393733648175
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9815480324074074,
+      "gamut_compressed_fraction": 0.018451967592592593,
+      "luma_mae": 0.16773071450617233,
+      "mean_gamut_scale": 0.9972257922313832
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0002_000000029",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0002"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0051_000000006",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.07249316842283697,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0051",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9647468171296296,
+      "gamut_compressed_fraction": 0.03525318287037037,
+      "luma_mae": 0.19996505555555585,
+      "mean_chroma_displacement": 8.066655868152452,
+      "mean_gamut_scale": 0.9884020691742131,
+      "median_chroma_displacement": 6.277028755231864
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9340417631172839,
+      "gamut_compressed_fraction": 0.06595823688271604,
+      "luma_mae": 0.1621823171296298,
+      "mean_gamut_scale": 0.9903452366664086
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0019_000000028",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0019"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0060_000000001",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05815448320614644,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0060",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9958328510802469,
+      "gamut_compressed_fraction": 0.004167148919753086,
+      "luma_mae": 0.18985212316743805,
+      "mean_chroma_displacement": 6.194437331848839,
+      "mean_gamut_scale": 0.998785741770709,
+      "median_chroma_displacement": 3.976035901866963
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9786506558641975,
+      "gamut_compressed_fraction": 0.02134934413580247,
+      "luma_mae": 0.15343871846064797,
+      "mean_gamut_scale": 0.9976700799847826
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0015_000000025",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0015"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000011",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.052547579977989395,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9888478973765432,
+      "gamut_compressed_fraction": 0.011147762345679012,
+      "luma_mae": 0.1799142701581791,
+      "mean_chroma_displacement": 5.458556087148204,
+      "mean_gamut_scale": 0.9973550273753978,
+      "median_chroma_displacement": 3.0777530163271596
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9529354745370371,
+      "gamut_compressed_fraction": 0.04706452546296296,
+      "luma_mae": 0.1521918387345681,
+      "mean_gamut_scale": 0.990324010996171
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0056_000000029",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0056"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0016_000000010",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.051209216224933636,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0016",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9524623842592592,
+      "gamut_compressed_fraction": 0.04753761574074074,
+      "luma_mae": 0.1680162755594139,
+      "mean_chroma_displacement": 5.745906058628882,
+      "mean_gamut_scale": 0.9915067954122284,
+      "median_chroma_displacement": 4.628021222611879
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9737051504629629,
+      "gamut_compressed_fraction": 0.02629484953703704,
+      "luma_mae": 0.1593783953510805,
+      "mean_gamut_scale": 0.9936346077919006
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0047_000000026",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0047"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0017_000000018",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.07034807162157539,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0017",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9715055941358025,
+      "gamut_compressed_fraction": 0.02849440586419753,
+      "luma_mae": 0.1408703017939809,
+      "mean_chroma_displacement": 8.425744178346504,
+      "mean_gamut_scale": 0.9868513717769105,
+      "median_chroma_displacement": 7.3360721969290505
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9880439814814815,
+      "gamut_compressed_fraction": 0.011956018518518519,
+      "luma_mae": 0.18325031018518478,
+      "mean_gamut_scale": 0.9982664787622145
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0048_000000014",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0048"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000014",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.06605843164829434,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9962914737654321,
+      "gamut_compressed_fraction": 0.0037075617283950616,
+      "luma_mae": 0.23295382368827205,
+      "mean_chroma_displacement": 7.018687450014269,
+      "mean_gamut_scale": 0.9991460359243699,
+      "median_chroma_displacement": 5.5253478195439625
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9934794560185185,
+      "gamut_compressed_fraction": 0.006520543981481481,
+      "luma_mae": 0.17443223273534098,
+      "mean_gamut_scale": 0.9992516488499111
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0033_000000014",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0033"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0059_000000001",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.045176477315672425,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0059",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9751359953703703,
+      "gamut_compressed_fraction": 0.024864004629629628,
+      "luma_mae": 0.21542892881944434,
+      "mean_chroma_displacement": 5.064351580530082,
+      "mean_gamut_scale": 0.9940264577041438,
+      "median_chroma_displacement": 3.3546050074165996
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9718407600308642,
+      "gamut_compressed_fraction": 0.028158757716049383,
+      "luma_mae": 0.1649054956597221,
+      "mean_gamut_scale": 0.9964921021167142
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0006_000000026",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0006"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000006",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.04345098859234117,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9822492283950617,
+      "gamut_compressed_fraction": 0.01775077160493827,
+      "luma_mae": 0.20617522868441365,
+      "mean_chroma_displacement": 4.737777150800556,
+      "mean_gamut_scale": 0.9957973181171181,
+      "median_chroma_displacement": 2.960092971313345
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9666435185185185,
+      "gamut_compressed_fraction": 0.03335648148148148,
+      "luma_mae": 0.15990917139274693,
+      "mean_gamut_scale": 0.9947809504873959
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "testing/notflip/0006_000000025",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0006"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0050_000000018",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.017815521519850528,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0050",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9999392361111111,
+      "gamut_compressed_fraction": 6.076388888888889e-05,
+      "luma_mae": 0.16685460956790116,
+      "mean_chroma_displacement": 2.1459620445419882,
+      "mean_gamut_scale": 0.9999619261423747,
+      "median_chroma_displacement": 1.2749303593787054
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9797608024691358,
+      "gamut_compressed_fraction": 0.020238715277777777,
+      "luma_mae": 0.16828938059413678,
+      "mean_gamut_scale": 0.9977846507967254
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0030_000000037",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0030"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0007_000000002",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.0393153897911737,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0007",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9975096450617283,
+      "gamut_compressed_fraction": 0.002490354938271605,
+      "luma_mae": 0.1290790670331802,
+      "mean_chroma_displacement": 4.465722683105539,
+      "mean_gamut_scale": 0.998957806016192,
+      "median_chroma_displacement": 3.3546050074166036
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9872159529320987,
+      "gamut_compressed_fraction": 0.012784047067901235,
+      "luma_mae": 0.18734929687500018,
+      "mean_gamut_scale": 0.9988187620374891
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "testing/notflip/0026_000000029",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0026"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0011_000000019",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.034485342632317215,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0011",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9479991319444444,
+      "gamut_compressed_fraction": 0.05200086805555556,
+      "luma_mae": 0.11860929388503083,
+      "mean_chroma_displacement": 3.9209193141899585,
+      "mean_gamut_scale": 0.9780898171295355,
+      "median_chroma_displacement": 3.031628108449791
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9561371527777778,
+      "gamut_compressed_fraction": 0.04386284722222222,
+      "luma_mae": 0.15429766637731473,
+      "mean_gamut_scale": 0.9917649351225959
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0060_000000050",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0060"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0021_000000025",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05638413988069908,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0021",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9621383101851851,
+      "gamut_compressed_fraction": 0.03786168981481482,
+      "luma_mae": 0.22512896363811746,
+      "mean_chroma_displacement": 6.246244386043035,
+      "mean_gamut_scale": 0.9882017587143698,
+      "median_chroma_displacement": 4.796784642026368
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9730087770061728,
+      "gamut_compressed_fraction": 0.026990740740740742,
+      "luma_mae": 0.1546494483989193,
+      "mean_gamut_scale": 0.9945059406610183
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0054_000000027",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0054"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0013_000000024",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.049805070773536,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0013",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9974744405864198,
+      "gamut_compressed_fraction": 0.002525559413580247,
+      "luma_mae": 0.23180911516203678,
+      "mean_chroma_displacement": 5.71586738830778,
+      "mean_gamut_scale": 0.9992218058197586,
+      "median_chroma_displacement": 5.3578436261058995
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9798220486111111,
+      "gamut_compressed_fraction": 0.02017795138888889,
+      "luma_mae": 0.19526044145447524,
+      "mean_gamut_scale": 0.9975164816997669
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0045_000000016",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0045"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0016_000000017",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03436288299876535,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0016",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9984823495370371,
+      "gamut_compressed_fraction": 0.001517650462962963,
+      "luma_mae": 0.2418247589699071,
+      "mean_chroma_displacement": 4.258353053646958,
+      "mean_gamut_scale": 0.9996518133599082,
+      "median_chroma_displacement": 3.7175508651879747
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9590427276234568,
+      "gamut_compressed_fraction": 0.04095727237654321,
+      "luma_mae": 0.20560026639660306,
+      "mean_gamut_scale": 0.9948213970219647
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0038_000000004",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0038"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0056_000000018",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05346981290300822,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0056",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9381539351851852,
+      "gamut_compressed_fraction": 0.06184606481481481,
+      "luma_mae": 0.17599804658564835,
+      "mean_chroma_displacement": 6.397993409834682,
+      "mean_gamut_scale": 0.9774544175171558,
+      "median_chroma_displacement": 5.3578436261058995
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9548003472222222,
+      "gamut_compressed_fraction": 0.04519965277777778,
+      "luma_mae": 0.17334302768132698,
+      "mean_gamut_scale": 0.9938129609602468
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0003_000000026",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0003"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0015_000000024",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04952258253322388,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9405960648148148,
+      "gamut_compressed_fraction": 0.059403935185185185,
+      "luma_mae": 0.17014353057484563,
+      "mean_chroma_displacement": 5.393173803404069,
+      "mean_gamut_scale": 0.9818442474471198,
+      "median_chroma_displacement": 3.824791078136122
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9773620756172839,
+      "gamut_compressed_fraction": 0.02263792438271605,
+      "luma_mae": 0.16508396653163557,
+      "mean_gamut_scale": 0.9966745511690775
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0004_000000034",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0004"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0053_000000022",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.03632591373561519,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0053",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9847989004629629,
+      "gamut_compressed_fraction": 0.015201099537037037,
+      "luma_mae": 0.22997817727623504,
+      "mean_chroma_displacement": 4.171127597472132,
+      "mean_gamut_scale": 0.9950600709738555,
+      "median_chroma_displacement": 2.7626739097719866
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.955113811728395,
+      "gamut_compressed_fraction": 0.04488618827160494,
+      "luma_mae": 0.18183330864197525,
+      "mean_gamut_scale": 0.9936996782267535
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0026_000000022",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0026"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0007_000000001",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.03653809183991421,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0007",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9781563464506173,
+      "gamut_compressed_fraction": 0.021843653549382717,
+      "luma_mae": 0.16837407976466076,
+      "mean_chroma_displacement": 4.121285005238643,
+      "mean_gamut_scale": 0.9951777110570743,
+      "median_chroma_displacement": 2.898961237262799
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9772067901234568,
+      "gamut_compressed_fraction": 0.02279320987654321,
+      "luma_mae": 0.1694818346836419,
+      "mean_gamut_scale": 0.9974029565151827
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0020_000000020",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0020"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000013",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.04806899733147603,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9918711419753087,
+      "gamut_compressed_fraction": 0.008128858024691358,
+      "luma_mae": 0.1895990311535492,
+      "mean_chroma_displacement": 4.977380090558348,
+      "mean_gamut_scale": 0.996763691784423,
+      "median_chroma_displacement": 2.9600929713133453
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9597593557098766,
+      "gamut_compressed_fraction": 0.04024064429012346,
+      "luma_mae": 0.15582725482253093,
+      "mean_gamut_scale": 0.9914802261929453
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0059_000000027",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0059"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0021_000000024",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.059874616985712545,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0021",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9194801311728396,
+      "gamut_compressed_fraction": 0.08051938657407408,
+      "luma_mae": 0.2067740115740738,
+      "mean_chroma_displacement": 6.540986037732338,
+      "mean_gamut_scale": 0.9816723781161838,
+      "median_chroma_displacement": 5.0208785634781385
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9775882523148148,
+      "gamut_compressed_fraction": 0.022411747685185186,
+      "luma_mae": 0.16447619155092585,
+      "mean_gamut_scale": 0.9949677532396198
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0055_000000025",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0055"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0006_000000007",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.05640257758236572,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0006",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9816657021604939,
+      "gamut_compressed_fraction": 0.018333333333333333,
+      "luma_mae": 0.17824712133487722,
+      "mean_chroma_displacement": 6.399606366861679,
+      "mean_gamut_scale": 0.9932538804890197,
+      "median_chroma_displacement": 5.3578436261058995
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9879253472222222,
+      "gamut_compressed_fraction": 0.012074652777777778,
+      "luma_mae": 0.1867582555941356,
+      "mean_gamut_scale": 0.9986485058289987
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0040_000000010",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0040"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0012_000000024",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04391108732077845,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0012",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9980415702160493,
+      "gamut_compressed_fraction": 0.0019584297839506173,
+      "luma_mae": 0.23969932011959744,
+      "mean_chroma_displacement": 5.232457834401656,
+      "mean_gamut_scale": 0.9994676084577302,
+      "median_chroma_displacement": 4.931868323259565
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9811935763888889,
+      "gamut_compressed_fraction": 0.018806423611111112,
+      "luma_mae": 0.19641088069058718,
+      "mean_gamut_scale": 0.9981059121791227
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0036_000000022",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0036"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0031_000000014",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04974166357558385,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0031",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9417472029320988,
+      "gamut_compressed_fraction": 0.058252797067901235,
+      "luma_mae": 0.1971371655092598,
+      "mean_chroma_displacement": 5.84105438109591,
+      "mean_gamut_scale": 0.9801677157260753,
+      "median_chroma_displacement": 4.931868323259563
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9416319444444444,
+      "gamut_compressed_fraction": 0.058368055555555555,
+      "luma_mae": 0.16682014265046297,
+      "mean_gamut_scale": 0.9904359535523403
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0001_000000023",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0001"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0022_000000016",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03542036775490873,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0022",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.985877700617284,
+      "gamut_compressed_fraction": 0.01412229938271605,
+      "luma_mae": 0.18156806876928921,
+      "mean_chroma_displacement": 3.921385332044642,
+      "mean_gamut_scale": 0.9964612269107206,
+      "median_chroma_displacement": 3.0777530163271445
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9683232060185185,
+      "gamut_compressed_fraction": 0.03167679398148148,
+      "luma_mae": 0.17144385300925932,
+      "mean_gamut_scale": 0.9960753971853374
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0001_000000027",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0001"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0047_000000022",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.07863478290063383,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0047",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9611656057098765,
+      "gamut_compressed_fraction": 0.038834394290123454,
+      "luma_mae": 0.19071899257330321,
+      "mean_chroma_displacement": 8.602195662779264,
+      "mean_gamut_scale": 0.9844959998130798,
+      "median_chroma_displacement": 6.0312493763445945
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9361848958333333,
+      "gamut_compressed_fraction": 0.06381510416666666,
+      "luma_mae": 0.16453241618441344,
+      "mean_gamut_scale": 0.9912787999930205
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0016_000000030",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0016"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0011_000000005",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.041519659434118346,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0011",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9865615354938272,
+      "gamut_compressed_fraction": 0.013438464506172839,
+      "luma_mae": 0.16482804340277787,
+      "mean_chroma_displacement": 4.706728663383458,
+      "mean_gamut_scale": 0.9978961617269634,
+      "median_chroma_displacement": 3.3546050074166045
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.982509162808642,
+      "gamut_compressed_fraction": 0.017490837191358025,
+      "luma_mae": 0.18264952700617246,
+      "mean_gamut_scale": 0.9974739750815027
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "testing/notflip/0025_000000025",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0025"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0024_000000009",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.02831767640412732,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0024",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9785841049382716,
+      "gamut_compressed_fraction": 0.021415895061728394,
+      "luma_mae": 0.2105819052854937,
+      "mean_chroma_displacement": 3.2623975483536807,
+      "mean_gamut_scale": 0.9901710537333547,
+      "median_chroma_displacement": 2.5498607187574103
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9512389081790124,
+      "gamut_compressed_fraction": 0.04876109182098765,
+      "luma_mae": 0.1630480969328702,
+      "mean_gamut_scale": 0.9918636655807496
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/flip/0055_000000028",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0055"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0022_000000015",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05556558029172684,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0022",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9300217013888888,
+      "gamut_compressed_fraction": 0.06997733410493827,
+      "luma_mae": 0.18325524942129695,
+      "mean_chroma_displacement": 6.158797975742823,
+      "mean_gamut_scale": 0.9790441951633971,
+      "median_chroma_displacement": 4.79678464202638
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9740080054012346,
+      "gamut_compressed_fraction": 0.02599151234567901,
+      "luma_mae": 0.15214998032407415,
+      "mean_gamut_scale": 0.9947001871944946
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0048_000000026",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0048"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0012_000000011",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.042812061752336976,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0012",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9966999421296296,
+      "gamut_compressed_fraction": 0.0033000578703703703,
+      "luma_mae": 0.18285942997685184,
+      "mean_chroma_displacement": 5.0489565101175025,
+      "mean_gamut_scale": 0.9990558799402214,
+      "median_chroma_displacement": 4.166083972823459
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9890152391975309,
+      "gamut_compressed_fraction": 0.010984760802469136,
+      "luma_mae": 0.1813289544753087,
+      "mean_gamut_scale": 0.9983744821430725
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0039_000000011",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0039"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0005_000000004",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.03238494795318359,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0005",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9870037615740741,
+      "gamut_compressed_fraction": 0.012996238425925927,
+      "luma_mae": 0.14779233680555576,
+      "mean_chroma_displacement": 3.773746406974479,
+      "mean_gamut_scale": 0.9969149177751423,
+      "median_chroma_displacement": 3.4717730127946522
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9729402970679012,
+      "gamut_compressed_fraction": 0.027059702932098764,
+      "luma_mae": 0.19613091309799463,
+      "mean_gamut_scale": 0.9968373414322182
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "testing/notflip/0036_000000004",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0036"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/notflip/0058_000000022",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.03436846513184185,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0058",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9663922646604939,
+      "gamut_compressed_fraction": 0.03360773533950617,
+      "luma_mae": 0.18782566714892024,
+      "mean_chroma_displacement": 4.171164977549852,
+      "mean_gamut_scale": 0.9907608504942905,
+      "median_chroma_displacement": 3.2691253833153757
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9595457175925926,
+      "gamut_compressed_fraction": 0.04045428240740741,
+      "luma_mae": 0.16778592486496866,
+      "mean_gamut_scale": 0.994815311225844
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0003_000000021",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0003"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0022_000000019",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03849719325746488,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0022",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9385783179012346,
+      "gamut_compressed_fraction": 0.06142168209876543,
+      "luma_mae": 0.15857228366126536,
+      "mean_chroma_displacement": 4.326569166549804,
+      "mean_gamut_scale": 0.9837430957511619,
+      "median_chroma_displacement": 3.2691253833153757
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9792274305555555,
+      "gamut_compressed_fraction": 0.020772569444444444,
+      "luma_mae": 0.16098872318672813,
+      "mean_gamut_scale": 0.9973439685209298
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/notflip/0010_000000030",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0010"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0056_000000014",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.06573109814348105,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0056",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9771031057098766,
+      "gamut_compressed_fraction": 0.022855902777777777,
+      "luma_mae": 0.2319864661458347,
+      "mean_chroma_displacement": 7.480550879917099,
+      "mean_gamut_scale": 0.9901678716106179,
+      "median_chroma_displacement": 5.43685846096915
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9542645640432099,
+      "gamut_compressed_fraction": 0.045735435956790124,
+      "luma_mae": 0.1803531001157404,
+      "mean_gamut_scale": 0.9926923389788027
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0013_000000029",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0013"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0007_000000011",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.026707043135170014,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0007",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9989824459876543,
+      "gamut_compressed_fraction": 0.001017554012345679,
+      "luma_mae": 0.14550492910879612,
+      "mean_chroma_displacement": 3.0321624268012544,
+      "mean_gamut_scale": 0.9997226925838141,
+      "median_chroma_displacement": 2.0697680688439766
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9828891782407407,
+      "gamut_compressed_fraction": 0.017110821759259258,
+      "luma_mae": 0.18239794695216044,
+      "mean_gamut_scale": 0.9983734325715053
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0023_000000028",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0023"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0012_000000023",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03939707366498126,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0012",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9921325231481481,
+      "gamut_compressed_fraction": 0.007866030092592593,
+      "luma_mae": 0.19846017669753016,
+      "mean_chroma_displacement": 4.5527496235167595,
+      "mean_gamut_scale": 0.9981741007757775,
+      "median_chroma_displacement": 3.328209393813885
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9555174575617283,
+      "gamut_compressed_fraction": 0.04448157793209877,
+      "luma_mae": 0.15826134577546278,
+      "mean_gamut_scale": 0.9914175223715511
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0063_000000022",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0063"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000012",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.07608870336477211,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.8946494020061728,
+      "gamut_compressed_fraction": 0.10534095293209876,
+      "luma_mae": 0.17383928202160476,
+      "mean_chroma_displacement": 8.03069247558695,
+      "mean_gamut_scale": 0.9563425909442667,
+      "median_chroma_displacement": 6.031249376344581
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9730372299382716,
+      "gamut_compressed_fraction": 0.026962770061728394,
+      "luma_mae": 0.1548217033179012,
+      "mean_gamut_scale": 0.9940657468489659
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/notflip/0044_000000030",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0044"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0015_000000022",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.04881182217941071,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9983661265432099,
+      "gamut_compressed_fraction": 0.0016338734567901234,
+      "luma_mae": 0.23307237249228427,
+      "mean_chroma_displacement": 5.489611729321018,
+      "mean_gamut_scale": 0.9995835666597626,
+      "median_chroma_displacement": 3.8843214541243656
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9795905671296297,
+      "gamut_compressed_fraction": 0.02040943287037037,
+      "luma_mae": 0.17230825260416663,
+      "mean_gamut_scale": 0.997382350909857
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0035_000000014",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0035"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0012_000000020",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03787223772746368,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0012",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9967746913580247,
+      "gamut_compressed_fraction": 0.0032253086419753085,
+      "luma_mae": 0.20741851957947488,
+      "mean_chroma_displacement": 4.69483016220259,
+      "mean_gamut_scale": 0.9988981352617711,
+      "median_chroma_displacement": 4.109890269382968
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9744241898148148,
+      "gamut_compressed_fraction": 0.025575810185185184,
+      "luma_mae": 0.19484588802083208,
+      "mean_gamut_scale": 0.9964062452904972
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0032_000000008",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0032"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0025_000000019",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.03832910823072667,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0025",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9925747492283951,
+      "gamut_compressed_fraction": 0.007425250771604938,
+      "luma_mae": 0.2105778047839502,
+      "mean_chroma_displacement": 4.621063656319654,
+      "mean_gamut_scale": 0.9967683748551357,
+      "median_chroma_displacement": 3.7175508651879756
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9639356674382716,
+      "gamut_compressed_fraction": 0.0360643325617284,
+      "luma_mae": 0.16501667853009203,
+      "mean_gamut_scale": 0.9944770733809766
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0008_000000024",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0008"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0061_000000014",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03963199719842393,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0061",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9699831211419753,
+      "gamut_compressed_fraction": 0.03001687885802469,
+      "luma_mae": 0.2125711624228398,
+      "mean_chroma_displacement": 4.631554557971931,
+      "mean_gamut_scale": 0.9921272045005987,
+      "median_chroma_displacement": 3.354605007416595
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.969170524691358,
+      "gamut_compressed_fraction": 0.030829475308641975,
+      "luma_mae": 0.159799106867284,
+      "mean_gamut_scale": 0.9954828022733146
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0006_000000029",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0006"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0058_000000013",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.0604772873524144,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0058",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9774305555555556,
+      "gamut_compressed_fraction": 0.022569444444444444,
+      "luma_mae": 0.2359075753279326,
+      "mean_chroma_displacement": 6.869537834235903,
+      "mean_gamut_scale": 0.9909910209679309,
+      "median_chroma_displacement": 5.020878563478121
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.957298900462963,
+      "gamut_compressed_fraction": 0.04270109953703704,
+      "luma_mae": 0.18120639670138855,
+      "mean_gamut_scale": 0.992999087586815
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0013_000000026",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0013"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0006_000000017",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.035179679729158496,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0006",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9795881558641976,
+      "gamut_compressed_fraction": 0.02041184413580247,
+      "luma_mae": 0.18277874556327164,
+      "mean_chroma_displacement": 3.950339580870117,
+      "mean_gamut_scale": 0.993639652846772,
+      "median_chroma_displacement": 3.354605007416599
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9830975115740741,
+      "gamut_compressed_fraction": 0.016902488425925927,
+      "luma_mae": 0.16763355970293195,
+      "mean_gamut_scale": 0.9979173309420362
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "testing/notflip/0016_000000023",
+    "target_environment_id": "ENV-02",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0016"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/notflip/0015_000000007",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.0503988109488353,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9942602237654321,
+      "gamut_compressed_fraction": 0.0057392939814814815,
+      "luma_mae": 0.20387312635030833,
+      "mean_chroma_displacement": 5.228137490901482,
+      "mean_gamut_scale": 0.9977796561040996,
+      "median_chroma_displacement": 2.9600929713133453
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9591772762345679,
+      "gamut_compressed_fraction": 0.0408227237654321,
+      "luma_mae": 0.15954451244213072,
+      "mean_gamut_scale": 0.9923280754795781
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "training/flip/0062_000000026",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0062"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0015_000000020",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.06361881828958266,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0015",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9155449459876543,
+      "gamut_compressed_fraction": 0.08445216049382716,
+      "luma_mae": 0.18931170418595675,
+      "mean_chroma_displacement": 6.908948869503042,
+      "mean_gamut_scale": 0.9686615828231528,
+      "median_chroma_displacement": 5.4368584609691535
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9762268518518519,
+      "gamut_compressed_fraction": 0.023773148148148147,
+      "luma_mae": 0.1585499365354941,
+      "mean_gamut_scale": 0.994885079389737
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0045_000000026",
+    "target_environment_id": "ENV-04",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0045"
+  },
+  {
+    "donor_environment_id": "ENV-02",
+    "donor_id": "training/flip/0013_000000021",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.05280946935202015,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0013",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9973027584876544,
+      "gamut_compressed_fraction": 0.002697241512345679,
+      "luma_mae": 0.1697312141203704,
+      "mean_chroma_displacement": 6.040158178842443,
+      "mean_gamut_scale": 0.9990865400691091,
+      "median_chroma_displacement": 4.79678464202638
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9834645061728395,
+      "gamut_compressed_fraction": 0.016535493827160495,
+      "luma_mae": 0.18416110291280852,
+      "mean_gamut_scale": 0.9979028240250952
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0036_000000018",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0036"
+  },
+  {
+    "donor_environment_id": "ENV-01",
+    "donor_id": "training/notflip/0006_000000014",
+    "donor_label_for_audit_only": "notflip",
+    "donor_palette_distance": 0.03426144750875137,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "notflip/0006",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.991820987654321,
+      "gamut_compressed_fraction": 0.008179012345679013,
+      "luma_mae": 0.09868868412422924,
+      "mean_chroma_displacement": 4.048625876044957,
+      "mean_gamut_scale": 0.9977050450996117,
+      "median_chroma_displacement": 3.785677862194627
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9669656635802469,
+      "gamut_compressed_fraction": 0.033034336419753084,
+      "luma_mae": 0.20759994579475113,
+      "mean_gamut_scale": 0.9966290137208538
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "testing/notflip/0038_000000011",
+    "target_environment_id": "ENV-03",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0038"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0065_000000003",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.0407840997452697,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0065",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9640427276234568,
+      "gamut_compressed_fraction": 0.03595727237654321,
+      "luma_mae": 0.18630995119598812,
+      "mean_chroma_displacement": 4.759841237946861,
+      "mean_gamut_scale": 0.9868706490081034,
+      "median_chroma_displacement": 3.7175508651879747
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9584177276234568,
+      "gamut_compressed_fraction": 0.04158227237654321,
+      "luma_mae": 0.17440050877700566,
+      "mean_gamut_scale": 0.9946690819881581
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": true,
+    "same_video": false,
+    "sample_id": "training/flip/0003_000000023",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "flip",
+    "target_video_id": "flip/0003"
+  },
+  {
+    "donor_environment_id": "ENV-04",
+    "donor_id": "training/flip/0058_000000018",
+    "donor_label_for_audit_only": "flip",
+    "donor_palette_distance": 0.03773832606262565,
+    "donor_shortlist_size": 16,
+    "donor_video_id": "flip/0058",
+    "naturalistic": {
+      "direct_in_gamut_fraction": 0.9937553047839506,
+      "gamut_compressed_fraction": 0.006244695216049383,
+      "luma_mae": 0.1730841969521604,
+      "mean_chroma_displacement": 4.340668164942326,
+      "mean_gamut_scale": 0.9980872504210766,
+      "median_chroma_displacement": 2.465934161629782
+    },
+    "rotation": {
+      "direct_in_gamut_fraction": 0.9676818094135803,
+      "gamut_compressed_fraction": 0.03231819058641975,
+      "luma_mae": 0.15968767910879633,
+      "mean_gamut_scale": 0.9950111127782751
+    },
+    "same_environment": false,
+    "same_label_after_label_independent_selection": false,
+    "same_video": false,
+    "sample_id": "testing/notflip/0006_000000027",
+    "target_environment_id": "ENV-01",
+    "target_label_for_audit_only": "notflip",
+    "target_video_id": "notflip/0006"
+  }
+]

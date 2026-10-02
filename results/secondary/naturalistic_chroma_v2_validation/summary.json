@@ -1,0 +1,26 @@
+{
+  "classifier_predictions_used": false,
+  "development_overlap": 0,
+  "donor_selection_stats_stride": 16,
+  "donor_shortlist_size": 16,
+  "images": 100,
+  "mean_selected_palette_distance": 0.04664523652989813,
+  "naturalistic": {
+    "luma_gate_pass": true,
+    "mean_gamut_compressed_fraction": 0.026075969328703697,
+    "mean_luma_mae": 0.18756323568479943,
+    "median_per_image_chroma_displacement": 3.7516143636913037,
+    "nontrivial_chroma_gate_pass": true,
+    "p95_per_image_luma_mae": 0.23972565503472096,
+    "strength": 1.0,
+    "visual_gate": "PENDING"
+  },
+  "primary_test_images_used": 0,
+  "quantitative_gate_pass": true,
+  "same_environment_donors": 0,
+  "same_label_fraction_after_selection": 0.5,
+  "same_video_donors": 0,
+  "status": "NATURALISTIC_CHROMA_V2_VALIDATION_READY_FOR_VISUAL_REVIEW",
+  "target_label_used_for_donor_selection": false,
+  "universal_donor_pool_size": 1428
+}
