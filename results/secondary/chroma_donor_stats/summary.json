@@ -1,0 +1,8 @@
+{
+  "definition": "images non-test simultaneously in O, S, T and ST",
+  "donor_pool_size": 1428,
+  "labels_used_for_stats_or_selection": false,
+  "selection_bearing": false,
+  "stats_stride": 16,
+  "status": "FROZEN_CHROMA_DONOR_STATS"
+}
