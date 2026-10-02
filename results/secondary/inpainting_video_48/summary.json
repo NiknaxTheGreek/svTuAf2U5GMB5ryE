@@ -1,0 +1,29 @@
+{
+  "accepted_sources": {
+    "max": 8,
+    "mean": 5.270833333333333,
+    "median": 5.0
+  },
+  "classifier_predictions_used": false,
+  "fraction_images_meeting_fill_gate": 0.10416666666666667,
+  "images": 48,
+  "images_meeting_fill_gate": 5,
+  "images_with_accepted_source": 46,
+  "primary_test_images_used": 0,
+  "quantitative_gate_pass": false,
+  "real_pixel_fill_fraction": {
+    "mean": 0.2506052285752214,
+    "median": 0.17480892991779146,
+    "min": 0.0,
+    "p10": 0.018438286271375497
+  },
+  "residual_fraction": {
+    "max": 0.9902493551160791,
+    "mean": 0.7077281047581119,
+    "median": 0.8076207895712151,
+    "p90": 0.9787173793072494
+  },
+  "source_population": "ST context-only rows from same canonical video",
+  "status": "VIDEO_RECONSTRUCTION_48_READY_FOR_VISUAL_REVIEW",
+  "visual_gate": "PENDING"
+}
