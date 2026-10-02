@@ -113,3 +113,12 @@ Retain the earlier hand-mask and matched-occlusion analyses as controls.
 Use threshold 0.5 and 5,000 paired frame plus 5,000 paired video/group bootstrap resamples.
 
 This remains post-hoc and cannot change Best O.
+
+
+## Stage-1 result and frozen correction
+
+Stage 1 completed on run `36983299845` and **failed visual QA**. The combined masks were nonzero for all 48 development images, but TELEA reconstruction created large artificial polygonal/smooth regions rather than plausible page/background content. The old LRASPP + TELEA full-corpus QA showed the same qualitative failure.
+
+Accordingly, full-scale TELEA cleaning is rejected.
+
+The next and only active correction is **video-assisted same-video reconstruction** while keeping the hand/arm mask recipe fixed. Source-frame choice, alignment acceptance and residual-fill rules must be frozen on context-only data before any primary test image is transformed.
