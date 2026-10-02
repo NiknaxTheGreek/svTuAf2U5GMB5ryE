@@ -1,5 +1,5 @@
 {
-  "status": "prospectively_frozen_naturalistic_chroma_v2_validation",
+  "status": "VALIDATED_PASS",
   "freeze_date": "2026-10-03",
   "reason_for_single_correction": "v1 preserved luminance and looked plausible but failed the pre-frozen non-triviality gate with median chroma displacement 1.5537 < 3.0",
   "selection_bearing": false,
@@ -32,5 +32,14 @@
     "major_visual_artifact_fraction_max": 0.10,
     "review_all_100": true
   },
-  "stop_rule": "No further naturalistic-colour tuning if v2 fails independent validation. Do not inspect primary test predictions during development."
+  "validation_result": {
+    "workflow_run_id": 37073967071,
+    "artifact_id": 11255238172,
+    "artifact_sha256": "953ae8bc50833f72c6bbb452cdee9ce2901d1318f2318a7ea3d4fcf4e2220af5",
+    "mean_luma_mae": 0.18756323568479943,
+    "p95_per_image_luma_mae": 0.23972565503472096,
+    "median_per_image_chroma_displacement": 3.7516143636913037,
+    "visual_gate": "PASS"
+  },
+  "stop_rule": "No further naturalistic-colour tuning. The validated v2 transform is frozen before any primary test evaluation."
 }
