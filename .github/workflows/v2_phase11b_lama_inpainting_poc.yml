@@ -1,0 +1,97 @@
+name: MonReader V2 Phase 11B LaMa inpainting PoC
+
+on:
+  push:
+    branches: ["phase/v2-11b-inpainting-chroma"]
+    paths:
+      - ".github/workflows/v2_phase11b_lama_inpainting_poc.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  HAND_MODEL_SHA256: fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1
+  PYTHONPATH: "."
+
+jobs:
+  lama-48:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install MediaPipe system runtime
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y libegl1 libgl1 libgles2
+
+      - name: Install pinned runtime
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install numpy pillow opencv-python-headless transformers huggingface_hub mediapipe==1.0.1 onnxruntime
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch torchvision
+          python -m pip install simple-lama-inpainting==0.1.2 --no-deps
+
+      - name: Compile frozen PoC
+        run: |
+          set -euo pipefail
+          python -m compileall -q             scripts/hand_arm_clean_dataset_onnx_tasks_v2.py             scripts/develop_video_assisted_inpainting_v2.py             scripts/develop_lama_inpainting_v2.py
+
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+
+      - name: Download and verify MediaPipe hand model
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"             --output /tmp/hand_landmarker.task
+          printf '%s  %s\n' "$HAND_MODEL_SHA256" "/tmp/hand_landmarker.task" | sha256sum --check
+
+      - name: Download pinned LaMa model release
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://github.com/enesmsahin/simple-lama-inpainting/releases/download/v0.1.0/big-lama.pt"             --output /tmp/big-lama.pt
+          test -s /tmp/big-lama.pt
+          sha256sum /tmp/big-lama.pt | tee /tmp/big-lama.sha256
+
+      - name: Run context-only LaMa comparison
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/lama-inpaint-poc
+          python -m scripts.develop_lama_inpainting_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --st-membership manifests/splits/ST.csv             --sample results/secondary/perturbation_dev/development_sample.csv             --hand-model /tmp/hand_landmarker.task             --lama-model /tmp/big-lama.pt             --output-dir /tmp/lama-inpaint-poc
+          cp /tmp/big-lama.sha256 /tmp/lama-inpaint-poc/
+          sha256sum /tmp/lama-inpaint-poc/summary.json /tmp/lama-inpaint-poc/records.json /tmp/lama-inpaint-poc/qa/*
+
+      - name: Upload full LaMa PoC
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11b-lama-inpainting-poc-48
+          path: /tmp/lama-inpaint-poc
+          compression-level: 1
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Publish compact LaMa evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/inpainting_lama_48
+          cp /tmp/lama-inpaint-poc/summary.json results/secondary/inpainting_lama_48/
+          cp /tmp/lama-inpaint-poc/records.json results/secondary/inpainting_lama_48/
+          cp /tmp/lama-inpaint-poc/big-lama.sha256 results/secondary/inpainting_lama_48/
+          cp /tmp/lama-inpaint-poc/qa/*.review.jpg.b64.txt results/secondary/inpainting_lama_48/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/inpainting_lama_48
+          git commit -m "Phase 11B: publish LaMa inpainting PoC [skip ci]"
+          git fetch origin phase/v2-11b-inpainting-chroma
+          git rebase origin/phase/v2-11b-inpainting-chroma
+          git push origin HEAD:phase/v2-11b-inpainting-chroma
