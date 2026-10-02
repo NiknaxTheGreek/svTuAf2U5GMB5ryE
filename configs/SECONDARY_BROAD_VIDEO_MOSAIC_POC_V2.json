@@ -1,0 +1,32 @@
+{
+  "status": "prospectively_frozen_broad_temporal_mosaic_poc",
+  "freeze_date": "2026-10-02",
+  "selection_bearing": false,
+  "targets": "same fixed 48 ST context-only development images",
+  "sources": "all same-video ST non-test rows (train + context)",
+  "primary_test_images_allowed": 0,
+  "classifier_predictions_allowed": 0,
+  "mask_recipe": "frozen SCHP Pascal-7 ONNX arms + verified MediaPipe Tasks hand hulls + historical union morphology",
+  "alignment": "identical acceptance thresholds to SECONDARY_VIDEO_RECONSTRUCTION_POC_V2",
+  "source_limit": "all available non-test frames from the same canonical video",
+  "pixel_transfer": {
+    "strategy": "best accepted source per target pixel",
+    "source_rank": "alignment quality / (1 + 0.02 * absolute frame distance)",
+    "averaging": false,
+    "reason": "preserve real text/page sharpness and avoid cross-frame blur"
+  },
+  "residual": {
+    "engine": "pinned LaMa",
+    "model_sha256": "7ba7aa7ac37a4d41fdbbeba3a2af7ead18058552997e3a3cd1a3b2210c9e6b4c",
+    "used_only_where_no_accepted_real_source_pixel_exists": true,
+    "outside_target_mask_preserved_exactly": true
+  },
+  "quality_gate": {
+    "real_pixel_fill_fraction_per_image_min": 0.80,
+    "fraction_images_meeting_real_pixel_fill_min": 0.90,
+    "major_visual_artifact_fraction_max": 0.10,
+    "hand_arm_visibly_removed_fraction_min": 0.90,
+    "outside_mask_preserved": true
+  },
+  "stop_rule": "If this broad temporal mosaic fails either the quantitative coverage gate or visual gate, stop hand/arm naturalistic inpainting development and report a failed PoC. Do not transform primary test images."
+}
