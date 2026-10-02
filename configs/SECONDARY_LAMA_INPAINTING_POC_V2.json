@@ -1,0 +1,47 @@
+{
+  "status": "prospectively_frozen_lama_inpainting_poc",
+  "freeze_date": "2026-10-02",
+  "selection_bearing": false,
+  "population": "same fixed 48 ST context-only development images",
+  "primary_test_images_allowed": 0,
+  "classifier_predictions_allowed": 0,
+  "mask_recipe": "frozen SCHP Pascal-7 ONNX arms + verified MediaPipe Tasks hand hulls + historical union morphology",
+  "lama": {
+    "package": "simple-lama-inpainting",
+    "package_version": "0.1.2",
+    "model_release": "enesmsahin/simple-lama-inpainting v0.1.0 big-lama.pt",
+    "model_url": "https://github.com/enesmsahin/simple-lama-inpainting/releases/download/v0.1.0/big-lama.pt",
+    "device": "CPU",
+    "max_inference_side": 1024,
+    "mask_resize": "nearest",
+    "image_resize": "Lanczos",
+    "output_resize_to_original": "Lanczos",
+    "outside_target_mask": "preserve original pixels exactly",
+    "inside_mask_edge": "small inside-only feather"
+  },
+  "variants": [
+    {
+      "id": "lama_full",
+      "definition": "LaMa fills the entire frozen target hand/arm mask"
+    },
+    {
+      "id": "video_lama_residual",
+      "definition": "same frozen accepted video alignment rules; real neighboring-frame pixels are transferred first; LaMa fills only residual target-mask pixels"
+    }
+  ],
+  "video_alignment": {
+    "source_population": "ST context-only only",
+    "same_video_only": true,
+    "max_neighbors": 8,
+    "parameters": "identical to SECONDARY_VIDEO_RECONSTRUCTION_POC_V2"
+  },
+  "quality_gate": {
+    "review_all_48": true,
+    "hand_arm_visibly_removed_fraction_min": 0.90,
+    "major_visual_artifact_fraction_max": 0.10,
+    "page_geometry_preserved": true,
+    "outside_mask_preserved": true,
+    "classifier_predictions_used_for_variant_choice": false
+  },
+  "promotion_rule": "Only a variant that passes context-only visual/preservation QA may advance to the frozen 100-image PoC."
+}
