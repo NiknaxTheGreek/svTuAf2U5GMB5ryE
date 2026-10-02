@@ -14,7 +14,8 @@
     "size": 16,
     "construction": "first 16 donors in stable SHA256(target_sample_id | donor_sample_id) order",
     "final_choice": "maximum normalized chroma palette distance within shortlist",
-    "palette_distance": "Euclidean distance between normalized chroma means plus Frobenius distance between normalized 2x2 chroma covariance matrices"
+    "palette_distance": "Euclidean distance between normalized chroma means plus Frobenius distance between normalized 2x2 chroma covariance matrices",
+    "selection_stats_stride": 16
   },
   "transfer": {
     "space": "Rec.709 Y plus normalized YCbCr-style chroma",
