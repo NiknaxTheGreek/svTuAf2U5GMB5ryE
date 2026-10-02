@@ -122,3 +122,12 @@ Stage 1 completed on run `36983299845` and **failed visual QA**. The combined ma
 Accordingly, full-scale TELEA cleaning is rejected.
 
 The next and only active correction is **video-assisted same-video reconstruction** while keeping the hand/arm mask recipe fixed. Source-frame choice, alignment acceptance and residual-fill rules must be frozen on context-only data before any primary test image is transformed.
+
+
+## Final PoC disposition
+
+The broad temporal mosaic + LaMa residual experiment (run `37017176634`) failed the prospectively frozen coverage and visual gates. Only 15/48 development targets reached >=80% real-pixel reconstruction coverage (31.25% vs required 90%), and visual review still found major synthetic reconstruction artifacts.
+
+The naturalistic hand/arm-removal extension is therefore **stopped as a failed PoC**. No 100-image promotion, primary-test transformation, full-corpus cleaned dataset, cleaned-domain retraining, or cleaned-domain HPO will be performed from these failed reconstructions.
+
+The controlled hand-mask / matched-occlusion analysis remains the valid hand-region sensitivity experiment.
