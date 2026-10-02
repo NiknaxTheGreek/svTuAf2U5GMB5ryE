@@ -1,0 +1,59 @@
+{
+  "development_overlap": 0,
+  "primary_test_overlap": 0,
+  "remaining_context_population_before_selection": 972,
+  "sample_csv_sha256": "fa9a78b8448d5a8620a0ef501d7834a3d99f199201b7d4d4d81d2814efaaf00a",
+  "seed": "monreader-chroma-validation-v2",
+  "selected_images": 100,
+  "status": "FROZEN_CHROMA_VALIDATION_100",
+  "strata_counts": [
+    {
+      "environment_id": "ENV-03",
+      "label": "flip",
+      "role_detail": "heldout_environment_earlier_context",
+      "selected": 13
+    },
+    {
+      "environment_id": "ENV-03",
+      "label": "notflip",
+      "role_detail": "heldout_environment_earlier_context",
+      "selected": 13
+    },
+    {
+      "environment_id": "ENV-01",
+      "label": "flip",
+      "role_detail": "known_environment_later_context",
+      "selected": 13
+    },
+    {
+      "environment_id": "ENV-01",
+      "label": "notflip",
+      "role_detail": "known_environment_later_context",
+      "selected": 13
+    },
+    {
+      "environment_id": "ENV-02",
+      "label": "flip",
+      "role_detail": "known_environment_later_context",
+      "selected": 12
+    },
+    {
+      "environment_id": "ENV-02",
+      "label": "notflip",
+      "role_detail": "known_environment_later_context",
+      "selected": 12
+    },
+    {
+      "environment_id": "ENV-04",
+      "label": "flip",
+      "role_detail": "known_environment_later_context",
+      "selected": 12
+    },
+    {
+      "environment_id": "ENV-04",
+      "label": "notflip",
+      "role_detail": "known_environment_later_context",
+      "selected": 12
+    }
+  ]
+}
