@@ -1,0 +1,35 @@
+{
+  "accepted_sources": {
+    "max": 54,
+    "mean": 22.75,
+    "median": 24.0
+  },
+  "classifier_predictions_used": false,
+  "fraction_images_meeting_fill_gate": 0.3125,
+  "images": 48,
+  "images_meeting_fill_gate": 15,
+  "lama_model_sha256": "7ba7aa7ac37a4d41fdbbeba3a2af7ead18058552997e3a3cd1a3b2210c9e6b4c",
+  "outside_mask_changed_images": 0,
+  "primary_test_images_used": 0,
+  "quantitative_gate_pass": false,
+  "real_pixel_fill_fraction": {
+    "mean": 0.565492951119477,
+    "median": 0.62530889110745,
+    "min": 0.04236520937064968,
+    "p10": 0.06073483267100503
+  },
+  "residual_fraction": {
+    "max": 0.9576347906293503,
+    "mean": 0.4345070488805231,
+    "median": 0.3746911088925501,
+    "p90": 0.939265167328995
+  },
+  "source_pool_size": {
+    "max": 54,
+    "mean": 24.854166666666668,
+    "median": 25.5
+  },
+  "source_population": "same-video ST non-test rows only",
+  "status": "BROAD_TEMPORAL_MOSAIC_48_READY_FOR_VISUAL_REVIEW",
+  "visual_gate": "PENDING"
+}
