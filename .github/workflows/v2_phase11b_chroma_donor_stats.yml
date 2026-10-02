@@ -1,0 +1,67 @@
+name: MonReader V2 Phase 11B chroma donor stats
+
+on:
+  push:
+    branches: ["phase/v2-11b-inpainting-chroma"]
+    paths:
+      - ".github/workflows/v2_phase11b_chroma_donor_stats.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+
+jobs:
+  donor-stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install runtime
+        run: python -m pip install numpy==2.3.5 Pillow==12.3.0
+
+      - name: Compile
+        run: python -m compileall -q src/chroma_counterfactual_v2.py scripts/build_chroma_donor_stats_v2.py
+
+      - name: Download and verify archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+
+      - name: Build universal donor stats
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/donor-stats
+          mkdir -p /tmp/donor-stats
+          python -m scripts.build_chroma_donor_stats_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --split-o manifests/splits/O.csv             --split-s manifests/splits/S.csv             --split-t manifests/splits/T.csv             --split-st manifests/splits/ST.csv             --output-csv /tmp/donor-stats/chroma_donor_palette_stats.csv             --output-summary /tmp/donor-stats/summary.json
+          sha256sum /tmp/donor-stats/*
+
+      - name: Upload donor-stats evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11b-chroma-donor-stats
+          path: /tmp/donor-stats
+          compression-level: 1
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Publish donor stats
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/chroma_donor_stats
+          cp /tmp/donor-stats/* results/secondary/chroma_donor_stats/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/chroma_donor_stats
+          git commit -m "Phase 11B: publish frozen chroma donor stats [skip ci]"
+          git fetch origin phase/v2-11b-inpainting-chroma
+          git rebase origin/phase/v2-11b-inpainting-chroma
+          git push origin HEAD:phase/v2-11b-inpainting-chroma
