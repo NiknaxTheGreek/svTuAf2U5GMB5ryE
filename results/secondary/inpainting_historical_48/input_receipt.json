@@ -1,0 +1,11 @@
+{
+  "archive_sha256": "033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f",
+  "images": 48,
+  "inventory_sha256": "254c7324f108e5c30df1e97e7b3cf37278e0e33f2fbf52b2dc08ebaf2b8d0b6b",
+  "manifest_sha256": "3fb8a29f1a51fc7930fe6c876d0fcb8d99ec59e147d4abbff503da4870f15b0b",
+  "primary_test_overlap": 0,
+  "sample_csv_sha256": "33870102805424fbe466df3bd81f69fc078d8bd42a010865fd526b3d30242af1",
+  "st_context_only": true,
+  "st_split_sha256": "ed62ad946187ba33154e84e6732fdcf6110e8309c402b568259bcf2c0e177a85",
+  "status": "PASS_HISTORICAL_PILOT_INPUT_GATE"
+}

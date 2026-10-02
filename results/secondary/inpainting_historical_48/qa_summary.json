@@ -1,0 +1,13 @@
+{
+  "algorithm_source_commit": "0b06f7163998c06135c6ea18d286f02fcedb9caa",
+  "classifier_predictions_used": false,
+  "images": 48,
+  "max_mask_fraction": 0.2413768325617284,
+  "mean_mask_fraction": 0.13345110355581277,
+  "median_mask_fraction": 0.11190128279320988,
+  "p90_mask_fraction": 0.2320690104166667,
+  "status": "HISTORICAL_SCHP_MEDIAPIPE_TELEA_48_READY_FOR_VISUAL_REVIEW",
+  "zero_arm_mask_images": 11,
+  "zero_combined_mask_images": 0,
+  "zero_hand_mask_images": 2
+}

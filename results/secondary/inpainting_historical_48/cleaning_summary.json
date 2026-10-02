@@ -1,0 +1,22 @@
+{
+  "processed": 48,
+  "arm_model": "pirocheto/schp-pascal-7",
+  "arm_model_revision": "e97480b846bf0f23a9f9b7ab673dc1c86af89467",
+  "arm_onnx_file": "onnx/schp-pascal-7-int8-static.onnx",
+  "arm_label_ids": [
+    3,
+    4
+  ],
+  "hand_detector": "MediaPipe Tasks HandLandmarker compatibility replacement",
+  "hand_detection_confidence": 0.35,
+  "hand_presence_confidence": 0.35,
+  "num_hands": 2,
+  "images_with_hand_detection": 46,
+  "images_without_hand_detection": 2,
+  "mean_mask_fraction": 0.13345110355581277,
+  "median_mask_fraction": 0.11190128279320988,
+  "zero_mask_images": 0,
+  "method": "Pinned SCHP Pascal-7 ONNX arm segmentation + verified MediaPipe Tasks hand hulls; historical union morphology; half-resolution TELEA radius 5; cubic upsample; feathered compositing.",
+  "compatibility_note": "Legacy mp.solutions.hands was unavailable in current MediaPipe. Only that API/model invocation was replaced; downstream hand-hull geometry, dilation, arm segmentation, union morphology, TELEA and feathering retain historical semantics.",
+  "note": "Derived ablation dataset only. Canonical originals are never modified."
+}
