@@ -1,0 +1,35 @@
+{
+  "status": "prospectively_frozen_naturalistic_chroma_v2_validation",
+  "freeze_date": "2026-10-03",
+  "reason_for_single_correction": "v1 preserved luminance and looked plausible but failed the pre-frozen non-triviality gate with median chroma displacement 1.5537 < 3.0",
+  "selection_bearing": false,
+  "development_population": "original PHASE11B_POC_100; now development-only",
+  "validation_population": "new deterministic 100-image ST-context sample excluding all development-100 rows",
+  "primary_test_images_allowed": 0,
+  "classifier_predictions_allowed": 0,
+  "universal_donor_pool": "non-test simultaneously in O, S, T and ST",
+  "target_label_used": false,
+  "donor_shortlist": {
+    "eligible": "different canonical video and different environment from target",
+    "size": 16,
+    "construction": "first 16 donors in stable SHA256(target_sample_id | donor_sample_id) order",
+    "final_choice": "maximum normalized chroma palette distance within shortlist",
+    "palette_distance": "Euclidean distance between normalized chroma means plus Frobenius distance between normalized 2x2 chroma covariance matrices"
+  },
+  "transfer": {
+    "space": "Rec.709 Y plus normalized YCbCr-style chroma",
+    "strength": 1.0,
+    "covariance_epsilon": 0.0001,
+    "stats_stride": 4,
+    "luminance": "target Y preserved",
+    "gamut": "radial chroma compression toward neutral"
+  },
+  "validation_gate": {
+    "mean_rec709_luma_mae_max": 0.5,
+    "p95_per_image_luma_mae_max": 1.0,
+    "median_chroma_displacement_min": 3.0,
+    "major_visual_artifact_fraction_max": 0.10,
+    "review_all_100": true
+  },
+  "stop_rule": "No further naturalistic-colour tuning if v2 fails independent validation. Do not inspect primary test predictions during development."
+}
