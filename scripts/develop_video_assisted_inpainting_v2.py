@@ -306,79 +306,98 @@ def main():
     try:
         with ZipFile(args.archive) as z:
             for index, sid in enumerate(target_ids, 1):
-            target_meta = by_id[sid]
-            target_rgb = decode_member(z, target_meta["archive_member"])
-            target_mask, arm_px, hand_px, detected_hands = final_hand_arm_mask(
-                target_rgb, processor, session, hand_masker
-            )
-            _, target_kp, target_desc = target_features(target_rgb, target_mask)
-
-            pool = [
-                r for r in context_by_video[target_meta["video_id"]]
-                if r["sample_id"] != sid
-            ]
-            pool.sort(key=lambda r: (abs(int(r["frame_number"]) - int(target_meta["frame_number"])), r["sample_id"]))
-            pool = pool[:MAX_NEIGHBORS]
-
-            aligned = []
-            attempts = []
-            for src_meta in pool:
-                source_rgb = decode_member(z, src_meta["archive_member"])
-                source_mask, _, _, _ = final_hand_arm_mask(
-                    source_rgb, processor, session, hand_masker
+                target_meta = by_id[sid]
+                target_rgb = decode_member(z, target_meta["archive_member"])
+                target_mask, arm_px, hand_px, detected_hands = final_hand_arm_mask(
+                    target_rgb, processor, session, hand_masker
                 )
-                a = estimate_alignment(
-                    target_rgb, target_mask, target_kp, target_desc, source_rgb, source_mask
+                _, target_kp, target_desc = target_features(target_rgb, target_mask)
+
+                pool = [
+                    r for r in context_by_video[target_meta["video_id"]]
+                    if r["sample_id"] != sid
+                ]
+                pool.sort(
+                    key=lambda r: (
+                        abs(int(r["frame_number"]) - int(target_meta["frame_number"])),
+                        r["sample_id"],
+                    )
                 )
-                attempt = {
-                    "sample_id": src_meta["sample_id"],
-                    "frame_distance": abs(int(src_meta["frame_number"]) - int(target_meta["frame_number"])),
-                    "accepted": a is not None,
+                pool = pool[:MAX_NEIGHBORS]
+
+                aligned = []
+                attempts = []
+                for src_meta in pool:
+                    source_rgb = decode_member(z, src_meta["archive_member"])
+                    source_mask, _, _, _ = final_hand_arm_mask(
+                        source_rgb, processor, session, hand_masker
+                    )
+                    a = estimate_alignment(
+                        target_rgb,
+                        target_mask,
+                        target_kp,
+                        target_desc,
+                        source_rgb,
+                        source_mask,
+                    )
+                    attempt = {
+                        "sample_id": src_meta["sample_id"],
+                        "frame_distance": abs(
+                            int(src_meta["frame_number"])
+                            - int(target_meta["frame_number"])
+                        ),
+                        "accepted": a is not None,
+                    }
+                    attempts.append(attempt)
+                    if a is not None:
+                        aligned.append({**attempt, "alignment": a})
+
+                reconstructed, real_fill_fraction, residual_fraction, accepted = reconstruct(
+                    target_rgb, target_mask, aligned
+                )
+
+                out_path = clean_root / target_meta["archive_member"]
+                out_path.parent.mkdir(parents=True, exist_ok=True)
+                Image.fromarray(reconstructed).save(out_path, quality=95)
+
+                mask_path = mask_root / (target_meta["archive_member"] + ".png")
+                mask_path.parent.mkdir(parents=True, exist_ok=True)
+                Image.fromarray(target_mask).save(mask_path)
+
+                rec = {
+                    "sample_id": sid,
+                    "video_id": target_meta["video_id"],
+                    "frame_number": int(target_meta["frame_number"]),
+                    "label": target_meta["label"],
+                    "mask_fraction": float((target_mask > 0).mean()),
+                    "arm_pixels": arm_px,
+                    "hand_pixels": hand_px,
+                    "detected_hands": detected_hands,
+                    "source_candidates": len(pool),
+                    "accepted_sources": len(accepted),
+                    "real_pixel_fill_fraction": real_fill_fraction,
+                    "residual_fraction": residual_fraction,
+                    "eligible_by_fill_gate": bool(
+                        real_fill_fraction >= 0.80 and residual_fraction <= 0.20
+                    ),
+                    "accepted_source_details": accepted,
+                    "attempted_sources": attempts,
                 }
-                attempts.append(attempt)
-                if a is not None:
-                    aligned.append({**attempt, "alignment": a})
-
-            reconstructed, real_fill_fraction, residual_fraction, accepted = reconstruct(
-                target_rgb, target_mask, aligned
-            )
-
-            out_path = clean_root / target_meta["archive_member"]
-            out_path.parent.mkdir(parents=True, exist_ok=True)
-            Image.fromarray(reconstructed).save(out_path, quality=95)
-
-            mask_path = mask_root / (target_meta["archive_member"] + ".png")
-            mask_path.parent.mkdir(parents=True, exist_ok=True)
-            Image.fromarray(target_mask).save(mask_path)
-
-            rec = {
-                "sample_id": sid,
-                "video_id": target_meta["video_id"],
-                "frame_number": int(target_meta["frame_number"]),
-                "label": target_meta["label"],
-                "mask_fraction": float((target_mask > 0).mean()),
-                "arm_pixels": arm_px,
-                "hand_pixels": hand_px,
-                "detected_hands": detected_hands,
-                "source_candidates": len(pool),
-                "accepted_sources": len(accepted),
-                "real_pixel_fill_fraction": real_fill_fraction,
-                "residual_fraction": residual_fraction,
-                "eligible_by_fill_gate": bool(real_fill_fraction >= 0.80 and residual_fraction <= 0.20),
-                "accepted_source_details": accepted,
-                "attempted_sources": attempts,
-            }
-            records.append(rec)
-            visual_entries.append({
-                "sample_id": sid,
-                "original": target_rgb,
-                "mask": target_mask,
-                "reconstructed": reconstructed,
-                "real_fill_fraction": real_fill_fraction,
-                "residual_fraction": residual_fraction,
-                "accepted_count": len(accepted),
-            })
-                print(f"{index}/48 {sid} real={real_fill_fraction:.3f} residual={residual_fraction:.3f} accepted={len(accepted)}", flush=True)
+                records.append(rec)
+                visual_entries.append({
+                    "sample_id": sid,
+                    "original": target_rgb,
+                    "mask": target_mask,
+                    "reconstructed": reconstructed,
+                    "real_fill_fraction": real_fill_fraction,
+                    "residual_fraction": residual_fraction,
+                    "accepted_count": len(accepted),
+                })
+                print(
+                    f"{index}/48 {sid} real={real_fill_fraction:.3f} "
+                    f"residual={residual_fraction:.3f} accepted={len(accepted)}",
+                    flush=True,
+                )
     finally:
         hand_masker.close()
 
