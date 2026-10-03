@@ -71,6 +71,74 @@ resolution_sensitivity:
   quarter_resolution_video_group_delta_ci95: [-0.18546535349021592, -0.08108316607933755]
   conclusion: "Best-O C14 is materially sensitive to spatial-detail loss at both fixed degradation levels; both video/group delta-F1 intervals exclude zero."
 
+naturalistic_hand_arm_removal:
+  status: FAILED_POC_STOP_RULE_INVOKED
+  final_workflow_run_id: 37017176634
+  final_artifact_id: 11232014527
+  final_artifact_sha256: 04f760352a26c3e7ecf947f105b0180edab8566f39db39cc5a7707120cc7b1fd
+  poc_targets: 48
+  mean_real_pixel_fill: 0.5655
+  median_real_pixel_fill: 0.6253
+  targets_meeting_80pct_real_pixel_gate: 15
+  fraction_meeting_gate: 0.3125
+  required_fraction: 0.90
+  outside_mask_changed_images: 0
+  visual_gate: FAIL
+  primary_test_images_used_for_method_selection: 0
+  classifier_predictions_used_for_method_selection: 0
+  conclusion: "Naturalistic hand/arm reconstruction failed the prospectively frozen PoC gate. Do not scale a cleaned corpus or run cleaned-domain retraining/HPO."
+
+chroma_counterfactual:
+  status: VERIFIED_COMPLETE
+  selection_bearing: false
+  champions: {O: C14, S: C18, T: C06, ST: C07}
+  retraining: false
+  threshold: 0.5
+  development_qa:
+    population: PHASE11B_POC_100.csv
+    primary_test_images_used: 0
+    classifier_predictions_used: 0
+    reproducibility_run_id: 37152168592
+    reproducibility_artifact_id: 11284402455
+    reproducibility_artifact_sha256: 457da43f6fcbe36eaef52429d2a6be869908f563b60c6feecb0d2c1f54315495
+    matched_rotation_mean_luma_mae: 0.17058410162326376
+    naturalistic_mean_luma_mae: 0.18936979873939042
+    naturalistic_p95_luma_mae: 0.23527561830150448
+    naturalistic_median_chroma_displacement: 2.2591606907445776
+    required_median_chroma_displacement: 3.0
+    nontriviality_gate: FAIL
+    note: "The 2026-10-03 rerun reproduced already committed evidence. Its workflow was red only because a no-op git commit returned exit code 1; QA and artifact upload succeeded."
+    ci_idempotency_fix_commit: 5edeb3f30ed48ed2afed120e7d1e48a899bab304
+  independent_naturalistic_v2_validation:
+    status: PASS
+    workflow_run_id: 37073967071
+    artifact_id: 11255238172
+    artifact_sha256: 953ae8bc50833f72c6bbb452cdee9ce2901d1318f2318a7ea3d4fcf4e2220af5
+    validation_population: PHASE11B_CHROMA_VALIDATION_100.csv
+    development_overlap: 0
+    primary_test_overlap: 0
+    classifier_predictions_used: 0
+    same_video_donors: 0
+    same_environment_donors: 0
+    mean_luma_mae: 0.18756323568479943
+    p95_luma_mae: 0.23972565503472096
+    median_chroma_displacement: 3.7516143636913037
+    quantitative_gate: PASS
+    visual_gate: PASS
+  all_regime_evaluation:
+    status: PASS
+    workflow_run_id: 37142158225
+    combined_artifact_id: 11281857048
+    combined_artifact_sha256: 8480288af706f2305472f7eb8455971ebc10364bb6607f98863d054d2a9c05be
+    variants: [original_rgb, rec709_grayscale, matched_chroma_rotation, naturalistic_chroma_v2]
+    naturalistic_v2_delta_f1:
+      O: -0.0596
+      S: -0.0887
+      T: -0.0576
+      ST: -0.1222
+  conclusion: "Naturalistic chroma v2 passed independent context-only validation and the frozen O/S/T/ST sensitivity evaluation is complete. Results are post-hoc and cannot redefine the regime champions."
+
 notes:
   - "All Phase 11 results are post-hoc/exploratory and cannot modify Best O/S/T/ST."
   - "The old perturbation development branch was not merged wholesale; only reviewed assets/code were ported."
+  - "Phase 11B final disposition is recorded in reports/secondary/PHASE11B_FINAL_DISPOSITION.md."
