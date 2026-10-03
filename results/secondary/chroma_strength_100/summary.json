@@ -1,0 +1,26 @@
+{
+  "candidates": {
+    "1.0": {
+      "luma_gate_pass": true,
+      "mean_gamut_compressed_fraction": 0.01937882426697531,
+      "mean_luma_mae": 0.18936979873939042,
+      "median_per_image_chroma_displacement": 2.2591606907445776,
+      "nontrivial_chroma_gate_pass": false,
+      "p95_per_image_luma_mae": 0.23527561830150448,
+      "visual_gate": "PENDING"
+    },
+    "1.5": {
+      "luma_gate_pass": true,
+      "mean_gamut_compressed_fraction": 0.0299591194058642,
+      "mean_luma_mae": 0.18423225859471448,
+      "median_per_image_chroma_displacement": 3.347604432735515,
+      "nontrivial_chroma_gate_pass": true,
+      "p95_per_image_luma_mae": 0.24540278460648135,
+      "visual_gate": "PENDING"
+    }
+  },
+  "classifier_predictions_used": false,
+  "images": 100,
+  "primary_test_images_used": 0,
+  "status": "CHROMA_STRENGTH_100_READY_FOR_VISUAL_REVIEW"
+}
