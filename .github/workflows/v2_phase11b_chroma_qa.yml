@@ -7,8 +7,6 @@ on:
       - ".github/workflows/v2_phase11b_chroma_qa.yml"
       - "scripts/develop_chroma_counterfactual_v2.py"
       - "configs/SECONDARY_CHROMA_COUNTERFACTUAL_V2.json"
-      - "scripts/develop_chroma_counterfactual_v2.py"
-      - "configs/SECONDARY_CHROMA_COUNTERFACTUAL_V2.json"
 
 permissions:
   contents: write
@@ -36,19 +34,31 @@ jobs:
       - name: Compile frozen chroma transforms
         run: |
           set -euo pipefail
-          python -m compileall -q             src/chroma_counterfactual_v2.py             scripts/develop_chroma_counterfactual_v2.py
+          python -m compileall -q \
+            src/chroma_counterfactual_v2.py \
+            scripts/develop_chroma_counterfactual_v2.py
 
       - name: Download and verify authoritative archive
         run: |
           set -euo pipefail
-          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          curl --fail --location --retry 3 --retry-delay 2 \
+            "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t" \
+            --output /tmp/images.zip
           printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
 
       - name: Run frozen 100-image context-only chroma QA
         run: |
           set -euo pipefail
           rm -rf /tmp/chroma-qa
-          python -m scripts.develop_chroma_counterfactual_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --split-o manifests/splits/O.csv             --split-s manifests/splits/S.csv             --split-t manifests/splits/T.csv             --split-st manifests/splits/ST.csv             --sample manifests/secondary/PHASE11B_POC_100.csv             --output-dir /tmp/chroma-qa
+          python -m scripts.develop_chroma_counterfactual_v2 \
+            --archive /tmp/images.zip \
+            --manifest manifests/datasets/DATA-001.csv \
+            --split-o manifests/splits/O.csv \
+            --split-s manifests/splits/S.csv \
+            --split-t manifests/splits/T.csv \
+            --split-st manifests/splits/ST.csv \
+            --sample manifests/secondary/PHASE11B_POC_100.csv \
+            --output-dir /tmp/chroma-qa
           sha256sum /tmp/chroma-qa/summary.json /tmp/chroma-qa/records.json /tmp/chroma-qa/qa/*
 
       - name: Upload full chroma QA
@@ -70,7 +80,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add results/secondary/chroma_qa_100
-          git commit -m "Phase 11B: publish chroma QA [skip ci]"
-          git fetch origin phase/v2-11b-inpainting-chroma
-          git rebase origin/phase/v2-11b-inpainting-chroma
-          git push origin HEAD:phase/v2-11b-inpainting-chroma
+
+          if git diff --cached --quiet; then
+            echo "No compact evidence changes; deterministic rerun matches committed evidence."
+          else
+            git commit -m "Phase 11B: publish chroma QA [skip ci]"
+            git fetch origin phase/v2-11b-inpainting-chroma
+            git rebase origin/phase/v2-11b-inpainting-chroma
+            git push origin HEAD:phase/v2-11b-inpainting-chroma
+          fi
