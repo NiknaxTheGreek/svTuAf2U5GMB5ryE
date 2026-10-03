@@ -1,12 +1,12 @@
 # Phase 11B — Final disposition
 
-Status: **COMPLETE — secondary/exploratory, non-selection-bearing**.
+Status: **CHROMA COMPLETE; HAND/ARM RECONSTRUCTION V2 DEVELOPMENT REOPENED — secondary/exploratory, non-selection-bearing**.
 
 The frozen O/S/T/ST champions are unchanged by every result in this phase.
 
-## 1. Naturalistic hand/arm removal
+## 1. Naturalistic hand/arm removal — first-generation family
 
-Final disposition: **FAILED PoC — STOP RULE INVOKED**.
+Historical disposition: **FAILED FIRST-GENERATION PoC — STOP RULE INVOKED FOR THAT METHOD FAMILY**.
 
 The broad temporal mosaic + LaMa residual stage was the final permitted reconstruction attempt.
 
@@ -19,9 +19,25 @@ The broad temporal mosaic + LaMa residual stage was the final permitted reconstr
 - outside-mask changed images: 0;
 - visual QA: FAIL.
 
-Therefore no 100-image naturalistic hand/arm validation, no 2,989-image cleaned corpus, and no cleaned-domain retraining/HPO are authorized.
+Therefore that first-generation method is not authorized for 100-image validation, a 2,989-image cleaned corpus, or cleaned-domain retraining/HPO.
 
 The controlled hand-mask/occlusion sensitivity analysis remains valid and must not be described as naturalistic hand removal.
+
+### Hand/arm reconstruction v2 continuation
+
+A materially different reconstruction family was opened on 2026-10-03 without changing the frozen v1 result. The v2 method performs document-plane normalization, deterministic label-blind donor retrieval from ST non-test images including different videos, ORB-based geometric verification, per-pixel observed-color medoid fusion, and LaMa only for pixels with no accepted real donor observation.
+
+- branch: `phase/v2-11b-hand-reconstruction-v2`;
+- launch commit: `46b71d646ce1d045b2a962d39956d80700d7c0f6`;
+- development run: `37153870553`;
+- development targets: the same frozen 48 ST-context development images;
+- primary-test images allowed: 0;
+- classifier predictions used for method selection: 0;
+- target labels used for donor retrieval: 0;
+- per-target gate: >=80% observed-donor coverage and <=20% generative residual;
+- phase gate: >=90% of development targets must meet the per-target gate, with exact outside-mask preservation and visual QA PASS.
+
+The v2 path is currently **RUNNING**. A development pass is required before any independent 100-image validation is authorized.
 
 ## 2. Chroma counterfactual development
 
@@ -94,16 +110,16 @@ F1 results:
 
 The paired video/group 95% intervals for naturalistic-v2 ΔF1 exclude zero for O and T, narrowly include zero for S, and include zero for ST. These are post-hoc sensitivity findings and cannot redefine the frozen regime champions.
 
-## Final Phase 11B decision
+## Current Phase 11B decision
 
-Phase 11B is scientifically closed:
+The chroma path remains scientifically closed and frozen. The first-generation naturalistic hand/arm reconstruction result also remains frozen as a failed method-specific PoC. However, hand/arm reconstruction as a research objective is **reopened under v2** because the new method family is materially different and remains fully isolated from the primary test set.
 
-- **naturalistic hand/arm removal:** failed PoC; stopped;
+- **naturalistic hand/arm reconstruction v1:** failed first-generation PoC; historical result frozen;
+- **naturalistic hand/arm reconstruction v2:** development RUNNING on the frozen 48-image ST-context sample;
 - **development chroma QA:** underpowered naturalistic variant documented;
 - **independent naturalistic chroma v2:** validated and frozen;
 - **all-regime chroma sensitivity evaluation:** complete;
 - **selection impact:** none;
-- **retraining from these results:** none;
-- **further tuning on primary test images:** forbidden.
+- **primary-test tuning:** forbidden.
 
-Any future continuation should treat the files and artifacts above as frozen Phase 11B evidence rather than reopening the failed reconstruction or chroma-development paths.
+A v2 development PASS does not itself validate hand removal. It only authorizes freezing the exact v2 implementation and moving to a new non-overlapping 100-image context-only validation gate.
