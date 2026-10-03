@@ -3,10 +3,22 @@
   "freeze_date": "2026-10-03",
   "selection_bearing": false,
   "champions": {
-    "O": {"candidate_id": "C14", "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49"},
-    "S": {"candidate_id": "C18", "checkpoint_sha256": "1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225"},
-    "T": {"candidate_id": "C06", "checkpoint_sha256": "2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b"},
-    "ST": {"candidate_id": "C07", "checkpoint_sha256": "9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67"}
+    "O": {
+      "candidate_id": "C14",
+      "checkpoint_sha256": "57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49"
+    },
+    "S": {
+      "candidate_id": "C18",
+      "checkpoint_sha256": "1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225"
+    },
+    "T": {
+      "candidate_id": "C06",
+      "checkpoint_sha256": "2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b"
+    },
+    "ST": {
+      "candidate_id": "C07",
+      "checkpoint_sha256": "9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67"
+    }
   },
   "variants": [
     {
@@ -45,23 +57,40 @@
     "space": "Rec.709 Y + two YCbCr-style chroma coordinates",
     "transform": "regularized 2D whitening/coloring transform from target chroma covariance to donor chroma covariance",
     "covariance_epsilon": 0.0001,
-    "strength": 0.75,
+    "strength": 1,
     "luminance": "target Y retained exactly before uint8 rounding",
-    "gamut_handling": "per-pixel radial chroma compression toward neutral by deterministic binary search until RGB is in gamut"
+    "gamut_handling": "per-pixel radial chroma compression toward neutral by deterministic binary search until RGB is in gamut",
+    "previous_strength_qa": {
+      "strength": 0.75,
+      "run_id": 37073160426,
+      "result": "visual_and_luminance_pass_nontriviality_fail",
+      "median_chroma_displacement": 1.5537160435986561
+    },
+    "correction_reason": "Context-only QA showed plausible but insufficiently strong colour change; strength increased once before any primary-test transformation."
   },
   "quality_gate": {
     "review_all_100": true,
     "matched_rotation_mean_rec709_luma_mae_max": 0.5,
     "naturalistic_mean_rec709_luma_mae_max": 0.5,
-    "naturalistic_p95_per_image_luma_mae_max": 1.0,
-    "naturalistic_median_chroma_displacement_min": 3.0,
-    "naturalistic_major_visual_artifact_fraction_max": 0.10,
+    "naturalistic_p95_per_image_luma_mae_max": 1,
+    "naturalistic_median_chroma_displacement_min": 3,
+    "naturalistic_major_visual_artifact_fraction_max": 0.1,
     "geometry_or_text_structure_changes_allowed": false,
     "classifier_predictions_used_for_transform_choice": false
   },
   "evaluation_if_pass": {
-    "regimes": ["O", "S", "T", "ST"],
-    "variants": ["original_rgb", "rec709_grayscale", "matched_chroma_rotation", "naturalistic_palette_counterfactual"],
+    "regimes": [
+      "O",
+      "S",
+      "T",
+      "ST"
+    ],
+    "variants": [
+      "original_rgb",
+      "rec709_grayscale",
+      "matched_chroma_rotation",
+      "naturalistic_palette_counterfactual"
+    ],
     "threshold": 0.5,
     "frame_bootstrap_resamples": 5000,
     "video_group_bootstrap_resamples": 5000,
