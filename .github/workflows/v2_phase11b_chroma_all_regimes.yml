@@ -1,0 +1,159 @@
+name: MonReader V2 Phase 11B all-regime chroma evaluation
+
+on:
+  push:
+    branches: ["phase/v2-11b-inpainting-chroma"]
+    paths:
+      - ".github/workflows/v2_phase11b_chroma_all_regimes.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+  OMP_NUM_THREADS: "4"
+  MKL_NUM_THREADS: "4"
+
+jobs:
+  evaluate:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - regime: O
+            evidence_run_id: 36706123492
+            evidence_artifact: monreader-v2-o-scratch-evidence
+          - regime: S
+            evidence_run_id: 36737122432
+            evidence_artifact: monreader-v2-s-scratch-evidence
+          - regime: T
+            evidence_run_id: 36758061980
+            evidence_artifact: monreader-v2-t-scratch-evidence
+          - regime: ST
+            evidence_run_id: 36815939762
+            evidence_artifact: monreader-v2-st-scratch-evidence
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install pinned evaluation runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+
+      - name: Compile frozen chroma evaluation
+        run: |
+          set -euo pipefail
+          python -m compileall -q             src/scratch_v2.py             src/chroma_counterfactual_v2.py             scripts/validate_naturalistic_chroma_v2.py             scripts/evaluate_chroma_counterfactual_all_regimes_v2.py
+
+      - name: Download authoritative scratch evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.evidence_artifact }}
+          path: /tmp/scratch-evidence
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ matrix.evidence_run_id }}
+
+      - name: Download and verify authoritative image archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" "/tmp/images.zip" | sha256sum --check
+
+      - name: Evaluate frozen champion on four chroma variants
+        run: |
+          set -euo pipefail
+          rm -rf "/tmp/chroma-${{ matrix.regime }}"
+          python -m scripts.evaluate_chroma_counterfactual_all_regimes_v2             --regime "${{ matrix.regime }}"             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership "manifests/splits/${{ matrix.regime }}.csv"             --split-o manifests/splits/O.csv             --split-s manifests/splits/S.csv             --split-t manifests/splits/T.csv             --split-st manifests/splits/ST.csv             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --evidence-root /tmp/scratch-evidence             --output-dir "/tmp/chroma-${{ matrix.regime }}"
+          sha256sum "/tmp/chroma-${{ matrix.regime }}"/*
+
+      - name: Upload per-regime chroma evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-chroma-eval-${{ matrix.regime }}
+          path: /tmp/chroma-${{ matrix.regime }}
+          compression-level: 1
+          retention-days: 90
+          if-no-files-found: error
+
+  summarize-and-publish:
+    needs: evaluate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Download O evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-chroma-eval-O
+          path: /tmp/chroma/O
+
+      - name: Download S evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-chroma-eval-S
+          path: /tmp/chroma/S
+
+      - name: Download T evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-chroma-eval-T
+          path: /tmp/chroma/T
+
+      - name: Download ST evidence
+        uses: actions/download-artifact@v4
+        with:
+          name: v2-chroma-eval-ST
+          path: /tmp/chroma/ST
+
+      - name: Build combined report
+        run: |
+          set -euo pipefail
+          python -m scripts.summarize_chroma_counterfactual_v2             --input-root /tmp/chroma             --output /tmp/CHROMA_COUNTERFACTUAL_ALL_REGIMES.md
+          find /tmp/chroma -type f -print0 | sort -z | xargs -0 sha256sum
+          sha256sum /tmp/CHROMA_COUNTERFACTUAL_ALL_REGIMES.md
+
+      - name: Upload combined chroma evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11b-chroma-all-regimes
+          path: |
+            /tmp/chroma
+            /tmp/CHROMA_COUNTERFACTUAL_ALL_REGIMES.md
+          compression-level: 1
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Publish combined chroma results
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/chroma_all_regimes reports/secondary
+          for regime in O S T ST; do
+            mkdir -p "results/secondary/chroma_all_regimes/$regime"
+            cp "/tmp/chroma/$regime/"* "results/secondary/chroma_all_regimes/$regime/"
+          done
+          cp /tmp/CHROMA_COUNTERFACTUAL_ALL_REGIMES.md reports/secondary/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/chroma_all_regimes reports/secondary/CHROMA_COUNTERFACTUAL_ALL_REGIMES.md
+          git commit -m "Phase 11B: publish all-regime chroma counterfactual results [skip ci]"
+          git fetch origin phase/v2-11b-inpainting-chroma
+          git rebase origin/phase/v2-11b-inpainting-chroma
+          git push origin HEAD:phase/v2-11b-inpainting-chroma
