@@ -1,0 +1,59 @@
+name: MonReader V2 Phase 11B chroma strength QA
+
+on:
+  push:
+    branches: ["phase/v2-11b-inpainting-chroma"]
+    paths:
+      - ".github/workflows/v2_phase11b_chroma_strength.yml"
+
+permissions:
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+
+jobs:
+  strength-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - run: python -m pip install numpy==2.3.5 Pillow==12.3.0
+      - run: python -m compileall -q src/chroma_counterfactual_v2.py scripts/develop_chroma_strength_v2.py
+      - name: Download and verify archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" /tmp/images.zip | sha256sum --check
+      - name: Run frozen strength comparison
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/chroma-strength
+          python -m scripts.develop_chroma_strength_v2             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --split-o manifests/splits/O.csv             --split-s manifests/splits/S.csv             --split-t manifests/splits/T.csv             --split-st manifests/splits/ST.csv             --sample manifests/secondary/PHASE11B_POC_100.csv             --output-dir /tmp/chroma-strength
+          sha256sum /tmp/chroma-strength/summary.json /tmp/chroma-strength/records.json /tmp/chroma-strength/qa/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11b-chroma-strength-100
+          path: /tmp/chroma-strength
+          compression-level: 1
+          retention-days: 90
+          if-no-files-found: error
+      - name: Publish compact evidence
+        run: |
+          set -euo pipefail
+          mkdir -p results/secondary/chroma_strength_100
+          cp /tmp/chroma-strength/summary.json results/secondary/chroma_strength_100/
+          cp /tmp/chroma-strength/records.json results/secondary/chroma_strength_100/
+          cp /tmp/chroma-strength/qa/*.review.jpg.b64.txt results/secondary/chroma_strength_100/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/chroma_strength_100
+          git commit -m "Phase 11B: publish chroma strength QA [skip ci]"
+          git fetch origin phase/v2-11b-inpainting-chroma
+          git rebase origin/phase/v2-11b-inpainting-chroma
+          git push origin HEAD:phase/v2-11b-inpainting-chroma
