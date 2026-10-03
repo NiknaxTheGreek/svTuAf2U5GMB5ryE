@@ -61,7 +61,7 @@
     "luminance": "target Y retained exactly before uint8 rounding",
     "gamut_handling": "per-pixel radial chroma compression toward neutral by deterministic binary search until RGB is in gamut",
     "previous_strength_qa": {
-      "strength": 0.75,
+      "strength": 1.0,
       "run_id": 37073160426,
       "result": "visual_and_luminance_pass_nontriviality_fail",
       "median_chroma_displacement": 1.5537160435986561
