@@ -1,33 +1,59 @@
 {
-  "status": "prospectively_frozen_naturalistic_chroma_v2",
+  "status": "VALIDATED_AND_FROZEN_FOR_PRIMARY_TEST_EVALUATION",
   "freeze_date": "2026-10-03",
   "selection_bearing": false,
-  "development_population": "same frozen 100-image ST-context sample",
-  "primary_test_images_allowed": 0,
-  "classifier_predictions_allowed": 0,
-  "donor_pool": "same universal O/S/T/ST non-test intersection as v1",
+  "development_run_id": 37073160426,
+  "independent_validation_run_id": 37073967071,
+  "independent_validation_artifact_id": 11255238172,
+  "independent_validation_artifact_sha256": "953ae8bc50833f72c6bbb452cdee9ce2901d1318f2318a7ea3d4fcf4e2220af5",
+  "development_population": "PHASE11B_POC_100.csv",
+  "independent_validation_population": "PHASE11B_CHROMA_VALIDATION_100.csv",
+  "development_validation_overlap": 0,
+  "primary_test_images_used_during_development_or_validation": 0,
+  "classifier_predictions_used_during_development_or_validation": 0,
+  "donor_pool": "sample IDs whose role is not test in O, S, T, and ST simultaneously",
+  "donor_pool_size": 1428,
   "donor_selection": {
     "target_label_used": false,
     "classifier_prediction_used": false,
-    "shortlist_size": 64,
-    "shortlist_rule": "first 64 eligible donors in SHA256(target_sample_id|donor_sample_id) order after excluding same canonical video and, where possible, same environment",
-    "choice_within_shortlist": "maximum symmetric Gaussian chroma distance using only global two-dimensional chroma mean/covariance statistics",
-    "tie_break": "stable donor sample_id lexical order"
+    "require_different_video": true,
+    "require_different_environment": true,
+    "shortlist_size": 16,
+    "shortlist_rule": "first 16 eligible donors in SHA256(target_sample_id|donor_sample_id) order",
+    "selection_stats_stride": 16,
+    "palette_distance": "Euclidean norm of 2D chroma mean difference plus Frobenius norm of 2D chroma covariance difference",
+    "choice_within_shortlist": "maximum palette distance",
+    "tie_break": "stable deterministic donor order"
   },
   "transfer": {
     "space": "Rec.709 Y plus YCbCr-style 2D chroma",
     "strength": 1.0,
     "covariance_epsilon": 0.0001,
-    "stats_stride": 4,
+    "transfer_stats_stride": 4,
+    "gamut_iterations": 14,
     "luminance": "target Y preserved",
-    "gamut_handling": "same radial chroma compression toward neutral"
+    "gamut_handling": "radial chroma compression toward neutral"
   },
-  "quality_gate": {
-    "mean_rec709_luma_mae_max": 0.5,
-    "p95_per_image_luma_mae_max": 1.0,
-    "median_chroma_displacement_min": 3.0,
-    "major_visual_artifact_fraction_max": 0.10,
-    "review_all_100": true
+  "independent_validation_result": {
+    "images": 100,
+    "mean_luma_mae": 0.18756323568479943,
+    "p95_per_image_luma_mae": 0.23972565503472096,
+    "median_per_image_chroma_displacement": 3.7516143636913037,
+    "mean_gamut_compressed_fraction": 0.026075969328703697,
+    "same_video_donors": 0,
+    "same_environment_donors": 0,
+    "same_label_fraction_after_label_independent_selection": 0.5,
+    "quantitative_gate_pass": true,
+    "visual_gate_pass": true
   },
-  "promotion_rule": "Only if all quantitative and visual gates pass may naturalistic v2 be frozen for O/S/T/ST test evaluation."
+  "test_evaluation": {
+    "regimes": ["O", "S", "T", "ST"],
+    "champions": {"O": "C14", "S": "C18", "T": "C06", "ST": "C07"},
+    "variants": ["original_rgb", "rec709_grayscale", "matched_chroma_rotation", "naturalistic_chroma_v2"],
+    "threshold": 0.5,
+    "frame_bootstrap_resamples": 5000,
+    "video_group_bootstrap_resamples": 5000,
+    "bootstrap_seed": 20261003,
+    "retraining": false
+  }
 }
