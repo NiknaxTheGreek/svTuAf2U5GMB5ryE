@@ -1,0 +1,33 @@
+{
+  "status": "prospectively_frozen_naturalistic_chroma_v2",
+  "freeze_date": "2026-10-03",
+  "selection_bearing": false,
+  "development_population": "same frozen 100-image ST-context sample",
+  "primary_test_images_allowed": 0,
+  "classifier_predictions_allowed": 0,
+  "donor_pool": "same universal O/S/T/ST non-test intersection as v1",
+  "donor_selection": {
+    "target_label_used": false,
+    "classifier_prediction_used": false,
+    "shortlist_size": 64,
+    "shortlist_rule": "first 64 eligible donors in SHA256(target_sample_id|donor_sample_id) order after excluding same canonical video and, where possible, same environment",
+    "choice_within_shortlist": "maximum symmetric Gaussian chroma distance using only global two-dimensional chroma mean/covariance statistics",
+    "tie_break": "stable donor sample_id lexical order"
+  },
+  "transfer": {
+    "space": "Rec.709 Y plus YCbCr-style 2D chroma",
+    "strength": 1.0,
+    "covariance_epsilon": 0.0001,
+    "stats_stride": 4,
+    "luminance": "target Y preserved",
+    "gamut_handling": "same radial chroma compression toward neutral"
+  },
+  "quality_gate": {
+    "mean_rec709_luma_mae_max": 0.5,
+    "p95_per_image_luma_mae_max": 1.0,
+    "median_chroma_displacement_min": 3.0,
+    "major_visual_artifact_fraction_max": 0.10,
+    "review_all_100": true
+  },
+  "promotion_rule": "Only if all quantitative and visual gates pass may naturalistic v2 be frozen for O/S/T/ST test evaluation."
+}
