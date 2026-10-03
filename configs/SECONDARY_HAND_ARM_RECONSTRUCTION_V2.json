@@ -1,0 +1,61 @@
+{
+  "protocol_version": "v2-train-test-only",
+  "experiment": "secondary_hand_arm_reconstruction_v2",
+  "status": "FROZEN_DEVELOPMENT_LAUNCH",
+  "selection_bearing": false,
+  "development_population": {
+    "sample_csv": "results/secondary/perturbation_dev/development_sample.csv",
+    "required_images": 48,
+    "membership": "ST context only",
+    "primary_test_images_allowed": 0
+  },
+  "source_population": {
+    "membership": "ST non-test only",
+    "same_video_sources": "all eligible",
+    "cross_video_retrieval_top_k": 48,
+    "cross_video_requires_document_quad": true,
+    "classifier_predictions_allowed": false,
+    "target_label_allowed_for_retrieval": false
+  },
+  "document_normalization": {
+    "canonical_width": 256,
+    "canonical_height": 384,
+    "max_detection_side": 720,
+    "min_quad_area_fraction": 0.12,
+    "max_quad_area_fraction": 0.96
+  },
+  "retrieval": {
+    "descriptor_width": 32,
+    "descriptor_height": 48,
+    "minimum_cosine_similarity": 0.20
+  },
+  "alignment": {
+    "orb_nfeatures": 5000,
+    "lowe_ratio": 0.75,
+    "ransac_reprojection_px": 3.0,
+    "minimum_good_matches": 18,
+    "minimum_inliers": 14,
+    "minimum_inlier_ratio": 0.40,
+    "minimum_clean_overlap_fraction": 0.30,
+    "maximum_median_gray_absolute_error": 28.0,
+    "max_accepted_donors": 32
+  },
+  "reconstruction": {
+    "real_pixel_gate": 0.80,
+    "residual_gate": 0.20,
+    "required_fraction_targets_passing": 0.90,
+    "robust_fusion": "per-pixel observed-color medoid around donor median",
+    "generative_fallback": "LaMa only on residual pixels",
+    "outside_mask_must_be_exact": true
+  },
+  "visual_gate": {
+    "required": true,
+    "criteria": [
+      "no visible hand or arm residual structure in the reconstructed region",
+      "no invented or visibly corrupted document text/layout where temporal donor evidence exists",
+      "no obvious blur, flesh-toned smear, seam, or geometric discontinuity",
+      "outside-mask pixels unchanged exactly"
+    ]
+  },
+  "freeze_rule": "Do not inspect or tune on primary test images. Development changes require a new config version before independent validation."
+}
