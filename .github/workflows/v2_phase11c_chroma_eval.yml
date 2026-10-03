@@ -1,0 +1,205 @@
+name: MonReader V2 Phase 11C all-regime chroma sensitivity
+
+on:
+  push:
+    branches: ["phase/v2-11c-chroma-eval"]
+    paths:
+      - ".github/workflows/v2_phase11c_chroma_eval.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+env:
+  DATASET_FILE_ID: 1KDQBTbo5deKGCdVV_xIujscn5ImxW4dm
+  DATASET_SHA256: 033dd76fa617ba9bcf16d8ca4dcc294a838a6956eae0740f3013e4663805008f
+  PYTHONPATH: "."
+  OMP_NUM_THREADS: "4"
+  MKL_NUM_THREADS: "4"
+
+jobs:
+  evaluate:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        include:
+          - regime: O
+            candidate: C14
+            source_run: 36706123492
+            checkpoint_artifact: v2-o-C14
+            checkpoint_sha: 57f70fb3ebecbade054a18b22c423182175f84625179d49c3625e520b215bc49
+            membership: manifests/splits/O.csv
+            saved_predictions: results/scratch/O/predictions.csv
+          - regime: S
+            candidate: C18
+            source_run: 36737122432
+            checkpoint_artifact: v2-s-C18
+            checkpoint_sha: 1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225
+            membership: manifests/splits/S.csv
+            saved_predictions: results/scratch/S/predictions.csv
+          - regime: T
+            candidate: C06
+            source_run: 36758061980
+            checkpoint_artifact: v2-t-C06
+            checkpoint_sha: 2583071a82938e1e1053822e5aa35f2d01a6d4dea13849923f2ec57e30f1ca7b
+            membership: manifests/splits/T.csv
+            saved_predictions: results/scratch/T/predictions.csv
+          - regime: ST
+            candidate: C07
+            source_run: 36815939762
+            checkpoint_artifact: v2-st-C07
+            checkpoint_sha: 9886dbad7f73984a8333bee22da568be4a451b650dad6ee28a2713853b445b67
+            membership: manifests/splits/ST.csv
+            saved_predictions: results/scratch/ST/predictions.csv
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+
+      - name: Install pinned evaluation runtime
+        run: |
+          set -euo pipefail
+          python -m pip install numpy==2.3.5 Pillow==12.3.0 scikit-learn==1.9.1
+          python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchvision==0.25.0
+
+      - name: Compile frozen implementation
+        run: |
+          set -euo pipefail
+          python -m compileall -q             src/scratch_v2.py             src/chroma_counterfactual_v2.py             scripts/evaluate_chroma_sensitivity_v2.py
+
+      - name: Download frozen champion checkpoint
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.checkpoint_artifact }}
+          path: /tmp/checkpoint
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ matrix.source_run }}
+
+      - name: Resolve and verify champion checkpoint
+        id: checkpoint
+        run: |
+          set -euo pipefail
+          CKPT="$(find /tmp/checkpoint -type f -name '*.pt' | head -n 1)"
+          test -n "$CKPT"
+          test "$(find /tmp/checkpoint -type f -name '*.pt' | wc -l)" -eq 1
+          printf '%s  %s\n' '${{ matrix.checkpoint_sha }}' "$CKPT" | sha256sum --check
+          echo "path=$CKPT" >> "$GITHUB_OUTPUT"
+
+      - name: Download and verify authoritative archive
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 --retry-delay 2             "https://drive.usercontent.google.com/download?id=$DATASET_FILE_ID&export=download&confirm=t"             --output /tmp/images.zip
+          printf '%s  %s\n' "$DATASET_SHA256" /tmp/images.zip | sha256sum --check
+
+      - name: Evaluate frozen chroma variants
+        run: |
+          set -euo pipefail
+          rm -rf "/tmp/chroma-${{ matrix.regime }}"
+          python -m scripts.evaluate_chroma_sensitivity_v2             --regime "${{ matrix.regime }}"             --archive /tmp/images.zip             --manifest manifests/datasets/DATA-001.csv             --membership "${{ matrix.membership }}"             --bank configs/MONREADER_FIXED_20_CONFIG_BANK.json             --checkpoint "${{ steps.checkpoint.outputs.path }}"             --saved-predictions "${{ matrix.saved_predictions }}"             --donor-stats results/secondary/chroma_donor_stats/chroma_donor_palette_stats.csv             --output-dir "/tmp/chroma-${{ matrix.regime }}"
+          sha256sum "/tmp/chroma-${{ matrix.regime }}"/*
+
+      - name: Upload regime evaluation
+        uses: actions/upload-artifact@v4
+        with:
+          name: v2-chroma-eval-${{ matrix.regime }}
+          path: /tmp/chroma-${{ matrix.regime }}
+          compression-level: 1
+          retention-days: 90
+          if-no-files-found: error
+
+  publish:
+    needs: evaluate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all exact regime evaluations
+        uses: actions/download-artifact@v4
+        with:
+          pattern: v2-chroma-eval-*
+          path: /tmp/chroma-all
+          merge-multiple: true
+
+      - name: Build combined report and publish
+        run: |
+          set -euo pipefail
+          for R in O S T ST; do
+            test -s "/tmp/chroma-all/${R}_summary.json"
+            test -s "/tmp/chroma-all/${R}_predictions.csv"
+            test -s "/tmp/chroma-all/${R}_report.md"
+          done
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root=Path("/tmp/chroma-all")
+          regimes=["O","S","T","ST"]
+          summaries={r:json.loads((root/f"{r}_summary.json").read_text()) for r in regimes}
+          variants=["rec709_grayscale","matched_chroma_rotation","naturalistic_v2"]
+
+          lines=[
+            "# Phase 11C — All-regime chroma sensitivity",
+            "",
+            "Post-hoc frozen-model analysis. No retraining, threshold changes, or champion replacement.",
+            "",
+            "| Regime | Original F1 | Grayscale F1 (Δ) | Matched +90 F1 (Δ) | Naturalistic v2 F1 (Δ) |",
+            "|---|---:|---:|---:|---:|",
+          ]
+          for r in regimes:
+            s=summaries[r]; m=s["metrics"]; d=s["delta_f1_vs_original"]
+            lines.append(
+              f"| {r} | {m['original_rgb']['f1']:.4f} | "
+              f"{m['rec709_grayscale']['f1']:.4f} ({d['rec709_grayscale']:+.4f}) | "
+              f"{m['matched_chroma_rotation']['f1']:.4f} ({d['matched_chroma_rotation']:+.4f}) | "
+              f"{m['naturalistic_v2']['f1']:.4f} ({d['naturalistic_v2']:+.4f}) |"
+            )
+
+          lines += ["", "## Video/group paired-bootstrap intervals", ""]
+          for r in regimes:
+            s=summaries[r]
+            lines.append(f"### {r}")
+            for v in variants:
+              ci=s["bootstrap"][v]["video_group_delta_f1_ci95"]
+              lines.append(f"- {v}: [{ci[0]:+.4f}, {ci[1]:+.4f}]")
+            lines.append("")
+
+          (root/"ALL_REGIME_CHROMA_REPORT.md").write_text("\n".join(lines)+"\n")
+          (root/"combined_summary.json").write_text(
+            json.dumps({"status":"ALL_REGIME_CHROMA_COMPLETE","regimes":summaries},indent=2,sort_keys=True)+"\n"
+          )
+          PY
+
+          mkdir -p results/secondary/chroma_eval reports/secondary
+          cp /tmp/chroma-all/*_summary.json results/secondary/chroma_eval/
+          cp /tmp/chroma-all/*_predictions.csv results/secondary/chroma_eval/
+          cp /tmp/chroma-all/combined_summary.json results/secondary/chroma_eval/
+          cp /tmp/chroma-all/ALL_REGIME_CHROMA_REPORT.md reports/secondary/
+
+          sha256sum             results/secondary/chroma_eval/*             reports/secondary/ALL_REGIME_CHROMA_REPORT.md             > /tmp/chroma_hashes.txt
+          cat /tmp/chroma_hashes.txt
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/secondary/chroma_eval reports/secondary/ALL_REGIME_CHROMA_REPORT.md
+          git commit -m "Phase 11C: publish all-regime chroma sensitivity [skip ci]"
+          git push origin HEAD:phase/v2-11c-chroma-eval
+
+      - name: Upload combined evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: monreader-v2-phase11c-all-regime-chroma
+          path: |
+            /tmp/chroma-all
+            /tmp/chroma_hashes.txt
+          compression-level: 1
+          retention-days: 90
+          if-no-files-found: error
