@@ -1,0 +1,128 @@
+{
+  "bootstrap": {
+    "matched_chroma_rotation": {
+      "frame_delta_f1_ci95": [
+        -0.23509221529193267,
+        -0.16069337423932084
+      ],
+      "video_group_delta_f1_ci95": [
+        -0.35115140110741455,
+        -0.05614380837240365
+      ]
+    },
+    "naturalistic_v2": {
+      "frame_delta_f1_ci95": [
+        -0.11966244415792526,
+        -0.057363185986384534
+      ],
+      "video_group_delta_f1_ci95": [
+        -0.20301486207890135,
+        -0.0006897206693867578
+      ]
+    },
+    "rec709_grayscale": {
+      "frame_delta_f1_ci95": [
+        -0.23509221529193267,
+        -0.16069337423932084
+      ],
+      "video_group_delta_f1_ci95": [
+        -0.35115140110741455,
+        -0.05614380837240365
+      ]
+    }
+  },
+  "candidate_id": "C18",
+  "changed_prediction_count": {
+    "matched_chroma_rotation": 425,
+    "naturalistic_v2": 179,
+    "rec709_grayscale": 425
+  },
+  "checkpoint_sha256": "1a05f136c41f3f26e18f00e6f48e5f856630f3286fa52d5aea6149224d641225",
+  "delta_f1_vs_original": {
+    "matched_chroma_rotation": -0.19708456917759243,
+    "naturalistic_v2": -0.08867243867243868,
+    "rec709_grayscale": -0.19708456917759243
+  },
+  "donor_audit": {
+    "same_environment_donors": 0,
+    "same_video_donors": 0,
+    "unique_donors": 279
+  },
+  "mean_absolute_probability_change": {
+    "matched_chroma_rotation": 0.510914752801711,
+    "naturalistic_v2": 0.1922107521420369,
+    "rec709_grayscale": 0.4792697916025078
+  },
+  "metrics": {
+    "matched_chroma_rotation": {
+      "accuracy": 0.45194805194805193,
+      "balanced_accuracy": 0.5,
+      "f1": 0.6225402504472272,
+      "fn": 0,
+      "fp": 422,
+      "n": 770,
+      "pr_auc": 0.9344949361700436,
+      "precision": 0.45194805194805193,
+      "recall": 1.0,
+      "roc_auc": 0.9363355940513155,
+      "tn": 0,
+      "tp": 348
+    },
+    "naturalistic_v2": {
+      "accuracy": 0.7064935064935065,
+      "balanced_accuracy": 0.7218976412267799,
+      "f1": 0.7309523809523809,
+      "fn": 41,
+      "fp": 185,
+      "n": 770,
+      "pr_auc": 0.8472638492703084,
+      "precision": 0.6239837398373984,
+      "recall": 0.882183908045977,
+      "roc_auc": 0.85148717110639,
+      "tn": 237,
+      "tp": 307
+    },
+    "original_rgb": {
+      "accuracy": 0.8376623376623377,
+      "balanced_accuracy": 0.8357710954949066,
+      "f1": 0.8196248196248196,
+      "fn": 64,
+      "fp": 61,
+      "n": 770,
+      "pr_auc": 0.8994801279225753,
+      "precision": 0.8231884057971014,
+      "recall": 0.8160919540229885,
+      "roc_auc": 0.900235604946342,
+      "tn": 361,
+      "tp": 284
+    },
+    "rec709_grayscale": {
+      "accuracy": 0.45194805194805193,
+      "balanced_accuracy": 0.5,
+      "f1": 0.6225402504472272,
+      "fn": 0,
+      "fp": 422,
+      "n": 770,
+      "pr_auc": 0.8897834711586217,
+      "precision": 0.45194805194805193,
+      "recall": 1.0,
+      "roc_auc": 0.898029362096203,
+      "tn": 0,
+      "tp": 348
+    }
+  },
+  "naturalistic_transform": {
+    "donor_shortlist_size": 16,
+    "strength": 1.0,
+    "target_label_used": false,
+    "version": "v2 validated"
+  },
+  "regime": "S",
+  "retraining_performed": false,
+  "selection_bearing": false,
+  "status": "CHROMA_FROZEN_MODEL_SENSITIVITY_COMPLETE",
+  "test_images": 770,
+  "threshold": 0.5,
+  "transform_domain": "source-resolution RGB before frozen model preprocessing",
+  "videos": 29
+}
