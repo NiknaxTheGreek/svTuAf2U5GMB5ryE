@@ -49,7 +49,7 @@ This is the matched colour-distribution control.
 
 Keep the target image's Rec.709 luminance and all spatial geometry fixed.
 
-Use a deterministic donor image only to define global chroma mean/covariance statistics. Transform the target's two-dimensional chroma distribution toward the donor distribution through a regularized whitening/coloring transform at fixed strength **0.75**.
+Use a deterministic donor image only to define global chroma mean/covariance statistics. Transform the target's two-dimensional chroma distribution toward the donor distribution through a regularized whitening/coloring transform at fixed strength **1.00**.
 
 The donor's spatial pixels are never pasted into the target.
 
@@ -112,3 +112,20 @@ Use 5,000 paired frame bootstrap and 5,000 paired video/group bootstrap resample
 - a material drop under the naturalistic counterfactual -> stronger evidence that chromatic cues themselves influence the frozen model.
 
 No chroma result can redefine Best O/S/T/ST.
+
+
+## Context-only QA iteration 1
+
+Run `37073160426` used strength 0.75 on the frozen 100-image ST-context sample.
+
+- matched rotation mean luminance MAE: 0.1706 -> pass;
+- naturalistic mean luminance MAE: 0.1894 -> pass;
+- naturalistic p95 per-image luminance MAE: 0.2353 -> pass;
+- same-video donors: 0;
+- same-environment donors: 0;
+- label was not used for donor selection;
+- median naturalistic chroma displacement: **2.2592**, below the pre-frozen minimum of 3.0.
+
+Visual review found the naturalistic outputs plausible but often too similar to the original.
+
+Because this failure occurred entirely on context-only development images before any primary-test/classifier evaluation, the single permitted correction is to increase transfer strength from **0.75 to 1.00** while leaving donor selection, transform family, luminance preservation, gamut handling and all acceptance thresholds unchanged.
