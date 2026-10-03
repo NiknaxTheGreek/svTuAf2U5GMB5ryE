@@ -164,7 +164,7 @@ def main() -> None:
         raise ValueError("All chroma QA targets must be ST context-only")
 
     cfg = PaletteTransferConfig(
-        strength=0.75,
+        strength=1.0,
         covariance_epsilon=1e-4,
         stats_stride=4,
         gamut_iterations=14,
