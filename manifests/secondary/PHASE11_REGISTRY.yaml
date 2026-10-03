@@ -71,7 +71,7 @@ resolution_sensitivity:
   quarter_resolution_video_group_delta_ci95: [-0.18546535349021592, -0.08108316607933755]
   conclusion: "Best-O C14 is materially sensitive to spatial-detail loss at both fixed degradation levels; both video/group delta-F1 intervals exclude zero."
 
-naturalistic_hand_arm_removal:
+naturalistic_hand_arm_removal_v1:
   status: FAILED_POC_STOP_RULE_INVOKED
   final_workflow_run_id: 37017176634
   final_artifact_id: 11232014527
@@ -87,6 +87,28 @@ naturalistic_hand_arm_removal:
   primary_test_images_used_for_method_selection: 0
   classifier_predictions_used_for_method_selection: 0
   conclusion: "Naturalistic hand/arm reconstruction failed the prospectively frozen PoC gate. Do not scale a cleaned corpus or run cleaned-domain retraining/HPO."
+
+
+hand_arm_reconstruction_v2:
+  status: RUNNING
+  branch: phase/v2-11b-hand-reconstruction-v2
+  launch_commit: 46b71d646ce1d045b2a962d39956d80700d7c0f6
+  workflow_run_id: 37153870553
+  selection_bearing: false
+  development_targets: 48
+  development_population: "Frozen ST-context development sample used for method development only."
+  source_population: "ST non-test only."
+  primary_test_images_allowed_for_development: 0
+  classifier_predictions_allowed_for_method_selection: 0
+  target_label_allowed_for_donor_retrieval: 0
+  method: "Document-plane normalization + deterministic label-blind cross-video donor retrieval + ORB geometric verification + per-pixel observed-color medoid fusion + LaMa residual only."
+  real_pixel_gate_per_target: 0.80
+  residual_gate_per_target: 0.20
+  required_fraction_targets_passing: 0.90
+  outside_mask_must_be_exact: true
+  visual_gate_required: true
+  promotion_rule: "Only a quantitative + visual development PASS permits freezing v2 and moving to a new non-overlapping 100-image ST-context validation population."
+  relationship_to_v1: "The failed first-generation TELEA/same-video/LaMa PoC remains a valid frozen negative result. v2 is a materially different reconstruction family and does not rewrite v1."
 
 chroma_counterfactual:
   status: VERIFIED_COMPLETE
