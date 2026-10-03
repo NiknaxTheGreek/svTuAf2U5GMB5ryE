@@ -5,12 +5,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0011",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9927203896604938,
-      "gamut_compressed_fraction": 0.007279610339506173,
-      "luma_mae": 0.16251461660879646,
-      "mean_chroma_displacement": 3.2770872532450133,
-      "mean_gamut_scale": 0.9988225900391001,
-      "median_chroma_displacement": 2.523785241463087
+      "direct_in_gamut_fraction": 0.9922188464506173,
+      "gamut_compressed_fraction": 0.007781153549382716,
+      "luma_mae": 0.16147989197530835,
+      "mean_chroma_displacement": 4.397158886237499,
+      "mean_gamut_scale": 0.9974292306546811,
+      "median_chroma_displacement": 3.785677862194627
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9778245563271605,
@@ -32,12 +32,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0049",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9997791280864198,
-      "gamut_compressed_fraction": 0.00022087191358024691,
-      "luma_mae": 0.10890085098379607,
-      "mean_chroma_displacement": 0.8417019190517262,
-      "mean_gamut_scale": 0.9999094324936102,
-      "median_chroma_displacement": 0.5020975560753352
+      "direct_in_gamut_fraction": 0.9997617669753086,
+      "gamut_compressed_fraction": 0.00023823302469135803,
+      "luma_mae": 0.1274210249807096,
+      "mean_chroma_displacement": 1.0919735308091612,
+      "mean_gamut_scale": 0.9998998629605329,
+      "median_chroma_displacement": 1.0041951121506423
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9862635030864197,
@@ -59,12 +59,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0060",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9991468942901235,
-      "gamut_compressed_fraction": 0.0008531057098765432,
-      "luma_mae": 0.1369223977623456,
-      "mean_chroma_displacement": 1.9112670209006641,
-      "mean_gamut_scale": 0.999822713210259,
-      "median_chroma_displacement": 1.538876508163576
+      "direct_in_gamut_fraction": 0.9990735918209876,
+      "gamut_compressed_fraction": 0.0009264081790123457,
+      "luma_mae": 0.18280347771990785,
+      "mean_chroma_displacement": 2.561479370320331,
+      "mean_gamut_scale": 0.999749164816774,
+      "median_chroma_displacement": 2.069768068843978
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9892385223765432,
@@ -86,12 +86,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0024",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.999477237654321,
-      "gamut_compressed_fraction": 0.0005227623456790124,
-      "luma_mae": 0.14976287586805556,
-      "mean_chroma_displacement": 0.6965738796763301,
-      "mean_gamut_scale": 0.9998810908823837,
-      "median_chroma_displacement": 0.5129588360545213
+      "direct_in_gamut_fraction": 0.998713348765432,
+      "gamut_compressed_fraction": 0.0012866512345679013,
+      "luma_mae": 0.16387545794753075,
+      "mean_chroma_displacement": 0.88350937229294,
+      "mean_gamut_scale": 0.9998021041905438,
+      "median_chroma_displacement": 0.5129588360545222
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9905454282407408,
@@ -113,12 +113,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0025",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9994010416666667,
-      "gamut_compressed_fraction": 0.0005989583333333333,
-      "luma_mae": 0.15720435243055633,
-      "mean_chroma_displacement": 1.1882374462630507,
-      "mean_gamut_scale": 0.9998940564967967,
-      "median_chroma_displacement": 1.2618926207315353
+      "direct_in_gamut_fraction": 0.9984929591049383,
+      "gamut_compressed_fraction": 0.0015070408950617284,
+      "luma_mae": 0.22044430198688322,
+      "mean_chroma_displacement": 1.5958362054836832,
+      "mean_gamut_scale": 0.9996675878395269,
+      "median_chroma_displacement": 1.6439561077531875
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9883092206790124,
@@ -140,12 +140,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0060",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9978134645061728,
-      "gamut_compressed_fraction": 0.0021865354938271605,
-      "luma_mae": 0.2656295305748453,
-      "mean_chroma_displacement": 1.0191421172408595,
-      "mean_gamut_scale": 0.9997130852569769,
-      "median_chroma_displacement": 0.8219780538765937
+      "direct_in_gamut_fraction": 0.9975752314814815,
+      "gamut_compressed_fraction": 0.002424286265432099,
+      "luma_mae": 0.25634411911651195,
+      "mean_chroma_displacement": 1.4656172678467152,
+      "mean_gamut_scale": 0.9994050599027563,
+      "median_chroma_displacement": 1.5358741764180672
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9740576774691359,
@@ -167,12 +167,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0021",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.998858024691358,
-      "gamut_compressed_fraction": 0.0011419753086419754,
-      "luma_mae": 0.18699716830632682,
-      "mean_chroma_displacement": 1.7662755256733906,
-      "mean_gamut_scale": 0.9997981355219712,
-      "median_chroma_displacement": 0.8219780538765945
+      "direct_in_gamut_fraction": 0.9988493441358025,
+      "gamut_compressed_fraction": 0.0011506558641975308,
+      "luma_mae": 0.1892251542245368,
+      "mean_chroma_displacement": 2.367799217313369,
+      "mean_gamut_scale": 0.9996212639926393,
+      "median_chroma_displacement": 1.6439561077531875
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9713859953703704,
@@ -194,12 +194,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0005",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9935431134259259,
-      "gamut_compressed_fraction": 0.006456886574074074,
-      "luma_mae": 0.28184172993827145,
-      "mean_chroma_displacement": 2.122073653986981,
-      "mean_gamut_scale": 0.9979690985326414,
-      "median_chroma_displacement": 2.069768068843977
+      "direct_in_gamut_fraction": 0.9854436728395062,
+      "gamut_compressed_fraction": 0.014556327160493827,
+      "luma_mae": 0.32003962220293236,
+      "mean_chroma_displacement": 3.0102414633808516,
+      "mean_gamut_scale": 0.9955568487555893,
+      "median_chroma_displacement": 2.864113668542615
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.974945987654321,
@@ -221,12 +221,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0015",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9987509645061728,
-      "gamut_compressed_fraction": 0.0012490354938271605,
-      "luma_mae": 0.20638269203317944,
-      "mean_chroma_displacement": 4.091394033894301,
-      "mean_gamut_scale": 0.9997411256954993,
-      "median_chroma_displacement": 3.5222154712334732
+      "direct_in_gamut_fraction": 0.9966319444444445,
+      "gamut_compressed_fraction": 0.0033680555555555556,
+      "luma_mae": 0.2246690631751538,
+      "mean_chroma_displacement": 5.435400342286899,
+      "mean_gamut_scale": 0.9994068774470577,
+      "median_chroma_displacement": 4.3047569457482355
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9883931327160493,
@@ -248,12 +248,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0029",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9992515432098765,
-      "gamut_compressed_fraction": 0.0007484567901234568,
-      "luma_mae": 0.07127430449459869,
-      "mean_chroma_displacement": 0.5745924974620251,
-      "mean_gamut_scale": 0.9998887589831411,
-      "median_chroma_displacement": 0.5020975560753218
+      "direct_in_gamut_fraction": 0.999227912808642,
+      "gamut_compressed_fraction": 0.0007720871913580247,
+      "luma_mae": 0.08723719299768497,
+      "mean_chroma_displacement": 0.7631133025651194,
+      "mean_gamut_scale": 0.9998654968061564,
+      "median_chroma_displacement": 0.5020975560753344
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9847882908950617,
@@ -275,12 +275,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0026",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9989665316358025,
-      "gamut_compressed_fraction": 0.001033468364197531,
-      "luma_mae": 0.22125295486111174,
-      "mean_chroma_displacement": 1.9398018631166192,
-      "mean_gamut_scale": 0.9996498523229435,
-      "median_chroma_displacement": 1.2749303593787114
+      "direct_in_gamut_fraction": 0.9988377700617284,
+      "gamut_compressed_fraction": 0.0011617476851851851,
+      "luma_mae": 0.22857556568287102,
+      "mean_chroma_displacement": 2.601868682959398,
+      "mean_gamut_scale": 0.9995907918023474,
+      "median_chroma_displacement": 2.259160690744573
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9895283564814815,
@@ -302,12 +302,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0001",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9994536072530864,
-      "gamut_compressed_fraction": 0.0005463927469135803,
-      "luma_mae": 0.22603383651620346,
-      "mean_chroma_displacement": 1.524185241720777,
-      "mean_gamut_scale": 0.999914014045103,
-      "median_chroma_displacement": 1.2618926207315426
+      "direct_in_gamut_fraction": 0.9990625,
+      "gamut_compressed_fraction": 0.0009375,
+      "luma_mae": 0.2104716830632716,
+      "mean_chroma_displacement": 1.9980337133615904,
+      "mean_gamut_scale": 0.9998472673804671,
+      "median_chroma_displacement": 1.950073019402738
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9716507523148148,
@@ -329,12 +329,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0028",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9926359953703704,
-      "gamut_compressed_fraction": 0.00736352237654321,
-      "luma_mae": 0.148696002314815,
-      "mean_chroma_displacement": 1.5831181191409938,
-      "mean_gamut_scale": 0.9981002742272836,
-      "median_chroma_displacement": 1.261892620731546
+      "direct_in_gamut_fraction": 0.9868108603395062,
+      "gamut_compressed_fraction": 0.013188657407407408,
+      "luma_mae": 0.1666706658950615,
+      "mean_chroma_displacement": 2.023231885973681,
+      "mean_gamut_scale": 0.9963047605973703,
+      "median_chroma_displacement": 2.069768068843977
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9849729938271605,
@@ -356,12 +356,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0030",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9972878086419753,
-      "gamut_compressed_fraction": 0.0027121913580246916,
-      "luma_mae": 0.2492887686149694,
-      "mean_chroma_displacement": 3.0313195905551584,
-      "mean_gamut_scale": 0.999494025412901,
-      "median_chroma_displacement": 2.5498607187574134
+      "direct_in_gamut_fraction": 0.9969492669753086,
+      "gamut_compressed_fraction": 0.003050733024691358,
+      "luma_mae": 0.23305008410493652,
+      "mean_chroma_displacement": 4.062279766523495,
+      "mean_gamut_scale": 0.9990617496879013,
+      "median_chroma_displacement": 3.3546050074166023
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9796817129629629,
@@ -383,12 +383,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0011",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9991179591049383,
-      "gamut_compressed_fraction": 0.0008820408950617284,
-      "luma_mae": 0.21028569386574075,
-      "mean_chroma_displacement": 2.5043417370744177,
-      "mean_gamut_scale": 0.9998296018000002,
-      "median_chroma_displacement": 2.0697680688439766
+      "direct_in_gamut_fraction": 0.9989255401234568,
+      "gamut_compressed_fraction": 0.0010739776234567901,
+      "luma_mae": 0.2188687872299378,
+      "mean_chroma_displacement": 3.3350252993504186,
+      "mean_gamut_scale": 0.9997827742717884,
+      "median_chroma_displacement": 2.762673909771975
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9776948302469136,
@@ -410,12 +410,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0048",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9972362075617284,
-      "gamut_compressed_fraction": 0.002763792438271605,
-      "luma_mae": 0.21771555835262385,
-      "mean_chroma_displacement": 2.190394642168858,
-      "mean_gamut_scale": 0.9988576051335276,
-      "median_chroma_displacement": 1.9545980263453937
+      "direct_in_gamut_fraction": 0.9868094135802469,
+      "gamut_compressed_fraction": 0.013190586419753087,
+      "luma_mae": 0.19961093894675844,
+      "mean_chroma_displacement": 2.8455961269657615,
+      "mean_gamut_scale": 0.9973797912950869,
+      "median_chroma_displacement": 2.2591606907445927
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9835257523148148,
@@ -437,12 +437,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0001",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9912929205246913,
-      "gamut_compressed_fraction": 0.008707079475308643,
-      "luma_mae": 0.2125188042052465,
-      "mean_chroma_displacement": 2.3866592378030265,
-      "mean_gamut_scale": 0.9980405558480157,
-      "median_chroma_displacement": 2.06976806884398
+      "direct_in_gamut_fraction": 0.9900757137345679,
+      "gamut_compressed_fraction": 0.009924286265432099,
+      "luma_mae": 0.20790519463734536,
+      "mean_chroma_displacement": 3.2018138883387555,
+      "mean_gamut_scale": 0.9962974253701575,
+      "median_chroma_displacement": 2.537872893436329
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9658304398148149,
@@ -464,12 +464,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0050",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9977806712962963,
-      "gamut_compressed_fraction": 0.002219328703703704,
-      "luma_mae": 0.164120197723765,
-      "mean_chroma_displacement": 1.3156949957106594,
-      "mean_gamut_scale": 0.999406927191181,
-      "median_chroma_displacement": 1.5062926682259772
+      "direct_in_gamut_fraction": 0.9964366319444444,
+      "gamut_compressed_fraction": 0.0035633680555555557,
+      "luma_mae": 0.2076549101080241,
+      "mean_chroma_displacement": 1.8589971852785898,
+      "mean_gamut_scale": 0.9990079932448305,
+      "median_chroma_displacement": 1.7869767010135629
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9784635416666667,
@@ -491,12 +491,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0058",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9972313850308642,
-      "gamut_compressed_fraction": 0.0027686149691358024,
-      "luma_mae": 0.15337464670139003,
-      "mean_chroma_displacement": 3.098565742943919,
-      "mean_gamut_scale": 0.999328421810527,
-      "median_chroma_displacement": 1.7869767010135984
+      "direct_in_gamut_fraction": 0.9968161651234568,
+      "gamut_compressed_fraction": 0.00318383487654321,
+      "luma_mae": 0.1659342503858038,
+      "mean_chroma_displacement": 4.047118335539015,
+      "mean_gamut_scale": 0.9988945693734251,
+      "median_chroma_displacement": 2.4458914597570276
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9712157600308642,
@@ -518,12 +518,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0053",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9965842013888889,
-      "gamut_compressed_fraction": 0.003415798611111111,
-      "luma_mae": 0.20712292129629617,
-      "mean_chroma_displacement": 1.6797803505848483,
-      "mean_gamut_scale": 0.9989454609082069,
-      "median_chroma_displacement": 1.5062926682259772
+      "direct_in_gamut_fraction": 0.9958367091049383,
+      "gamut_compressed_fraction": 0.004163290895061729,
+      "luma_mae": 0.19392238233024675,
+      "mean_chroma_displacement": 2.2247764183659404,
+      "mean_gamut_scale": 0.9984530960483315,
+      "median_chroma_displacement": 2.3826356013514336
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.97515625,
@@ -545,12 +545,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0041",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9964289158950618,
-      "gamut_compressed_fraction": 0.0035710841049382716,
-      "luma_mae": 0.16626127064043217,
-      "mean_chroma_displacement": 2.4151931427565265,
-      "mean_gamut_scale": 0.9991641206505858,
-      "median_chroma_displacement": 1.5062926682259776
+      "direct_in_gamut_fraction": 0.9957339891975309,
+      "gamut_compressed_fraction": 0.004266010802469136,
+      "luma_mae": 0.16014498524305612,
+      "mean_chroma_displacement": 3.147278770614225,
+      "mean_gamut_scale": 0.998576263056861,
+      "median_chroma_displacement": 2.398095908809898
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9707320601851852,
@@ -572,12 +572,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0017",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.999750675154321,
-      "gamut_compressed_fraction": 0.0002493248456790123,
-      "luma_mae": 0.1500792667824076,
-      "mean_chroma_displacement": 3.1980751960112137,
-      "mean_gamut_scale": 0.9999737016654309,
-      "median_chroma_displacement": 2.259160690744583
+      "direct_in_gamut_fraction": 0.9996657986111112,
+      "gamut_compressed_fraction": 0.00033420138888888887,
+      "luma_mae": 0.16735378983410568,
+      "mean_chroma_displacement": 4.232802146543057,
+      "mean_gamut_scale": 0.9999587743370622,
+      "median_chroma_displacement": 3.03162810844979
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.987373649691358,
@@ -599,12 +599,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0047",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9982725694444444,
-      "gamut_compressed_fraction": 0.0017274305555555556,
-      "luma_mae": 0.1896560779320982,
-      "mean_chroma_displacement": 1.0160461681233233,
-      "mean_gamut_scale": 0.9997897942272234,
-      "median_chroma_displacement": 0.8219780538765938
+      "direct_in_gamut_fraction": 0.9979306520061728,
+      "gamut_compressed_fraction": 0.0020693479938271604,
+      "luma_mae": 0.22126935474537007,
+      "mean_chroma_displacement": 1.3405148493625105,
+      "mean_gamut_scale": 0.9996004891984257,
+      "median_chroma_displacement": 1.004195112150656
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9776538387345679,
@@ -626,12 +626,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0005",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9990017361111111,
-      "gamut_compressed_fraction": 0.0009982638888888888,
-      "luma_mae": 0.1832773514660497,
-      "mean_chroma_displacement": 2.2210141837506607,
-      "mean_gamut_scale": 0.9998185962806513,
-      "median_chroma_displacement": 1.7869767010135496
+      "direct_in_gamut_fraction": 0.9987273341049383,
+      "gamut_compressed_fraction": 0.0012726658950617284,
+      "luma_mae": 0.21665159413580276,
+      "mean_chroma_displacement": 2.949811557031511,
+      "mean_gamut_scale": 0.9997710020748185,
+      "median_chroma_displacement": 2.5104877803766206
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9725477430555556,
@@ -653,12 +653,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0017",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9992023533950617,
-      "gamut_compressed_fraction": 0.0007976466049382716,
-      "luma_mae": 0.2273212847222212,
-      "mean_chroma_displacement": 4.166121568071003,
-      "mean_gamut_scale": 0.9998630044489731,
-      "median_chroma_displacement": 3.2691253833153757
+      "direct_in_gamut_fraction": 0.9989197530864198,
+      "gamut_compressed_fraction": 0.0010802469135802468,
+      "luma_mae": 0.1873765225694455,
+      "mean_chroma_displacement": 5.573813605085994,
+      "mean_gamut_scale": 0.9998073770970474,
+      "median_chroma_displacement": 4.616629524490738
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9928669945987655,
@@ -680,12 +680,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0018",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9981611689814814,
-      "gamut_compressed_fraction": 0.0018388310185185185,
-      "luma_mae": 0.1612996983024698,
-      "mean_chroma_displacement": 1.816684834622842,
-      "mean_gamut_scale": 0.9997553532211869,
-      "median_chroma_displacement": 1.6439561077531875
+      "direct_in_gamut_fraction": 0.9979788773148148,
+      "gamut_compressed_fraction": 0.0020211226851851853,
+      "luma_mae": 0.19113777671682095,
+      "mean_chroma_displacement": 2.418113294681777,
+      "mean_gamut_scale": 0.9996969394330625,
+      "median_chroma_displacement": 2.0697680688439766
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9708106674382716,
@@ -707,12 +707,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0058",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9360074266975309,
-      "gamut_compressed_fraction": 0.06399257330246913,
-      "luma_mae": 0.16835145148534014,
-      "mean_chroma_displacement": 4.632089534876444,
-      "mean_gamut_scale": 0.9751409090889824,
-      "median_chroma_displacement": 4.166083972823459
+      "direct_in_gamut_fraction": 0.9172858796296296,
+      "gamut_compressed_fraction": 0.08271412037037038,
+      "luma_mae": 0.17514006259645068,
+      "mean_chroma_displacement": 6.100263065150668,
+      "mean_gamut_scale": 0.9630712520045999,
+      "median_chroma_displacement": 5.3578436261059
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9478559027777778,
@@ -734,12 +734,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0052",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9987393904320988,
-      "gamut_compressed_fraction": 0.0012606095679012345,
-      "luma_mae": 0.1279515663580256,
-      "mean_chroma_displacement": 2.4134590446693087,
-      "mean_gamut_scale": 0.9994995219030498,
-      "median_chroma_displacement": 2.069768068843979
+      "direct_in_gamut_fraction": 0.9932195216049383,
+      "gamut_compressed_fraction": 0.0067804783950617285,
+      "luma_mae": 0.1257064606481486,
+      "mean_chroma_displacement": 3.159205394657619,
+      "mean_gamut_scale": 0.9989212464697567,
+      "median_chroma_displacement": 2.8856199634506723
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9589453125,
@@ -761,12 +761,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0016",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9634881365740741,
-      "gamut_compressed_fraction": 0.036511863425925925,
-      "luma_mae": 0.2799558724922846,
-      "mean_chroma_displacement": 2.67241482840953,
-      "mean_gamut_scale": 0.9915108932094809,
-      "median_chroma_displacement": 2.549860718757414
+      "direct_in_gamut_fraction": 0.9379653742283951,
+      "gamut_compressed_fraction": 0.062034625771604936,
+      "luma_mae": 0.2146440081983029,
+      "mean_chroma_displacement": 3.4856103481067886,
+      "mean_gamut_scale": 0.9834149332988409,
+      "median_chroma_displacement": 3.3546050074166045
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9614858217592592,
@@ -788,12 +788,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0017",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.966538387345679,
-      "gamut_compressed_fraction": 0.03346161265432099,
-      "luma_mae": 0.21714690538194495,
-      "mean_chroma_displacement": 2.3445992330407366,
-      "mean_gamut_scale": 0.9913365409403672,
-      "median_chroma_displacement": 2.008390224301299
+      "direct_in_gamut_fraction": 0.9474652777777778,
+      "gamut_compressed_fraction": 0.0525342399691358,
+      "luma_mae": 0.19717274826388873,
+      "mean_chroma_displacement": 3.0537207638630215,
+      "mean_gamut_scale": 0.9837556280913177,
+      "median_chroma_displacement": 2.5498607187574165
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9638261959876543,
@@ -815,12 +815,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0016",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9669839891975308,
-      "gamut_compressed_fraction": 0.03301601080246914,
-      "luma_mae": 0.1756551463155856,
-      "mean_chroma_displacement": 2.1499118610549384,
-      "mean_gamut_scale": 0.9964764844046698,
-      "median_chroma_displacement": 1.5537160435986617
+      "direct_in_gamut_fraction": 0.9657532793209876,
+      "gamut_compressed_fraction": 0.03424672067901235,
+      "luma_mae": 0.2114126439043205,
+      "mean_chroma_displacement": 2.8393439792063178,
+      "mean_gamut_scale": 0.9890162507104285,
+      "median_chroma_displacement": 2.2222589524089105
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9556843171296296,
@@ -842,12 +842,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0050",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9646045524691358,
-      "gamut_compressed_fraction": 0.035395447530864196,
-      "luma_mae": 0.25526986728395185,
-      "mean_chroma_displacement": 3.8451068356160776,
-      "mean_gamut_scale": 0.98943922051677,
-      "median_chroma_displacement": 3.3546050074165996
+      "direct_in_gamut_fraction": 0.9405463927469135,
+      "gamut_compressed_fraction": 0.05945360725308642,
+      "luma_mae": 0.20324742264660445,
+      "mean_chroma_displacement": 5.091845175359602,
+      "mean_gamut_scale": 0.9805414099752167,
+      "median_chroma_displacement": 4.5373658060020885
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9572709297839506,
@@ -869,12 +869,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0050",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9929446373456791,
-      "gamut_compressed_fraction": 0.007055362654320988,
-      "luma_mae": 0.1883438960262343,
-      "mean_chroma_displacement": 2.662222374434756,
-      "mean_gamut_scale": 0.9967722574869792,
-      "median_chroma_displacement": 2.5237852414630844
+      "direct_in_gamut_fraction": 0.9637977430555555,
+      "gamut_compressed_fraction": 0.03620225694444444,
+      "luma_mae": 0.24252119637345668,
+      "mean_chroma_displacement": 3.508414695470818,
+      "mean_gamut_scale": 0.9890061683124967,
+      "median_chroma_displacement": 3.3282093938138804
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9398408564814815,
@@ -896,12 +896,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0014",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9640089699074074,
-      "gamut_compressed_fraction": 0.035991030092592594,
-      "luma_mae": 0.12517929783950624,
-      "mean_chroma_displacement": 2.2318698867597466,
-      "mean_gamut_scale": 0.9861236783015875,
-      "median_chroma_displacement": 2.5237852414630817
+      "direct_in_gamut_fraction": 0.9398818479938271,
+      "gamut_compressed_fraction": 0.06011815200617284,
+      "luma_mae": 0.15577209432870381,
+      "mean_chroma_displacement": 2.884136346500798,
+      "mean_gamut_scale": 0.9751181299892473,
+      "median_chroma_displacement": 2.9932002844583017
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9567713155864197,
@@ -923,12 +923,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0025",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9706534529320988,
-      "gamut_compressed_fraction": 0.029346547067901234,
-      "luma_mae": 0.21665225453317907,
-      "mean_chroma_displacement": 2.590442796369766,
-      "mean_gamut_scale": 0.9952202722761366,
-      "median_chroma_displacement": 2.523785241463086
+      "direct_in_gamut_fraction": 0.9706515239197531,
+      "gamut_compressed_fraction": 0.029348476080246915,
+      "luma_mae": 0.281159205343364,
+      "mean_chroma_displacement": 3.470418293736414,
+      "mean_gamut_scale": 0.9891156490055132,
+      "median_chroma_displacement": 3.3282093938138804
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9404214891975309,
@@ -950,12 +950,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0023",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9951760223765432,
-      "gamut_compressed_fraction": 0.00482397762345679,
-      "luma_mae": 0.21448816126543208,
-      "mean_chroma_displacement": 2.958285398663777,
-      "mean_gamut_scale": 0.998177387714386,
-      "median_chroma_displacement": 2.5498607187574165
+      "direct_in_gamut_fraction": 0.9662186535493827,
+      "gamut_compressed_fraction": 0.03378134645061728,
+      "luma_mae": 0.21424404205246936,
+      "mean_chroma_displacement": 3.9232565756817546,
+      "mean_gamut_scale": 0.9956306353321782,
+      "median_chroma_displacement": 3.717550865187974
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9533858989197531,
@@ -977,12 +977,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0055",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9397540509259259,
-      "gamut_compressed_fraction": 0.06024594907407407,
-      "luma_mae": 0.18333484201388958,
-      "mean_chroma_displacement": 5.287839197155886,
-      "mean_gamut_scale": 0.979723252867475,
-      "median_chroma_displacement": 4.5373658060020885
+      "direct_in_gamut_fraction": 0.9270201581790124,
+      "gamut_compressed_fraction": 0.07297984182098766,
+      "luma_mae": 0.1846803055555554,
+      "mean_chroma_displacement": 6.963756603463329,
+      "mean_gamut_scale": 0.9676218425491709,
+      "median_chroma_displacement": 6.178720258131107
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9404644097222222,
@@ -1004,12 +1004,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0019",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9947752700617284,
-      "gamut_compressed_fraction": 0.0052247299382716045,
-      "luma_mae": 0.22873097309027768,
-      "mean_chroma_displacement": 2.920425620230905,
-      "mean_gamut_scale": 0.9983737297705663,
-      "median_chroma_displacement": 2.4659341616297814
+      "direct_in_gamut_fraction": 0.9935479359567901,
+      "gamut_compressed_fraction": 0.006452064043209876,
+      "luma_mae": 0.24934720408950625,
+      "mean_chroma_displacement": 3.8623357691355507,
+      "mean_gamut_scale": 0.9975344458627112,
+      "median_chroma_displacement": 3.0316281084497905
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9694372106481481,
@@ -1031,12 +1031,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0018",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9658024691358025,
-      "gamut_compressed_fraction": 0.03419753086419753,
-      "luma_mae": 0.19947606992669786,
-      "mean_chroma_displacement": 1.9578384386491132,
-      "mean_gamut_scale": 0.9929679112081174,
-      "median_chroma_displacement": 1.73588650639733
+      "direct_in_gamut_fraction": 0.9406380208333334,
+      "gamut_compressed_fraction": 0.05936197916666667,
+      "luma_mae": 0.20333134953703716,
+      "mean_chroma_displacement": 2.6267848594396743,
+      "mean_gamut_scale": 0.985067281163769,
+      "median_chroma_displacement": 2.5498607187574103
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9563488618827161,
@@ -1058,12 +1058,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0053",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9404292052469135,
-      "gamut_compressed_fraction": 0.05957079475308642,
-      "luma_mae": 0.16924890335648132,
-      "mean_chroma_displacement": 1.4716433571969754,
-      "mean_gamut_scale": 0.9837484014770131,
-      "median_chroma_displacement": 1.2618926207315408
+      "direct_in_gamut_fraction": 0.9267780671296296,
+      "gamut_compressed_fraction": 0.07322193287037038,
+      "luma_mae": 0.21170796788194496,
+      "mean_chroma_displacement": 1.8898099947637015,
+      "mean_gamut_scale": 0.9733180544700152,
+      "median_chroma_displacement": 1.6439561077531875
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9815788966049382,
@@ -1085,12 +1085,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0014",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9906428433641975,
-      "gamut_compressed_fraction": 0.009354263117283951,
-      "luma_mae": 0.08323158661265428,
-      "mean_chroma_displacement": 0.677714628707514,
-      "mean_gamut_scale": 0.9980609199735854,
-      "median_chroma_displacement": 0.5020975560753344
+      "direct_in_gamut_fraction": 0.9905545910493827,
+      "gamut_compressed_fraction": 0.009445408950617283,
+      "luma_mae": 0.09621516030092576,
+      "mean_chroma_displacement": 0.8945445528935725,
+      "mean_gamut_scale": 0.9977333998091427,
+      "median_chroma_displacement": 0.8219780538765935
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9774532214506173,
@@ -1112,12 +1112,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0056",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9996277006172839,
-      "gamut_compressed_fraction": 0.00037229938271604937,
-      "luma_mae": 0.21249731095679006,
-      "mean_chroma_displacement": 1.9882754199948212,
-      "mean_gamut_scale": 0.9998258437345058,
-      "median_chroma_displacement": 1.2749303593787082
+      "direct_in_gamut_fraction": 0.993569637345679,
+      "gamut_compressed_fraction": 0.006430362654320987,
+      "luma_mae": 0.22287276591435196,
+      "mean_chroma_displacement": 2.6387253214469184,
+      "mean_gamut_scale": 0.9984408957575575,
+      "median_chroma_displacement": 2.051835344218101
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9691174768518519,
@@ -1139,12 +1139,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0023",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9624918016975309,
-      "gamut_compressed_fraction": 0.03750819830246913,
-      "luma_mae": 0.23930432089120401,
-      "mean_chroma_displacement": 1.994114136704942,
-      "mean_gamut_scale": 0.9930231932946193,
-      "median_chroma_displacement": 1.5537160435986506
+      "direct_in_gamut_fraction": 0.9611231674382716,
+      "gamut_compressed_fraction": 0.03887683256172839,
+      "luma_mae": 0.23475261824845556,
+      "mean_chroma_displacement": 2.699612053061167,
+      "mean_gamut_scale": 0.9867146832265972,
+      "median_chroma_displacement": 2.0518353442181017
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9784992283950618,
@@ -1166,12 +1166,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0060",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9966960841049383,
-      "gamut_compressed_fraction": 0.0033039158950617284,
-      "luma_mae": 0.22443455198688264,
-      "mean_chroma_displacement": 2.123529541482253,
-      "mean_gamut_scale": 0.9996966234254249,
-      "median_chroma_displacement": 1.5388765081635796
+      "direct_in_gamut_fraction": 0.996550925925926,
+      "gamut_compressed_fraction": 0.003449074074074074,
+      "luma_mae": 0.19625835079089493,
+      "mean_chroma_displacement": 2.791109366649201,
+      "mean_gamut_scale": 0.9989495840779057,
+      "median_chroma_displacement": 2.0518353442181017
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.981457851080247,
@@ -1193,12 +1193,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0054",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9619569830246913,
-      "gamut_compressed_fraction": 0.038043016975308645,
-      "luma_mae": 0.11717728761574035,
-      "mean_chroma_displacement": 0.9221846941775447,
-      "mean_gamut_scale": 0.9941104963090684,
-      "median_chroma_displacement": 1.0041951121506425
+      "direct_in_gamut_fraction": 0.9601437114197531,
+      "gamut_compressed_fraction": 0.03985628858024692,
+      "luma_mae": 0.1445132504822527,
+      "mean_chroma_displacement": 1.2628829187354866,
+      "mean_gamut_scale": 0.9869061679898957,
+      "median_chroma_displacement": 1.2618926207315404
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9793928433641975,
@@ -1220,12 +1220,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0016",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9958289930555555,
-      "gamut_compressed_fraction": 0.004171006944444444,
-      "luma_mae": 0.10980229205246889,
-      "mean_chroma_displacement": 1.1939178411354956,
-      "mean_gamut_scale": 0.9994890190936901,
-      "median_chroma_displacement": 1.0041951121506563
+      "direct_in_gamut_fraction": 0.9910016396604938,
+      "gamut_compressed_fraction": 0.008998360339506174,
+      "luma_mae": 0.14281334307484575,
+      "mean_chroma_displacement": 1.5609808959519786,
+      "mean_gamut_scale": 0.9991877607651699,
+      "median_chroma_displacement": 1.2749303593787111
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9805410879629629,
@@ -1247,12 +1247,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0031",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9907653356481482,
-      "gamut_compressed_fraction": 0.009234664351851852,
-      "luma_mae": 0.1597446391782402,
-      "mean_chroma_displacement": 1.568803527596665,
-      "mean_gamut_scale": 0.9989456869054724,
-      "median_chroma_displacement": 1.2618926207315404
+      "direct_in_gamut_fraction": 0.9849937307098765,
+      "gamut_compressed_fraction": 0.015006269290123457,
+      "luma_mae": 0.19500780680941318,
+      "mean_chroma_displacement": 2.128747834587248,
+      "mean_gamut_scale": 0.9981180851842151,
+      "median_chroma_displacement": 1.6439561077531875
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9814178240740741,
@@ -1274,12 +1274,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0023",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9808531057098765,
-      "gamut_compressed_fraction": 0.019146894290123458,
-      "luma_mae": 0.25162854822530845,
-      "mean_chroma_displacement": 1.9137265779365973,
-      "mean_gamut_scale": 0.9942462809586231,
-      "median_chroma_displacement": 1.5537160435986384
+      "direct_in_gamut_fraction": 0.960961612654321,
+      "gamut_compressed_fraction": 0.039038387345679014,
+      "luma_mae": 0.23308615518904238,
+      "mean_chroma_displacement": 2.5335053580835054,
+      "mean_gamut_scale": 0.9901745330551525,
+      "median_chroma_displacement": 1.9545980263454124
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9786877893518519,
@@ -1301,12 +1301,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0017",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9848664158950617,
-      "gamut_compressed_fraction": 0.015133584104938272,
-      "luma_mae": 0.1840005044367286,
-      "mean_chroma_displacement": 3.161606407359728,
-      "mean_gamut_scale": 0.9960174813093963,
-      "median_chroma_displacement": 2.069768068843977
+      "direct_in_gamut_fraction": 0.984222125771605,
+      "gamut_compressed_fraction": 0.01577787422839506,
+      "luma_mae": 0.21327106626157333,
+      "mean_chroma_displacement": 4.2094019844553925,
+      "mean_gamut_scale": 0.9945262566613562,
+      "median_chroma_displacement": 2.762673909771976
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9757576195987654,
@@ -1328,12 +1328,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0019",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9950728202160494,
-      "gamut_compressed_fraction": 0.004927179783950617,
-      "luma_mae": 0.12932886496913548,
-      "mean_chroma_displacement": 1.6482924429795893,
-      "mean_gamut_scale": 0.9992838482503538,
-      "median_chroma_displacement": 1.5062926682259772
+      "direct_in_gamut_fraction": 0.9902425733024691,
+      "gamut_compressed_fraction": 0.009757426697530864,
+      "luma_mae": 0.16184315345293177,
+      "mean_chroma_displacement": 2.2171469295417334,
+      "mean_gamut_scale": 0.9980655907112875,
+      "median_chroma_displacement": 1.9545980263454124
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9800964506172839,
@@ -1357,10 +1357,10 @@
     "naturalistic": {
       "direct_in_gamut_fraction": 0.9992235725308642,
       "gamut_compressed_fraction": 0.0007764274691358025,
-      "luma_mae": 0.18965931780478418,
-      "mean_chroma_displacement": 1.7268931775083987,
-      "mean_gamut_scale": 0.9997797811178514,
-      "median_chroma_displacement": 1.2749303593787074
+      "luma_mae": 0.203160257523148,
+      "mean_chroma_displacement": 2.2522392118885466,
+      "mean_gamut_scale": 0.9997355233887095,
+      "median_chroma_displacement": 1.643956107753188
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9797680362654321,
@@ -1382,12 +1382,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0015",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9586062885802469,
-      "gamut_compressed_fraction": 0.04139274691358025,
-      "luma_mae": 0.2007805357831793,
-      "mean_chroma_displacement": 4.355571130052103,
-      "mean_gamut_scale": 0.9891739781403247,
-      "median_chroma_displacement": 2.7626739097719866
+      "direct_in_gamut_fraction": 0.9374565972222222,
+      "gamut_compressed_fraction": 0.06254340277777778,
+      "luma_mae": 0.2007176781442902,
+      "mean_chroma_displacement": 5.907119624629,
+      "mean_gamut_scale": 0.9812614502141506,
+      "median_chroma_displacement": 3.9760359018669957
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.975128761574074,
@@ -1411,10 +1411,10 @@
     "naturalistic": {
       "direct_in_gamut_fraction": 0.9998707561728395,
       "gamut_compressed_fraction": 0.00012924382716049382,
-      "luma_mae": 0.12595301147762347,
-      "mean_chroma_displacement": 4.124163869207867,
-      "mean_gamut_scale": 0.9999421087900797,
-      "median_chroma_displacement": 2.259160690744583
+      "luma_mae": 0.14303703472222223,
+      "mean_chroma_displacement": 5.528507112796587,
+      "mean_gamut_scale": 0.9999376700248247,
+      "median_chroma_displacement": 3.0316281084497905
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9634683641975309,
@@ -1436,12 +1436,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0058",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9998283179012346,
-      "gamut_compressed_fraction": 0.0001716820987654321,
-      "luma_mae": 0.15258695447530826,
-      "mean_chroma_displacement": 1.5341750085136512,
-      "mean_gamut_scale": 0.9999482511885373,
-      "median_chroma_displacement": 1.0041951121506563
+      "direct_in_gamut_fraction": 0.9998215663580247,
+      "gamut_compressed_fraction": 0.00017843364197530864,
+      "luma_mae": 0.1513509717399692,
+      "mean_chroma_displacement": 2.091408723743932,
+      "mean_gamut_scale": 0.9999414444264071,
+      "median_chroma_displacement": 1.5537160435986384
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9756756365740741,
@@ -1463,12 +1463,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0042",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9769140625,
-      "gamut_compressed_fraction": 0.0230859375,
-      "luma_mae": 0.23522800327932214,
-      "mean_chroma_displacement": 5.363700105310021,
-      "mean_gamut_scale": 0.9930493951138155,
-      "median_chroma_displacement": 4.018393733648173
+      "direct_in_gamut_fraction": 0.9697969714506173,
+      "gamut_compressed_fraction": 0.030203028549382716,
+      "luma_mae": 0.18945009124228504,
+      "mean_chroma_displacement": 7.15071934526732,
+      "mean_gamut_scale": 0.988359608767945,
+      "median_chroma_displacement": 5.525347819543956
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9320650077160494,
@@ -1490,12 +1490,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0006",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9709100115740741,
-      "gamut_compressed_fraction": 0.029089988425925927,
-      "luma_mae": 0.23280741493055546,
-      "mean_chroma_displacement": 4.393569362237789,
-      "mean_gamut_scale": 0.9907667839379958,
-      "median_chroma_displacement": 3.824791078136122
+      "direct_in_gamut_fraction": 0.9668205054012345,
+      "gamut_compressed_fraction": 0.03317949459876543,
+      "luma_mae": 0.18049298890817905,
+      "mean_chroma_displacement": 5.821376337864122,
+      "mean_gamut_scale": 0.9857382852354167,
+      "median_chroma_displacement": 5.099721437514833
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9360460069444444,
@@ -1519,10 +1519,10 @@
     "naturalistic": {
       "direct_in_gamut_fraction": 0.9973688271604938,
       "gamut_compressed_fraction": 0.0026311728395061727,
-      "luma_mae": 0.18318316251928984,
-      "mean_chroma_displacement": 2.153500459839004,
-      "mean_gamut_scale": 0.9993259281582303,
-      "median_chroma_displacement": 1.4625270151145977
+      "luma_mae": 0.19724488695987671,
+      "mean_chroma_displacement": 2.839674035774459,
+      "mean_gamut_scale": 0.9992111390313985,
+      "median_chroma_displacement": 1.9545980263454124
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9332793209876543,
@@ -1544,12 +1544,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0055",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9997381365740741,
-      "gamut_compressed_fraction": 0.0002613811728395062,
-      "luma_mae": 0.10992359346064837,
-      "mean_chroma_displacement": 0.5942180355098965,
-      "mean_gamut_scale": 0.9999315603279774,
-      "median_chroma_displacement": 0.5020975560753349
+      "direct_in_gamut_fraction": 0.9997376543209876,
+      "gamut_compressed_fraction": 0.0002618634259259259,
+      "luma_mae": 0.13744528317901264,
+      "mean_chroma_displacement": 0.8226255587277589,
+      "mean_gamut_scale": 0.9999205962228186,
+      "median_chroma_displacement": 0.5129588360545222
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9548741319444445,
@@ -1571,12 +1571,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0051",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9776769868827161,
-      "gamut_compressed_fraction": 0.02232301311728395,
-      "luma_mae": 0.19248326957947534,
-      "mean_chroma_displacement": 3.6969983928560275,
-      "mean_gamut_scale": 0.9929812675052219,
-      "median_chroma_displacement": 2.762673909771976
+      "direct_in_gamut_fraction": 0.9693552276234568,
+      "gamut_compressed_fraction": 0.03064477237654321,
+      "luma_mae": 0.22261364351851798,
+      "mean_chroma_displacement": 4.978131100896098,
+      "mean_gamut_scale": 0.9884292612252412,
+      "median_chroma_displacement": 3.522215471233474
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9418706597222222,
@@ -1598,12 +1598,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0007",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9946498842592593,
-      "gamut_compressed_fraction": 0.00535011574074074,
-      "luma_mae": 0.2285911215277775,
-      "mean_chroma_displacement": 2.864209360016843,
-      "mean_gamut_scale": 0.9977803613521434,
-      "median_chroma_displacement": 2.259160690744593
+      "direct_in_gamut_fraction": 0.9778163580246914,
+      "gamut_compressed_fraction": 0.022183641975308643,
+      "luma_mae": 0.23360418441358097,
+      "mean_chroma_displacement": 3.843175161725525,
+      "mean_gamut_scale": 0.9933553507592943,
+      "median_chroma_displacement": 3.269125383315365
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9365403163580247,
@@ -1625,12 +1625,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0005",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9734461805555555,
-      "gamut_compressed_fraction": 0.026553819444444446,
-      "luma_mae": 0.31270586467978373,
-      "mean_chroma_displacement": 2.5227807620731992,
-      "mean_gamut_scale": 0.9892967187622447,
-      "median_chroma_displacement": 2.5498607187574107
+      "direct_in_gamut_fraction": 0.9679330632716049,
+      "gamut_compressed_fraction": 0.032066936728395064,
+      "luma_mae": 0.16269317582947573,
+      "mean_chroma_displacement": 3.292904411008498,
+      "mean_gamut_scale": 0.9845051099341593,
+      "median_chroma_displacement": 3.031628108449799
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9649146412037037,
@@ -1652,12 +1652,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0008",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9930970293209876,
-      "gamut_compressed_fraction": 0.0069000771604938275,
-      "luma_mae": 0.25633425925925934,
-      "mean_chroma_displacement": 1.3812106752712776,
-      "mean_gamut_scale": 0.9984200647436542,
-      "median_chroma_displacement": 1.4625270151145824
+      "direct_in_gamut_fraction": 0.9930907600308642,
+      "gamut_compressed_fraction": 0.006906346450617284,
+      "luma_mae": 0.21480793422067979,
+      "mean_chroma_displacement": 2.0163107163004126,
+      "mean_gamut_scale": 0.9977270608772466,
+      "median_chroma_displacement": 1.7869767010135744
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9240856481481482,
@@ -1679,12 +1679,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0057",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9786824845679012,
-      "gamut_compressed_fraction": 0.021317515432098765,
-      "luma_mae": 0.23158907793209832,
-      "mean_chroma_displacement": 5.642679823180056,
-      "mean_gamut_scale": 0.9945189145170612,
-      "median_chroma_displacement": 3.5222154712334826
+      "direct_in_gamut_fraction": 0.9661342592592592,
+      "gamut_compressed_fraction": 0.03386574074074074,
+      "luma_mae": 0.20408784510030864,
+      "mean_chroma_displacement": 7.530544271609741,
+      "mean_gamut_scale": 0.9895640066229267,
+      "median_chroma_displacement": 5.020878563478142
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9617722800925926,
@@ -1706,12 +1706,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0047",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9833617862654321,
-      "gamut_compressed_fraction": 0.016638213734567902,
-      "luma_mae": 0.2121141729359569,
-      "mean_chroma_displacement": 5.794754887055931,
-      "mean_gamut_scale": 0.9950941927344711,
-      "median_chroma_displacement": 3.522215471233482
+      "direct_in_gamut_fraction": 0.9725318287037037,
+      "gamut_compressed_fraction": 0.027468171296296296,
+      "luma_mae": 0.20293396923225399,
+      "mean_chroma_displacement": 7.683199810894209,
+      "mean_gamut_scale": 0.9911269502580902,
+      "median_chroma_displacement": 5.020878563478132
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9500549768518518,
@@ -1733,12 +1733,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0058",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9992554012345679,
-      "gamut_compressed_fraction": 0.0007445987654320987,
-      "luma_mae": 0.13712931413965998,
-      "mean_chroma_displacement": 1.400008624227177,
-      "mean_gamut_scale": 0.9997869168681863,
-      "median_chroma_displacement": 0.595658900337854
+      "direct_in_gamut_fraction": 0.9992505787037037,
+      "gamut_compressed_fraction": 0.0007494212962962963,
+      "luma_mae": 0.14638921865354945,
+      "mean_chroma_displacement": 1.9378522331298917,
+      "mean_gamut_scale": 0.9997789923938704,
+      "median_chroma_displacement": 1.4625270151145782
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9828587962962962,
@@ -1760,12 +1760,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0060",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9994642168209876,
-      "gamut_compressed_fraction": 0.0005357831790123457,
-      "luma_mae": 0.19941784095293208,
-      "mean_chroma_displacement": 0.9421814181380689,
-      "mean_gamut_scale": 0.9998739624023437,
-      "median_chroma_displacement": 0.8219780538765933
+      "direct_in_gamut_fraction": 0.9982672646604939,
+      "gamut_compressed_fraction": 0.0017327353395061727,
+      "luma_mae": 0.2054847173996918,
+      "mean_chroma_displacement": 1.2945069831614928,
+      "mean_gamut_scale": 0.9995653576321072,
+      "median_chroma_displacement": 0.8219780538765944
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9807185570987654,
@@ -1787,12 +1787,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0058",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9983849344135802,
-      "gamut_compressed_fraction": 0.001615065586419753,
-      "luma_mae": 0.17862234182098724,
-      "mean_chroma_displacement": 0.8721691629335914,
-      "mean_gamut_scale": 0.9998851760228475,
-      "median_chroma_displacement": 0.821978053876593
+      "direct_in_gamut_fraction": 0.9983695023148148,
+      "gamut_compressed_fraction": 0.0016304976851851851,
+      "luma_mae": 0.1894316859567896,
+      "mean_chroma_displacement": 1.0620005409758395,
+      "mean_gamut_scale": 0.9998605201862476,
+      "median_chroma_displacement": 0.8219780538765937
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.981019000771605,
@@ -1814,12 +1814,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0001",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.999158950617284,
-      "gamut_compressed_fraction": 0.0008410493827160494,
-      "luma_mae": 0.10037547000385838,
-      "mean_chroma_displacement": 1.5516215357162106,
-      "mean_gamut_scale": 0.999747754673899,
-      "median_chroma_displacement": 1.2618926207315404
+      "direct_in_gamut_fraction": 0.9990162037037037,
+      "gamut_compressed_fraction": 0.0009837962962962962,
+      "luma_mae": 0.11753901176697547,
+      "mean_chroma_displacement": 1.9978081764018876,
+      "mean_gamut_scale": 0.9996912886772626,
+      "median_chroma_displacement": 1.5062926682259772
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9829648919753087,
@@ -1841,12 +1841,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0004",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9994999035493827,
-      "gamut_compressed_fraction": 0.0005000964506172839,
-      "luma_mae": 0.20937295669367212,
-      "mean_chroma_displacement": 2.3037595116821064,
-      "mean_gamut_scale": 0.9998635938726825,
-      "median_chroma_displacement": 1.643956107753188
+      "direct_in_gamut_fraction": 0.9994468557098766,
+      "gamut_compressed_fraction": 0.0005531442901234568,
+      "luma_mae": 0.21674553356481424,
+      "mean_chroma_displacement": 3.0414618028077194,
+      "mean_gamut_scale": 0.9998410051251635,
+      "median_chroma_displacement": 2.4659341616297814
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9869188850308642,
@@ -1868,12 +1868,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0005",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9941502700617284,
-      "gamut_compressed_fraction": 0.005849729938271605,
-      "luma_mae": 0.08180211660879616,
-      "mean_chroma_displacement": 1.2536438815659041,
-      "mean_gamut_scale": 0.999432827513895,
-      "median_chroma_displacement": 1.2618926207315408
+      "direct_in_gamut_fraction": 0.9941218171296297,
+      "gamut_compressed_fraction": 0.00587818287037037,
+      "luma_mae": 0.08503775385802471,
+      "mean_chroma_displacement": 1.6463688446544917,
+      "mean_gamut_scale": 0.9982327660513513,
+      "median_chroma_displacement": 1.5062926682259772
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.983013599537037,
@@ -1895,12 +1895,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0048",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9993870563271605,
-      "gamut_compressed_fraction": 0.0006124614197530865,
-      "luma_mae": 0.20671449450231505,
-      "mean_chroma_displacement": 0.6241535469764312,
-      "mean_gamut_scale": 0.9998918716112772,
-      "median_chroma_displacement": 0.512958836054536
+      "direct_in_gamut_fraction": 0.9981650270061728,
+      "gamut_compressed_fraction": 0.0018349729938271606,
+      "luma_mae": 0.21305636603009293,
+      "mean_chroma_displacement": 0.7408759647436466,
+      "mean_gamut_scale": 0.9998603961497178,
+      "median_chroma_displacement": 0.595658900337842
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9808039158950618,
@@ -1922,12 +1922,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0005",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9789236111111111,
-      "gamut_compressed_fraction": 0.021076388888888888,
-      "luma_mae": 0.17928258342978412,
-      "mean_chroma_displacement": 3.7747313190881306,
-      "mean_gamut_scale": 0.9943667663468255,
-      "median_chroma_displacement": 2.8989612372627973
+      "direct_in_gamut_fraction": 0.9720095486111111,
+      "gamut_compressed_fraction": 0.02799045138888889,
+      "luma_mae": 0.15528172878086463,
+      "mean_chroma_displacement": 4.960259681630049,
+      "mean_gamut_scale": 0.9907346414931026,
+      "median_chroma_displacement": 3.717550865187976
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9829629629629629,
@@ -1949,12 +1949,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0005",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.998671875,
-      "gamut_compressed_fraction": 0.001328125,
-      "luma_mae": 0.21692209577546231,
-      "mean_chroma_displacement": 2.734308455678369,
-      "mean_gamut_scale": 0.9996730918354458,
-      "median_chroma_displacement": 2.0518353442181008
+      "direct_in_gamut_fraction": 0.9984707754629629,
+      "gamut_compressed_fraction": 0.001529224537037037,
+      "luma_mae": 0.19071344656635783,
+      "mean_chroma_displacement": 3.671691691231217,
+      "mean_gamut_scale": 0.9995944826102551,
+      "median_chroma_displacement": 2.762673909771976
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9807494212962963,
@@ -1976,12 +1976,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0051",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9995765817901234,
-      "gamut_compressed_fraction": 0.00042341820987654323,
-      "luma_mae": 0.1596251492091051,
-      "mean_chroma_displacement": 1.0470763911095715,
-      "mean_gamut_scale": 0.9999273830872994,
-      "median_chroma_displacement": 0.5956589003378423
+      "direct_in_gamut_fraction": 0.9995760995370371,
+      "gamut_compressed_fraction": 0.00042390046296296295,
+      "luma_mae": 0.15076778472222213,
+      "mean_chroma_displacement": 1.437598246652891,
+      "mean_gamut_scale": 0.9999168116663709,
+      "median_chroma_displacement": 1.1913178006757084
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9835570987654321,
@@ -2003,12 +2003,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0054",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9962413194444445,
-      "gamut_compressed_fraction": 0.0037586805555555555,
-      "luma_mae": 0.1257842978395063,
-      "mean_chroma_displacement": 1.410766589878276,
-      "mean_gamut_scale": 0.9990348546298934,
-      "median_chroma_displacement": 1.2618926207315402
+      "direct_in_gamut_fraction": 0.9961115933641975,
+      "gamut_compressed_fraction": 0.0038884066358024693,
+      "luma_mae": 0.1688920197723769,
+      "mean_chroma_displacement": 1.9947385503765838,
+      "mean_gamut_scale": 0.9986259330937892,
+      "median_chroma_displacement": 1.2618926207315453
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9813937114197531,
@@ -2030,12 +2030,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0052",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9952811535493827,
-      "gamut_compressed_fraction": 0.004718846450617284,
-      "luma_mae": 0.17754855488040072,
-      "mean_chroma_displacement": 3.394010297024364,
-      "mean_gamut_scale": 0.9995246940777626,
-      "median_chroma_displacement": 2.564794180272623
+      "direct_in_gamut_fraction": 0.9946711033950617,
+      "gamut_compressed_fraction": 0.005328896604938272,
+      "luma_mae": 0.20481308420138866,
+      "mean_chroma_displacement": 4.582639180209995,
+      "mean_gamut_scale": 0.9987377512307815,
+      "median_chroma_displacement": 3.077753016327159
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9775,
@@ -2057,12 +2057,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0013",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9909635416666667,
-      "gamut_compressed_fraction": 0.009036458333333334,
-      "luma_mae": 0.20925276417824112,
-      "mean_chroma_displacement": 2.436205476395654,
-      "mean_gamut_scale": 0.9961491773746631,
-      "median_chroma_displacement": 2.051835344218087
+      "direct_in_gamut_fraction": 0.9902478780864198,
+      "gamut_compressed_fraction": 0.009752121913580247,
+      "luma_mae": 0.18513570775463012,
+      "mean_chroma_displacement": 3.16258641659061,
+      "mean_gamut_scale": 0.9957558059398038,
+      "median_chroma_displacement": 2.2591606907445825
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9455097415123457,
@@ -2084,12 +2084,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0030",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.993227237654321,
-      "gamut_compressed_fraction": 0.0067645640432098765,
-      "luma_mae": 0.22913342988040106,
-      "mean_chroma_displacement": 1.836571006493334,
-      "mean_gamut_scale": 0.9976760278219058,
-      "median_chroma_displacement": 1.004195112150656
+      "direct_in_gamut_fraction": 0.9930386766975309,
+      "gamut_compressed_fraction": 0.006961323302469136,
+      "luma_mae": 0.2273893044945981,
+      "mean_chroma_displacement": 2.611446048713818,
+      "mean_gamut_scale": 0.997415915624595,
+      "median_chroma_displacement": 1.55371604359866
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.959678337191358,
@@ -2111,12 +2111,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0011",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9954398148148148,
-      "gamut_compressed_fraction": 0.004560185185185185,
-      "luma_mae": 0.19871893643904262,
-      "mean_chroma_displacement": 3.0223535959405954,
-      "mean_gamut_scale": 0.9987558096132161,
-      "median_chroma_displacement": 2.0518353442181008
+      "direct_in_gamut_fraction": 0.9949913194444444,
+      "gamut_compressed_fraction": 0.005008680555555555,
+      "luma_mae": 0.20160029475308675,
+      "mean_chroma_displacement": 4.02876641452917,
+      "mean_gamut_scale": 0.9984966678089565,
+      "median_chroma_displacement": 2.549860718757422
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9550212191358025,
@@ -2138,12 +2138,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0022",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9931804591049382,
-      "gamut_compressed_fraction": 0.0068195408950617285,
-      "luma_mae": 0.20922841927083302,
-      "mean_chroma_displacement": 3.225514518703623,
-      "mean_gamut_scale": 0.9984315553712256,
-      "median_chroma_displacement": 2.0697680688439806
+      "direct_in_gamut_fraction": 0.992440200617284,
+      "gamut_compressed_fraction": 0.00755979938271605,
+      "luma_mae": 0.20144097521219165,
+      "mean_chroma_displacement": 4.361712709512811,
+      "mean_gamut_scale": 0.9981545635800303,
+      "median_chroma_displacement": 2.762673909771997
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9559196566358025,
@@ -2165,12 +2165,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0007",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9161250964506172,
-      "gamut_compressed_fraction": 0.08387490354938272,
-      "luma_mae": 0.1225442551118825,
-      "mean_chroma_displacement": 1.4182913464802005,
-      "mean_gamut_scale": 0.9761416521778813,
-      "median_chroma_displacement": 1.261892620731541
+      "direct_in_gamut_fraction": 0.9143571566358024,
+      "gamut_compressed_fraction": 0.08564284336419753,
+      "luma_mae": 0.14355438213734537,
+      "mean_chroma_displacement": 1.8075642472658713,
+      "mean_gamut_scale": 0.9611314296428068,
+      "median_chroma_displacement": 1.2618926207315455
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9430897955246914,
@@ -2192,12 +2192,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0020",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9989568865740741,
-      "gamut_compressed_fraction": 0.0010431134259259258,
-      "luma_mae": 0.11905126658950635,
-      "mean_chroma_displacement": 1.3918410711570723,
-      "mean_gamut_scale": 0.9991538310933996,
-      "median_chroma_displacement": 1.2618926207315424
+      "direct_in_gamut_fraction": 0.9791034915123457,
+      "gamut_compressed_fraction": 0.02089650848765432,
+      "luma_mae": 0.21147512808641997,
+      "mean_chroma_displacement": 1.8673816401451189,
+      "mean_gamut_scale": 0.9959597885461501,
+      "median_chroma_displacement": 1.6439561077531877
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9574238040123457,
@@ -2219,12 +2219,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0001",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9949908371913581,
-      "gamut_compressed_fraction": 0.005009162808641976,
-      "luma_mae": 0.1392346576003085,
-      "mean_chroma_displacement": 1.201096068165914,
-      "mean_gamut_scale": 0.996877109327434,
-      "median_chroma_displacement": 1.0041951121506418
+      "direct_in_gamut_fraction": 0.9949860146604939,
+      "gamut_compressed_fraction": 0.005013985339506173,
+      "luma_mae": 0.15546183825231466,
+      "mean_chroma_displacement": 1.6075533889884497,
+      "mean_gamut_scale": 0.996780089566737,
+      "median_chroma_displacement": 1.261892620731541
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9501572145061729,
@@ -2246,12 +2246,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0013",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.995870949074074,
-      "gamut_compressed_fraction": 0.004127121913580247,
-      "luma_mae": 0.22377134317129657,
-      "mean_chroma_displacement": 2.7545589259677334,
-      "mean_gamut_scale": 0.9986139503820443,
-      "median_chroma_displacement": 1.9545980263454057
+      "direct_in_gamut_fraction": 0.9953342013888888,
+      "gamut_compressed_fraction": 0.004665798611111111,
+      "luma_mae": 0.1771946424575625,
+      "mean_chroma_displacement": 3.6745804775268263,
+      "mean_gamut_scale": 0.9983998362223307,
+      "median_chroma_displacement": 2.549860718757411
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9529292052469136,
@@ -2273,12 +2273,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0005",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9915880594135802,
-      "gamut_compressed_fraction": 0.008409047067901234,
-      "luma_mae": 0.1501227026427469,
-      "mean_chroma_displacement": 2.138942695886895,
-      "mean_gamut_scale": 0.9985661083386268,
-      "median_chroma_displacement": 1.2618926207315433
+      "direct_in_gamut_fraction": 0.9908680555555556,
+      "gamut_compressed_fraction": 0.009131944444444444,
+      "luma_mae": 0.13409851456404312,
+      "mean_chroma_displacement": 2.860408800407361,
+      "mean_gamut_scale": 0.9981816213807942,
+      "median_chroma_displacement": 1.7358865063973223
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9522183641975308,
@@ -2300,12 +2300,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0010",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.980018325617284,
-      "gamut_compressed_fraction": 0.019981674382716048,
-      "luma_mae": 0.10675770698302497,
-      "mean_chroma_displacement": 1.2115257015946441,
-      "mean_gamut_scale": 0.9957886302912676,
-      "median_chroma_displacement": 0.5020975560753352
+      "direct_in_gamut_fraction": 0.9795770640432099,
+      "gamut_compressed_fraction": 0.020422935956790123,
+      "luma_mae": 0.13670964718364217,
+      "mean_chroma_displacement": 1.6879705107769167,
+      "mean_gamut_scale": 0.992180608878901,
+      "median_chroma_displacement": 0.8219780538765944
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9568663194444444,
@@ -2327,12 +2327,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0029",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9672762345679012,
-      "gamut_compressed_fraction": 0.03272376543209877,
-      "luma_mae": 0.20286407146990695,
-      "mean_chroma_displacement": 1.8040900269505853,
-      "mean_gamut_scale": 0.9834753334080731,
-      "median_chroma_displacement": 1.6439561077531881
+      "direct_in_gamut_fraction": 0.926943962191358,
+      "gamut_compressed_fraction": 0.07305603780864198,
+      "luma_mae": 0.23250575298996848,
+      "mean_chroma_displacement": 2.3556555010203004,
+      "mean_gamut_scale": 0.9703336908199169,
+      "median_chroma_displacement": 2.4659341616297814
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.956370563271605,
@@ -2354,12 +2354,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0004",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9788551311728395,
-      "gamut_compressed_fraction": 0.021144868827160494,
-      "luma_mae": 0.0960996596257717,
-      "mean_chroma_displacement": 1.273134750572824,
-      "mean_gamut_scale": 0.9922784420590341,
-      "median_chroma_displacement": 1.261892620731541
+      "direct_in_gamut_fraction": 0.9343928433641975,
+      "gamut_compressed_fraction": 0.06560715663580247,
+      "luma_mae": 0.12333160802469115,
+      "mean_chroma_displacement": 1.7090654544190833,
+      "mean_gamut_scale": 0.9873698651643447,
+      "median_chroma_displacement": 1.643956107753189
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9531206597222223,
@@ -2381,12 +2381,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0026",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9928433641975308,
-      "gamut_compressed_fraction": 0.007156635802469136,
-      "luma_mae": 0.2265400562307096,
-      "mean_chroma_displacement": 2.246844957674462,
-      "mean_gamut_scale": 0.9973485802721094,
-      "median_chroma_displacement": 1.5388765081635798
+      "direct_in_gamut_fraction": 0.9691710069444445,
+      "gamut_compressed_fraction": 0.030828993055555556,
+      "luma_mae": 0.23489427208719124,
+      "mean_chroma_displacement": 3.0078753674149907,
+      "mean_gamut_scale": 0.9946220125975432,
+      "median_chroma_displacement": 2.051835344218115
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9771156442901234,
@@ -2408,12 +2408,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0002",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9909910300925926,
-      "gamut_compressed_fraction": 0.009008969907407408,
-      "luma_mae": 0.17228815219907348,
-      "mean_chroma_displacement": 1.589666069916437,
-      "mean_gamut_scale": 0.9979242911162199,
-      "median_chroma_displacement": 0.8219780538765947
+      "direct_in_gamut_fraction": 0.9886062885802469,
+      "gamut_compressed_fraction": 0.011392746913580247,
+      "luma_mae": 0.17372175675154258,
+      "mean_chroma_displacement": 2.122395894020048,
+      "mean_gamut_scale": 0.9974213479772026,
+      "median_chroma_displacement": 1.274930359378711
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9795158179012345,
@@ -2435,12 +2435,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0026",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9678626543209876,
-      "gamut_compressed_fraction": 0.032137345679012344,
-      "luma_mae": 0.20730093856095702,
-      "mean_chroma_displacement": 2.4537791448874793,
-      "mean_gamut_scale": 0.9907524160396906,
-      "median_chroma_displacement": 2.2591606907445727
+      "direct_in_gamut_fraction": 0.9671672453703704,
+      "gamut_compressed_fraction": 0.03283275462962963,
+      "luma_mae": 0.1630592023533954,
+      "mean_chroma_displacement": 3.1458136743589113,
+      "mean_gamut_scale": 0.9862037594230086,
+      "median_chroma_displacement": 2.762673909771976
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9720539158950617,
@@ -2462,12 +2462,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0021",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9908545524691358,
-      "gamut_compressed_fraction": 0.009145447530864197,
-      "luma_mae": 0.16714859317129693,
-      "mean_chroma_displacement": 3.0929856963452944,
-      "mean_gamut_scale": 0.9978991253876391,
-      "median_chroma_displacement": 2.2591606907445825
+      "direct_in_gamut_fraction": 0.9899276620370371,
+      "gamut_compressed_fraction": 0.010072337962962963,
+      "luma_mae": 0.18555184336419744,
+      "mean_chroma_displacement": 4.038817437225407,
+      "mean_gamut_scale": 0.9973520767247235,
+      "median_chroma_displacement": 2.7626739097719866
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9720982831790124,
@@ -2489,12 +2489,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0010",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9588565779320988,
-      "gamut_compressed_fraction": 0.04114342206790123,
-      "luma_mae": 0.24924628877314836,
-      "mean_chroma_displacement": 3.0843870254100922,
-      "mean_gamut_scale": 0.9864311875237359,
-      "median_chroma_displacement": 2.8856199634506696
+      "direct_in_gamut_fraction": 0.956276523919753,
+      "gamut_compressed_fraction": 0.04372251157407407,
+      "luma_mae": 0.1960375322145064,
+      "mean_chroma_displacement": 4.005659919209034,
+      "mean_gamut_scale": 0.9807701874956672,
+      "median_chroma_displacement": 3.7175508651879747
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9723558063271605,
@@ -2516,12 +2516,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0004",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9931857638888889,
-      "gamut_compressed_fraction": 0.006814236111111111,
-      "luma_mae": 0.1551031747685185,
-      "mean_chroma_displacement": 1.5978380103674028,
-      "mean_gamut_scale": 0.9988193657074446,
-      "median_chroma_displacement": 0.8219780538765941
+      "direct_in_gamut_fraction": 0.9919222608024691,
+      "gamut_compressed_fraction": 0.008075327932098765,
+      "luma_mae": 0.15804513724922833,
+      "mean_chroma_displacement": 2.199956110374368,
+      "mean_gamut_scale": 0.9984179069083414,
+      "median_chroma_displacement": 1.261892620731546
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9739192708333333,
@@ -2543,12 +2543,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0003",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.990141300154321,
-      "gamut_compressed_fraction": 0.009858699845679013,
-      "luma_mae": 0.20284521662808666,
-      "mean_chroma_displacement": 1.7814622961929423,
-      "mean_gamut_scale": 0.9986214570057245,
-      "median_chroma_displacement": 1.2749303593786994
+      "direct_in_gamut_fraction": 0.9888184799382717,
+      "gamut_compressed_fraction": 0.011181520061728395,
+      "luma_mae": 0.21214868489583302,
+      "mean_chroma_displacement": 2.3634674996317298,
+      "mean_gamut_scale": 0.9982386364465878,
+      "median_chroma_displacement": 1.761107735616741
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9779918981481481,
@@ -2570,12 +2570,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0016",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9612731481481481,
-      "gamut_compressed_fraction": 0.03872636959876543,
-      "luma_mae": 0.15892746325231394,
-      "mean_chroma_displacement": 5.537172146653224,
-      "mean_gamut_scale": 0.9909087202284071,
-      "median_chroma_displacement": 4.30475694574822
+      "direct_in_gamut_fraction": 0.9568788580246913,
+      "gamut_compressed_fraction": 0.0431201774691358,
+      "luma_mae": 0.1942181976273153,
+      "mean_chroma_displacement": 7.349568860504086,
+      "mean_gamut_scale": 0.9846028222861113,
+      "median_chroma_displacement": 5.7787689245667595
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9775786072530864,
@@ -2597,12 +2597,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0009",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9183854166666666,
-      "gamut_compressed_fraction": 0.08161458333333334,
-      "luma_mae": 0.2085134900655867,
-      "mean_chroma_displacement": 4.029906407966561,
-      "mean_gamut_scale": 0.9646521754618044,
-      "median_chroma_displacement": 3.3546050074166005
+      "direct_in_gamut_fraction": 0.8973996913580247,
+      "gamut_compressed_fraction": 0.10260030864197531,
+      "luma_mae": 0.2134887501929021,
+      "mean_chroma_displacement": 5.322431302897229,
+      "mean_gamut_scale": 0.949500026938356,
+      "median_chroma_displacement": 4.166083972823463
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9773061342592593,
@@ -2624,12 +2624,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0020",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9866150655864198,
-      "gamut_compressed_fraction": 0.013384934413580248,
-      "luma_mae": 0.22427580121527824,
-      "mean_chroma_displacement": 2.9521194563284037,
-      "mean_gamut_scale": 0.9969115444760264,
-      "median_chroma_displacement": 2.2591606907445825
+      "direct_in_gamut_fraction": 0.9845621141975308,
+      "gamut_compressed_fraction": 0.015434510030864197,
+      "luma_mae": 0.15215086882716072,
+      "mean_chroma_displacement": 3.9371940079973005,
+      "mean_gamut_scale": 0.9962090479003058,
+      "median_chroma_displacement": 3.03162810844979
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9728004436728395,
@@ -2651,12 +2651,12 @@
     "donor_label_for_audit_only": "notflip",
     "donor_video_id": "notflip/0007",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.9905309606481482,
-      "gamut_compressed_fraction": 0.009469039351851852,
-      "luma_mae": 0.20018160551697517,
-      "mean_chroma_displacement": 1.9739388285980928,
-      "mean_gamut_scale": 0.9970928593329441,
-      "median_chroma_displacement": 1.274930359378711
+      "direct_in_gamut_fraction": 0.9891864390432099,
+      "gamut_compressed_fraction": 0.010813560956790123,
+      "luma_mae": 0.22066232089120333,
+      "mean_chroma_displacement": 2.572996428757868,
+      "mean_gamut_scale": 0.9965321343033402,
+      "median_chroma_displacement": 1.7611077356167413
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.972250675154321,
@@ -2678,12 +2678,12 @@
     "donor_label_for_audit_only": "flip",
     "donor_video_id": "flip/0009",
     "naturalistic": {
-      "direct_in_gamut_fraction": 0.987899787808642,
-      "gamut_compressed_fraction": 0.012100212191358024,
-      "luma_mae": 0.200018277970679,
-      "mean_chroma_displacement": 2.1658077148135937,
-      "mean_gamut_scale": 0.9973882801738786,
-      "median_chroma_displacement": 1.5062926682259774
+      "direct_in_gamut_fraction": 0.9858323688271605,
+      "gamut_compressed_fraction": 0.014167631172839507,
+      "luma_mae": 0.19445304166666616,
+      "mean_chroma_displacement": 2.8702526252819287,
+      "mean_gamut_scale": 0.9963480793988263,
+      "median_chroma_displacement": 2.0518353442181008
     },
     "rotation": {
       "direct_in_gamut_fraction": 0.9764525462962963,

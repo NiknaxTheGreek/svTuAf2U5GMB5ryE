@@ -9,11 +9,11 @@
   },
   "naturalistic": {
     "luma_gate_pass": true,
-    "mean_gamut_compressed_fraction": 0.01356821952160494,
-    "mean_luma_mae": 0.18492375214409723,
-    "median_per_image_chroma_displacement": 1.5537160435986561,
+    "mean_gamut_compressed_fraction": 0.01937882426697531,
+    "mean_luma_mae": 0.18936979873939042,
+    "median_per_image_chroma_displacement": 2.2591606907445776,
     "nontrivial_chroma_gate_pass": false,
-    "p95_per_image_luma_mae": 0.2553230868827172,
+    "p95_per_image_luma_mae": 0.23527561830150448,
     "visual_gate": "PENDING"
   },
   "primary_test_images_used": 0,
