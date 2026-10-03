@@ -5,6 +5,8 @@ on:
     branches: ["phase/v2-11b-inpainting-chroma"]
     paths:
       - ".github/workflows/v2_phase11b_chroma_qa.yml"
+      - "scripts/develop_chroma_counterfactual_v2.py"
+      - "configs/SECONDARY_CHROMA_COUNTERFACTUAL_V2.json"
 
 permissions:
   contents: write
